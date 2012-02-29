@@ -1,0 +1,22 @@
+<Version=1.0>
+<Geometry=
+	<Vertex=
+		<Count=4>
+		<Data==48:48@
+**ช้**ชi******ช้**ช้******ชi**ช้******ชi**ชi****>
+	>
+	<Polygon=
+		<Count=1>
+		<BindingCount=4>
+		<Data==24:24@
+.***+***,***-***********>
+	>
+	<VNormal=
+		<Count=4>
+		<Data==12:12@
+**ฉ**ฉ**ฉ**จ>
+	>
+	<Materials=
+		<MaterialRef="Mesh/stars.nmm">
+	>
+>
