@@ -1,0 +1,555 @@
+<NML=1.0>
+<Scene=
+	<Items=
+		<MObject=
+			<MItem=
+				<Id="Cube">
+				<UId=0>
+				<Active>
+				<Priority=0.500000>
+				<ScriptLogicFq=15.000000>
+				<MotionPlayer=
+					<Motions=
+						<Motion=
+							<Id="Default Take">
+							<UseQuaternion=True>
+							<QChannel=
+								<BinaryKeys=
+									<Count=209>
+									<Data==4251:4180@
+****._é********._i÷övg._é********._i÷öög._é********._iÄÃCh
+._é********._i÷övh._é********._i**ªh._é********._iÄÃÃh._é
+********._i]]Ýh._é********._i÷ööh._é********._ih._é****
+****._i***i._é********._i÷ö6i._é********._iÄÃCi._é********
+._iPi._é********._i]]]i._é********._i**ji._é********._i
+÷övi._é********._iÄÃƒi._é********._ii._é********._i]]i
+._é********._i**ªi._é********._i°i._é********._i÷ö¶i._é
+********._i]]½i._é********._iÄÃÃi._é********._i**Êi._é****
+****._iÐi._é********._i÷öÖi._é********._i]]Ýi._é********
+._iÄÃãi._é********._i**êi._é********._iði._é********._i
+÷ööi._é********._i]]ýi._é********._iÄÃi._é********._i**=J
+i._é********._ii._é********._i÷öi._é********._i]]i._
+é********._iÄÃ#i._é********._i***j._é********._i]]-j._é***
+*****._i0j._é********._iÄÃ3j._é********._i÷ö6j._é*******
+*._i**:j._é********._i]]=}j._é********._i@j._é********.
+_iÄÃCj._é********._i÷öFj._é********._i**Jj._é********._i]]
+Mj._é********._iPj._é********._iÄÃSj._é********._i÷öVj.
+_é********._i**Zj._é********._i]]]j._é********._i`j._é**
+******._iÄÃcj._é********._i÷öfj._é********._i**jj._é******
+**._i]]mj._é********._ipj._é********._iÄÃsj._é********.
+_i÷övj._é********._i**zj._é********._i]]}j._é********._i
+€j._é********._iÄÃƒj._é********._i÷ö†j._é********._i**Šj.
+_é********._i]]j._é********._ij._é********._iÄÃ“j._é**
+******._i÷ö–j._é********._i**šj._é********._i]]j._é******
+**._i j._é********._iÄÃ£j._é********._i÷ö¦j._é********.
+_i**ªj._é********._iÄÃ«j._é********._i]]­j._é********._i÷ö
+®j._é********._i°j._é********._i**²j._é********._iÄÃ³j.
+_é********._i]]µj._é********._i÷ö¶j._é********._i¸j._é**
+******._i**ºj._é********._iÄÃ»j._é********._i]]½j._é******
+**._i÷ö¾j._é********._iÀj._é********._i**Âj._é********.
+_iÄÃÃj._é********._i]]Åj._é********._i÷öÆj._é********._i
+Èj._é********._i**Êj._é********._iÄÃËj._é********._i]]Íj.
+_é********._i÷öÎj._é********._iÐj._é********._i**Òj._é**
+******._iÄÃÓj._é********._i]]Õj._é********._i÷öÖj._é******
+**._iØj._é********._i**Új._é********._iÄÃÛj._é********.
+_i]]Ýj._é********._i÷öÞj._é********._iàj._é********._i**
+âj._é********._iÄÃãj._é********._i]]åj._é********._i÷öæj.
+_é********._ièj._é********._i**êj._é********._iÄÃëj._é**
+******._i]]íj._é********._i÷öîj._é********._iðj._é******
+**._i**òj._é********._iÄÃój._é********._i]]õj._é********.
+_i÷ööj._é********._iøj._é********._i**új._é********._iÄÃ
+ûj._é********._i]]ýj._é********._i÷öþj._é********._i=@j
+._é********._i**j._é********._iÄÃj._é********._i]]j._é*
+*******._i÷öj._é********._ij._é********._i**=Jj._é****
+****._iÄÃj._é********._i]]=Mj._é********._i÷öj._é*******
+*._ij._é********._i**j._é********._iÄÃj._é********._
+i]]j._é********._i÷öj._é********._ij._é********._i**
+j._é********._iÄÃj._é********._i]]j._é********._i÷öj._
+é********._i j._é********._i**"j._é********._iÄÃ#j._é***
+*****._i]]%j._é********._i÷ö&j._é********._i(j._é*******
+*._i***k._é********._i÷ö*k._é********._iÄÃ+k._é********._
+i,k._é********._i]]-k._é********._i**.k._é********._i÷ö.
+k._é********._iÄÃ/k._é********._i0k._é********._i]]1k._
+é********._i**2k._é********._i÷ö2k._é********._iÄÃ3k._é***
+*****._i4k._é********._i]]5k._é********._i**6k._é*******
+*._i÷ö6k._é********._iÄÃ7k._é********._i8k._é********._
+i]]9k._é********._i**:k._é********._i÷ö:k._é********._iÄÃ;
+k._é********._i<k._é********._i]]=}k._é********._i**>k.
+_é********._i÷ö>k._é********._iÄÃ?k._é********._i@k._é**
+******._i]]Ak._é********._i**Bk._é********._i÷öBk._é******
+**._iÄÃCk._é********._iDk._é********._i]]Ek._é********.
+_i**Fk._é********._i÷öFk._é********._iÄÃGk._é********._i
+Hk._é********._i]]Ik._é********._i**Jk._é********._i÷öJk.
+_é********._iÄÃKk._é********._iLk._é********._i]]Mk._é**
+******._i**Nk._é********._i÷öNk._é********._iÄÃOk._é******
+**._iPk._é********._i>
+								>
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++********+Pk****>
+									>
+								>
+								<Id="PositionX">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++********+Pk****>
+									>
+								>
+								<Id="PositionY">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++********+Pk****>
+									>
+								>
+								<Id="PositionZ">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****4Mf+Pk4Mf>
+									>
+								>
+								<Id="ScaleX">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****4Mf+Pk4Mf>
+									>
+								>
+								<Id="ScaleY">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****4Mf+Pk4Mf>
+									>
+								>
+								<Id="ScaleZ">
+							>
+						>
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<Rotation=
+						<X=-1.570796>
+						<Y=3.141593>
+						<Z=3.141593>
+					>
+					<Scale=
+						<X=0.010000>
+						<Y=0.010000>
+						<Z=0.010000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="bullet/Cube.nmg">
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="Lamp">
+				<UId=1>
+				<Active>
+				<Priority=0.500000>
+				<ScriptLogicFq=15.000000>
+				<MotionPlayer=
+					<Motions=
+						<Motion=
+							<Id="Default Take">
+							<UseQuaternion=True>
+							<QChannel=
+								<BinaryKeys=
+									<Count=209>
+									<Data==4251:4180@
+****YLWhŠ«ké6„µhÉS<i÷övgYLWhŠ«ké6„µhÉS<i÷öögYLWhŠ«ké6„µhÉS<iÄÃCh
+YLWhŠ«ké6„µhÉS<i÷övhYLWhŠ«ké6„µhÉS<i**ªhYLWhŠ«ké6„µhÉS<iÄÃÃhYLWh
+Š«ké6„µhÉS<i]]ÝhYLWhŠ«ké6„µhÉS<i÷ööhYLWhŠ«ké6„µhÉS<ihYLWhŠ«ké
+6„µhÉS<i***iYLWhŠ«ké6„µhÉS<i÷ö6iYLWhŠ«ké6„µhÉS<iÄÃCiYLWhŠ«ké6„µh
+ÉS<iPiYLWhŠ«ké6„µhÉS<i]]]iYLWhŠ«ké6„µhÉS<i**jiYLWhŠ«ké6„µhÉS<i
+÷öviYLWhŠ«ké6„µhÉS<iÄÃƒiYLWhŠ«ké6„µhÉS<iiYLWhŠ«ké6„µhÉS<i]]i
+YLWhŠ«ké6„µhÉS<i**ªiYLWhŠ«ké6„µhÉS<i°iYLWhŠ«ké6„µhÉS<i÷ö¶iYLWh
+Š«ké6„µhÉS<i]]½iYLWhŠ«ké6„µhÉS<iÄÃÃiYLWhŠ«ké6„µhÉS<i**ÊiYLWhŠ«ké
+6„µhÉS<iÐiYLWhŠ«ké6„µhÉS<i÷öÖiYLWhŠ«ké6„µhÉS<i]]ÝiYLWhŠ«ké6„µh
+ÉS<iÄÃãiYLWhŠ«ké6„µhÉS<i**êiYLWhŠ«ké6„µhÉS<iðiYLWhŠ«ké6„µhÉS<i
+÷ööiYLWhŠ«ké6„µhÉS<i]]ýiYLWhŠ«ké6„µhÉS<iÄÃiYLWhŠ«ké6„µhÉS<i**=J
+iYLWhŠ«ké6„µhÉS<iiYLWhŠ«ké6„µhÉS<i÷öiYLWhŠ«ké6„µhÉS<i]]iYLW
+hŠ«ké6„µhÉS<iÄÃ#iYLWhŠ«ké6„µhÉS<i***jYLWhŠ«ké6„µhÉS<i]]-jYLWhŠ«k
+é6„µhÉS<i0jYLWhŠ«ké6„µhÉS<iÄÃ3jYLWhŠ«ké6„µhÉS<i÷ö6jYLWhŠ«ké6„µ
+hÉS<i**:jYLWhŠ«ké6„µhÉS<i]]=}jYLWhŠ«ké6„µhÉS<i@jYLWhŠ«ké6„µhÉS
+<iÄÃCjYLWhŠ«ké6„µhÉS<i÷öFjYLWhŠ«ké6„µhÉS<i**JjYLWhŠ«ké6„µhÉS<i]]
+MjYLWhŠ«ké6„µhÉS<iPjYLWhŠ«ké6„µhÉS<iÄÃSjYLWhŠ«ké6„µhÉS<i÷öVjYL
+WhŠ«ké6„µhÉS<i**ZjYLWhŠ«ké6„µhÉS<i]]]jYLWhŠ«ké6„µhÉS<i`jYLWhŠ«
+ké6„µhÉS<iÄÃcjYLWhŠ«ké6„µhÉS<i÷öfjYLWhŠ«ké6„µhÉS<i**jjYLWhŠ«ké6„
+µhÉS<i]]mjYLWhŠ«ké6„µhÉS<ipjYLWhŠ«ké6„µhÉS<iÄÃsjYLWhŠ«ké6„µhÉS
+<i÷övjYLWhŠ«ké6„µhÉS<i**zjYLWhŠ«ké6„µhÉS<i]]}jYLWhŠ«ké6„µhÉS<i
+€jYLWhŠ«ké6„µhÉS<iÄÃƒjYLWhŠ«ké6„µhÉS<i÷ö†jYLWhŠ«ké6„µhÉS<i**ŠjYL
+WhŠ«ké6„µhÉS<i]]jYLWhŠ«ké6„µhÉS<ijYLWhŠ«ké6„µhÉS<iÄÃ“jYLWhŠ«
+ké6„µhÉS<i÷ö–jYLWhŠ«ké6„µhÉS<i**šjYLWhŠ«ké6„µhÉS<i]]jYLWhŠ«ké6„
+µhÉS<i jYLWhŠ«ké6„µhÉS<iÄÃ£jYLWhŠ«ké6„µhÉS<i÷ö¦jYLWhŠ«ké6„µhÉS
+<i**ªjYLWhŠ«ké6„µhÉS<iÄÃ«jYLWhŠ«ké6„µhÉS<i]]­jYLWhŠ«ké6„µhÉS<i÷ö
+®jYLWhŠ«ké6„µhÉS<i°jYLWhŠ«ké6„µhÉS<i**²jYLWhŠ«ké6„µhÉS<iÄÃ³jYL
+WhŠ«ké6„µhÉS<i]]µjYLWhŠ«ké6„µhÉS<i÷ö¶jYLWhŠ«ké6„µhÉS<i¸jYLWhŠ«
+ké6„µhÉS<i**ºjYLWhŠ«ké6„µhÉS<iÄÃ»jYLWhŠ«ké6„µhÉS<i]]½jYLWhŠ«ké6„
+µhÉS<i÷ö¾jYLWhŠ«ké6„µhÉS<iÀjYLWhŠ«ké6„µhÉS<i**ÂjYLWhŠ«ké6„µhÉS
+<iÄÃÃjYLWhŠ«ké6„µhÉS<i]]ÅjYLWhŠ«ké6„µhÉS<i÷öÆjYLWhŠ«ké6„µhÉS<i
+ÈjYLWhŠ«ké6„µhÉS<i**ÊjYLWhŠ«ké6„µhÉS<iÄÃËjYLWhŠ«ké6„µhÉS<i]]ÍjYL
+WhŠ«ké6„µhÉS<i÷öÎjYLWhŠ«ké6„µhÉS<iÐjYLWhŠ«ké6„µhÉS<i**ÒjYLWhŠ«
+ké6„µhÉS<iÄÃÓjYLWhŠ«ké6„µhÉS<i]]ÕjYLWhŠ«ké6„µhÉS<i÷öÖjYLWhŠ«ké6„
+µhÉS<iØjYLWhŠ«ké6„µhÉS<i**ÚjYLWhŠ«ké6„µhÉS<iÄÃÛjYLWhŠ«ké6„µhÉS
+<i]]ÝjYLWhŠ«ké6„µhÉS<i÷öÞjYLWhŠ«ké6„µhÉS<iàjYLWhŠ«ké6„µhÉS<i**
+âjYLWhŠ«ké6„µhÉS<iÄÃãjYLWhŠ«ké6„µhÉS<i]]åjYLWhŠ«ké6„µhÉS<i÷öæjYL
+WhŠ«ké6„µhÉS<ièjYLWhŠ«ké6„µhÉS<i**êjYLWhŠ«ké6„µhÉS<iÄÃëjYLWhŠ«
+ké6„µhÉS<i]]íjYLWhŠ«ké6„µhÉS<i÷öîjYLWhŠ«ké6„µhÉS<iðjYLWhŠ«ké6„
+µhÉS<i**òjYLWhŠ«ké6„µhÉS<iÄÃójYLWhŠ«ké6„µhÉS<i]]õjYLWhŠ«ké6„µhÉS
+<i÷ööjYLWhŠ«ké6„µhÉS<iøjYLWhŠ«ké6„µhÉS<i**újYLWhŠ«ké6„µhÉS<iÄÃ
+ûjYLWhŠ«ké6„µhÉS<i]]ýjYLWhŠ«ké6„µhÉS<i÷öþjYLWhŠ«ké6„µhÉS<i=@jY
+LWhŠ«ké6„µhÉS<i**jYLWhŠ«ké6„µhÉS<iÄÃjYLWhŠ«ké6„µhÉS<i]]jYLWhŠ
+«ké6„µhÉS<i÷öjYLWhŠ«ké6„µhÉS<ijYLWhŠ«ké6„µhÉS<i**=JjYLWhŠ«ké
+6„µhÉS<iÄÃjYLWhŠ«ké6„µhÉS<i]]=MjYLWhŠ«ké6„µhÉS<i÷öjYLWhŠ«ké6„µ
+hÉS<ijYLWhŠ«ké6„µhÉS<i**jYLWhŠ«ké6„µhÉS<iÄÃjYLWhŠ«ké6„µhÉS<
+i]]jYLWhŠ«ké6„µhÉS<i÷öjYLWhŠ«ké6„µhÉS<ijYLWhŠ«ké6„µhÉS<i**
+jYLWhŠ«ké6„µhÉS<iÄÃjYLWhŠ«ké6„µhÉS<i]]jYLWhŠ«ké6„µhÉS<i÷öjYLW
+hŠ«ké6„µhÉS<i jYLWhŠ«ké6„µhÉS<i**"jYLWhŠ«ké6„µhÉS<iÄÃ#jYLWhŠ«k
+é6„µhÉS<i]]%jYLWhŠ«ké6„µhÉS<i÷ö&jYLWhŠ«ké6„µhÉS<i(jYLWhŠ«ké6„µ
+hÉS<i***kYLWhŠ«ké6„µhÉS<i÷ö*kYLWhŠ«ké6„µhÉS<iÄÃ+kYLWhŠ«ké6„µhÉS<
+i,kYLWhŠ«ké6„µhÉS<i]]-kYLWhŠ«ké6„µhÉS<i**.kYLWhŠ«ké6„µhÉS<i÷ö.
+kYLWhŠ«ké6„µhÉS<iÄÃ/kYLWhŠ«ké6„µhÉS<i0kYLWhŠ«ké6„µhÉS<i]]1kYLW
+hŠ«ké6„µhÉS<i**2kYLWhŠ«ké6„µhÉS<i÷ö2kYLWhŠ«ké6„µhÉS<iÄÃ3kYLWhŠ«k
+é6„µhÉS<i4kYLWhŠ«ké6„µhÉS<i]]5kYLWhŠ«ké6„µhÉS<i**6kYLWhŠ«ké6„µ
+hÉS<i÷ö6kYLWhŠ«ké6„µhÉS<iÄÃ7kYLWhŠ«ké6„µhÉS<i8kYLWhŠ«ké6„µhÉS<
+i]]9kYLWhŠ«ké6„µhÉS<i**:kYLWhŠ«ké6„µhÉS<i÷ö:kYLWhŠ«ké6„µhÉS<iÄÃ;
+kYLWhŠ«ké6„µhÉS<i<kYLWhŠ«ké6„µhÉS<i]]=}kYLWhŠ«ké6„µhÉS<i**>kYL
+WhŠ«ké6„µhÉS<i÷ö>kYLWhŠ«ké6„µhÉS<iÄÃ?kYLWhŠ«ké6„µhÉS<i@kYLWhŠ«
+ké6„µhÉS<i]]AkYLWhŠ«ké6„µhÉS<i**BkYLWhŠ«ké6„µhÉS<i÷öBkYLWhŠ«ké6„
+µhÉS<iÄÃCkYLWhŠ«ké6„µhÉS<iDkYLWhŠ«ké6„µhÉS<i]]EkYLWhŠ«ké6„µhÉS
+<i**FkYLWhŠ«ké6„µhÉS<i÷öFkYLWhŠ«ké6„µhÉS<iÄÃGkYLWhŠ«ké6„µhÉS<i
+HkYLWhŠ«ké6„µhÉS<i]]IkYLWhŠ«ké6„µhÉS<i**JkYLWhŠ«ké6„µhÉS<i÷öJkYL
+WhŠ«ké6„µhÉS<iÄÃKkYLWhŠ«ké6„µhÉS<iLkYLWhŠ«ké6„µhÉS<i]]MkYLWhŠ«
+ké6„µhÉS<i**NkYLWhŠ«ké6„µhÉS<i÷öNkYLWhŠ«ké6„µhÉS<iÄÃOkYLWhŠ«ké6„
+µhÉS<iPkYLWhŠ«ké6„µhÉS<i>
+								>
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****± Pç+Pk± Pç>
+									>
+								>
+								<Id="PositionX">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****¥ü›g+Pk¥ü›g>
+									>
+								>
+								<Id="PositionY">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****õåNæ+PkõåNæ>
+									>
+								>
+								<Id="PositionZ">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****4Mf+Pk4Mf>
+									>
+								>
+								<Id="ScaleX">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****3Mf+Pk3Mf>
+									>
+								>
+								<Id="ScaleY">
+							>
+							<Channel=
+								<Curve=
+									<BinaryKnot=
+										<Count=2>
+										<Data==18:18@
++****4Mf+Pk4Mf>
+									>
+								>
+								<Id="ScaleZ">
+							>
+						>
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Position=
+						<X=-0.040762>
+						<Y=0.059039>
+						<Z=-0.010055>
+					>
+					<Rotation=
+						<X=0.649169>
+						<Y=-1.824432>
+						<Z=0.069337>
+					>
+					<Scale=
+						<X=0.010000>
+						<Y=0.010000>
+						<Z=0.010000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Shadow="Map">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
+			>
+		>
+	>
+	<Links>
+	<Skins>
+	<Constraints>
+	<Globals=
+		<BackgroundColor=
+			<X=0.000000>
+			<Y=0.000000>
+			<Z=0.000000>
+		>
+		<AmbientColor=
+			<X=0.000000>
+			<Y=0.000000>
+			<Z=0.000000>
+		>
+		<AmbientIntensity=1.000000>
+		<TargetExposure=0.250000>
+		<FogNear=0.000000>
+		<FogFar=0.000000>
+		<FogColor=
+			<X=0.100000>
+			<Y=0.100000>
+			<Z=0.100000>
+		>
+	>
+	<Physics=
+		<Frequency=59.999996>
+	>
+	<ViewMatrix=
+		<R0=
+			<X=0.707107>
+			<Y=0.000000>
+			<Z=0.707107>
+			<W=0.000000>
+		>
+		<R1=
+			<X=-0.192450>
+			<Y=0.962250>
+			<Z=0.192450>
+			<W=0.000000>
+		>
+		<R2=
+			<X=-0.680414>
+			<Y=-0.272166>
+			<Z=0.680414>
+			<W=0.000000>
+		>
+		<R3=
+			<X=10.000000>
+			<Y=4.000000>
+			<Z=-10.000000>
+			<W=1.000000>
+		>
+	>
+>
+<Editor=
+	<View=
+		<Layout="Single">
+		<Viewport=
+			<Index=0>
+			<Camera="@Perspective">
+			<Matrix=
+				<R0=
+					<X=0.707107>
+					<Y=0.000000>
+					<Z=0.707107>
+					<W=0.000000>
+				>
+				<R1=
+					<X=-0.192450>
+					<Y=0.962250>
+					<Z=0.192450>
+					<W=0.000000>
+				>
+				<R2=
+					<X=-0.680414>
+					<Y=-0.272166>
+					<Z=0.680414>
+					<W=0.000000>
+				>
+				<R3=
+					<X=10.000000>
+					<Y=4.000000>
+					<Z=-10.000000>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=1>
+			<Camera="@Top">
+			<Matrix=
+				<R0=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=-0.000000>
+					<Z=1.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.000000>
+					<Y=-1.000000>
+					<Z=-0.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=0.000000>
+					<Y=10.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=2>
+			<Camera="@Bottom">
+			<Matrix=
+				<R0=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=-0.000000>
+					<Z=-1.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=-0.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=0.000000>
+					<Y=-10.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=3>
+			<Camera="@Left">
+			<Matrix=
+				<R0=
+					<X=-0.000000>
+					<Y=0.000000>
+					<Z=-1.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=-0.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=-10.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
+	>
+>
