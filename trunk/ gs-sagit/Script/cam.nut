@@ -80,13 +80,16 @@ class	GameCam
 		if  (usePad&&(pads < 0.0 ))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
 //////
-		if  (usePad&&(padt < 0.0 ))
-					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
+//		if  (usePad&&(padt < 0.0 ))
+//					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
 //////
 		if	(DeviceIsKeyDown(keyboard, KeyV))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-rotationFactor)).Scale(g_dt_frame * 60.0))
 		if  (usePad&&(pads > 0.0 ))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
+
+//		if  (usePad&&(padt > 0.0 ))
+//					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
 
 		// Stabilize background
 		local currentCamBarrel = ItemGetRotation(item).z

@@ -76,7 +76,7 @@ class	Level1
 	biruArray		= []
 //=== tunnel ===
 	arrTunnel		= []
-	maxTunnelSlice	= 100
+	maxTunnelSlice	= 20
 	tunnelSliceCol 	= 0
 	tunnelSliceMesh = 0
 	/*!
@@ -199,7 +199,7 @@ class	Level1
 //	========================================================================================================
 	{
 		foreach(id, biru in biruArray)
-			if (ItemGetPosition(biru).z < -50)
+			if (ItemGetPosition(biru).z < -100)
 			{
 				SceneDeleteItem(scene, biru)
 				biruArray.remove(id)
@@ -210,24 +210,36 @@ class	Level1
 	function	GenerateTunnelSlice(scene, tunnelArray, scale)
 //	========================================================================================================
 	{
-		if (tunnelArray.len() < maxTunnelSlice )
+		if (tunnelArray.len() < maxTunnelSlice)
 		{
-			local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
-			local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh)
-			ItemSetParent(sliceMesh, sliceCol)
-
 			local lastSlice 	= tunnelArray.top()
 			local lastSlicePos 	= ItemGetPosition(lastSlice)
+//			print("ItemGetPosition(lastSlice).z =" + lastSlicePos.z)
+
+			local sliceCol = SceneDuplicateItem(scene, lastSlice)
+//			local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
+			local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh)
+			ItemSetParent(sliceMesh, sliceCol)
+			ItemSetScript(sliceCol, "script/tunnelCol.nut", "tunnelCol")
+			ItemSetupScript(sliceCol)
+			ItemSetup(sliceCol)
 			local mm 			= ItemGetMinMax(sliceMesh)
 
-//			ItemSetPosition(sliceMesh, Vector(lastSlicePos.x, lastSlicePos.y, lastSlicePos.z + 50*(mm.max.z - mm.min.z) ))
-//			ItemSetPosition(sliceMesh, Vector(lastSlicePos.x, lastSlicePos.y + scale*(mm.max.z - mm.min.z) , lastSlicePos.z))
-			ItemSetupScript(sliceCol)
-//			ItemPhysicResetTransformation(sliceCol, Vector(lastSlicePos.x, lastSlicePos.z, lastSlicePos.y + 50*(mm.max.z - mm.min.z)), ItemGetRotation(sliceCol))
-			ItemPhysicResetTransformation(sliceCol, Vector(lastSlicePos.x, lastSlicePos.y + 50*(mm.max.z - mm.min.z), lastSlicePos.z ), ItemGetRotation(sliceCol))
+//			print("A.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z + "mm.min=" + mm.min.z + "mm.max=" + mm.max.z)
+			ItemPhysicResetTransformation(sliceCol, Vector(lastSlicePos.x, lastSlicePos.y, lastSlicePos.z + scale*(mm.max.z - mm.min.z)), Vector(0,0,0))
+//			print("B.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z)
+
+//			foreach(id, slice in tunnelArray)
+//				print("Right before append->ID=" + id + "::" + ItemGetPosition(slice).z)
 		
-			arrTunnel.append(sliceCol)
+			tunnelArray.append(sliceCol)
+
+//			foreach(id, slice in tunnelArray)
+//				print("Right after append->ID=" + id + "::" + ItemGetPosition(slice).z)
+
 		}
+
+		return(tunnelArray)
 	}
 
 //	========================================================================================================
@@ -235,13 +247,19 @@ class	Level1
 //	========================================================================================================
 	{
 		foreach(id, slice in tunnelArray)
-			if (ItemGetWorldPosition(slice).z < -50)
+		{
+//			print("Before deletion->ID=" + id + "::" + ItemGetPosition(slice).z)
+			if (ItemGetPosition(slice).z < -50)
 			{
-				local _parent =	ItemGetParent(slice)
+				//delete mesh
+				SceneDeleteItem(scene, ItemGetChild(slice,"TunnelDivisionSolid"))
+				//delete colshapes
 				SceneDeleteItem(scene, slice)
-				SceneDeleteItem(scene, _parent)
 				tunnelArray.remove(id)
+//				print("--->delete::" + id + "::" + ItemGetPosition(slice).z)
 			}
+		}
+
 	}
 
 //	========================================================================================================
@@ -323,10 +341,10 @@ class	Level1
 			local xoffset = sin(torusCounter)*Rand(50,60)*Rand(-1,1)
 			local yoffset = sin(torusCounter)*Rand(50,60)*Rand(-1,1)
 
-			//Clean up tunnel sections which are behind the player
-//			CleanTunnel(scene,arrTunnel)
 			//Extend tunnel
-//			GenerateTunnelSlice(scene, arrTunnel, 30)
+			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
+			//Clean up tunnel sections which are behind the player
+			CleanTunnel(scene,arrTunnel)
 
 			//spawn torus
 			if (TickToSec(g_clock-torusTimer) >= torusInterval )
@@ -650,14 +668,15 @@ class	Level1
 		local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
 		local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh )
 		ItemSetParent(sliceMesh, sliceCol)
-		ItemPhysicResetTransformation(sliceCol, Vector(0,0,0), ItemGetRotation(sliceCol))
+		ItemSetPosition(sliceCol, Vector(0,0,0))
+		ItemSetScript(sliceCol, "script/tunnelCol.nut", "tunnelCol")
 		ItemSetupScript(sliceCol)
-		ItemSetPosition(sliceMesh, ItemGetPosition(sliceCol))
-		print(ItemGetPosition(sliceCol).x)
-		print(ItemGetPosition(sliceCol).y)
-		print(ItemGetPosition(sliceCol).z)
 		arrTunnel.append(sliceCol)
-		for(local i=0;i<5;i++)
-			GenerateTunnelSlice(scene, arrTunnel, 30)
+
+		foreach(id, slice in arrTunnel)
+			print("OnSetup->ID=" + id + "::" + ItemGetPosition(slice).z)
+
+//		for(local i=0;i<10;i++)
+//			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
 	}
 }
