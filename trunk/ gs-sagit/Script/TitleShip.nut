@@ -28,7 +28,7 @@ class	Ship
 		if(TickToSec(g_clock - timer) > 1.9  )
 		{
 			local flash = SceneDuplicateItem(ItemGetScene(item), item)
-			ItemSetCommandList(flash, "toalpha 0,0.5; toscale 1,1.5,1.5,1.5+toalpha 1,0.0;")
+//			ItemSetCommandList(flash, "toalpha 0,0.5; toscale 1,1.5,1.5,1.5+toalpha 1,0.0;")
 			ace_deleter.RegisterItem(flash)
 			timer = g_clock
 		}

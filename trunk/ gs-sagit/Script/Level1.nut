@@ -26,7 +26,7 @@ class	Level1
 {
 	
 //=== number of ennemies generated in one wave
-	max_ennemies	= 20
+	max_ennemies	= 30
 	base_item		= 0
 	new_item		= 0
 	gShipCanBarrel	= 1
@@ -76,9 +76,10 @@ class	Level1
 	biruArray		= []
 //=== tunnel ===
 	arrTunnel		= []
-	maxTunnelSlice	= 20
+	maxTunnelSlice	= 10
 	tunnelSliceCol 	= 0
 	tunnelSliceMesh = 0
+	tunnelScale		= 0
 	/*!
 		@short	OnUpdate
 		Called each frame.
@@ -178,8 +179,14 @@ class	Level1
 
 		for(local i=ymin;i<ymax;i+=5*y/street_width_ratio)
 			for(local j=xmin;j<xmax;j+=5*x/street_width_ratio)
+				if ((j < -100) || (j > 100))
 			{
-				new_biru = SceneDuplicateItem(scene, SceneFindItem(scene,"Building"))
+				if (Rand(1,10).tointeger() == 5)
+//						MaterialSetDiffuse(GeometryGetMaterialFromIndex(ItemGetGeometry(new_biru), 0), Vector(255,0,0,255))
+					new_biru = SceneDuplicateItem(scene, SceneFindItem(scene,"Building-red"))
+				else
+					new_biru = SceneDuplicateItem(scene, SceneFindItem(scene,"Building"))
+
 				ItemSetupScript(new_biru)
 				local scalex = x/(ItemGetMinMax(new_biru).max.x - ItemGetMinMax(new_biru).min.x)
 				local scaley = y/(ItemGetMinMax(new_biru).max.y - ItemGetMinMax(new_biru).min.y)
@@ -210,7 +217,7 @@ class	Level1
 	function	GenerateTunnelSlice(scene, tunnelArray, scale)
 //	========================================================================================================
 	{
-		if (tunnelArray.len() < maxTunnelSlice)
+//		if (tunnelArray.len() < maxTunnelSlice)
 		{
 			local lastSlice 	= tunnelArray.top()
 			local lastSlicePos 	= ItemGetPosition(lastSlice)
@@ -220,7 +227,7 @@ class	Level1
 //			local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
 			local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh)
 			ItemSetParent(sliceMesh, sliceCol)
-			ItemSetScript(sliceCol, "script/tunnelCol.nut", "tunnelCol")
+			ItemSetScript(sliceCol, "Script/tunnelCol.nut", "tunnelCol")
 			ItemSetupScript(sliceCol)
 			ItemSetup(sliceCol)
 			local mm 			= ItemGetMinMax(sliceMesh)
@@ -249,7 +256,7 @@ class	Level1
 		foreach(id, slice in tunnelArray)
 		{
 //			print("Before deletion->ID=" + id + "::" + ItemGetPosition(slice).z)
-			if (ItemGetPosition(slice).z < -50)
+			if (ItemGetWorldPosition(slice).z < 0)
 			{
 				//delete mesh
 				SceneDeleteItem(scene, ItemGetChild(slice,"TunnelDivisionSolid"))
@@ -342,7 +349,8 @@ class	Level1
 			local yoffset = sin(torusCounter)*Rand(50,60)*Rand(-1,1)
 
 			//Extend tunnel
-			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
+			if (arrTunnel.len() < maxTunnelSlice )
+				arrTunnel = GenerateTunnelSlice(scene, arrTunnel, tunnelScale )
 			//Clean up tunnel sections which are behind the player
 			CleanTunnel(scene,arrTunnel)
 
@@ -367,7 +375,14 @@ class	Level1
 			foreach(idx,enemy in enemiesT1)
 			{
 				local v = ItemGetLinearVelocity(enemy)
-				ItemSetLinearVelocity(enemy, Vector(v.x,v.y,v.z-boost))
+				if ((ItemHasScript(enemy, "Cube") && ItemGetScriptInstance(enemy).captured))
+					{
+						ItemSetLinearVelocity(enemy, Vector(0,0,0))
+						local scpos = ItemGetPosition(SceneFindItem(scene,"Spacecraft"))
+						ItemPhysicResetTransformation(enemy, Vector(scpos.x, scpos.y-10, scpos.z), Vector(0,0,0))
+					}
+				else
+					ItemSetLinearVelocity(enemy, Vector(v.x,v.y,v.z-boost))
 
 //				if ( (ItemGetPosition(enemy).z < ItemGetPosition(CameraGetItem(SceneGetCurrentCamera(scene))).z-20) || (ItemGetPosition(enemy).z > 1300 ) )
 				if ( (ItemGetPosition(enemy).z < 0) || (ItemGetPosition(enemy).z > 1300 ) )
@@ -427,7 +442,7 @@ class	Level1
 				else*/
 				{
 //					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(-30,50)), Mtr(Rand(-30,50)), Mtr(1000)),Vector(Deg(-90),Deg(-90),Deg(180)))
-					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(xoffset-20,xoffset+20)), Mtr(Rand(yoffset-20,yoffset+20)), Mtr(1000)),Vector(Deg(-90),Deg(-90),Deg(180)))
+					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(xoffset-40,xoffset+40)), Mtr(Rand(yoffset-40,yoffset+40)), Mtr(1000)),Vector(Deg(-90),Deg(-90),Deg(180)))
 					ItemApplyLinearImpulse(new_item,Vector(0,0,Rand(-minVelocity,-minVelocity*1.5)))
 				}
 
@@ -631,15 +646,15 @@ class	Level1
 
 		ItemSetPosition(base_item[1], Vector(-5000,-5000,-5000))
 		ItemSetScale(base_item[1], Vector(1,1,1))
-		ItemSetScript(base_item[1],"Script/vehic1.nut" , "Vehic1")
+		ItemSetScript(base_item[1],"Script/cube.nut" , "Vehic1")
 
 		ItemSetPosition(base_item[2], Vector(-5000,-5000,-5000))
 		ItemSetScale(base_item[2], Vector(1,1,1))
-		ItemSetScript(base_item[2],"Script/iso.nut" , "iso")
+		ItemSetScript(base_item[2],"Script/cube.nut" , "iso")
 
 		ItemSetPosition(base_item[3], Vector(-5000,-5000,-5000))
 //		ItemSetScale(base_item[3], Vector(1,1,1))
-		ItemSetScript(base_item[3],"Script/Rock.nut" , "Rock")
+		ItemSetScript(base_item[3],"Script/cube.nut" , "Rock")
 
 		ItemSetPosition(base_item[4], Vector(-5000,-5000,-5000))
 		ItemSetScale(base_item[4], Vector(5,5,5))
@@ -661,6 +676,9 @@ class	Level1
 			}
 */
 
+		//Set camera
+//		SceneSetCurrentCamera(scene, ItemCastToCamera(SceneFindItem(scene,"GameCam")))
+
 		//Generate tunnel
 		tunnelSliceCol = SceneFindItem(scene,"tunnelCol")
 		tunnelSliceMesh = SceneFindItem(scene,"TunnelDivisionSolid")
@@ -669,9 +687,10 @@ class	Level1
 		local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh )
 		ItemSetParent(sliceMesh, sliceCol)
 		ItemSetPosition(sliceCol, Vector(0,0,0))
-		ItemSetScript(sliceCol, "script/tunnelCol.nut", "tunnelCol")
+		ItemSetScript(sliceCol, "Script/tunnelCol.nut", "tunnelCol")
 		ItemSetupScript(sliceCol)
 		arrTunnel.append(sliceCol)
+		tunnelScale = ItemGetScale(sliceMesh).x
 
 		foreach(id, slice in arrTunnel)
 			print("OnSetup->ID=" + id + "::" + ItemGetPosition(slice).z)

@@ -1,19 +1,22 @@
-     S F N T
-    +-------
-SHIP|0 0 0 1
+     S F N T P
+    +---------
+SHIP|0 0 0 0 1 
     |
-FF  |0 0 1 0
+FF  |0 0 0 1 0 
     |
-NMY |0 1 0 0
+NMY |0 0 1 0 0 
     |
-TUN |1 0 0 0 
+TUN |0 1 0 0 0 
+    |
+PROJ|1 0 0 0 0 
 
 
 SHIP = 1 , GROUP = 4 or 8 = 1100 = 12
 FF   = 2 , GROUP = 4 or 8 = 0100 = 12
 NMY  = 4 , GROUP = 1 or 2 = 0011 = 3
+NMY  = 4 , GROUP = 1 or 2 = 0111 = 7
 TUN  = 8 , GROUP = 1 or 2 = 0011 = 3
-
+PRJ  = 16, GROUP = 4 or 8 = 12
 
 ------
 Mask = 0 to disable collisions on an item

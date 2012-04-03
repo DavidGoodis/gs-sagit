@@ -13,10 +13,12 @@ class	spacecraft
 	r_step 		= 200 //rotation step
 	max_barrel	= 40 //angle de tilt max
 	gFFON		= 0
+	armed		= 0
 	gMaxEnergy  = 1000
 	timer		= g_clock
 	FFitem		= 0
 	FFcolShape	= 0
+	FFopacityStep = 0.04
 
 
 //	========================================================================================================
@@ -33,8 +35,8 @@ class	spacecraft
 		if	((DeviceIsKeyDown(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
 			{
 				//sound feedback
-				local shield  = EngineLoadSound(g_engine, "data/shield.wav")
-				if (!gFFON)
+				local shield  = EngineLoadSound(g_engine, snd_fx_shield)
+				if ((!gFFON) && (!armed)) //if force field is off and ship is not armed
 				{
 					MixerSoundStart(g_mixer, shield)
 //					ItemSetSelfMask(FFcolShape, 3)
@@ -42,19 +44,19 @@ class	spacecraft
 //					SetShieldShape(item, "mesh")
 					gFFON = 1
 				}
-
+				
 				if (gFFenergy > 0)
 					{
 						gFFenergy -= 1 
-						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) + 0.02,0,1))
+						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) + FFopacityStep,0,1))
 					}
 				if (gFFenergy <= 0)
 					{
 						gFFenergy = 0
 						local channel = MixerStreamStart(g_mixer,"data/noenergy.ogg")
 						MixerChannelSetGain(g_mixer, channel, 0.8)
-						MixerChannelSetLoopMode(g_mixer, channel, LoopRepeat)
-						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) - 0.02,0,1))
+						MixerChannelSetLoopMode(g_mixer, channel, LoopNone )
+						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) - FFopacityStep,0,1))
 					}
 			}
 		else
@@ -74,7 +76,7 @@ class	spacecraft
 					g_timer = g_clock	
 					if (gFFenergy < gMaxEnergy)
 						gFFenergy++
-					ItemSetOpacity( FFitem  , Clamp(ItemGetOpacity(FFitem) - 0.02,0,1))
+					ItemSetOpacity( FFitem  , Clamp(ItemGetOpacity(FFitem) - FFopacityStep,0,1))
 				}
 			}
 	}
@@ -104,6 +106,21 @@ class	spacecraft
 	}
 
 //	========================================================================================================
+	function	ItemSetCaptured(captured_item, by_item)
+//	========================================================================================================
+	{
+		ItemSetParent(captured_item, by_item)
+		ItemSetCollisionMask(captured_item, 0)
+		ItemGetScriptInstance(captured_item).captured = 1
+//		ItemPhysicSetAngularFactor(captured_item, Vector(0,0,0))
+		local pos_ = ItemGetPosition(by_item)
+		ItemPhysicResetTransformation(captured_item, Vector(pos_.x, pos_.y + 50, pos_.z + 50), Vector(0,0,0))
+
+		armed = 1
+	}
+
+
+//	========================================================================================================
 	function	OnCollision(item, with_item)
 //	========================================================================================================
 	{
@@ -113,7 +130,7 @@ class	spacecraft
 		if (!gFFON)
 		{
 			gCam_shake = 1
-			local buuu  = EngineLoadSound(g_engine, "data/dame.wav")
+			local buuu  = EngineLoadSound(g_engine, snd_fx_wall)
 			MixerSoundStart(g_mixer, buuu)
 		}
 		else
@@ -122,8 +139,12 @@ class	spacecraft
 			ObjectSetGeometry(o, EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg"))
 			ItemApplyLinearImpulse(ObjectGetItem(o), Vector(0,0,1))
 			
-			local buuu  = EngineLoadSound(g_engine, "data/Object_through_shield.wav")
+			local buuu  = EngineLoadSound(g_engine, snd_fx_otshield)
 			MixerSoundStart(g_mixer, buuu)
+
+			//grab the cube
+			if (!armed)
+				ItemSetCaptured(with_item, item)
 		}
 
 		// Update Lifes
@@ -208,6 +229,8 @@ class	spacecraft
 						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,-zRot,0).Scale(low_dt_compensation))
 						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+
+					ItemApplyTorque(item, Vector(0,0,r_step/10).Scale(ItemGetMass(item)))
 					}
 
 		if	((DeviceIsKeyDown(keyboard, KeyRightArrow)) || (usePad&&(padx > 0.0 )) || (DeviceIsKeyDown(pad, Right)))
@@ -220,6 +243,8 @@ class	spacecraft
 						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,zRot,0).Scale(low_dt_compensation))
 	 					ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+
+					ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
 					}
 
 
@@ -258,7 +283,7 @@ class	spacecraft
 	{
 //      ItemSetPhysicMode(item, PhysicModeDynamic)
 		ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))
-		ItemPhysicSetLinearFactor(item, Vector(1,1,1))
+		ItemPhysicSetLinearFactor(item, Vector(1,1,0))
 //		ItemPhysicSetLinearFactor(item, Vector(1,1,1))
 		ItemSetLinearDamping(item,0.01)
 		ItemSetAngularDamping(item,0.01)

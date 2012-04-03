@@ -17,7 +17,9 @@ class	Building
 	{
 		local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
 		local pos = ItemGetPosition(item)
+		local v = ItemGetLinearVelocity(item)
 		ItemSetPosition(item, Vector(pos.x,pos.y,pos.z-1-booost))
+		ItemSetOpacity(item, Clamp(100/pos.z,0,0.7))
 	}
 
 	/*!

@@ -13,6 +13,8 @@ class	Cube
 	r_step = Rand(-0.1,0.1) //rotation step
 	p_step = Rand(5,150) //position step
 
+	captured = 0
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -23,13 +25,37 @@ class	Cube
 
 	function	OnPhysicStep(item, dt)
 	{
-		local rot = ItemGetRotation(item)
-		ItemApplyTorque(item, Vector(rot.x+0.01, rot.y+0.01, rot.z+0.01))
+		local	keyboard 	= GetKeyboardDevice(),
+				mouse 		= GetMouseDevice(),
+				pad 		= GetInputDevice("xinput0"),
+				padrt 		= DeviceInputValue(pad, DeviceAxisRT)
+
+		if (!captured)
+		{
+			local rot = ItemGetRotation(item)
+			ItemApplyTorque(item, Vector(rot.x+0.01, rot.y+0.01, rot.z+0.01))
+		}
+		else
+		{
+			if	((DeviceKeyPressed(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
+			{
+				ItemGetScriptInstance(ItemGetParent(item)).armed = 0
+				ItemSetParent(item, NullItem)
+				ItemSetSelfMask(item, 12)
+				ItemSetCollisionMask(item, 16)
+				captured = 0
+	
+				local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
+				ItemApplyTorque(item, Vector(0,0,0))
+				ItemPhysicSetLinearFactor(item, Vector(0,0,1))
+				ItemApplyLinearImpulse(item, Vector(0,0,100))
+			}
+		}
 	}
 
 	function	OnUpdate(item)
 	{
-
+//		ItemSetOpacity(item, Clamp(Abs(1-ItemGetPosition(item).z/1000),0,1))
 	}
 
 	/*!
