@@ -77,6 +77,8 @@ class	GameCam
 
 		if	(DeviceIsKeyDown(keyboard, KeyX))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor)).Scale(g_dt_frame * 60.0))
+		if	(DeviceIsKeyDown(keyboard, KeyLeftArrow))
+					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor/10)).Scale(g_dt_frame * 60.0))
 		if  (usePad&&(pads < 0.0 ))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
 //////
@@ -85,6 +87,9 @@ class	GameCam
 //////
 		if	(DeviceIsKeyDown(keyboard, KeyV))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-rotationFactor)).Scale(g_dt_frame * 60.0))
+		if	(DeviceIsKeyDown(keyboard, KeyRightArrow))
+					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-rotationFactor/10)).Scale(g_dt_frame * 60.0))
+
 		if  (usePad&&(pads > 0.0 ))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
 

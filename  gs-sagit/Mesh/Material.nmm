@@ -17,7 +17,7 @@
 		<Y=0.000000>
 		<Z=0.000000>
 	>
-	<Glossiness=0.000000>
+	<Glossiness=0.010000>
 	<AlphaThreshold=0.100000>
 	<PhysicMaterial=
 		<StaticFriction=0.750000>

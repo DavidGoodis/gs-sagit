@@ -89,14 +89,14 @@
 			<Camera=
 				<Item=
 					<Position=
-						<X=0.000000>
-						<Y=5.000000>
-						<Z=-28.000000>
+						<X=-0.000976>
+						<Y=4.877598>
+						<Z=-19.510391>
 					>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=0.000000>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
@@ -175,7 +175,6 @@
 						<Y=3.141593>
 						<Z=3.141593>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -474,7 +473,6 @@
 						<Y=30.000000>
 						<Z=30.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -496,12 +494,6 @@
 				<MotionPlayer=
 					<Motions>
 				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="Script/tunneldivisionsolid.nut">
-						<Class="tunnelDivisionSolid">
-					>
-				>
 				<PhysicItem=
 					<SelfMask=3>
 					<Mask=8>
@@ -515,14 +507,41 @@
 						<PhysicShape=
 							<Type="Box">
 							<Position=
-								<X=-55.000000>
-								<Y=0.000000>
+								<X=-176.770233>
+								<Y=15.301464>
 								<Z=0.000000>
 							>
 							<Rotation=
-								<X=0.000000>
-								<Y=0.174533>
+								<X=-0.000000>
+								<Y=0.000000>
+								<Z=2.967060>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=10.000000>
+								<Y=250.000015>
+								<Z=250.000000>
+							>
+							<Mass=1000.000000>
+							<StaticFriction=0.000000>
+							<DynamicFriction=0.000000>
+							<Restitution=0.010000>
+						>
+						<PhysicShape=
+							<Type="Box">
+							<Position=
+								<X=184.631866>
+								<Y=16.684502>
 								<Z=0.000000>
+							>
+							<Rotation=
+								<X=-0.000000>
+								<Y=0.000000>
+								<Z=0.174533>
 							>
 							<Scale=
 								<X=1.000000>
@@ -531,25 +550,25 @@
 							>
 							<Dimensions=
 								<X=2.000000>
-								<Y=70.000000>
-								<Z=70.000000>
+								<Y=250.000015>
+								<Z=250.000000>
 							>
 							<Mass=1000.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
+							<StaticFriction=0.000000>
+							<DynamicFriction=0.000000>
+							<Restitution=0.010000>
 						>
 						<PhysicShape=
 							<Type="Box">
 							<Position=
-								<X=55.000000>
-								<Y=0.000000>
-								<Z=0.000000>
+								<X=-0.001880>
+								<Y=-101.750183>
+								<Z=0.000004>
 							>
 							<Rotation=
-								<X=0.000000>
-								<Y=-0.174533>
-								<Z=0.000000>
+								<X=-1.570796>
+								<Y=3.141593>
+								<Z=3.141593>
 							>
 							<Scale=
 								<X=1.000000>
@@ -557,51 +576,24 @@
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=2.000000>
-								<Y=70.000000>
-								<Z=70.000000>
-							>
-							<Mass=1000.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=-0.001000>
-								<Y=0.000000>
-								<Z=-30.000000>
-							>
-							<Rotation=
-								<X=-0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=120.000000>
-								<Y=80.000000>
+								<X=350.000000>
+								<Y=1000.000000>
 								<Z=2.000000>
 							>
 							<Mass=1000.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
+							<StaticFriction=0.000000>
+							<DynamicFriction=0.000000>
+							<Restitution=0.010000>
 						>
 						<PhysicShape=
 							<Type="Box">
 							<Position=
-								<X=-0.001000>
-								<Y=0.000000>
-								<Z=32.000000>
+								<X=-0.000121>
+								<Y=101.729515>
+								<Z=-0.000002>
 							>
 							<Rotation=
-								<X=-0.000000>
+								<X=-1.570796>
 								<Y=0.000000>
 								<Z=0.000000>
 							>
@@ -611,14 +603,14 @@
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=100.000000>
-								<Y=80.000000>
+								<X=350.000000>
+								<Y=1000.000000>
 								<Z=2.000000>
 							>
 							<Mass=1000.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
+							<StaticFriction=0.000000>
+							<DynamicFriction=0.000000>
+							<Restitution=0.010000>
 						>
 					>
 				>
@@ -628,12 +620,12 @@
 					<Position=
 						<X=0.000000>
 						<Y=-0.002000>
-						<Z=-250.000000>
+						<Z=-800.000000>
 					>
 					<Rotation=
-						<X=-1.570796>
+						<X=-0.000000>
 						<Y=0.000000>
-						<Z=0.000000>
+						<Z=-0.000017>
 					>
 					<ItemFlag>
 					<Target=
@@ -669,10 +661,15 @@
 			>
 			<Object=
 				<Item=
+					<Rotation=
+						<X=-1.570796>
+						<Y=0.000000>
+						<Z=0.000000>
+					>
 					<Scale=
-						<X=30.000000>
-						<Y=30.000000>
-						<Z=30.000000>
+						<X=100.000000>
+						<Y=100.000000>
+						<Z=100.000000>
 					>
 					<Target=
 						<X=0.000000>
@@ -685,10 +682,100 @@
 				<Geometry="Mesh/tunnelDivisionSolid.nmg">
 			>
 		>
+		<MObject=
+			<MItem=
+				<Id="Tunnel">
+				<UId=6>
+				<Active>
+				<Priority=0.500000>
+				<ScriptLogicFq=15.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="tunnel.nut">
+						<Class="Tunnel">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<ItemFlag>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="Building-red">
+				<UId=7>
+				<Active>
+				<Priority=0.500000>
+				<ScriptLogicFq=15.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="Script/building.nut">
+						<Class="Building">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-5000.000000>
+						<Y=-5000.000000>
+						<Z=0.000000>
+					>
+					<Rotation=
+						<X=-1.570796>
+						<Y=3.141593>
+						<Z=3.141593>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="Mesh/Building-red.nmg">
+			>
+		>
 		<MLight=
 			<MItem=
 				<Id="Sun">
-				<UId=6>
+				<UId=8>
 				<Active>
 				<Priority=0.500000>
 				<ScriptLogicFq=15.000000>
@@ -739,13 +826,14 @@
 				<VolumetricSampleStep=0.500000>
 				<VolumetricThick=500.000000>
 				<VolumetricRange=500.000000>
-				<DiffuseIntensity=0.500000>
+				<DiffuseIntensity=0.200000>
+				<SpecularIntensity=0.200000>
 			>
 		>
 		<Instance=
 			<MItem=
 				<Id="Player">
-				<UId=7>
+				<UId=9>
 				<Active>
 				<Priority=0.500000>
 				<ScriptLogicFq=15.000000>
@@ -789,7 +877,7 @@
 		<MTerrain=
 			<MItem=
 				<Id="Terrain">
-				<UId=8>
+				<UId=10>
 				<Helper>
 				<Priority=0.500000>
 				<ScriptLogicFq=15.000000>
@@ -873,6 +961,10 @@
 	>
 	<Links=
 		<Link=
+			<Item=4>
+			<Link=6>
+		>
+		<Link=
 			<Item=5>
 			<Link=4>
 		>
@@ -881,51 +973,52 @@
 	<Constraints>
 	<Globals=
 		<BackgroundColor=
-			<X=0.800000>
-			<Y=0.800000>
-			<Z=0.800000>
+			<X=0.258824>
+			<Y=0.250980>
+			<Z=0.290196>
 		>
 		<AmbientColor=
-			<X=0.819608>
-			<Y=0.819608>
-			<Z=0.819608>
+			<X=1.000000>
+			<Y=0.960784>
+			<Z=0.937255>
 		>
-		<AmbientIntensity=1.000000>
+		<AmbientIntensity=1.200000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
 		<FogFar=0.000000>
 		<FogColor=
-			<X=0.235294>
-			<Y=0.305882>
-			<Z=0.352941>
+			<X=0.713726>
+			<Y=0.600000>
+			<Z=0.756863>
 		>
 	>
 	<Physics=
 		<Frequency=59.999996>
 	>
+	<CurrentCamera="GameCam">
 	<ViewMatrix=
 		<R0=
-			<X=0.701437>
+			<X=1.000000>
 			<Y=0.000000>
-			<Z=0.712731>
+			<Z=-0.000050>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.119585>
-			<Y=0.985824>
-			<Z=0.117690>
+			<X=0.000012>
+			<Y=0.970143>
+			<Z=0.242536>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.702627>
-			<Y=-0.167784>
-			<Z=0.691494>
+			<X=0.000049>
+			<Y=-0.242536>
+			<Z=0.970143>
 			<W=0.000000>
 		>
 		<R3=
-			<X=605.952454>
-			<Y=144.697235>
-			<Z=-673.778442>
+			<X=-0.000976>
+			<Y=4.877598>
+			<Z=-19.510391>
 			<W=1.000000>
 		>
 	>
@@ -940,25 +1033,25 @@
 				<R0=
 					<X=1.000000>
 					<Y=0.000000>
-					<Z=0.000000>
+					<Z=-0.000050>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.000000>
-					<Y=1.000000>
-					<Z=0.000000>
+					<X=0.000012>
+					<Y=0.970143>
+					<Z=0.242536>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=1.000000>
+					<X=0.000049>
+					<Y=-0.242536>
+					<Z=0.970143>
 					<W=0.000000>
 				>
 				<R3=
-					<X=0.000000>
-					<Y=5.000000>
-					<Z=-28.000000>
+					<X=-0.000976>
+					<Y=4.877598>
+					<Z=-19.510391>
 					<W=1.000000>
 				>
 			>
@@ -968,27 +1061,27 @@
 			<Camera="@Perspective">
 			<Matrix=
 				<R0=
-					<X=0.701437>
+					<X=-0.999469>
 					<Y=0.000000>
-					<Z=0.712731>
+					<Z=-0.032598>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.119585>
-					<Y=0.985824>
-					<Z=0.117690>
+					<X=0.007490>
+					<Y=0.973247>
+					<Z=-0.229638>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.702627>
-					<Y=-0.167784>
-					<Z=0.691494>
+					<X=0.031726>
+					<Y=-0.229760>
+					<Z=-0.972730>
 					<W=0.000000>
 				>
 				<R3=
-					<X=605.952454>
-					<Y=144.697235>
-					<Z=-673.778442>
+					<X=-19.175508>
+					<Y=138.868958>
+					<Z=-212.064697>
 					<W=1.000000>
 				>
 			>

@@ -9,12 +9,13 @@
 */
 
 Include("Script/gui.nut")
+Include("Script/globals.nut")
 
 debug			<- 1
 
 gShipCanRoll	<- 1
 
-//Controls
+//Controls 
 useMouse	<- 0
 usePad		<- 1
 
@@ -85,7 +86,7 @@ class	schmup
 			scene = ProjectInstantiateScene(project, "Scenes/Level1.nms")
 			ProjectAddLayer(project, scene, 1)
 			MixerChannelStop(g_mixer,channel_music)
-			channel_music = MixerStreamStart(g_mixer,"data/01-EXTRA.ogg")
+			channel_music = MixerStreamStart(g_mixer,snd_mu_game)
 //			channel_music = MixerStreamStart(g_mixer,"data/Song1.ogg")
 			MixerChannelSetGain(g_mixer, channel_music, 0.6)
 			MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
@@ -120,9 +121,9 @@ class	schmup
 //	========================================================================================================
 	{
 		g_clock_scale = EngineGetClockScale(g_engine)
+//		EngineSetFixedDeltaFrame(g_engine,60)
 
-//		channel_music = MixerStreamStart(g_mixer,"data/StarfoxCorneria-brawlRemix.ogg")
-		channel_music = MixerStreamStart(g_mixer,"data/Title_Romain.ogg")
+		channel_music = MixerStreamStart(g_mixer,snd_mu_title)
 
 		MixerChannelSetGain(g_mixer, channel_music, 1)
 		MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)

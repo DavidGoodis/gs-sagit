@@ -35,7 +35,5 @@ class	TunnelElement
 
 	function	OnSetup(item)
 	{
-//		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
-//		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
 	}
 }

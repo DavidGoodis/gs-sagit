@@ -30,7 +30,7 @@ class	ForceField
 		local ace_deleter = AceDeleter()
 		ace_deleter.Update()
 
-		if (ItemGetScriptInstance(SceneFindItem(ItemGetScene(item), "Spacecraft")).gFFON)
+/*		if (ItemGetScriptInstance(SceneFindItem(ItemGetScene(item), "Spacecraft")).gFFON)
 			if (TickToSec(g_clock - timer) > 1 )
 			{
 				local flash = SceneDuplicateItem(ItemGetScene(item), item)
@@ -40,6 +40,7 @@ class	ForceField
 			}		
 
 		ItemSetRotation(item, Vector(Rand(0, 90),Rand(0, 90), Rand(0,90)))
+*/
 	}
 
 

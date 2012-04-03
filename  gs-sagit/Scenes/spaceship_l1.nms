@@ -598,7 +598,7 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 								<Y=1.000000>
 								<Z=4.638963>
 							>
-							<Mass=10.000000>
+							<Mass=100.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -625,7 +625,7 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 								<Y=2.605185>
 								<Z=7.746401>
 							>
-							<Mass=10.000000>
+							<Mass=100.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -907,7 +907,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 								<Y=8.000000>
 								<Z=8.000000>
 							>
-							<Mass=10.000000>
+							<Mass=100.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.100000>
@@ -937,26 +937,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="Script/reactor1.nut">
-						<Class="reactor1">
-					>
-					<ScriptUnit=
-						<Script="Script/reactorTrailPoly.nut">
-						<Class="reactor1">
-						<ParmList=
-							<Parm=
-								<Id="size">
-								<Value=0.200000>
-							>
-							<Parm=
-								<Id="step">
-								<Value=0.500000>
-							>
-						>
-					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -1002,26 +982,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="Script/reactor1.nut">
-						<Class="reactor1">
-					>
-					<ScriptUnit=
-						<Script="Script/reactorTrailPoly.nut">
-						<Class="reactor1">
-						<ParmList=
-							<Parm=
-								<Id="size">
-								<Value=0.200000>
-							>
-							<Parm=
-								<Id="step">
-								<Value=0.500000>
-							>
-						>
-					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -1465,6 +1425,22 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="Script/reactorTrailPoly.nut">
+						<Class="reactor1">
+						<ParmList=
+							<Parm=
+								<Id="size">
+								<Value=0.700000>
+							>
+							<Parm=
+								<Id="step">
+								<Value=0.500000>
+							>
+						>
+					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -1918,27 +1894,27 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 	>
 	<ViewMatrix=
 		<R0=
-			<X=-0.921949>
-			<Y=0.000000>
-			<Z=-0.387311>
+			<X=-0.708284>
+			<Y=-0.000000>
+			<Z=0.705928>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.122013>
-			<Y=0.949083>
-			<Z=-0.290439>
+			<X=-0.294263>
+			<Y=0.908977>
+			<Z=-0.295245>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.367590>
-			<Y=-0.315027>
-			<Z=-0.875006>
+			<X=-0.641673>
+			<Y=-0.416845>
+			<Z=-0.643814>
 			<W=0.000000>
 		>
 		<R3=
-			<X=-12.823225>
-			<Y=5.700084>
-			<Z=22.547092>
+			<X=25.859343>
+			<Y=16.798826>
+			<Z=25.945629>
 			<W=1.000000>
 		>
 	>
@@ -1951,27 +1927,27 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<Camera="@Perspective">
 			<Matrix=
 				<R0=
-					<X=-0.921949>
-					<Y=0.000000>
-					<Z=-0.387311>
+					<X=-0.708284>
+					<Y=-0.000000>
+					<Z=0.705928>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.122013>
-					<Y=0.949083>
-					<Z=-0.290439>
+					<X=-0.294263>
+					<Y=0.908977>
+					<Z=-0.295245>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.367590>
-					<Y=-0.315027>
-					<Z=-0.875006>
+					<X=-0.641673>
+					<Y=-0.416845>
+					<Z=-0.643814>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-12.823225>
-					<Y=5.700084>
-					<Z=22.547092>
+					<X=25.859343>
+					<Y=16.798826>
+					<Z=25.945629>
 					<W=1.000000>
 				>
 			>
