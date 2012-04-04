@@ -80,6 +80,10 @@ class	Level1
 	tunnelSliceCol 	= 0
 	tunnelSliceMesh = 0
 	tunnelScale		= 0
+
+	beveled_cube	= 0
+	torus 			= 0
+
 	/*!
 		@short	OnUpdate
 		Called each frame.
@@ -353,17 +357,18 @@ class	Level1
 				arrTunnel = GenerateTunnelSlice(scene, arrTunnel, tunnelScale )
 			//Clean up tunnel sections which are behind the player
 			CleanTunnel(scene,arrTunnel)
-
+/*
 			//spawn torus
 			if (TickToSec(g_clock-torusTimer) >= torusInterval )
 			{
 				torusInterval	= Rand(0.5,2)
 				torusCounter++
-				local new_torus = SpawnItem(scene, base_item[4], Vector(Mtr(0+xoffset),Mtr(0+yoffset),Mtr(1000)), Vector(20,20,20),Vector(Deg(0),Deg(0),Deg(0)), Vector(0,0,-250-10*boost), Vector(0,0,0))
+//				local new_torus = SpawnItem(scene, base_item[4], Vector(Mtr(0+xoffset),Mtr(0+yoffset),Mtr(1000)), Vector(20,20,20),Vector(Deg(0),Deg(0),Deg(0)), Vector(0,0,-250-10*boost), Vector(0,0,0))
+				local new_torus = SpawnItem(scene, torus, Vector(Mtr(0+xoffset),Mtr(0+yoffset),Mtr(1000)), Vector(20,20,20),Vector(Deg(0),Deg(0),Deg(0)), Vector(0,0,-250-10*boost), Vector(0,0,0))
 				torusArray.append(new_torus)
 				torusTimer = g_clock
 			}
-
+*/
 			//spawn asteroid
 			if ((TickToSec(g_clock-seqTimer) >= 1) && !rockON)
 			{
@@ -375,14 +380,17 @@ class	Level1
 			foreach(idx,enemy in enemiesT1)
 			{
 				local v = ItemGetLinearVelocity(enemy)
-				if ((ItemHasScript(enemy, "Cube") && ItemGetScriptInstance(enemy).captured))
+/*				if ((ItemHasScript(enemy, "Cube") && ItemGetScriptInstance(enemy).captured))
 					{
 						ItemSetLinearVelocity(enemy, Vector(0,0,0))
 						local scpos = ItemGetPosition(SceneFindItem(scene,"Spacecraft"))
 						ItemPhysicResetTransformation(enemy, Vector(scpos.x, scpos.y-10, scpos.z), Vector(0,0,0))
 					}
-				else
+				else*/
+				if (ItemHasScript(enemy, "Cube") && !ItemGetScriptInstance(enemy).captured)
 					ItemSetLinearVelocity(enemy, Vector(v.x,v.y,v.z-boost))
+				else
+					enemiesT1.remove(idx)
 
 //				if ( (ItemGetPosition(enemy).z < ItemGetPosition(CameraGetItem(SceneGetCurrentCamera(scene))).z-20) || (ItemGetPosition(enemy).z > 1300 ) )
 				if ( (ItemGetPosition(enemy).z < 0) || (ItemGetPosition(enemy).z > 1300 ) )
@@ -421,7 +429,9 @@ class	Level1
 			if (enemiesT1.len() < max_ennemies)
 			{
 				local choice = Rand(0,3).tointeger()
-				new_item = SceneDuplicateItem(scene, base_item[choice])
+//				new_item = SceneDuplicateItem(scene, base_item[choice])
+				new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
+				ItemSetScript(new_item, "Script/cube.nut" , "Cube")
 
 				local scale_factor, rotation_y
 
@@ -613,14 +623,16 @@ class	Level1
 		WindowSetCommandList(story2, "toposition 15,3000,650; toposition 2,900,650; toposition 5,900,650; toposition 1,3000,650;")
 */
 
-		local objNmy 	= SceneAddObject(scene, "NMY")
+/*		local objNmy 	= SceneAddObject(scene, "NMY")
 		local objVehic 	= SceneAddObject(scene, "Vehic1")
 		local objIcos 	= SceneAddObject(scene, "Icosphere")
 		local objRock 	= SceneAddObject(scene, "Rock")
+
 		local objEne 	= SceneAddObject(scene, "Ene")
-//		local geoNmy 	= EngineLoadGeometry(g_engine, "cube_Extrude/Cube.nmg")
-//		local geoNmy 	= EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg")
+		local geoNmy 	= EngineLoadGeometry(g_engine, "cube_Extrude/Cube.nmg")
+		local geoNmy 	= EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg")
 		local geoNmy 	= EngineLoadGeometry(g_engine, "Mesh/beveled_cube.nmg")
+
 		local geoEne 	= EngineLoadGeometry(g_engine, "Mesh/beveled_cube.nmg")
 		local geoVehic	= EngineLoadGeometry(g_engine, "Mesh/Vehic1.nmg")
 		local geoIcos 	= EngineLoadGeometry(g_engine, "icosphere/Icosphere.nmg")
@@ -631,33 +643,34 @@ class	Level1
 		ObjectSetGeometry(objIcos, geoIcos)
 		ObjectSetGeometry(objRock, geoRock)
 		ObjectSetGeometry(objEne, geoEne)
-
-		base_item = []
-		base_item.append(ObjectGetItem(objNmy))
-		base_item.append(ObjectGetItem(objVehic))
-		base_item.append(ObjectGetItem(objIcos))
-		base_item.append(ObjectGetItem(objRock))
+*/
+//		base_item = []
+//		base_item.append(SceneFindItem(scene, "BeveledCube"))
+//		beveled_cube = SceneFindItem(scene, "BeveledCube")
+//		ItemSetScript(beveled_cube, "Script/cube.nut" , "Cube")
+//		torus		 = ObjectGetItem(objEne)
+//		base_item.append(ObjectGetItem(objNmy))
+//		base_item.append(ObjectGetItem(objVehic))
+//		base_item.append(ObjectGetItem(objIcos))
+//		base_item.append(ObjectGetItem(objRock))
 //		base_item.append(SceneDuplicateItem(scene, SceneFindItem(scene,"TunnelElement")))
-		base_item.append(ObjectGetItem(objEne))
+//		base_item.append(ObjectGetItem(objEne))
 
-		ItemSetPosition(base_item[0], Vector(-5000,-5000,-5000))
-		ItemSetScale(base_item[0], Vector(1,1,1))
-		ItemSetScript(base_item[0],"Script/cube.nut" , "Cube")
-
+//		ItemSetPosition(base_item[0], Vector(-5000,-5000,-5000))
+//		ItemSetScript(base_item[0],"Script/cube.nut" , "Cube")
+/*
 		ItemSetPosition(base_item[1], Vector(-5000,-5000,-5000))
-		ItemSetScale(base_item[1], Vector(1,1,1))
 		ItemSetScript(base_item[1],"Script/cube.nut" , "Vehic1")
 
 		ItemSetPosition(base_item[2], Vector(-5000,-5000,-5000))
-		ItemSetScale(base_item[2], Vector(1,1,1))
 		ItemSetScript(base_item[2],"Script/cube.nut" , "iso")
 
 		ItemSetPosition(base_item[3], Vector(-5000,-5000,-5000))
-//		ItemSetScale(base_item[3], Vector(1,1,1))
 		ItemSetScript(base_item[3],"Script/cube.nut" , "Rock")
+*/
+//		ItemSetPosition(base_item[4], Vector(-5000,-5000,-5000))
+//		ItemSetScale(base_item[4], Vector(5,5,5))
 
-		ItemSetPosition(base_item[4], Vector(-5000,-5000,-5000))
-		ItemSetScale(base_item[4], Vector(5,5,5))
 //		ItemSetScript(base_item[4],"Script/TunnelElement.nut" , "TunnelElement")
 
 /*		ItemSetPosition(base_item[5], Vector(-5000,-5000,-5000))
@@ -666,7 +679,7 @@ class	Level1
 */
 
 
-		//prevents objets from falling down, makes them fall forward instead
+		//prevents objets from falling down
 		SceneSetGravity(scene, Vector(0,0,0))
 		SceneSetPhysicFrequency(scene, 75.0)
 /*		channel_music = MixerStreamStart(g_mixer,"data/emergency.ogg")

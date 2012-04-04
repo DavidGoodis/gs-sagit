@@ -22,6 +22,25 @@ class	spacecraft
 
 
 //	========================================================================================================
+	function	ItemSetCaptured(captured_item, by_item)
+//	========================================================================================================
+	{
+//		ItemSetParent(captured_item, by_item)
+		ItemSetCollisionMask(captured_item, 0)
+		ItemGetScriptInstance(captured_item).captured = 1
+//		local sPos = ItemGetPivot(by_item)
+//		local cPos = ItemGetPivot(captured_item)
+		ItemGetScriptInstance(captured_item).cst_ship1 = SceneAddPointConstraint(ItemGetScene(by_item), "shipcst1", by_item, captured_item, Vector(0,-10,5), Vector(0,10,10))
+		ItemGetScriptInstance(captured_item).cst_ship2 = SceneAddPointConstraint(ItemGetScene(by_item), "shipcst2", by_item, captured_item, Vector(0,-15,10), Vector(0,15,20))
+//		SceneAddPointConstraint(ItemGetScene(by_item), "shipcst", by_item, captured_item, Vector(0,5,0), Vector(0,-15,0))
+//		ItemPhysicSetAngularFactor(captured_item, Vector(0,0,0))
+
+//		ItemPhysicResetTransformation(captured_item, cPos, Vector(0,0,0))
+
+		armed = 1
+	}
+
+//	========================================================================================================
 	function	OnUpdate(item)
 //	========================================================================================================
 	{
@@ -45,19 +64,21 @@ class	spacecraft
 					gFFON = 1
 				}
 				
-				if (gFFenergy > 0)
-					{
-						gFFenergy -= 1 
-						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) + FFopacityStep,0,1))
-					}
-				if (gFFenergy <= 0)
-					{
-						gFFenergy = 0
-						local channel = MixerStreamStart(g_mixer,"data/noenergy.ogg")
-						MixerChannelSetGain(g_mixer, channel, 0.8)
-						MixerChannelSetLoopMode(g_mixer, channel, LoopNone )
-						ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) - FFopacityStep,0,1))
-					}
+				try{
+					if (gFFenergy > 0)
+						{
+							gFFenergy -= 1 
+							ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) + FFopacityStep,0,1))
+						}
+					if (gFFenergy <= 0)
+						{
+							gFFenergy = 0
+							local channel = MixerStreamStart(g_mixer,"data/noenergy.ogg")
+							MixerChannelSetGain(g_mixer, channel, 0.8)
+							MixerChannelSetLoopMode(g_mixer, channel, LoopNone )
+							ItemSetOpacity(FFitem  , Clamp(ItemGetOpacity(FFitem) - FFopacityStep,0,1))
+						}
+					}catch(e){}
 			}
 		else
 			{
@@ -74,8 +95,12 @@ class	spacecraft
 				if (TickToSec(g_clock-g_timer) >= 0.01)
 				{
 					g_timer = g_clock	
-					if (gFFenergy < gMaxEnergy)
-						gFFenergy++
+					try{
+						if (gFFenergy < gMaxEnergy)
+							gFFenergy++
+						}
+					catch(e){}
+
 					ItemSetOpacity( FFitem  , Clamp(ItemGetOpacity(FFitem) - FFopacityStep,0,1))
 				}
 			}
@@ -105,19 +130,6 @@ class	spacecraft
 		ItemSetup(item)
 	}
 
-//	========================================================================================================
-	function	ItemSetCaptured(captured_item, by_item)
-//	========================================================================================================
-	{
-		ItemSetParent(captured_item, by_item)
-		ItemSetCollisionMask(captured_item, 0)
-		ItemGetScriptInstance(captured_item).captured = 1
-//		ItemPhysicSetAngularFactor(captured_item, Vector(0,0,0))
-		local pos_ = ItemGetPosition(by_item)
-		ItemPhysicResetTransformation(captured_item, Vector(pos_.x, pos_.y + 50, pos_.z + 50), Vector(0,0,0))
-
-		armed = 1
-	}
 
 
 //	========================================================================================================
@@ -129,7 +141,9 @@ class	spacecraft
 		// Collision feedback
 		if (!gFFON)
 		{
-			gCam_shake = 1
+			try{
+				gCam_shake = 1
+			} catch(e){}
 			local buuu  = EngineLoadSound(g_engine, snd_fx_wall)
 			MixerSoundStart(g_mixer, buuu)
 		}
@@ -137,25 +151,28 @@ class	spacecraft
 		{
 			local o = ItemCastToObject(with_item)
 			ObjectSetGeometry(o, EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg"))
-			ItemApplyLinearImpulse(ObjectGetItem(o), Vector(0,0,1))
+//			ItemApplyLinearImpulse(ObjectGetItem(o), Vector(0,0,1))
 			
 			local buuu  = EngineLoadSound(g_engine, snd_fx_otshield)
 			MixerSoundStart(g_mixer, buuu)
 
-			//grab the cube
-			if (!armed)
+			//grab the cube if FF is On and ship is not armed yet
+/*			if (!armed)
 				ItemSetCaptured(with_item, item)
+*/
 		}
 
 		// Update Lifes
-		if ((!gFFON) || (gFFenergy < 1))
-			gLifes += -1
-		if (gLifes == -1)
-			gLifes = 0
+			try{
+				if ((!gFFON) || (gFFenergy < 1))
+					gLifes += -1
+				if (gLifes == -1)
+					gLifes = 0
+			} catch(e){}
 
 //		local inst = SceneGetScriptInstance(c_scene)
 //		inst.UpdateLifes(gLifes)
-		Level1.UpdateLifes(gLifes)
+//		Level1.UpdateLifes(gLifes)
 //		print("glifes:"+gLifes)
 	}
 
@@ -206,8 +223,8 @@ class	spacecraft
 						if (!pady) pady = 1
 //						ItemApplyLinearImpulse(item,Vector(0,v_step*0.8,0).Scale(ItemGetMass(item)))
 	//					ItemApplyLinearImpulse(item,Vector(0,v_step*0.8,0).Scale(ItemGetMass(item)*low_dt_compensation))
-//						ItemApplyLinearImpulse(item,Vector(-zRot*0.8,v_step*0.8,0).Scale(low_dt_compensation))
-						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+//						ItemApplyLinearImpulse(item,Vector(-zRot*0.8,v_step*0.8,0)/*.Scale(low_dt_compensation)*/)
+						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 					}
 
 		if	((DeviceIsKeyDown(keyboard, KeyDownArrow)) || (usePad&&(pady < 0.0 )) || (DeviceIsKeyDown(pad, Down)))
@@ -215,8 +232,8 @@ class	spacecraft
 					{
 						if (!pady) pady = -1
 //						ItemApplyLinearImpulse(item,Vector(0,v_step*-0.8,0).Scale(ItemGetMass(item)))
-//						ItemApplyLinearImpulse(item,Vector(zRot*0.8,v_step*-0.8,0).Scale(low_dt_compensation))
-						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+//						ItemApplyLinearImpulse(item,Vector(zRot*0.8,v_step*-0.8,0)/*.Scale(low_dt_compensation)*/)
+						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 					}
 
 		if	((DeviceIsKeyDown(keyboard, KeyLeftArrow)) || (usePad&&(padx < 0.0 )) || (DeviceIsKeyDown(pad, Left)))
@@ -225,10 +242,10 @@ class	spacecraft
 						if (!padx) padx = -1
 //						ItemApplyTorque(item, Vector(0,0,r_step/5).Scale(ItemGetMass(item)))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,0,0).Scale(ItemGetMass(item)))
-//						ItemApplyTorque(item, Vector(0,0,r_step/5).Scale(low_dt_compensation))
-						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
-//						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,-zRot,0).Scale(low_dt_compensation))
-						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+//						ItemApplyTorque(item, Vector(0,0,r_step/5)/*.Scale(low_dt_compensation)*/)
+						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x)/*.Scale(low_dt_compensation)*/)
+//						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,-zRot,0)/*.Scale(low_dt_compensation)*/)
+						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 
 					ItemApplyTorque(item, Vector(0,0,r_step/10).Scale(ItemGetMass(item)))
 					}
@@ -240,9 +257,9 @@ class	spacecraft
 //						print ("ShipScreenPosition.x < 1.0 !!! "+ShipScreenPosition.x)
 //						ItemApplyTorque(item, Vector(0,0,-r_step/5).Scale(ItemGetMass(item)))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,0,0).Scale(ItemGetMass(item)))
-						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
-//						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,zRot,0).Scale(low_dt_compensation))
-	 					ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot)).Scale(low_dt_compensation))
+						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x)/*.Scale(low_dt_compensation)*/)
+//						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,zRot,0)/*.Scale(low_dt_compensation)*/)
+	 					ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 
 					ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
 					}
@@ -250,7 +267,7 @@ class	spacecraft
 
 		if	(DeviceIsKeyDown(keyboard, KeyA ))
 					{
-	 					ItemApplyLinearImpulse(item,Vector(0,0,50).Scale(low_dt_compensation))
+	 					ItemApplyLinearImpulse(item,Vector(0,0,50)/*.Scale(low_dt_compensation)*/)
 					}
 
 
