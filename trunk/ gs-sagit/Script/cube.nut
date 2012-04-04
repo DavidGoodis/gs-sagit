@@ -13,7 +13,9 @@ class	Cube
 	r_step = Rand(-0.1,0.1) //rotation step
 	p_step = Rand(5,150) //position step
 
-	captured = 0
+	captured 	= 0
+	cst_ship1 	= 0
+	cst_ship2 	= 0
 
 	/*!
 		@short	OnUpdate
@@ -37,16 +39,21 @@ class	Cube
 		}
 		else
 		{
+//			ItemGetWorldPosition(item).Print("Cube")
+
 			if	((DeviceKeyPressed(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
 			{
-				ItemGetScriptInstance(ItemGetParent(item)).armed = 0
-				ItemSetParent(item, NullItem)
-				ItemSetSelfMask(item, 12)
-				ItemSetCollisionMask(item, 16)
+				ItemGetScriptInstance(SceneFindItem(g_scene, "Spacecraft")).armed = 0
+//				ItemSetParent(item, NullItem)
+//  			ItemSetSelfMask(item, 12)
+//				ItemSetCollisionMask(item, 4)
+				
+				ConstraintEnable(cst_ship1, false)
+				ConstraintEnable(cst_ship2, false)
 				captured = 0
-	
+				
 				local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
-				ItemApplyTorque(item, Vector(0,0,0))
+
 				ItemPhysicSetLinearFactor(item, Vector(0,0,1))
 				ItemApplyLinearImpulse(item, Vector(0,0,100))
 			}
@@ -56,6 +63,8 @@ class	Cube
 	function	OnUpdate(item)
 	{
 //		ItemSetOpacity(item, Clamp(Abs(1-ItemGetPosition(item).z/1000),0,1))
+		if (captured)
+			print("captured")
 	}
 
 	/*!
@@ -94,5 +103,7 @@ class	Cube
 		ItemSetCollisionMask(item, 4)
 
 		ItemWake(item)
+
+		captured = 0
 	}
 }
