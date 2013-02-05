@@ -15,10 +15,12 @@ class	Building
 	*/
 	function	OnUpdate(item)
 	{
-		local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
+		local booost = SceneGetScriptInstanceFromClass(g_scene, "Level1" ).boost
 		local pos = ItemGetPosition(item)
 		local v = ItemGetLinearVelocity(item)
-		ItemSetPosition(item, Vector(pos.x,pos.y,pos.z-1-booost))
+
+		if (!pause)
+			ItemSetPosition(item, Vector(pos.x,pos.y,pos.z-5-booost))
 		ItemSetOpacity(item, Clamp(100/pos.z,0,0.7))
 	}
 

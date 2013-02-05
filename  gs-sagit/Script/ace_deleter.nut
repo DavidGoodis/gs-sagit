@@ -16,6 +16,11 @@ class	AceDeleter
 	{
 		item_list.append(_item)
 	}
+
+	function	Flush()
+	{
+		item_list.append(_item)
+	}
 	
 	function	Update()
 	{
@@ -23,7 +28,7 @@ class	AceDeleter
 			if (ItemIsCommandListDone(current_item))
 			{
 //				SceneDeleteObject(ItemGetScene(current_item), ItemCastToObject(current_item))
-				SceneDeleteItem(ItemGetScene(current_item), current_item)
+				SceneDeleteItem(g_scene, current_item)
 				item_list.remove(n)
 				//return
 			}

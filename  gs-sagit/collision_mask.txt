@@ -1,22 +1,55 @@
-     S F N T P
+     W S F N T P
     +---------
-SHIP|0 0 0 0 1 
+SHIP|0 0 0 0 0 1 
     |
-FF  |0 0 0 1 0 
+FF  |0 0 0 0 1 0 
     |
-NMY |0 0 1 0 0  
+NMY |0 0 0 1 0 0  
     |
-TUN |0 1 0 0 0 
+TUN |0 0 1 0 0 0 
     |
-PROJ|1 0 0 0 0 
+BUL |0 1 0 0 0 0 
+    |
+WAL |1 0 0 0 0 0
 
 
-SHIP = 1 , GROUP = 4 or 8 = 1100 = 12
-FF   = 2 , GROUP = 4 or 8 = 0100 = 12
-NMY  = 4 , GROUP = 1 or 2 = 0011 = 3
-NMY  = 4 , GROUP = 1 or 2 = 0111 = 7
-TUN  = 8 , GROUP = 1 or 2 = 0011 = 3
-PRJ  = 16, GROUP = 4 or 8 = 12
+SHIP 	= 1 , GROUP = 4 or 8 or 32	= 101100 = 44
+FF   	= 2 , GROUP = 4 or 8 		= 000100 = 12
+//NMY  	= 4 , GROUP = 1 or 2 		= 000011 = 3
+//NMY  	= 4 , GROUP = 1 or 2 or 4 	= 000111 = 7
+NMY  	= 4 , GROUP = 1 or 2 or 4 or 8 	= 001111 = 15
+//TUN  	= 8 , GROUP = 1 or 2 		= 000011 = 3
+TUN  	= 8 , GROUP = 1 or 2 or 4 	= 000111 = 7
+BUL  	= 16, GROUP = 4 or 8 or 32	= 101100 = 44
+WAL 	= 32, GROUP = 16 or 1 		= 110001 = 17
 
 ------
 Mask = 0 to disable collisions on an item
+
+
+C'est un systeme de masque de bit :
+Un object a un masque pour les groupes auquel il appartient (SelfMask) et un masque pour les groupes avec qui il collide (CollideWith).
+
+Ex:
+
+Si on definis les groupes suivants :
+
+Allies:        001b  (1 en decimal)
+Ennemis:       010b  (2 en decimal)
+Mur:           100b (4 en decimal)
+
+Alors :
+
+Un objet qui est un allie et qui ne collide pas avec les allies mais avec les murs et les ennemis est definis comme suit :
+
+Self (groupe auquel il appartient) :  001b  (allies) -> 1
+Collide with (groupe qu'il collide) :  010b (ennemis) | 100b (mur) = 110b -> 6
+
+Un mur qui collide avec tout le monde sauf les autres murs :
+
+Self : 100b -> 4
+Coll: 001b | 010b = 011b -> 3
+
+*-----
+ItemSetCollisionMask	= Collide with mask
+ItemSetSelfMask 	= Collision group mask

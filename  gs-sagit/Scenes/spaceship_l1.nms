@@ -1,5 +1,11 @@
 <Version=1.0>
 <Scene=
+	<SceneMotionContainer=
+		<SceneMotion=
+			<Name="AnimTest">
+			<ItemMotions>
+		>
+	>
 	<Items=
 		<MCamera=
 			<MItem=
@@ -8,7 +14,6 @@
 				<Active>
 				<Helper>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -18,18 +23,18 @@
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-*******й())и***i+**iчцvg***й())и***i+**iчццg***й())и***i+**iДГCh
-***й())и***i+**iчцvh***й())и***i+**i**Єh***й())и***i+**iДГГh***й
-())и***i+**i]]Эh***й())и***i+**iчццh***й())и***i+**iђђh***й())и
-***i+**i***i***й())и***i+**iчц6i***й())и***i+**iДГCi***й())и***i
+*******й())и***i+**iуцvg***й())и***i+**iуццg***й())и***i+**iБГCh
+***й())и***i+**iуцvh***й())и***i+**i**Єh***й())и***i+**iБГГh***й
+())и***i+**i]]Эh***й())и***i+**iуццh***й())и***i+**iђђh***й())и
+***i+**i***i***й())и***i+**iчц6i***й())и***i+**iБГCi***й())и***i
 +**iђђPi***й())и***i+**i]]]i***й())и***i+**i**ji***й())и***i+**i
-чцvi***й())и***i+**iДГѓi***й())и***i+**iђђђi***й())и***i+**i]]ќi
+уцvi***й())и***i+**iБГѓi***й())и***i+**iђђђi***й())и***i+**i]]ќi
 ***й())и***i+**i**Єi***й())и***i+**iђђ°i***й())и***i+**iчц¶i***й
 ())и***i+**i]]Ѕi***й())и***i+**iДГГi***й())и***i+**i**Кi***й())и
 ***i+**iђђРi***й())и***i+**iчцЦi***й())и***i+**i]]Эi***й())и***i
 +**iДГгi***й())и***i+**i**кi***й())и***i+**iђђрi***й())и***i+**i
-чццi***й())и***i+**i]]эi***й())и***i+**iДГi***й())и***i+**i**=J
-i***й())и***i+**iђђi***й())и***i+**iчцi***й())и***i+**i]]i***
+цццi***й())и***i+**i]]эi***й())и***i+**iДГi***й())и***i+**i**=J
+i***й())и***i+**iђђi***й())и***i+**iццi***й())и***i+**i]]i***
 й())и***i+**iДГ#i***й())и***i+**i***j***й())и***i+**i]]-j***й())
 и***i+**iђђ0j***й())и***i+**iДГ3j***й())и***i+**iчц6j***й())и***
 i+**i**:j***й())и***i+**i]]=}j***й())и***i+**iђђ@j***й())и***i+*
@@ -163,22 +168,22 @@ Hk***й())и***i+**i]]Ik***й())и***i+**i**Jk***й())и***i+**iчцJk**
 			<Camera=
 				<Item=
 					<Position=
-						<X=6.980283>
-						<Y=26.345585>
-						<Z=-25.993822>
+						<X=11.825537>
+						<Y=0.512787>
+						<Z=2.750838>
 					>
 					<Rotation=
-						<X=0.544301>
-						<Y=2.062848>
-						<Z=-0.000001>
+						<X=-0.000000>
+						<Y=-1.570797>
+						<Z=0.000000>
 					>
 					<ItemFlag=
 						<HasTarget>
 					>
 					<Target=
-						<X=-1.243770>
-						<Y=-3.592438>
-						<Z=-0.095025>
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
@@ -195,7 +200,6 @@ Hk***й())и***i+**i]]Ik***й())и***i+**i**Jk***й())и***i+**iчцJk**
 				<UId=1>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -205,18 +209,18 @@ Hk***й())и***i+**i]]Ik***й())и***i+**i**Jk***й())и***i+**iчцJk**
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****._й********._iчцvg._й********._iчццg._й********._iДГCh
-._й********._iчцvh._й********._i**Єh._й********._iДГГh._й
-********._i]]Эh._й********._iчццh._й********._iђђh._й****
-****._i***i._й********._iчц6i._й********._iДГCi._й********
+****._й********._iуцvg._й********._iуццg._й********._iБГCh
+._й********._iуцvh._й********._i**Єh._й********._iБГГh._й
+********._i]]Эh._й********._iуццh._й********._iђђh._й****
+****._i***i._й********._iчц6i._й********._iБГCi._й********
 ._iђђPi._й********._i]]]i._й********._i**ji._й********._i
-чцvi._й********._iДГѓi._й********._iђђђi._й********._i]]ќi
+уцvi._й********._iБГѓi._й********._iђђђi._й********._i]]ќi
 ._й********._i**Єi._й********._iђђ°i._й********._iчц¶i._й
 ********._i]]Ѕi._й********._iДГГi._й********._i**Кi._й****
 ****._iђђРi._й********._iчцЦi._й********._i]]Эi._й********
 ._iДГгi._й********._i**кi._й********._iђђрi._й********._i
-чццi._й********._i]]эi._й********._iДГi._й********._i**=J
-i._й********._iђђi._й********._iчцi._й********._i]]i._
+цццi._й********._i]]эi._й********._iДГi._й********._i**=J
+i._й********._iђђi._й********._iццi._й********._i]]i._
 й********._iДГ#i._й********._i***j._й********._i]]-j._й***
 *****._iђђ0j._й********._iДГ3j._й********._iчц6j._й*******
 *._i**:j._й********._i]]=}j._й********._iђђ@j._й********.
@@ -338,7 +342,7 @@ _й********._iДГKk._й********._iђђLk._й********._i]]Mk._й**
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<Script="Script/forcefield.nut">
+						<ScriptPath="Script/forcefield.nut">
 						<Class="ForceField">
 					>
 				>
@@ -388,6 +392,7 @@ _й********._iДГKk._й********._iђђLk._й********._i]]Mk._й**
 						<Y=8.000000>
 						<Z=8.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -397,6 +402,7 @@ _й********._iДГKk._й********._iђђLk._й********._i]]Mk._й**
 					<Registry>
 				>
 				<Geometry="Mesh/ForceField.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MObject=
@@ -405,7 +411,6 @@ _й********._iДГKk._й********._iђђLk._й********._i]]Mk._й**
 				<UId=2>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -415,18 +420,18 @@ _й********._iДГKk._й********._iђђLk._й********._i]]Mk._й**
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****ЊТ™Ф**ЄiэеХЮнв\ЯчцvgЊТ™Ф**ЄiэеХЮнв\ЯчццgЊТ™Ф**ЄiэеХЮнв\ЯДГCh
-ЊТ™Ф**ЄiэеХЮнв\ЯчцvhЊТ™Ф**ЄiэеХЮнв\Я**ЄhЊТ™Ф**ЄiэеХЮнв\ЯДГГhЊТ™Ф
-**ЄiэеХЮнв\Я]]ЭhЊТ™Ф**ЄiэеХЮнв\ЯчццhЊТ™Ф**ЄiэеХЮнв\ЯђђhЊТ™Ф**Єi
-эеХЮнв\Я***iЊТ™Ф**ЄiэеХЮнв\Ячц6iЊТ™Ф**ЄiэеХЮнв\ЯДГCiЊТ™Ф**ЄiэеХЮ
+****ЊТ™Ф**ЄiэеХЮнв\ЯуцvgЊТ™Ф**ЄiэеХЮнв\ЯуццgЊТ™Ф**ЄiэеХЮнв\ЯБГCh
+ЊТ™Ф**ЄiэеХЮнв\ЯуцvhЊТ™Ф**ЄiэеХЮнв\Я**ЄhЊТ™Ф**ЄiэеХЮнв\ЯБГГhЊТ™Ф
+**ЄiэеХЮнв\Я]]ЭhЊТ™Ф**ЄiэеХЮнв\ЯуццhЊТ™Ф**ЄiэеХЮнв\ЯђђhЊТ™Ф**Єi
+эеХЮнв\Я***iЊТ™Ф**ЄiэеХЮнв\Ячц6iЊТ™Ф**ЄiэеХЮнв\ЯБГCiЊТ™Ф**ЄiэеХЮ
 нв\ЯђђPiЊТ™Ф**ЄiэеХЮнв\Я]]]iЊТ™Ф**ЄiэеХЮнв\Я**jiЊТ™Ф**ЄiэеХЮнв\Я
-чцviЊТ™Ф**ЄiэеХЮнв\ЯДГѓiЊТ™Ф**ЄiэеХЮнв\ЯђђђiЊТ™Ф**ЄiэеХЮнв\Я]]ќi
+уцviЊТ™Ф**ЄiэеХЮнв\ЯБГѓiЊТ™Ф**ЄiэеХЮнв\ЯђђђiЊТ™Ф**ЄiэеХЮнв\Я]]ќi
 ЊТ™Ф**ЄiэеХЮнв\Я**ЄiЊТ™Ф**ЄiэеХЮнв\Яђђ°iЊТ™Ф**ЄiэеХЮнв\Ячц¶iЊТ™Ф
 **ЄiэеХЮнв\Я]]ЅiЊТ™Ф**ЄiэеХЮнв\ЯДГГiЊТ™Ф**ЄiэеХЮнв\Я**КiЊТ™Ф**Єi
 эеХЮнв\ЯђђРiЊТ™Ф**ЄiэеХЮнв\ЯчцЦiЊТ™Ф**ЄiэеХЮнв\Я]]ЭiЊТ™Ф**ЄiэеХЮ
 нв\ЯДГгiЊТ™Ф**ЄiэеХЮнв\Я**кiЊТ™Ф**ЄiэеХЮнв\ЯђђрiЊТ™Ф**ЄiэеХЮнв\Я
-чццiЊТ™Ф**ЄiэеХЮнв\Я]]эiЊТ™Ф**ЄiэеХЮнв\ЯДГiЊТ™Ф**ЄiэеХЮнв\Я**=J
-iЊТ™Ф**ЄiэеХЮнв\ЯђђiЊТ™Ф**ЄiэеХЮнв\ЯчцiЊТ™Ф**ЄiэеХЮнв\Я]]iЊТ™
+цццiЊТ™Ф**ЄiэеХЮнв\Я]]эiЊТ™Ф**ЄiэеХЮнв\ЯДГiЊТ™Ф**ЄiэеХЮнв\Я**=J
+iЊТ™Ф**ЄiэеХЮнв\ЯђђiЊТ™Ф**ЄiэеХЮнв\ЯццiЊТ™Ф**ЄiэеХЮнв\Я]]iЊТ™
 Ф**ЄiэеХЮнв\ЯДГ#iЊТ™Ф**ЄiэеХЮнв\Я***jЊТ™Ф**ЄiэеХЮнв\Я]]-jЊТ™Ф**Є
 iэеХЮнв\Яђђ0jЊТ™Ф**ЄiэеХЮнв\ЯДГ3jЊТ™Ф**ЄiэеХЮнв\Ячц6jЊТ™Ф**ЄiэеХ
 Юнв\Я**:jЊТ™Ф**ЄiэеХЮнв\Я]]=}jЊТ™Ф**ЄiэеХЮнв\Яђђ@jЊТ™Ф**ЄiэеХЮнв
@@ -548,26 +553,12 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<Script="Script/spacecraft.nut">
+						<ScriptPath="Script/spacecraft.nut">
 						<Class="spacecraft">
-					>
-					<ScriptUnit=
-						<Script="Script/overcraft.nut">
-						<Class="spacecraft">
-						<ParmList=
-							<Parm=
-								<Id="amplitude">
-								<Value=5>
-							>
-							<Parm=
-								<Id="step">
-								<Value=2>
-							>
-						>
 					>
 				>
 				<PhysicItem=
-					<SelfMask=12>
+					<SelfMask=44>
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
@@ -675,6 +666,7 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 					<Registry>
 				>
 				<Geometry="Mesh/Spacecraft.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MObject=
@@ -683,7 +675,6 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 				<UId=3>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -693,18 +684,18 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****d5,e!|g*еVжURЁiчцvgd5,e!|g*еVжURЁiчццgd5,e!|g*еVжURЁiДГCh
-d5,e!|g*еVжURЁiчцvhd5,e!|g*еVжURЁi**Єhd5,e!|g*еVжURЁiДГГhd5,e
-!|g*еVжURЁi]]Эhd5,e!|g*еVжURЁiчццhd5,e!|g*еVжURЁiђђhd5,e!|g
-*еVжURЁi***id5,e!|g*еVжURЁiчц6id5,e!|g*еVжURЁiДГCid5,e!|g*еVж
+****d5,e!|g*еVжURЁiуцvgd5,e!|g*еVжURЁiуццgd5,e!|g*еVжURЁiБГCh
+d5,e!|g*еVжURЁiуцvhd5,e!|g*еVжURЁi**Єhd5,e!|g*еVжURЁiБГГhd5,e
+!|g*еVжURЁi]]Эhd5,e!|g*еVжURЁiуццhd5,e!|g*еVжURЁiђђhd5,e!|g
+*еVжURЁi***id5,e!|g*еVжURЁiчц6id5,e!|g*еVжURЁiБГCid5,e!|g*еVж
 URЁiђђPid5,e!|g*еVжURЁi]]]id5,e!|g*еVжURЁi**jid5,e!|g*еVжURЁi
-чцvid5,e!|g*еVжURЁiДГѓid5,e!|g*еVжURЁiђђђid5,e!|g*еVжURЁi]]ќi
+уцvid5,e!|g*еVжURЁiБГѓid5,e!|g*еVжURЁiђђђid5,e!|g*еVжURЁi]]ќi
 d5,e!|g*еVжURЁi**Єid5,e!|g*еVжURЁiђђ°id5,e!|g*еVжURЁiчц¶id5,e
 !|g*еVжURЁi]]Ѕid5,e!|g*еVжURЁiДГГid5,e!|g*еVжURЁi**Кid5,e!|g
 *еVжURЁiђђРid5,e!|g*еVжURЁiчцЦid5,e!|g*еVжURЁi]]Эid5,e!|g*еVж
 URЁiДГгid5,e!|g*еVжURЁi**кid5,e!|g*еVжURЁiђђрid5,e!|g*еVжURЁi
-чццid5,e!|g*еVжURЁi]]эid5,e!|g*еVжURЁiДГid5,e!|g*еVжURЁi**=J
-id5,e!|g*еVжURЁiђђid5,e!|g*еVжURЁiчцid5,e!|g*еVжURЁi]]id5,
+цццid5,e!|g*еVжURЁi]]эid5,e!|g*еVжURЁiДГid5,e!|g*еVжURЁi**=J
+id5,e!|g*еVжURЁiђђid5,e!|g*еVжURЁiццid5,e!|g*еVжURЁi]]id5,
 e!|g*еVжURЁiДГ#id5,e!|g*еVжURЁi***jd5,e!|g*еVжURЁi]]-jd5,e!|
 g*еVжURЁiђђ0jd5,e!|g*еVжURЁiДГ3jd5,e!|g*еVжURЁiчц6jd5,e!|g*еV
 жURЁi**:jd5,e!|g*еVжURЁi]]=}jd5,e!|g*еVжURЁiђђ@jd5,e!|g*еVжUR
@@ -861,6 +852,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 					<Registry>
 				>
 				<Geometry="Mesh/reactor1.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MObject=
@@ -869,7 +861,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<UId=4>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -881,7 +872,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 					<CharacterRadius=0.500000>
 					<CharacterHeight=1.750000>
 					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
+					<Mode="Kinematic">
 					<Shapes=
 						<PhysicShape=
 							<Type="Sphere">
@@ -915,7 +906,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 			>
 			<Object=
 				<Item=
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -924,6 +914,8 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 					<RotationOrder="ZYX">
 					<Registry>
 				>
+				<Geometry="">
+				<CacheGeometry=True>
 			>
 		>
 		<MObject=
@@ -932,7 +924,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<UId=5>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -968,6 +959,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 					<Registry>
 				>
 				<Geometry="Mesh/particleReactor.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MObject=
@@ -976,7 +968,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<UId=6>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1012,6 +1003,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 					<Registry>
 				>
 				<Geometry="Mesh/particleReactor.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MLight=
@@ -1021,7 +1013,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				<Active>
 				<Helper>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -1031,18 +1022,18 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-**** ._i^pЊDп"bO._iчцvg ._i^pЊDп"bO._iчццg ._i^pЊDп"bO._iДГCh
- ._i^pЊDп"bO._iчцvh ._i^pЊDп"bO._i**Єh ._i^pЊDп"bO._iДГГh ._i
-^pЊDп"bO._i]]Эh ._i^pЊDп"bO._iчццh ._i^pЊDп"bO._iђђh ._i^pЊD
-п"bO._i***i ._i^pЊDп"bO._iчц6i ._i^pЊDп"bO._iДГCi ._i^pЊDп"bO
+**** ._i^pЊDп"bO._iуцvg ._i^pЊDп"bO._iуццg ._i^pЊDп"bO._iБГCh
+ ._i^pЊDп"bO._iуцvh ._i^pЊDп"bO._i**Єh ._i^pЊDп"bO._iБГГh ._i
+^pЊDп"bO._i]]Эh ._i^pЊDп"bO._iуццh ._i^pЊDп"bO._iђђh ._i^pЊD
+п"bO._i***i ._i^pЊDп"bO._iчц6i ._i^pЊDп"bO._iБГCi ._i^pЊDп"bO
 ._iђђPi ._i^pЊDп"bO._i]]]i ._i^pЊDп"bO._i**ji ._i^pЊDп"bO._i
-чцvi ._i^pЊDп"bO._iДГѓi ._i^pЊDп"bO._iђђђi ._i^pЊDп"bO._i]]ќi
+уцvi ._i^pЊDп"bO._iБГѓi ._i^pЊDп"bO._iђђђi ._i^pЊDп"bO._i]]ќi
  ._i^pЊDп"bO._i**Єi ._i^pЊDп"bO._iђђ°i ._i^pЊDп"bO._iчц¶i ._i
 ^pЊDп"bO._i]]Ѕi ._i^pЊDп"bO._iДГГi ._i^pЊDп"bO._i**Кi ._i^pЊD
 п"bO._iђђРi ._i^pЊDп"bO._iчцЦi ._i^pЊDп"bO._i]]Эi ._i^pЊDп"bO
 ._iДГгi ._i^pЊDп"bO._i**кi ._i^pЊDп"bO._iђђрi ._i^pЊDп"bO._i
-чццi ._i^pЊDп"bO._i]]эi ._i^pЊDп"bO._iДГi ._i^pЊDп"bO._i**=J
-i ._i^pЊDп"bO._iђђi ._i^pЊDп"bO._iчцi ._i^pЊDп"bO._i]]i ._
+цццi ._i^pЊDп"bO._i]]эi ._i^pЊDп"bO._iДГi ._i^pЊDп"bO._i**=J
+i ._i^pЊDп"bO._iђђi ._i^pЊDп"bO._iццi ._i^pЊDп"bO._i]]i ._
 i^pЊDп"bO._iДГ#i ._i^pЊDп"bO._i***j ._i^pЊDп"bO._i]]-j ._i^pЊ
 Dп"bO._iђђ0j ._i^pЊDп"bO._iДГ3j ._i^pЊDп"bO._iчц6j ._i^pЊDп"b
 O._i**:j ._i^pЊDп"bO._i]]=}j ._i^pЊDп"bO._iђђ@j ._i^pЊDп"bO.
@@ -1193,12 +1184,6 @@ bO._iђђPk ._i^pЊDп"bO._i>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
 				<Diffuse=
 					<X=0.330000>
 					<Y=0.460000>
@@ -1209,7 +1194,31 @@ bO._iђђPk ._i^pЊDп"bO._i>
 					<Y=0.460000>
 					<Z=0.580000>
 				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
 				<DiffuseIntensity=2.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="Map">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
 			>
 		>
 		<MLight=
@@ -1219,7 +1228,6 @@ bO._iђђPk ._i^pЊDп"bO._i>
 				<Active>
 				<Helper>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions=
 						<Motion=
@@ -1229,18 +1237,18 @@ bO._iђђPk ._i^pЊDп"bO._i>
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****ігжgвРKi-йЋиDЙfiчцvgігжgвРKi-йЋиDЙfiчццgігжgвРKi-йЋиDЙfiДГCh
-ігжgвРKi-йЋиDЙfiчцvhігжgвРKi-йЋиDЙfi**ЄhігжgвРKi-йЋиDЙfiДГГhігжg
-вРKi-йЋиDЙfi]]ЭhігжgвРKi-йЋиDЙfiчццhігжgвРKi-йЋиDЙfiђђhігжgвРKi
--йЋиDЙfi***iігжgвРKi-йЋиDЙfiчц6iігжgвРKi-йЋиDЙfiДГCiігжgвРKi-йЋи
+****ігжgвРKi-йЋиDЙfiуцvgігжgвРKi-йЋиDЙfiуццgігжgвРKi-йЋиDЙfiБГCh
+ігжgвРKi-йЋиDЙfiуцvhігжgвРKi-йЋиDЙfi**ЄhігжgвРKi-йЋиDЙfiБГГhігжg
+вРKi-йЋиDЙfi]]ЭhігжgвРKi-йЋиDЙfiуццhігжgвРKi-йЋиDЙfiђђhігжgвРKi
+-йЋиDЙfi***iігжgвРKi-йЋиDЙfiчц6iігжgвРKi-йЋиDЙfiБГCiігжgвРKi-йЋи
 DЙfiђђPiігжgвРKi-йЋиDЙfi]]]iігжgвРKi-йЋиDЙfi**jiігжgвРKi-йЋиDЙfi
-чцviігжgвРKi-йЋиDЙfiДГѓiігжgвРKi-йЋиDЙfiђђђiігжgвРKi-йЋиDЙfi]]ќi
+уцviігжgвРKi-йЋиDЙfiБГѓiігжgвРKi-йЋиDЙfiђђђiігжgвРKi-йЋиDЙfi]]ќi
 ігжgвРKi-йЋиDЙfi**ЄiігжgвРKi-йЋиDЙfiђђ°iігжgвРKi-йЋиDЙfiчц¶iігжg
 вРKi-йЋиDЙfi]]ЅiігжgвРKi-йЋиDЙfiДГГiігжgвРKi-йЋиDЙfi**КiігжgвРKi
 -йЋиDЙfiђђРiігжgвРKi-йЋиDЙfiчцЦiігжgвРKi-йЋиDЙfi]]ЭiігжgвРKi-йЋи
 DЙfiДГгiігжgвРKi-йЋиDЙfi**кiігжgвРKi-йЋиDЙfiђђрiігжgвРKi-йЋиDЙfi
-чццiігжgвРKi-йЋиDЙfi]]эiігжgвРKi-йЋиDЙfiДГiігжgвРKi-йЋиDЙfi**=J
-iігжgвРKi-йЋиDЙfiђђiігжgвРKi-йЋиDЙfiчцiігжgвРKi-йЋиDЙfi]]iігж
+цццiігжgвРKi-йЋиDЙfi]]эiігжgвРKi-йЋиDЙfiДГiігжgвРKi-йЋиDЙfi**=J
+iігжgвРKi-йЋиDЙfiђђiігжgвРKi-йЋиDЙfiццiігжgвРKi-йЋиDЙfi]]iігж
 gвРKi-йЋиDЙfiДГ#iігжgвРKi-йЋиDЙfi***jігжgвРKi-йЋиDЙfi]]-jігжgвРK
 i-йЋиDЙfiђђ0jігжgвРKi-йЋиDЙfiДГ3jігжgвРKi-йЋиDЙfiчц6jігжgвРKi-йЋ
 иDЙfi**:jігжgвРKi-йЋиDЙfi]]=}jігжgвРKi-йЋиDЙfiђђ@jігжgвРKi-йЋиDЙ
@@ -1383,7 +1391,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 						<Y=3.141593>
 						<Z=3.141593>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1392,13 +1399,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Type="Parallel">
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
 				<Diffuse=
 					<X=1.000000>
 					<Y=0.920000>
@@ -1409,7 +1409,31 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<Y=0.920000>
 					<Z=0.780000>
 				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Parallel">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
 				<DiffuseIntensity=2.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="Map">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
 			>
 		>
 		<MLight=
@@ -1418,25 +1442,8 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 				<UId=9>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="Script/reactorTrailPoly.nut">
-						<Class="reactor1">
-						<ParmList=
-							<Parm=
-								<Id="size">
-								<Value=0.700000>
-							>
-							<Parm=
-								<Id="step">
-								<Value=0.500000>
-							>
-						>
-					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -1452,21 +1459,20 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<Light=
 				<Item=
 					<Position=
-						<X=-0.154274>
-						<Y=0.186819>
-						<Z=3.571203>
+						<X=-1.329342>
+						<Y=4.033859>
+						<Z=9.008930>
 					>
 					<Rotation=
-						<X=0.251049>
-						<Y=2.928189>
-						<Z=3.127389>
+						<X=0.490052>
+						<Y=2.954319>
+						<Z=-3.044337>
 					>
 					<Scale=
 						<X=5.555555>
-						<Y=5.555555>
-						<Z=5.555555>
+						<Y=5.555556>
+						<Z=5.555556>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1475,44 +1481,49 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Type="Spot">
-				<ShadowBias=0.000001>
-				<ShadowDistribution=0.900000>
-				<ShadowColor=
-					<X=0.827451>
+				<Diffuse=
+					<X=0.784314>
 					<Y=0.000000>
 					<Z=0.000000>
 				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=0.792157>
+				>
+				<ShadowColor=
+					<X=0.827451>
+					<Y=0.439216>
+					<Z=0.000000>
+				>
+				<Type="Spot">
+				<Falloff="Linear">
+				<Range=2.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=200.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=10.000000>
+				<SpecularIntensity=5.000000>
+				<ConeAngle=0.261799>
+				<EdgeAngle=0.087266>
+				<ZNear=0.100000>
+				<Shadow="None">
+				<ShadowBias=0.000001>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
 				<ShadowCastAll=True>
-				<Volumetric>
+				<Volumetric=False>
 				<VolumetricSampleStep=0.500000>
 				<VolumetricThick=10.000000>
 				<VolumetricRange=10.000000>
-				<ZNear=0.100000>
-				<Range=1.500000>
-				<ClipDistance=200.000000>
-				<Diffuse=
-					<X=1.000000>
-					<Y=0.400000>
-					<Z=0.000000>
-				>
-				<Specular=
-					<X=0.952941>
-					<Y=1.000000>
-					<Z=0.000000>
-				>
-				<DiffuseIntensity=10.000000>
-				<SpecularIntensity=10.000000>
-				<ConeAngle=0.349066>
 			>
 		>
 		<MConstraint=
 			<MItem=
 				<Id="shieldLink1">
-				<UId=11>
+				<UId=10>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1521,9 +1532,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="None">
 				>
 			>
@@ -1586,10 +1597,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		<MConstraint=
 			<MItem=
 				<Id="shieldLink2">
-				<UId=12>
+				<UId=11>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1598,9 +1608,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="None">
 				>
 			>
@@ -1663,10 +1673,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		<MConstraint=
 			<MItem=
 				<Id="shieldLink3">
-				<UId=13>
+				<UId=12>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1675,9 +1684,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="None">
 				>
 			>
@@ -1740,10 +1749,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		<MConstraint=
 			<MItem=
 				<Id="shieldLink4">
-				<UId=14>
+				<UId=13>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1752,9 +1760,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="None">
 				>
 			>
@@ -1841,8 +1849,12 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<Link=3>
 		>
 	>
-	<Skins>
 	<Constraints=
+		<Constraint=
+			<Uid=10>
+			<UidA=2>
+			<UidB=4>
+		>
 		<Constraint=
 			<Uid=11>
 			<UidA=2>
@@ -1858,11 +1870,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<UidA=2>
 			<UidB=4>
 		>
-		<Constraint=
-			<Uid=14>
-			<UidA=2>
-			<UidB=4>
-		>
 	>
 	<Globals=
 		<BackgroundColor=
@@ -1875,6 +1882,7 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<Y=0.964706>
 			<Z=0.827451>
 		>
+		<TimeOfDay=0.500000>
 		<AmbientIntensity=1.000000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
@@ -1888,29 +1896,30 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 	<Physics=
 		<Frequency=59.999996>
 	>
+	<CurrentCamera="Camera">
 	<ViewMatrix=
 		<R0=
-			<X=0.720997>
+			<X=-0.583319>
 			<Y=-0.000000>
-			<Z=0.692938>
+			<Z=0.812243>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.426924>
-			<Y=0.787663>
-			<Z=0.444211>
+			<X=-0.105675>
+			<Y=0.991500>
+			<Z=-0.075892>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.545801>
-			<Y=-0.616107>
-			<Z=0.567903>
+			<X=-0.805339>
+			<Y=-0.130103>
+			<Z=-0.578361>
 			<W=0.000000>
 		>
 		<R3=
-			<X=29.974123>
-			<Y=33.322353>
-			<Z=-28.437037>
+			<X=12.768116>
+			<Y=2.062698>
+			<Z=9.169536>
 			<W=1.000000>
 		>
 	>
@@ -1920,37 +1929,37 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		<Layout="Single">
 		<Viewport=
 			<Index=0>
-			<Camera="@Perspective">
+			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=0.720997>
+					<X=-0.583319>
 					<Y=-0.000000>
-					<Z=0.692938>
+					<Z=0.812243>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.426924>
-					<Y=0.787663>
-					<Z=0.444211>
+					<X=-0.105675>
+					<Y=0.991500>
+					<Z=-0.075892>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.545801>
-					<Y=-0.616107>
-					<Z=0.567903>
+					<X=-0.805339>
+					<Y=-0.130103>
+					<Z=-0.578361>
 					<W=0.000000>
 				>
 				<R3=
-					<X=29.974123>
-					<Y=33.322353>
-					<Z=-28.437037>
+					<X=12.768116>
+					<Y=2.062698>
+					<Z=9.169536>
 					<W=1.000000>
 				>
 			>
 		>
 		<Viewport=
 			<Index=1>
-			<Camera="@Top">
+			<CameraUid=-10>
 			<Matrix=
 				<R0=
 					<X=1.000000>
@@ -1960,14 +1969,14 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 				>
 				<R1=
 					<X=0.000000>
-					<Y=-0.000000>
-					<Z=1.000000>
+					<Y=1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R2=
 					<X=0.000000>
-					<Y=-1.000000>
-					<Z=-0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R3=
@@ -1980,7 +1989,7 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		>
 		<Viewport=
 			<Index=2>
-			<Camera="@Bottom">
+			<CameraUid=-11>
 			<Matrix=
 				<R0=
 					<X=1.000000>
@@ -1990,14 +1999,14 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 				>
 				<R1=
 					<X=0.000000>
-					<Y=-0.000000>
-					<Z=-1.000000>
+					<Y=1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R2=
 					<X=0.000000>
-					<Y=1.000000>
-					<Z=-0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R3=
@@ -2010,12 +2019,12 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		>
 		<Viewport=
 			<Index=3>
-			<Camera="@Left">
+			<CameraUid=-12>
 			<Matrix=
 				<R0=
-					<X=-0.000000>
+					<X=1.000000>
 					<Y=0.000000>
-					<Z=-1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R1=
@@ -2025,9 +2034,9 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 					<W=0.000000>
 				>
 				<R2=
-					<X=1.000000>
+					<X=0.000000>
 					<Y=0.000000>
-					<Z=-0.000000>
+					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R3=

@@ -2,14 +2,11 @@
 <Scene=
 	<ScriptedObject=
 		<ScriptUnit=
-			<Script="Script/title.nut">
+			<ScriptPath="Script/title.nut">
 			<Class="Scenes_Title">
 		>
 	>
-	<ScriptUnit=
-		<Script="Script/title.nut">
-		<Class="Scenes_Title">
-	>
+	<SceneMotionContainer>
 	<Items=
 		<MCamera=
 			<MItem=
@@ -17,7 +14,6 @@
 				<UId=0>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -35,25 +31,29 @@
 			<Camera=
 				<Item=
 					<Position=
-						<X=3.314864>
-						<Y=1.282178>
-						<Z=1.408695>
+						<X=-3.145127>
+						<Y=2.534699>
+						<Z=9.985513>
 					>
 					<Rotation=
-						<X=-0.005589>
-						<Y=2.979318>
-						<Z=0.000000>
+						<X=0.127664>
+						<Y=2.907003>
+						<Z=-0.000000>
+					>
+					<ItemFlag=
+						<HasTarget>
 					>
 					<Target=
-						<X=6.583282>
-						<Y=2.435722>
-						<Z=-15.678604>
+						<X=-0.431829>
+						<Y=4.917674>
+						<Z=-1.017346>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
+				<ZNear=0.200000>
 				<ZFar=50000.000000>
-				<ZoomFactor=1.428148>
+				<ZoomFactor=1.191754>
 				<AspectRatioRefYAxis=True>
 			>
 		>
@@ -63,14 +63,23 @@
 				<UId=1>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<Script="Script/TitleShip.nut">
+						<ScriptPath="Script/TitleShip.nut">
 						<Class="Ship">
+					>
+					<ScriptUnit=
+						<ScriptPath="Script/EndLessRotation.nut">
+						<Class="EndLessRotation">
+						<ParmList=
+							<Parm=
+								<Id="speed">
+								<Value=0.050000>
+							>
+						>
 					>
 				>
 				<PhysicItem=
@@ -106,22 +115,18 @@
 							<W=0.000000>
 						>
 						<R3=
-							<X=-1.011228>
-							<Y=0.817507>
-							<Z=10.398893>
+							<X=0.000000>
+							<Y=-0.512787>
+							<Z=-2.751774>
 							<W=1.000000>
 						>
 					>
 					<Position=
-						<X=6.092834>
-						<Y=-1.808453>
-						<Z=-12.467562>
+						<X=-2.077111>
+						<Y=2.043663>
+						<Z=0.000000>
 					>
-					<Rotation=
-						<X=-0.084531>
-						<Y=-0.206087>
-						<Z=0.654816>
-					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -130,7 +135,8 @@
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/Title_Ship_Reactor_Merged.nmg">
+				<Geometry="Mesh/Spacecraft.nmg">
+				<CacheGeometry=True>
 			>
 		>
 		<MLight=
@@ -139,7 +145,6 @@
 				<UId=2>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -157,9 +162,9 @@
 			<Light=
 				<Item=
 					<Position=
-						<X=-1.525421>
-						<Y=3.830948>
-						<Z=-12.635706>
+						<X=-26.435112>
+						<Y=-2.437786>
+						<Z=7.794710>
 					>
 					<Target=
 						<X=0.000000>
@@ -169,23 +174,41 @@
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
+				<Diffuse=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.015686>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
 				<ShadowColor=
 					<X=0.105882>
 					<Y=0.000000>
 					<Z=0.000000>
 				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=5000.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="PMap">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
 				<VolumetricSampleStep=0.500000>
 				<VolumetricThick=1.000000>
 				<VolumetricRange=8.000000>
-				<Range=5000.000000>
-				<Diffuse=
-					<X=0.000000>
-					<Y=0.411765>
-					<Z=0.494118>
-				>
 			>
 		>
 		<MLight=
@@ -194,7 +217,6 @@
 				<UId=3>
 				<Active>
 				<Priority=0.500000>
-				<ScriptLogicFq=15.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -212,9 +234,14 @@
 			<Light=
 				<Item=
 					<Position=
-						<X=11.754172>
-						<Y=-3.427641>
-						<Z=-14.976748>
+						<X=15.389795>
+						<Y=5.869154>
+						<Z=-1.352944>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.000000>
+						<Z=-2.968805>
 					>
 					<Target=
 						<X=0.000000>
@@ -224,40 +251,213 @@
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
+				<Diffuse=
+					<X=0.000000>
+					<Y=0.784314>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
 				<ShadowColor=
 					<X=0.137255>
 					<Y=0.133333>
 					<Z=0.133333>
 				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=5000.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="PMap">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
 				<VolumetricSampleStep=0.500000>
 				<VolumetricThick=1.000000>
 				<VolumetricRange=8.000000>
-				<ZNear=0.100000>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="ReactorLight">
+				<UId=4>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Position=
+						<X=0.000000>
+						<Y=0.653072>
+						<Z=-2.726801>
+					>
+					<ItemFlag>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
 				<Diffuse=
 					<X=1.000000>
-					<Y=0.000000>
-					<Z=0.701961>
+					<Y=0.400000>
+					<Z=0.000000>
 				>
+				<Specular=
+					<X=0.952941>
+					<Y=1.000000>
+					<Z=0.000000>
+				>
+				<ShadowColor=
+					<X=0.827451>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Spot">
+				<Falloff="Linear">
+				<Range=1.500000>
+				<VolumeRange=500.000000>
+				<ClipDistance=200.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=10.000000>
+				<SpecularIntensity=10.000000>
+				<ConeAngle=0.349066>
+				<EdgeAngle=0.523599>
+				<ZNear=0.100000>
+				<Shadow="None">
+				<ShadowBias=0.000001>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=True>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=10.000000>
+				<VolumetricRange=10.000000>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="New Light">
+				<UId=5>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Position=
+						<X=14.501038>
+						<Y=-10.171021>
+						<Z=17.946896>
+					>
+					<Rotation=
+						<X=0.117810>
+						<Y=-3.141577>
+						<Z=-3.141581>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Diffuse=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=1000.000000>
+				<ClipDistance=1000.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.100000>
+				<Shadow="PMap">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
 			>
 		>
 	>
-	<Links>
-	<Skins>
+	<Links=
+		<Link=
+			<Item=4>
+			<Link=1>
+		>
+	>
 	<Constraints>
 	<Globals=
 		<BackgroundColor=
-			<X=1.000000>
-			<Y=1.000000>
-			<Z=1.000000>
+			<X=0.329412>
+			<Y=0.329412>
+			<Z=0.329412>
 		>
 		<AmbientColor=
 			<X=1.000000>
 			<Y=1.000000>
 			<Z=1.000000>
 		>
+		<TimeOfDay=0.500000>
 		<AmbientIntensity=1.000000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
@@ -274,27 +474,27 @@
 	<CurrentCamera="TitleCam">
 	<ViewMatrix=
 		<R0=
-			<X=-0.986862>
+			<X=-0.970914>
 			<Y=0.000000>
-			<Z=-0.161564>
+			<Z=-0.239427>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.000903>
-			<Y=0.999984>
-			<Z=0.005515>
+			<X=-0.049269>
+			<Y=0.978599>
+			<Z=0.199793>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.161561>
-			<Y=0.005589>
-			<Z=-0.986847>
+			<X=0.234303>
+			<Y=0.205778>
+			<Z=-0.950136>
 			<W=0.000000>
 		>
 		<R3=
-			<X=3.314864>
-			<Y=1.282178>
-			<Z=1.408695>
+			<X=-3.145127>
+			<Y=2.534699>
+			<Z=9.985513>
 			<W=1.000000>
 		>
 	>
@@ -304,67 +504,67 @@
 		<Layout="DualHorizontal">
 		<Viewport=
 			<Index=0>
-			<Camera="TitleCam">
+			<CameraUid=0>
 			<Matrix=
 				<R0=
-					<X=-0.986862>
+					<X=-0.970914>
 					<Y=0.000000>
-					<Z=-0.161564>
+					<Z=-0.239427>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.000903>
-					<Y=0.999984>
-					<Z=0.005515>
+					<X=-0.049269>
+					<Y=0.978599>
+					<Z=0.199793>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.161561>
-					<Y=0.005589>
-					<Z=-0.986847>
+					<X=0.234303>
+					<Y=0.205778>
+					<Z=-0.950136>
 					<W=0.000000>
 				>
 				<R3=
-					<X=3.314864>
-					<Y=1.282178>
-					<Z=1.408695>
+					<X=-3.145127>
+					<Y=2.534699>
+					<Z=9.985513>
 					<W=1.000000>
 				>
 			>
 		>
 		<Viewport=
 			<Index=1>
-			<Camera="@Perspective">
+			<CameraUid=-15>
 			<Matrix=
 				<R0=
-					<X=-0.700432>
-					<Y=-0.000000>
-					<Z=0.713719>
+					<X=-0.989992>
+					<Y=0.000000>
+					<Z=-0.141120>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.432360>
-					<Y=0.795628>
-					<Z=-0.424311>
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.567855>
-					<Y=-0.605785>
-					<Z=-0.557284>
+					<X=0.141120>
+					<Y=0.000000>
+					<Z=-0.989992>
 					<W=0.000000>
 				>
 				<R3=
-					<X=23.915159>
-					<Y=9.545634>
-					<Z=-3.042160>
+					<X=-3.435655>
+					<Y=2.257840>
+					<Z=9.510268>
 					<W=1.000000>
 				>
 			>
 		>
 		<Viewport=
 			<Index=2>
-			<Camera="@Bottom">
+			<CameraUid=-11>
 			<Matrix=
 				<R0=
 					<X=1.000000>
@@ -374,14 +574,14 @@
 				>
 				<R1=
 					<X=0.000000>
-					<Y=-0.000000>
-					<Z=-1.000000>
+					<Y=1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R2=
 					<X=0.000000>
-					<Y=1.000000>
-					<Z=-0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R3=
@@ -394,12 +594,12 @@
 		>
 		<Viewport=
 			<Index=3>
-			<Camera="@Left">
+			<CameraUid=-12>
 			<Matrix=
 				<R0=
-					<X=-0.000000>
+					<X=1.000000>
 					<Y=0.000000>
-					<Z=-1.000000>
+					<Z=0.000000>
 					<W=0.000000>
 				>
 				<R1=
@@ -409,9 +609,9 @@
 					<W=0.000000>
 				>
 				<R2=
-					<X=1.000000>
+					<X=0.000000>
 					<Y=0.000000>
-					<Z=-0.000000>
+					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R3=

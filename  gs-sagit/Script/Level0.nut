@@ -75,7 +75,7 @@ class	Level0
 	function	OnSetup(scene)
 	{
 		my_object = SceneAddObject(scene, "NMY")
-		my_geo = EngineLoadGeometry(g_engine, "cube_Extrude/Cube.nmg")
+		my_geo = ResourceFactoryLoadGeometry(g_factory, "cube_Extrude/Cube.nmg")
 		ObjectSetGeometry(my_object, my_geo)
 
 		base_item = ObjectGetItem(my_object)

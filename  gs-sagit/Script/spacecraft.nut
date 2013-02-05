@@ -50,11 +50,21 @@ class	spacecraft
 				pad 		= GetInputDevice("xinput0"),
 				padrt 		= DeviceInputValue(pad, DeviceAxisRT)
 
+
+		if (("useMouse" in getroottable()) && (useMouse == 1))
+		{
+//			DeviceInputSetValue(mouse, DeviceAxisX, 0.5)
+//			DeviceInputSetValue(mouse, DeviceAxisY, 0.5)
+		}
+		local usePad
+		if (!("usePad" in getroottable()))
+			usePad = 1
+
 		// Shield Activated
 		if	((DeviceIsKeyDown(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
 			{
 				//sound feedback
-				local shield  = EngineLoadSound(g_engine, snd_fx_shield)
+				local shield  = ResourceFactoryLoadSound(g_factory, snd_fx_shield)
 				if ((!gFFON) && (!armed)) //if force field is off and ship is not armed
 				{
 					MixerSoundStart(g_mixer, shield)
@@ -136,7 +146,7 @@ class	spacecraft
 	function	OnCollision(item, with_item)
 //	========================================================================================================
 	{
-		local c_scene = ItemGetScene(item)
+//		local c_scene = ItemGetScene(item)
 
 		// Collision feedback
 		if (!gFFON)
@@ -144,16 +154,16 @@ class	spacecraft
 			try{
 				gCam_shake = 1
 			} catch(e){}
-			local buuu  = EngineLoadSound(g_engine, snd_fx_wall)
+			local buuu  = ResourceFactoryLoadSound(g_factory, snd_fx_wall)
 			MixerSoundStart(g_mixer, buuu)
 		}
 		else
 		{
-			local o = ItemCastToObject(with_item)
-			ObjectSetGeometry(o, EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg"))
+//			local o = ItemCastToObject(with_item)
+//			ObjectSetGeometry(o, EngineLoadGeometry(g_engine, "Mesh/beveled_cube_nmy.nmg"))
 //			ItemApplyLinearImpulse(ObjectGetItem(o), Vector(0,0,1))
 			
-			local buuu  = EngineLoadSound(g_engine, snd_fx_otshield)
+			local buuu  = ResourceFactoryLoadSound(g_factory, snd_fx_otshield)
 			MixerSoundStart(g_mixer, buuu)
 
 			//grab the cube if FF is On and ship is not armed yet
@@ -185,9 +195,9 @@ class	spacecraft
 				pad 		= GetInputDevice("xinput0")
 
 		local	old_mx = DeviceInputLastValue(mouse, DeviceAxisX),
-		old_my = DeviceInputLastValue(mouse, DeviceAxisY)
+				old_my = DeviceInputLastValue(mouse, DeviceAxisY)
 		local	mx = DeviceInputValue(mouse, DeviceAxisX),
-		my = DeviceInputValue(mouse, DeviceAxisY)
+				my = DeviceInputValue(mouse, DeviceAxisY)
 
 		local	padx = DeviceInputValue(pad, DeviceAxisX),
 				pady = DeviceInputValue(pad, DeviceAxisY),
@@ -195,27 +205,32 @@ class	spacecraft
 				padlt = DeviceInputValue(pad, DeviceAxisLT),
 				padrt = DeviceInputValue(pad, DeviceAxisRT)
 
-		local camera = SceneGetCurrentCamera(ItemGetScene(item))
+		local camera = SceneGetCurrentCamera(g_scene)
 
 		//Get the rotation matrix of the camera to compensate for the roll
 		local camRot = ItemGetRotationMatrix(CameraGetItem(camera))
 
-		if (useMouse == 1)
+		if (("useMouse" in getroottable()) && (useMouse == 1))
 		{
-			ItemPhysicResetTransformation(item,Vector((mx-0.5)*20,(-my+0.5)*15,0),ItemGetRotation(item))
+//			ItemPhysicResetTransformation(item,Vector((mx-0.5)*200,(-my+0.5)*150,0),ItemGetRotation(item))
+			ItemPhysicResetTransformation(item,Vector((mx-0.5)*200,(-my+0.5)*150,0),ItemGetRotation(item))
 		}
 
 // Keeps the ship in the limits of the camera range
-		local ShipScreenPosition = CameraWorldToScreen(camera, ItemGetPosition(item))
+		local ShipScreenPosition = CameraWorldToScreen(camera, g_render, ItemGetPosition(item))
 
 		if (ShipScreenPosition.x < 0)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, 0, ShipScreenPosition.y, 30), ItemGetRotation(item))
+			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, 0, ShipScreenPosition.y, 30), ItemGetRotation(item))
 		if (ShipScreenPosition.x > 1)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, 1, ShipScreenPosition.y, 30), ItemGetRotation(item))
+			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, 1, ShipScreenPosition.y, 30), ItemGetRotation(item))
 		if (ShipScreenPosition.y < 0)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, ShipScreenPosition.x,0, 30), ItemGetRotation(item))
+			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, ShipScreenPosition.x,0, 30), ItemGetRotation(item))
 		if (ShipScreenPosition.y > 1)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, ShipScreenPosition.x,1, 30), ItemGetRotation(item))
+			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, ShipScreenPosition.x,1, 30), ItemGetRotation(item))
+
+		local usePad
+		if (!("usePad" in getroottable()))
+			usePad = 1
 
 		if	((DeviceIsKeyDown(keyboard, KeyUpArrow)) || (usePad&&(pady > 0.0 )) || (DeviceIsKeyDown(pad, Up)))
 				if (ShipScreenPosition.y > 0.0 )
@@ -243,11 +258,12 @@ class	spacecraft
 //						ItemApplyTorque(item, Vector(0,0,r_step/5).Scale(ItemGetMass(item)))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,0,0).Scale(ItemGetMass(item)))
 //						ItemApplyTorque(item, Vector(0,0,r_step/5)/*.Scale(low_dt_compensation)*/)
-						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x)/*.Scale(low_dt_compensation)*/)
+						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,-zRot,0)/*.Scale(low_dt_compensation)*/)
-						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
+//						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
+						ItemApplyLinearImpulse(item,(Vector(100*padx,0,0)))
 
-					ItemApplyTorque(item, Vector(0,0,r_step/10).Scale(ItemGetMass(item)))
+//						ItemApplyTorque(item, Vector(0,0,r_step/10).Scale(ItemGetMass(item)))
 					}
 
 		if	((DeviceIsKeyDown(keyboard, KeyRightArrow)) || (usePad&&(padx > 0.0 )) || (DeviceIsKeyDown(pad, Right)))
@@ -298,15 +314,20 @@ class	spacecraft
 	function	OnSetup(item)
 //	========================================================================================================
 	{
+
+
 //      ItemSetPhysicMode(item, PhysicModeDynamic)
-		ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))
+		if ("gShipCanRoll" in getroottable())
+			ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))
+		else
+			ItemPhysicSetAngularFactor(item, Vector(0,0,0))
 		ItemPhysicSetLinearFactor(item, Vector(1,1,0))
 //		ItemPhysicSetLinearFactor(item, Vector(1,1,1))
 		ItemSetLinearDamping(item,0.01)
 		ItemSetAngularDamping(item,0.01)
 
-		FFitem		= SceneFindItem(ItemGetScene(item),"ForceField")
-		FFcolShape 	= SceneFindItem(ItemGetScene(item),"ForceFieldCol")
+		FFitem		= SceneFindItem(g_scene,"ForceField")
+		FFcolShape 	= SceneFindItem(g_scene,"ForceFieldCol")
 
 		ItemSetCollisionMask(FFcolShape, 0)
 	}

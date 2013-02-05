@@ -3,7 +3,6 @@
 	Author: DG
 */
 
-Include("Script/ace_deleter.nut")
 
 /*!
 	@short	Ship
@@ -22,16 +21,17 @@ class	Ship
 //	========================================================================================================
 	{
 		//clean up all duplicated items
-		local ace_deleter = AceDeleter()
+/*		local ace_deleter = AceDeleter()
 		ace_deleter.Update()
 
 		if(TickToSec(g_clock - timer) > 1.9  )
 		{
 			local flash = SceneDuplicateItem(ItemGetScene(item), item)
-//			ItemSetCommandList(flash, "toalpha 0,0.5; toscale 1,1.5,1.5,1.5+toalpha 1,0.0;")
+			ItemSetCommandList(flash, "toalpha 0,0.5; toscale 1,1.5,1.5,1.5+toalpha 1,0.0;")
 			ace_deleter.RegisterItem(flash)
 			timer = g_clock
 		}
+*/
 	}
 
 	/*!
