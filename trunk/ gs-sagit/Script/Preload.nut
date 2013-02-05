@@ -53,18 +53,18 @@ class	Preload
 	{
 		print(state)
 		local ui = SceneGetUI(scene)
-		UILoadFont("ui/Square.ttf")
+		ProjectLoadUIFont(g_project, "ui/Square.ttf")
 
 		local LoaderLbl  = CreateLabel(ui, "Loading geometry...", 500, 450, 50, 500, 96,0,0,0,255,"Square",TextAlignLeft)
 
 //		ItemSetCommandList(SceneFindItem(scene,"Vehic1"), "toalpha 0,0.5; loop; torotation 30,0,1080,0+toalpha 30,1; torotation 30,0,-1080,0+toalpha 3,0.5; next;")
 
 		foreach(id, item in nmgToPreload)
-			EngineLoadGeometry(g_engine, "Mesh/" + item)
+			ResourceFactoryLoadGeometry(g_factory, "Mesh/" + item)
 
 		TextSetText(LoaderLbl[1], "Loading textures...")
 
 		foreach(id, item in TexToPreload)
-			EngineLoadTexture(g_engine, "Tex/" + item)
+			ResourceFactoryLoadTexture(g_factory, "Tex/" + item)
 	}
 }

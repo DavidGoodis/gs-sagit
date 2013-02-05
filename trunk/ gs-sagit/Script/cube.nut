@@ -16,6 +16,12 @@ class	Cube
 	captured 	= 0
 	cst_ship1 	= 0
 	cst_ship2 	= 0
+	cst_ship3 	= 0
+
+	RT_released	= 0
+
+	hit			= 0
+	dead		= 0
 
 	/*!
 		@short	OnUpdate
@@ -23,6 +29,21 @@ class	Cube
 	*/
 	function 	OnCollision(item,with_item)
 	{
+		if (ItemGetName(with_item) == "bullet" )
+			{
+				ItemSetCollisionMask(item, 0)
+				ItemSetLinearVelocity(item, Vector(1,1,0))
+				ItemSetAngularVelocity(item, Vector(0,0,0))
+				ItemApplyLinearImpulse(item, Vector(0,500,0))
+//				ItemSetCommandList(item, "toscale 3,0,0,0;")
+				hit = 1
+			}
+
+/*		if (ItemGetName(with_item) == "tunnelCol" )
+			{
+				dead = 1
+			}
+*/
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -32,6 +53,9 @@ class	Cube
 				pad 		= GetInputDevice("xinput0"),
 				padrt 		= DeviceInputValue(pad, DeviceAxisRT)
 
+		if (usePad&&(padrt == 0.0))
+			RT_released = 1
+
 		if (!captured)
 		{
 			local rot = ItemGetRotation(item)
@@ -39,32 +63,37 @@ class	Cube
 		}
 		else
 		{
-//			ItemGetWorldPosition(item).Print("Cube")
-
-			if	((DeviceKeyPressed(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
+			if	(DeviceKeyPressed(keyboard, KeyC) || DeviceKeyPressed(pad, Abutton))
+//			if	(DeviceKeyPressed(keyboard, KeyC) ||  (RT_released && (usePad&&(padrt > 0.0))))
 			{
+				RT_released = 0
+				ItemSetName(item, "bullet")
+
 				ItemGetScriptInstance(SceneFindItem(g_scene, "Spacecraft")).armed = 0
-//				ItemSetParent(item, NullItem)
-//  			ItemSetSelfMask(item, 12)
-//				ItemSetCollisionMask(item, 4)
+
+				local _shape = ItemGetShapeFromIndex(item, 0)
+				ShapeSetMass(_shape, 1000)
+				SceneSetupItem(g_scene, item)
 				
 				ConstraintEnable(cst_ship1, false)
 				ConstraintEnable(cst_ship2, false)
+				ConstraintEnable(cst_ship3, false)
 				captured = 0
 				
 				local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
 
 				ItemPhysicSetLinearFactor(item, Vector(0,0,1))
-				ItemApplyLinearImpulse(item, Vector(0,0,100))
+				ItemApplyLinearImpulse(item, Vector(0,0,200))
 			}
 		}
 	}
 
 	function	OnUpdate(item)
 	{
-//		ItemSetOpacity(item, Clamp(Abs(1-ItemGetPosition(item).z/1000),0,1))
-		if (captured)
-			print("captured")
+		if (ItemGetPosition(item).y > 50)
+			{
+//				dead = 1
+			}
 	}
 
 	/*!
@@ -73,9 +102,8 @@ class	Cube
 	*/
 	function	OnSetup(item)
 	{
+/*
         ItemSetPhysicMode(item, PhysicModeDynamic)
-		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
-		ItemPhysicSetLinearFactor(item, Vector(1,0.1,1))
 
         local        _shape		= ItemAddCollisionShape(item)
         local        _size		= Vector(0,0,0),
@@ -99,10 +127,14 @@ class	Cube
     	ShapeSetMass(_shape, 0.05)
 		ItemSetOpacity(item,1)
 
-		ItemSetSelfMask(item, 3)
+		ItemSetSelfMask(item, 15)
 		ItemSetCollisionMask(item, 4)
 
 		ItemWake(item)
+*/
+		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
+		ItemSetAngularDamping(item, 0.1)
+		ItemPhysicSetLinearFactor(item, Vector(1,0.1,1))
 
 		captured = 0
 	}

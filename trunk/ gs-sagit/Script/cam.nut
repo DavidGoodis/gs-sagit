@@ -57,7 +57,7 @@ class	GameCam
 		cPos = ItemGetPosition(target)
 //		ItemSetTarget(item, Vector(cPos.x,cPos.y,cPos.z))
 
-		ItemSetPosition(item, Vector(cPos.x/1.5, cPos.y/1.25, cPos.z-30))
+		ItemSetPosition(item, Vector(cPos.x/1.5, 10+cPos.y/1.25, cPos.z-40))
 
 		if (gCam_shake == 0)
 			{
@@ -74,6 +74,9 @@ class	GameCam
 						gCam_shake = 0
 					}
 */			}
+
+		local usePad
+		if (!("usePad" in getroottable()))
 
 		if	(DeviceIsKeyDown(keyboard, KeyX))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor)).Scale(g_dt_frame * 60.0))
@@ -109,6 +112,7 @@ class	GameCam
 		target = SceneFindItem(g_scene, "Player/Spacecraft")
 
 		origPos = ItemGetPosition(target)
+
 //		ItemSetPivot(item,ItemGetPivot(target))
 	}
 }

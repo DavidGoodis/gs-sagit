@@ -30,6 +30,11 @@ DrawBillboardQuad	.\billboard.nut	/^function	DrawBillboardQuad(matrix, center, s
 DrawBillboardQuadTextured	.\billboard.nut	/^function	DrawBillboardQuadTextured(matrix, center, size, texture, uvmin = UV(0, 0), uvmax = UV(1, 1), color = Vector(1, 1, 1), blend = MaterialBlendNone, flag = MaterialRenderDefault)$/;"	f
 EndReplay	.\oo\scene.nut	/^	function		EndReplay()$/;"	f	class:Record	file:
 Engine	.\oo\engine.nut	/^class		Engine$/;"	c	file:
+EngineLoadGeometry	.\compat.nut	/^function	EngineLoadGeometry(engine, path)$/;"	f
+EngineLoadPicture	.\compat.nut	/^function	EngineLoadPicture(engine, path)$/;"	f
+EngineLoadSound	.\compat.nut	/^function	EngineLoadSound(engine, path)$/;"	f
+EngineLoadTexture	.\compat.nut	/^function	EngineLoadTexture(engine, path)$/;"	f
+EngineSetClockScale	.\compat.nut	/^function	EngineSetClockScale(engine, k)$/;"	f
 Fill	.\oo\picture.nut	/^	function		Fill(...)$/;"	f	class:Picture	file:
 FindItemChild	.\oo\scene.nut	/^	function		FindItemChild(item, child_id)$/;"	f	class:Scene	file:
 FromNMLStoreGroup	.\oo\scene.nut	/^	function		FromNMLStoreGroup(path, flag)$/;"	f	class:Scene	file:
@@ -74,6 +79,8 @@ Irand	.\math.nut	/^function	Irand(min, max)$/;"	f
 IsSetup	.\oo\scene.nut	/^	function    IsSetup()$/;"	f	class:Scene	file:
 IsValid	.\oo\geometry.nut	/^	function		IsValid()$/;"	f	class:Geometry	file:
 Item	.\oo\item.nut	/^class		Item$/;"	c	file:
+ItemActivate	.\compat.nut	/^function	ItemActivate(item, v)$/;"	f
+ItemActivateHierarchy	.\compat.nut	/^function	ItemActivateHierarchy(item, v)$/;"	f
 ItemDerived	.\oo\item_derived.nut	/^class		ItemDerived$/;"	c	file:
 Kg	.\math.nut	/^function	Kg(v)	{	return v;	}$/;"	f
 Km	.\math.nut	/^function	Km(v)	{	return v * 1000.0;	}$/;"	f
@@ -123,6 +130,7 @@ Rect	.\rect.nut	/^class Rect$/;"	c	file:
 Render	.\oo\scene.nut	/^	function        Render()$/;"	f	class:Scene	file:
 RenderQueue	.\oo\scene.nut	/^	function        RenderQueue()$/;"	f	class:Scene	file:
 RenderUI	.\oo\scene.nut	/^	function        RenderUI()$/;"	f	class:Scene	file:
+RendererLoadWriterFont	.\compat.nut	/^function	RendererLoadWriterFont(renderer, base_path, path)$/;"	f
 Reset	.\helper.nut	/^	function	Reset()$/;"	f	class:Historic	file:
 Reset	.\oo\group.nut	/^	function	Reset()$/;"	f	class:Group	file:
 Reset	.\oo\scene.nut	/^	function 	Reset()$/;"	f	class:Scene	file:
@@ -154,6 +162,8 @@ TimeoutHandler	.\timeout_handler.nut	/^class		TimeoutHandler$/;"	c	file:
 Tn	.\math.nut	/^function	Tn(v)	{	return v * 1000.0;	}$/;"	f
 Trace	.\oo\raytracer.nut	/^	function		Trace(path, width, height)$/;"	f	class:Raytracer	file:
 UI	.\oo\ui.nut	/^class		UI$/;"	c	file:
+UIAddBitmapWindow	.\compat.nut	/^function	UIAddBitmapWindow(ui, id, path, x, y, w, h)$/;"	f
+UIAddWindow	.\compat.nut	/^function	UIAddWindow(ui, id, x, y, w, h)$/;"	f
 Update	.\oo\material.nut	/^	function		Update()$/;"	f	class:Material	file:
 Update	.\oo\scene.nut	/^	function 	Update()$/;"	f	class:Scene	file:
 Update	.\oo\texture.nut	/^	function		Update()$/;"	f	class:Texture	file:

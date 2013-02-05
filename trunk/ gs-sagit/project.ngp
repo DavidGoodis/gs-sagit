@@ -3,9 +3,9 @@
 	<Name="Sagittarius">
 	<Authors="DG">
 	<Description="Schmup">
-	<Copyright="Copyright 2011">
+	<Company="Copyright 2011">
 	<ScriptUnit=
-		<Script="Script/schmup.nut">
+		<ScriptPath="Script/schmup.nut">
 		<Class="schmup">
 	>
 	<Include>

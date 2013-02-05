@@ -10,10 +10,8 @@
 
 Include("Script/gui.nut")
 Include("Script/globals.nut")
+Include("Script/ace_deleter.nut")
 
-debug			<- 1
-
-gShipCanRoll	<- 1
 
 //Controls 
 useMouse	<- 0
@@ -23,26 +21,13 @@ usePad		<- 1
 g_timer		  <- 0.0
 g_clock_scale <- 0.0
 
-//Pad mapping
-Abutton		<- 82
-Bbutton		<- 83
-StartButton <- 93
-BackButton  <- 92
-LB			<- 95
-RB			<- 98
-Up			<- 19
-Down		<- 20
-Left		<- 21
-Right		<- 22
-DeviceAxisLT <- 13
-DeviceAxisRT <- 14
-
 //game state
 pause		<- 0
 current_scene <- 0
 
 //=== achievements ===
 achieved	<- []
+
 
 class	schmup
 {
@@ -80,15 +65,14 @@ class	schmup
 		}
 
 		if (ready == 3) 
-			if (ProjectSceneGetScriptInstanceFromClass(scene, "Preload").state == "preloaded")
+//			if (ProjectSceneGetScriptInstanceFromClass(scene, "Preload").state == "preloaded")
 		{
 			ProjectUnloadScene(project, scene)
 			scene = ProjectInstantiateScene(project, "Scenes/Level1.nms")
 			ProjectAddLayer(project, scene, 1)
 			MixerChannelStop(g_mixer,channel_music)
 			channel_music = MixerStreamStart(g_mixer,snd_mu_game)
-//			channel_music = MixerStreamStart(g_mixer,"data/Song1.ogg")
-			MixerChannelSetGain(g_mixer, channel_music, 0.6)
+			MixerChannelSetGain(g_mixer, channel_music, 0.8)
 			MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
 			ready = 4
 		}
@@ -120,12 +104,12 @@ class	schmup
 	function	OnSetup(project)
 //	========================================================================================================
 	{
-		g_clock_scale = EngineGetClockScale(g_engine)
+//		g_clock_scale = EngineGetClockScale(g_engine)
 //		EngineSetFixedDeltaFrame(g_engine,60)
 
 		channel_music = MixerStreamStart(g_mixer,snd_mu_title)
 
-		MixerChannelSetGain(g_mixer, channel_music, 1)
+		MixerChannelSetGain(g_mixer, channel_music, 0.8)
 		MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
 
 		scene = ProjectInstantiateScene(project, "Scenes/Title.nms")

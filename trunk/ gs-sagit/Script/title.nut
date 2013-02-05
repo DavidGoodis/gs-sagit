@@ -55,9 +55,9 @@ class	Scenes_Title
 		else
 			TextSetColor(usePadLbl[1],255,255,255,128)
 
-		local blip  = EngineLoadSound(g_engine, "data/select.wav")
-		local buuu  = EngineLoadSound(g_engine, "data/dame.wav")
-		local toing = EngineLoadSound(g_engine, "data/toing.wav")
+		local blip  = ResourceFactoryLoadSound(g_factory, "data/select.wav")
+		local buuu  = ResourceFactoryLoadSound(g_factory, "data/dame.wav")
+		local toing = ResourceFactoryLoadSound(g_factory, "data/toing.wav")
 
 		if ((DeviceKeyPressed(keyb,KeyRightArrow)) || (DeviceKeyPressed(pad, Right)) )
 			if (keybSelec < 2)
@@ -70,7 +70,7 @@ class	Scenes_Title
 		{
 			case 0:
 				WindowSetSize(selectorSprite,WindowGetSize(useKeybLbl[0]).x,WindowGetSize(selectorSprite).y)
-				WindowSetPosition(selectorSprite,0,375)
+				WindowSetPosition(selectorSprite,20,375)
 				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, Abutton)) )
 					MixerSoundStart(g_mixer, buuu)
 				break
@@ -81,7 +81,7 @@ class	Scenes_Title
 					else
 						useMouse = 0
 				WindowSetSize(selectorSprite,WindowGetSize(useMouseLbl[0]).x,WindowGetSize(selectorSprite).y)
-				WindowSetPosition(selectorSprite,200,375)
+				WindowSetPosition(selectorSprite,240,375)
 				break
 			case 2:
 				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, Abutton)) )
@@ -91,7 +91,7 @@ class	Scenes_Title
 						usePad = 0
 				else
 					WindowSetSize(selectorSprite,WindowGetSize(usePadLbl[0]).x,WindowGetSize(selectorSprite).y)
-					WindowSetPosition(selectorSprite,350,375)
+					WindowSetPosition(selectorSprite,420,375)
 				break
 		}
 
@@ -108,38 +108,54 @@ class	Scenes_Title
 	{
 		// Load UI fonts.
 		ui = SceneGetUI(scene)
-		UILoadFont("ui/DIMIS.TTF")
-		UILoadFont("ui/Square.ttf")
+
+		UISetInternalResolution(ui, 1920, 1080)
+
+		ProjectLoadUIFont(g_project, "ui/DIMIS.TTF")
+		ProjectLoadUIFont(g_project, "ui/saturnv.ttf")
+		ProjectLoadUIFont(g_project, "ui/ONRAMP.ttf")
+		ProjectLoadUIFont(g_project, "ui/blanch_caps.ttf")
+
+
+//		UILoadFont("ui/DIMIS.TTF")
+//		UILoadFont("ui/blanch_caps.ttf")
 
 //		cursor = UICreateCursor(0)
 
-		local VSTex	= EngineLoadTexture(g_engine, "Tex/VirtualScreen.png")
+		local VSTex	= ResourceFactoryLoadTexture(g_factory, "Tex/VirtualScreen.png")
 //		local VS 	= UIAddSprite(ui, g_ui_IDs++, VSTex, 0, 0, TextureGetWidth(VSTex)+1, TextureGetHeight(VSTex))
 //		WindowSetOpacity(VS, 1)
 
-		local BGTex	= EngineLoadTexture(g_engine, "Tex/TitleBG.png")
-		local bgWin =UIAddSprite(ui, g_ui_IDs++, BGTex, -700, 280, TextureGetWidth(BGTex), TextureGetHeight(BGTex))
-		WindowSetScale(bgWin,100,1)
-//		WindowSetZOrder(bgWin,-100)
+//		local BGTex	= ResourceFactoryLoadTexture(g_factory, "Tex/TitleBG.png")
+//		local BGsprite =UIAddNamedSprite(ui, "BGTex", NullTexture, 0, 200, TextureGetWidth(BGTex), TextureGetHeight(BGTex))
+//		local BGsprite = UIAddSprite(ui, -1, NullTexture, 0, 0, 300, 247)
+//		SpriteRenderSetup(BGsprite, g_factory)
+//		SpriteSetTexture(BGsprite, BGTex)
 
-		Title = CreateLabel(ui, "Sagittarius_A*", 0, 40, 170, 1300, 200,0,0,0,255,"DIMIS",TextAlignCenter)
+		local BGsprite = CreateSprite(ui,"Tex/TitleBG.png",0,280,32)
+
+		Title = CreateLabel(ui, "Sagittarius_A*", 20, 60, 340, 1920, 240,0,0,0,255,"ONRAMP",TextAlignCenter)
 //		WindowSetScale(Title[0],1,2)
-		CreateLabel(ui, "Keyboard : Up, Down, Left, Right, X/V (Roll), C (Shield), R (Restart), F1 (Help)", 0, 255, 25, 1280, 96,255,255,255,255,"Square",TextAlignLeft)
-		CreateLabel(ui, "Xbox Pad : Left stick (Direction), right stick/LB/RB (Roll), A (Shield), Start (Restart), X (Help)", 0, 285, 25, 1280, 96,255,255,255,255,"Square",TextAlignLeft)
-		useKeybLbl  = CreateLabel(ui, "[Use Keyboard]", 0, 315, 25, 175, 96,50,195,255,255,"Square",TextAlignLeft)
-		useMouseLbl = CreateLabel(ui, "[Use Mouse]", 200, 315, 25, 133, 96,255,255,255,128,"Square",TextAlignLeft)
-		usePadLbl   = CreateLabel(ui, "[Use Pad]", 350, 315, 25, 105, 96,255,255,255,128,"Square",TextAlignLeft)
-		local selectorTex	= EngineLoadTexture(g_engine, "ui/selector.png")
-		selectorSprite		= UIAddSprite(ui, g_ui_IDs++, selectorTex, -500, -500, TextureGetWidth(selectorTex), TextureGetHeight(selectorTex))
+		CreateLabel(ui, "Keyboard : Up, Down, Left, Right, X/V (Roll), C (Shield), R (Restart), F1 (Help)", 20, 255, 40, 1280, 96,255,255,255,255,"blanch_caps",TextAlignLeft)
+		CreateLabel(ui, "Xbox Pad : Left stick (Direction), right stick/LB/RB (Roll), A (Shield), Start (Restart), X (Help)", 20, 285, 40, 1280, 96,255,255,255,255,"blanch_caps",TextAlignLeft)
+		useKeybLbl  = CreateLabel(ui, "[Use Keyboard]", 20, 315, 40, 175, 96,50,195,255,255,"blanch_caps",TextAlignLeft)
+		useMouseLbl = CreateLabel(ui, "[Use Mouse]", 240, 315, 40, 140, 96,255,255,255,128,"blanch_caps",TextAlignLeft)
+		usePadLbl   = CreateLabel(ui, "[Use Pad]", 420, 315, 40, 115, 96,255,255,255,128,"blanch_caps",TextAlignLeft)
+		local selectorTex	= ResourceFactoryLoadTexture(g_factory, "ui/selector.png")
+
+//		selectorSprite		= UIAddNamedSprite(ui, "selectorSpr", selectorTex, 10, 10, TextureGetWidth(selectorTex), TextureGetHeight(selectorTex))
+		selectorSprite		= CreateSprite(ui,"ui/selector.png",0,0,1)
+
 		WindowSetCommandList(selectorSprite , "loop; toalpha 0.5,0.3; toalpha 0.5,1.0; next;")
- 		local startLbl = CreateLabel(ui, "Press Space/Start now !", 0, 375, 25, 1280, 96,255,255,255,255,"Square",TextAlignLeft)
+ 		local startLbl = CreateLabel(ui, "Press Space/Start now !", 20, 375, 40, 1280, 96,255,255,255,255,"blanch_caps",TextAlignLeft)
 		WindowSetCommandList(startLbl[0] , "loop; toalpha 0.1,0.3; toalpha 0.1,1.0; next;")
-		ItemSetCommandList(SceneFindItem(scene,"Ship"), "toalpha 0,0.7; loop; torotation 30,0,1080,0+toalpha 30,1; torotation 30,0,-1080,0+toalpha 30,0.5; next;")
+//		ItemSetCommandList(SceneFindItem(scene,"Ship"), "toalpha 0,0.7; loop; torotation 10,0,720,0+toalpha 10,1; torotation 10,0,-720,0+toalpha 10,0.5; next;")
 
 		// Use mouse or not
 /*		local cusrsorTex	= EngineLoadTexture(g_engine, "ui/cursor.png")
 		cursorSprite	= UIAddSprite(ui, g_ui_IDs++, cusrsorTex, 640, 480, TextureGetWidth(cusrsorTex), TextureGetHeight(cusrsorTex))
 */
 		SceneSetGravity(scene, Vector(0,0,0))
+//		UIRenderSetup(ui, g_factory)    // will render setup all UI items
 	}
 }
