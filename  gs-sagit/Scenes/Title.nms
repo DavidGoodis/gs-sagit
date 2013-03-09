@@ -36,9 +36,9 @@
 						<Z=9.985513>
 					>
 					<Rotation=
-						<X=0.127664>
-						<Y=2.907003>
-						<Z=-0.000000>
+						<X=-0.207259>
+						<Y=2.899817>
+						<Z=0.000000>
 					>
 					<ItemFlag=
 						<HasTarget>
@@ -49,7 +49,21 @@
 						<Z=-1.017346>
 					>
 					<RotationOrder="YXZ">
-					<Registry>
+					<Registry=
+						<PostProcess=
+							<ChromDisp=
+								<Width=2.000000>
+							>
+							<MotionBlur=
+								<Strength=0.900000>
+							>
+							<Noise=
+								<Strength=0.050000>
+								<Monochromatic=1.000000>
+								<LumaBias=0.400000>
+							>
+						>
+					>
 				>
 				<ZNear=0.200000>
 				<ZFar=50000.000000>
@@ -126,7 +140,6 @@
 						<Y=2.043663>
 						<Z=0.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -315,7 +328,6 @@
 						<Y=0.653072>
 						<Z=-2.726801>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>

@@ -4,14 +4,16 @@
 */
 
 //gFFenergy <- 1000
+Include("Script/globals.nut")
 
 class	spacecraft
 {
+	g_timer		= 0
 
-	lt_step	 	= 10 //lateral translation step
-	v_step		= 10 //vertical translation step
-	r_step 		= 200 //rotation step
-	max_barrel	= 40 //angle de tilt max
+	lt_step	 	= 6 //lateral translation step
+	v_step		= 6 //vertical translation step
+	r_step 		= 400 //rotation step
+	max_barrel	= 10 //angle de tilt max
 	gFFON		= 0
 	armed		= 0
 	gMaxEnergy  = 1000
@@ -56,10 +58,10 @@ class	spacecraft
 //			DeviceInputSetValue(mouse, DeviceAxisX, 0.5)
 //			DeviceInputSetValue(mouse, DeviceAxisY, 0.5)
 		}
-		local usePad
+/*		local usePad
 		if (!("usePad" in getroottable()))
 			usePad = 1
-
+*/
 		// Shield Activated
 		if	((DeviceIsKeyDown(keyboard, KeyC)) ||  (usePad&&(padrt > 0.0)))
 			{
@@ -104,7 +106,7 @@ class	spacecraft
 
 				if (TickToSec(g_clock-g_timer) >= 0.01)
 				{
-					g_timer = g_clock	
+					g_timer = g_clock
 					try{
 						if (gFFenergy < gMaxEnergy)
 							gFFenergy++
@@ -217,22 +219,19 @@ class	spacecraft
 		}
 
 // Keeps the ship in the limits of the camera range
-		local ShipScreenPosition = CameraWorldToScreen(camera, g_render, ItemGetPosition(item))
+		local ShipScreenPosition = CameraWorldToScreen(camera, g_render, ItemGetWorldPosition(item))
 
-		if (ShipScreenPosition.x < 0)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, 0, ShipScreenPosition.y, 30), ItemGetRotation(item))
-		if (ShipScreenPosition.x > 1)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, 1, ShipScreenPosition.y, 30), ItemGetRotation(item))
-		if (ShipScreenPosition.y < 0)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, ShipScreenPosition.x,0, 30), ItemGetRotation(item))
-		if (ShipScreenPosition.y > 1)
-			ItemPhysicResetTransformation(item, CameraScreenToWorldPlane(camera, g_render, ShipScreenPosition.x,1, 30), ItemGetRotation(item))
+		if ((ShipScreenPosition.x < 0) || (ShipScreenPosition.x > 1) || (ShipScreenPosition.y < 0) || (ShipScreenPosition.y > 1))
+			ItemSetLinearVelocity(item, Vector(0,0,0))
 
-		local usePad
+// Decelerates at each step
+		ItemSetLinearVelocity(item, ItemGetLinearVelocity(item)/1.07)
+
+/*		local usePad
 		if (!("usePad" in getroottable()))
 			usePad = 1
-
-		if	((DeviceIsKeyDown(keyboard, KeyUpArrow)) || (usePad&&(pady > 0.0 )) || (DeviceIsKeyDown(pad, Up)))
+*/
+		if	((DeviceIsKeyDown(keyboard, KeyUpArrow)) || (usePad&&(pady > 0.0 )) || (DeviceIsKeyDown(pad, KeyUpArrow)))
 				if (ShipScreenPosition.y > 0.0 )
 					{
 						if (!pady) pady = 1
@@ -242,8 +241,8 @@ class	spacecraft
 						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 					}
 
-		if	((DeviceIsKeyDown(keyboard, KeyDownArrow)) || (usePad&&(pady < 0.0 )) || (DeviceIsKeyDown(pad, Down)))
-				if (ShipScreenPosition.y < 1.0 )
+		if	((DeviceIsKeyDown(keyboard, KeyDownArrow)) || (usePad&&(pady < 0.0 )) || (DeviceIsKeyDown(pad, KeyDownArrow)))
+				if (ShipScreenPosition.y < 1 )
 					{
 						if (!pady) pady = -1
 //						ItemApplyLinearImpulse(item,Vector(0,v_step*-0.8,0).Scale(ItemGetMass(item)))
@@ -251,7 +250,7 @@ class	spacecraft
 						ItemApplyLinearImpulse(item,(Vector(0,v_step*pady,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 					}
 
-		if	((DeviceIsKeyDown(keyboard, KeyLeftArrow)) || (usePad&&(padx < 0.0 )) || (DeviceIsKeyDown(pad, Left)))
+		if	((DeviceIsKeyDown(keyboard, KeyLeftArrow)) || (usePad&&(padx < 0.0 )) || (DeviceIsKeyDown(pad, KeyLeftArrow)))
 				if (ShipScreenPosition.x > 0.0 )
 					{
 						if (!padx) padx = -1
@@ -260,14 +259,13 @@ class	spacecraft
 //						ItemApplyTorque(item, Vector(0,0,r_step/5)/*.Scale(low_dt_compensation)*/)
 						ItemApplyTorque(item, Vector(0,0,-2*ItemGetLinearVelocity(item).x).Scale(low_dt_compensation))
 //						ItemApplyLinearImpulse(item,Vector(lt_step*-0.5,-zRot,0)/*.Scale(low_dt_compensation)*/)
-//						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
-						ItemApplyLinearImpulse(item,(Vector(100*padx,0,0)))
+						ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 
 //						ItemApplyTorque(item, Vector(0,0,r_step/10).Scale(ItemGetMass(item)))
 					}
 
-		if	((DeviceIsKeyDown(keyboard, KeyRightArrow)) || (usePad&&(padx > 0.0 )) || (DeviceIsKeyDown(pad, Right)))
-				if (ShipScreenPosition.x < 1.0 )
+		if	((DeviceIsKeyDown(keyboard, KeyRightArrow)) || (usePad&&(padx > 0.0 )) || (DeviceIsKeyDown(pad, KeyRightArrow)))
+				if (ShipScreenPosition.x < 1 )
 					{
 						if (!padx) padx = 1
 //						print ("ShipScreenPosition.x < 1.0 !!! "+ShipScreenPosition.x)
@@ -277,7 +275,7 @@ class	spacecraft
 //						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,zRot,0)/*.Scale(low_dt_compensation)*/)
 	 					ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 
-					ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
+						ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
 					}
 
 
@@ -300,10 +298,17 @@ class	spacecraft
 		if	(usePad&&(pads > 0.0 ))
 					ItemApplyTorque(item, Vector(0,0,-r_step*pads).Scale(ItemGetMass(item)))
 
+
+// Decelerates rotation at each step
+		if ((!padx) && (!pady))
+			ItemSetAngularVelocity(item, ItemGetAngularVelocity(item)/1.04)
+
+
 		//counters any barrel
 		local currentRoll = ItemGetRotation(item).z
+//		local currentRoll = ItemGetAngularVelocity(item).z
 		ItemApplyTorque(item, Vector(0,0,-currentRoll*r_step).Scale(ItemGetMass(item)))
-
+//		print(currentRoll)
 	}
 
 	/*!
@@ -321,10 +326,13 @@ class	spacecraft
 			ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))
 		else
 			ItemPhysicSetAngularFactor(item, Vector(0,0,0))
+
 		ItemPhysicSetLinearFactor(item, Vector(1,1,0))
 //		ItemPhysicSetLinearFactor(item, Vector(1,1,1))
-		ItemSetLinearDamping(item,0.01)
-		ItemSetAngularDamping(item,0.01)
+		ItemPhysicSetAngularFactor(item, Vector(0,0,1))
+
+		ItemSetLinearDamping(item,0.99)
+		ItemSetAngularDamping(item,0)
 
 		FFitem		= SceneFindItem(g_scene,"ForceField")
 		FFcolShape 	= SceneFindItem(g_scene,"ForceFieldCol")

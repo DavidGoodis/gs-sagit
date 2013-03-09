@@ -13,30 +13,21 @@ snd_fx_otshield		<-	"data/Object_through_shield.wav"
 //snd_mu_title		<-	"data/Title_Romain.ogg"
 //snd_mu_title		<-	"data/cute.ogg"
 snd_mu_title		<-	"data/abstract_loop.ogg"
-//snd_mu_game			<-	"data/01-EXTRA.ogg"
-//snd_mu_game			<-	"data/davidoldschool.ogg"
-//snd_mu_game			<-	"data/souleye - embrace.ogg"
-snd_mu_game		<-	"data/abstract_loop.ogg"
-//snd_mu_game			<-	"data/electrocircus.ogg"
+//snd_mu_game		<-	"data/abstract_loop.ogg"
+snd_mu_game			<-	"data/Begijo.ogg"
 
 //Pad mapping
-Abutton		<- 82
-Bbutton		<- 83
-StartButton <- 93
-BackButton  <- 92
+keyBack		<- 113
 LB			<- 95
 RB			<- 98
-Up			<- 19
-Down		<- 20
-Left		<- 21
-Right		<- 22
 DeviceAxisLT <- 13
 DeviceAxisRT <- 14
 debug			<- 1
 
 gShipCanRoll	<- 1
 
-
+UIWidth				<-	1920
+UIHeight			<-	1080
 
 	//--------------------------------------------
 	function	ComputeLowDeltaFrameCompensation()

@@ -300,6 +300,8 @@ h‘9jiúÿàh×=}Yià3i¦JiæÖ3i¦JiæÖ3i×=}Yià3ià´h83iyøšhd24iyøšhd
 i@AáhéJiÊÓáh>
 	>
 	<Materials=
-		<MaterialRef="Mesh/Material_001__psyche1_png.nmm">
+		<MaterialRefEx=
+			<Name="Mesh/Material_001__psyche1_png.nmm">
+		>
 	>
 >

@@ -1,0 +1,35 @@
+<Version=1.0>
+<Profiles=
+	<Profile=
+		<Name="Default">
+		<Version="SchmupDebugWin32">
+		<Target="Win32">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+	<Profile=
+		<Name="Goodis">
+		<Version="SchmupDebugWin32">
+		<Target="Win32">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+	<Profile=
+		<Name="GoodisMac">
+		<Version="Default">
+		<Target="OSX">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+	<Profile=
+		<Name="GoodisLinux">
+		<Version="SchmupDebugWin32">
+		<Target="Linux">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+>

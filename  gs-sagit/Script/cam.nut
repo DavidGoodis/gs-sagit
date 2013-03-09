@@ -31,6 +31,7 @@ class	GameCam
 	rotationFactor = 3
 	target		= 0
 	origPos		= 0
+	position	= 0
  
 	function	CameraShake(amp)
 	{
@@ -54,10 +55,12 @@ class	GameCam
 		local item_matrix = ItemGetMatrix(item)
 //		print(item_matrix.GetFront().x + "::" + item_matrix.GetFront().y + "::" + item_matrix.GetFront().z)
 
-		cPos = ItemGetPosition(target)
+		position = ItemGetWorldPosition(item)
+
+		cPos = ItemGetWorldPosition(target)
 //		ItemSetTarget(item, Vector(cPos.x,cPos.y,cPos.z))
 
-		ItemSetPosition(item, Vector(cPos.x/1.5, 10+cPos.y/1.25, cPos.z-40))
+//		ItemSetPosition(item, Vector(cPos.x+10, cPos.y+7, cPos.z-50))
 
 		if (gCam_shake == 0)
 			{
@@ -75,8 +78,16 @@ class	GameCam
 					}
 */			}
 
-		local usePad
-		if (!("usePad" in getroottable()))
+/*		if (!("usePad" in getroottable()))
+			local usePad = 1
+*/
+
+//		if  (usePad&&(padx < 0.0 ))
+//					ItemSetPosition(item, Vector(position.x+padx, position.y+pady, position.z))
+
+//		if  (usePad&&(pady < 0.0 ))
+	//				ItemSetPosition(item, Vector(position.x, position.y-0.1, position.z))
+
 
 		if	(DeviceIsKeyDown(keyboard, KeyX))
 					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor)).Scale(g_dt_frame * 60.0))
@@ -100,9 +111,10 @@ class	GameCam
 //					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
 
 		// Stabilize background
+
 		local currentCamBarrel = ItemGetRotation(item).z
 		if (!pause)			
-			ItemSetRotation(item,Vector(0,0,currentCamBarrel-currentCamBarrel/15)) 
+			ItemSetRotation(item,Vector(0,0,currentCamBarrel-currentCamBarrel/10)) 
 
 	}
 
@@ -111,7 +123,8 @@ class	GameCam
 	{
 		target = SceneFindItem(g_scene, "Player/Spacecraft")
 
-		origPos = ItemGetPosition(target)
+		origPos = ItemGetWorldPosition(target)
+//		ItemSetTarget(item, origPos)
 
 //		ItemSetPivot(item,ItemGetPivot(target))
 	}

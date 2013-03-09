@@ -40,6 +40,8 @@ sáásááss>
 **ªi**ªi**ªi******************ªi**ªé**ªi**ªé***j*******j******ªi>
 	>
 	<Materials=
-		<MaterialRef="Mesh/Glass__window_red.nmm">
+		<MaterialRefEx=
+			<Name="Mesh/Glass__window_red.nmm">
+		>
 	>
 >

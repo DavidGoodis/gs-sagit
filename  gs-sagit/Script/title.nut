@@ -59,10 +59,10 @@ class	Scenes_Title
 		local buuu  = ResourceFactoryLoadSound(g_factory, "data/dame.wav")
 		local toing = ResourceFactoryLoadSound(g_factory, "data/toing.wav")
 
-		if ((DeviceKeyPressed(keyb,KeyRightArrow)) || (DeviceKeyPressed(pad, Right)) )
+		if ((DeviceKeyPressed(keyb,KeyRightArrow)) || (DeviceKeyPressed(pad, KeyRightArrow)) )
 			if (keybSelec < 2)
 				{ keybSelec++; MixerSoundStart(g_mixer, blip) }
-		if ((DeviceKeyPressed(keyb,KeyLeftArrow)) || (DeviceKeyPressed(pad, Left)) )
+		if ((DeviceKeyPressed(keyb,KeyLeftArrow)) || (DeviceKeyPressed(pad, KeyLeftArrow)) )
 			if (keybSelec > 0)
 				{ keybSelec--; MixerSoundStart(g_mixer, blip) }
 
@@ -71,11 +71,11 @@ class	Scenes_Title
 			case 0:
 				WindowSetSize(selectorSprite,WindowGetSize(useKeybLbl[0]).x,WindowGetSize(selectorSprite).y)
 				WindowSetPosition(selectorSprite,20,375)
-				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, Abutton)) )
+				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, KeyButton0)) )
 					MixerSoundStart(g_mixer, buuu)
 				break
 			case 1:
-				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, Abutton)) )
+				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, KeyButton0)) )
 					if (!useMouse)
 						{ useMouse = 1; usePad = 0; MixerSoundStart(g_mixer, toing)}
 					else
@@ -84,7 +84,7 @@ class	Scenes_Title
 				WindowSetPosition(selectorSprite,240,375)
 				break
 			case 2:
-				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, Abutton)) )
+				if ((DeviceKeyPressed(keyb, KeyEnter)) || (DeviceKeyPressed(pad, KeyButton0)) )
 					if (!usePad)
 						{ usePad = 1; useMouse = 0; MixerSoundStart(g_mixer, toing)}
 					else

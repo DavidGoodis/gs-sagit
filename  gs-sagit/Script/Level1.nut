@@ -66,7 +66,6 @@ class	Level1
 	timer			= g_clock
 	seqTimer		= g_clock
 	boost			= 0
-	minVelocity		= 200
 	boostON			= 0
 	rockON			= false
 //=== score ===
@@ -99,10 +98,13 @@ class	Level1
 	wallFreq		= 0
 	wallPieces		= 0
 
-	/*!
-		@short	OnUpdate
-		Called each frame.
-	*/
+//=== grid ====
+	gridDensity		= 4
+	gridCellSize	= 0
+	gridArLoc		= [] //Array of locations )size = gridDendity*gridDensity
+	gridArPat1		= []
+	objVelocity		= 100
+	pattern1		= [1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1]
 
 //	========================================================================================================
 	function	ComputeLowDeltaFrameCompensation()
@@ -131,7 +133,6 @@ class	Level1
 			SceneSetClockScale(scene, 0.0)
 //			EngineSetClockScale(g_engine, 0.0)
 			pause = true
-			WindowShow(lblPause[0],true)
 			WindowSetOpacity(lblPause[0], 0.8)
 			local s  = ResourceFactoryLoadSound(g_factory, "data/pause.wav")
 			MixerSoundStart(g_mixer, s)
@@ -141,7 +142,7 @@ class	Level1
 			SceneSetClockScale(scene, g_clock_scale)
 //			EngineSetClockScale(g_engine, g_clock_scale)
 			pause = false
-			WindowShow(lblPause[0],false)
+			SpriteSetOpacity(lblPause[0],0)
 			local s  = ResourceFactoryLoadSound(g_factory, "data/resume.wav")
 			MixerSoundStart(g_mixer, s)
 		}
@@ -249,16 +250,20 @@ class	Level1
 			ItemSetScript(sliceCol, "Script/tunnelCol.nut", "tunnelCol")
 			ItemSetupScript(sliceCol)
 			ItemRenderSetup(sliceCol, g_factory)
+			ItemRenderSetup(sliceMesh, g_factory)
 			SceneSetupItem(scene, sliceCol)
+			SceneSetupItem(scene, sliceMesh)
+
+			ItemSetPosition(sliceMesh, Vector(0,0,500))
 
 			local mm 			= ItemGetMinMax(sliceMesh)
 
-//			print("A.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z + "mm.min=" + mm.min.z + "mm.max=" + mm.max.z)
+			print("A.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z + "mm.min=" + mm.min.z + "mm.max=" + mm.max.z)
 			ItemPhysicResetTransformation(sliceCol, Vector(lastSlicePos.x, lastSlicePos.y, lastSlicePos.z + scale*(mm.max.z - mm.min.z)), Vector(0,0,0))
-//			print("B.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z)
+			print("B.ItemGetPosition(sliceCol).z =" + ItemGetPosition(sliceCol).z)
 
-//			foreach(id, slice in tunnelArray)
-//				print("Right before append->ID=" + id + "::" + ItemGetPosition(slice).z)
+			foreach(id, slice in tunnelArray)
+				print("Right before append->ID=" + id + "::" + ItemGetPosition(slice).z)
 		
 			tunnelArray.append(sliceCol)
 
@@ -333,8 +338,8 @@ class	Level1
 	function	OnPhysicStep(scene, taken)
 //	========================================================================================================
 	{
-		CleanWall(scene)
-
+//		CleanWall(scene)
+/*
 		if (TickToSec(g_clock-wallTimer[0]) >= wallFreq[0])
 			{
 				SpawnWall(SceneFindItem(scene, "wallPiece1"), scene, 12,8)
@@ -346,7 +351,7 @@ class	Level1
 				SpawnWall(SceneFindItem(scene, "wallPiece2"), scene, 12,8)
 				wallTimer[1] = g_clock
 			}
-
+*/
 	}
 
 
@@ -363,7 +368,7 @@ class	Level1
 		local posX = WindowGetPosition(lblGetReady[0]).x
 		local posY = WindowGetPosition(lblGetReady[0]).y
 
-		if (DeviceKeyPressed(pad, BackButton) || DeviceKeyPressed(keyboard, KeyEscape ))
+		if (DeviceKeyPressed(pad, keyBack) || DeviceKeyPressed(keyboard, KeyEscape ))
 			Pause(scene)
 
 		CleanCity(scene)
@@ -397,13 +402,13 @@ class	Level1
 				{ boost += 0.1; WindowSetOpacity(boostWindow[0],1) }
 		else
 			{ boost += -0.6; WindowSetOpacity(boostWindow[0],0) }
-		boost = Clamp(boost,0,minVelocity)
+		boost = Clamp(boost,0,objVelocity)
 
-		if (posX < -200)
+		if (posX < 0)
 			WindowSetPosition(lblGetReady[0],posX+50*g_dt_frame*60,posY)
-		if ((posX >= -220) && (posX < -170))
-				WindowSetPosition(lblGetReady[0],posX+0.5*g_dt_frame*60,posY)
-		if ((posX >= -170) && (posX < 2000))
+		if ((posX >= 0) && (posX < 300))
+				WindowSetPosition(lblGetReady[0],posX+1.5*g_dt_frame*60,posY)
+		if ((posX >= 300) && (posX < 2000))
 			{
 				WindowSetPosition(lblGetReady[0],posX+100*g_dt_frame*60,posY)
 				phase = 1
@@ -423,7 +428,7 @@ class	Level1
 				print(ItemGetPosition(torus).x + "::" + ItemGetPosition(torus).y + "::" + ItemGetPosition(torus).z)
 */
 			//clean up torus array
-			foreach(id,torus in torusArray)
+/*			foreach(id,torus in torusArray)
 				if (ItemGetPosition(torus).z < 0)
 					{
 						SceneDeleteItem(scene, torus)
@@ -432,12 +437,14 @@ class	Level1
 
 			local xoffset = sin(torusCounter)*Rand(50,60)*Rand(-1,1)
 			local yoffset = sin(torusCounter)*Rand(50,60)*Rand(-1,1)
-
+*/
 			//Extend tunnel
-			if (arrTunnel.len() < maxTunnelSlice )
-				arrTunnel = GenerateTunnelSlice(scene, arrTunnel, tunnelScale )
+/*			if (arrTunnel.len() < maxTunnelSlice )
+				arrTunnel = GenerateTunnelSlice(scene, arrTunnel, tunnelScale )*/
 			//Clean up tunnel sections which are behind the player
-			CleanTunnel(scene,arrTunnel)
+/*			CleanTunnel(scene,arrTunnel)*/
+
+
 /*
 			//spawn torus
 			if (TickToSec(g_clock-torusTimer) >= torusInterval )
@@ -497,7 +504,8 @@ class	Level1
 
 
 //				if ( (ItemGetPosition(enemy).z < ItemGetPosition(CameraGetItem(SceneGetCurrentCamera(scene))).z-20) || (ItemGetPosition(enemy).z > 1300 ) )
-				if ( (ItemGetPosition(enemy).z < 0) || (ItemGetPosition(enemy).z > 1300 ) )
+
+				if ( (ItemGetPosition(enemy).z < -50) || (ItemGetPosition(enemy).z > 1300 ) )
 				{
 					enemiesT1.remove(idx)
 					SceneDeleteItem(scene,enemy)
@@ -520,7 +528,8 @@ class	Level1
 								targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
 
 //						local targetSprite = UIAddNamedSprite(SceneGetUI(g_scene), "spr", targetTex, pos2d.x*1280-TextureGetWidth(targetTex)/2, pos2d.y*960-TextureGetHeight(targetTex)/2, TextureGetWidth(targetTex), TextureGetHeight(targetTex))
-						local targetSprite = CreateSprite(SceneGetUI(g_scene),warning_sprite,pos2d.x*1280-TextureGetWidth(targetTex)/2,pos2d.y*960-TextureGetHeight(targetTex)/2,1)
+						local targetSprite = CreateSprite(SceneGetUI(g_scene),warning_sprite,pos2d.x*UIWidth-TextureGetWidth(targetTex)/2,pos2d.y*UIHeight-TextureGetHeight(targetTex)/2,1)
+						SpriteSetOpacity(targetSprite, 1)
 						targetList.append(targetSprite)
 						//Play warning sound
 						if (TickToSec(g_clock-timer) >= 1)
@@ -537,15 +546,28 @@ class	Level1
 			{
 //				local choice = Rand(0,3).tointeger()
 //				new_item = SceneDuplicateItem(scene, base_item[choice])
-				new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
-				ItemSetScript(new_item, "Script/cube.nut" , "Cube")
 
-				local scale_factor, rotation_y
 
-				ItemSetupScript(new_item)
-				ItemRenderSetup(new_item, g_factory)
-				SceneSetupItem(scene, new_item)
-//				ItemSetup(new_item)
+				foreach(id, loc in gridArLoc)
+				{
+					if ( pattern1[id] == 1 )
+					{
+						new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
+	 			 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
+						ItemSetupScript(new_item)
+						ItemRenderSetup(new_item, g_factory)
+				 		SceneSetupItem(scene, new_item)
+						ItemSetup(new_item)
+
+//						print("(" + loc.x + "," + loc.y + ")")
+
+						ItemPhysicResetTransformation(new_item, loc ,Vector(Deg(-90),Deg(-90),Deg(180)))
+//						ItemApplyLinearImpulse(new_item,Vector(0,0,Rand(-minVelocity,-minVelocity*3)))
+						ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
+
+						enemiesT1.append(new_item)
+					}
+				}
 
 /*
 				if(choice == 1)
@@ -555,14 +577,16 @@ class	Level1
 				}
 				else*/
 				{
-//					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(-30,50)), Mtr(Rand(-30,50)), Mtr(1000)),Vector(Deg(-90),Deg(-90),Deg(180)))
-					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(xoffset-40,xoffset+40)), Mtr(Rand(yoffset-40,yoffset+40)), Mtr(1000)),Vector(Deg(-90),Deg(-90),Deg(180)))
-					ItemApplyLinearImpulse(new_item,Vector(0,0,Rand(-minVelocity,-minVelocity*1.5)))
+//					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(xoffset-40,xoffset+40)), Mtr(Rand(yoffset-40,yoffset+40)), Mtr(500)),Vector(Deg(-90),Deg(-90),Deg(180)))
+//					ItemPhysicResetTransformation(new_item,Vector(Mtr(Rand(-100,100)), Mtr(Rand(-100,100)), Mtr(500)),Vector(Deg(-90),Deg(-90),Deg(180)))
+
+//					ItemApplyLinearImpulse(new_item,Vector(0,0,Rand(-minVelocity,-minVelocity*3)))
 				}
 
 
 				//Add the new ennemy to the list
-				enemiesT1.append(new_item)
+//				enemiesT1.append(new_item)
+//			print(enemiesT1.len())
 			}
 
 		}
@@ -571,8 +595,9 @@ class	Level1
 		if (gLifes == 0)
 			{
 				game_over = 1				
-				WindowShow(lblGameOver[0],true)
-				WindowShow(lblRetry[0],true)
+				SpriteSetOpacity(lblGameOver[0],1)
+				SpriteSetOpacity(lblRetry[0],1)
+
 			}
 		else
 			if (!pause)
@@ -615,17 +640,16 @@ class	Level1
 			
 		//display help
 		helpCounter++
-		if ( DeviceIsKeyDown(keyboard, KeyF1) || DeviceIsKeyDown(pad, Xbutton) )
+		if ( DeviceIsKeyDown(keyboard, KeyF1) || DeviceIsKeyDown(pad, KeyButton2) )
 			{
 				if (opa > 0)
 					opa+=-0.02
 				else
 					opa=1
 				WindowSetOpacity(helpLabel[0], opa)
-				WindowShow(helpLabel[0],true)
 			}
 		else
-			WindowShow(helpLabel[0],false)
+			SpriteSetOpacity(helpLabel[0],0)
 
 		if ((helpCounter > 550) && (helpCounter < 1000))
 			{
@@ -633,11 +657,10 @@ class	Level1
 					opa+=-0.02
 				else
 					opa=1
-				WindowSetOpacity(helpLabel2[0], opa)
-				WindowShow(helpLabel2[0],true)
+				SpriteSetOpacity(helpLabel2[0], opa)
 			}
 		else
-			WindowShow(helpLabel2[0],false)
+			SpriteSetOpacity(helpLabel2[0],0)
 
 //Debug
 		if (debug)
@@ -650,10 +673,7 @@ class	Level1
 		}
 	}
 
-	/*!
-		@short	OnSetup
-		Called when the scene is about to be setup.
-	*/
+
 
 //	========================================================================================================
 	function	OnSetup(scene)
@@ -677,20 +697,24 @@ class	Level1
 
 		// Load UI fonts.
 		ui = SceneGetUI(scene)
+		UISetInternalResolution(ui, UIWidth, UIHeight)
+
 		ProjectLoadUIFont(g_project, "ui/electr.ttf")
 		ProjectLoadUIFont(g_project, "ui/ozdaacadital.ttf")
 		ProjectLoadUIFont(g_project, "ui/atomic.ttf")
 
-		helpLabel = CreateLabel(ui, "Up,Down,Left,Right,X/V(Roll),C(Shield),R(Restart),F1(Help)", 200, 700, 24, 900, 96,255,255,255,200,"electr",TextAlignCenter)
-		helpLabel2 = CreateLabel(ui, "STAY ALIVE ! ", 230, 800, 40, 900, 96,255,255,255,255,"electr",TextAlignCenter)
-		WindowShow(helpLabel[0],false)
-		WindowShow(helpLabel2[0],false)
+		local BGsprite = CreateSprite(ui,"ui/overlay.png",0,0,1)
 
-		CreateLabel(ui, "LIFE", -50, 40, 24, 120, 96,0,0,0,255,"electr",TextAlignRight)
-		CreateLabel(ui, "ENERGY", -50, 80, 24, 120, 96,0,0,0,255,"electr",TextAlignRight)
-		CreateLabel(ui, "SCORE", 850, 40, 24, 120, 96,0,0,0,255,"electr",TextAlignLeft)
+		helpLabel = CreateLabel(ui, "Up,Down,Left,Right,X/V(Roll),C(Shield),R(Restart),F1(Help)", 400, 700, 24, 900, 96,255,255,255,200,"electr",TextAlignCenter)
+		helpLabel2 = CreateLabel(ui, "STAY ALIVE ! ", 500, 800, 40, 900, 96,255,255,255,255,"electr",TextAlignCenter)
+		SpriteSetOpacity(helpLabel[0],0)
+		SpriteSetOpacity(helpLabel2[0],0)
 
-		scoreWindow 	= CreateLabel(ui, gScore.tostring(), 1000, 40, 24, 120, 96,0,0,0,150,"electr",TextAlignLeft)
+		CreateLabel(ui, "LIFE", 50, 40, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
+		CreateLabel(ui, "ENERGY", 50, 80, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
+		CreateLabel(ui, "SCORE", 50, 0, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
+
+		scoreWindow 	= CreateLabel(ui, gScore.tostring(), 200, 40, 24, 120, 96,255,255,255,255,"electr",TextAlignLeft)
 		boostWindow 	= CreateLabel(ui, "BOOST", 850, 120, 40, 300, 40,50,195,255,255,"ozdaacadital",TextAlignLeft)
 		oneupWindow 	= CreateLabel(ui, "1 UP !!", 200, 350, 50, 300, 40,255,84,0,255,"ozdaacadital",TextAlignCenter)
 		WindowSetOpacity(boostWindow[0],0)
@@ -699,31 +723,33 @@ class	Level1
 		local fullBarTex	= ResourceFactoryLoadTexture(g_factory, "Tex/nrgBarFull.png")
 		local fillBarTex	= ResourceFactoryLoadTexture(g_factory, "Tex/nrgBarFill.png")
 
-		local energyBarFull		= UIAddSprite(ui, g_ui_IDs++, fullBarTex, 100, 115, 250, 20)
-			  energyBar			= UIAddSprite(ui, g_ui_IDs++, fillBarTex, 100, 115, 250, 20)
-		local lifeBarFull		= UIAddSprite(ui, g_ui_IDs++, fullBarTex, 100, 75, 250, 20)
-			  lifeBar			= UIAddSprite(ui, g_ui_IDs++, fillBarTex, 100, 75, 250, 20)
+		local energyBarFull		= UIAddSprite(ui, g_ui_IDs++, fullBarTex, 200, 115, 250, 20)
+			  energyBar			= UIAddSprite(ui, g_ui_IDs++, fillBarTex, 200, 115, 250, 20)
+		local lifeBarFull		= UIAddSprite(ui, g_ui_IDs++, fullBarTex, 200, 75, 250, 20)
+			  lifeBar			= UIAddSprite(ui, g_ui_IDs++, fillBarTex, 200, 75, 250, 20)
 
 		lblGameOver = CreateLabel(ui, "GAME OVER !", 250, 250, 300, 900, 500,0,0,0,255,"atomic",TextAlignCenter)
 		lblRetry 	= CreateLabel(ui, "[R]etry or [Esc]ape", 250, 400, 150, 900, 500,255,148,0,255,"atomic",TextAlignCenter)
 		lblPause 	= CreateLabel(ui, "PAUSE", 200, 200, 200, 900, 500,68,45,44,255,"ozdaacadital",TextAlignCenter)
-		lblGetReady = CreateLabel(ui, "Get Ready !", -2000, 150, 150, 1500, 500,0,0,0,255,"ozdaacadital",TextAlignCenter)
+		lblGetReady = CreateLabel(ui, "Get Ready !", -2000, 500, 150, 1500, 500,0,0,0,255,"ozdaacadital",TextAlignCenter)
 
 		//Debug
 		if ("debug" in getroottable())
 			if (debug)
 			{
-				lblDbgEnemies = CreateLabel(ui, "enemies : " + enemiesT1.len().tostring(), -50, 200, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgTargetList = CreateLabel(ui, "targets : " + targetList.len().tostring(), -50, 220, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgBiru = CreateLabel(ui, "buildings : " +  biruArray.len().tostring(), -50, 240, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgSlice = CreateLabel(ui, "Tunnel : " +  arrTunnel.len().tostring(), -50, 260, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
+				lblDbgEnemies = CreateLabel(ui, "enemies : " + enemiesT1.len().tostring(), 150, 200, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
+				lblDbgTargetList = CreateLabel(ui, "targets : " + targetList.len().tostring(), 150, 220, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
+				lblDbgBiru = CreateLabel(ui, "buildings : " +  biruArray.len().tostring(), 150, 240, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
+				lblDbgSlice = CreateLabel(ui, "Tunnel : " +  arrTunnel.len().tostring(), 150, 260, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
 			}
 
-		lblDestr	= CreateLabel(ui, "Destroyed : " +  destroyed.tostring(), -50, 280, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
+		lblDestr	= CreateLabel(ui, "Destroyed : " +  destroyed.tostring(), 150, 280, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
 
-		WindowShow(lblGameOver[0],false)
-		WindowShow(lblRetry[0],false)
-		WindowShow(lblPause[0],false)
+		SpriteSetOpacity(lblGameOver[0],0)
+		SpriteSetOpacity(lblRetry[0],0)
+		SpriteSetOpacity(lblPause[0],0)
+
+
 
 /*		local tex		= EngineLoadTexture(g_engine, "Tex/rocket_leaving_earth.png")
 		local story1	= UIAddNamedSprite(ui, "spr", tex, -5000, 650, TextureGetWidth(tex), TextureGetHeight(tex))
@@ -809,23 +835,42 @@ class	Level1
 //		SceneSetCurrentCamera(scene, ItemCastToCamera(SceneFindItem(scene,"GameCam")))
 
 		//Generate tunnel
-		tunnelSliceCol = SceneFindItem(scene,"tunnelCol")
+/*		tunnelSliceCol = SceneFindItem(scene,"tunnelCol")
 		tunnelSliceMesh = SceneFindItem(scene,"TunnelDivisionSolid")
 
 		local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
 		local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh)
 		ItemSetParent(sliceMesh, sliceCol)
-		ItemSetPosition(sliceCol, Vector(0,0,0))
+		ItemSetPosition(sliceCol, Vector(0,0,200))
 		ItemSetScript(sliceCol, "Script/tunnelCol.nut", "tunnelCol")
 		ItemSetupScript(sliceCol)
 		ItemRenderSetup(sliceCol, g_factory)
+		ItemRenderSetup(sliceMesh, g_factory)
 		arrTunnel.append(sliceCol)
 		tunnelScale = ItemGetScale(sliceMesh).x
 
 		foreach(id, slice in arrTunnel)
 			print("OnSetup->ID=" + id + "::" + ItemGetPosition(slice).z)
 
-//		for(local i=0;i<10;i++)
-//			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
+		for(local i=0;i<10;i++)
+			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
+
+*/
+
+// Init grid and patterns
+
+//		gridCellSize = ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).max.x - ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).min.x
+		gridCellSize = 12
+		local maxCells = gridDensity*gridDensity - 1
+		local gridHalfCellSize = gridCellSize/2
+		local offset = (gridDensity*gridCellSize)/2 - gridCellSize/2
+
+		for(local i=0;i<maxCells;i++)
+		{
+			local x = floor(i/gridDensity)*gridCellSize - offset
+			local y = Mod(i,gridDensity)*gridCellSize - offset
+			gridArLoc.append(Vector(x,y,300))
+		}
+
 	}
 }
