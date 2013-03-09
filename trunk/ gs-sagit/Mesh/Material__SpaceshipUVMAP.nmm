@@ -1,6 +1,5 @@
 <Version=1.0>
 <Material=
-	<Id="Mesh/Material__SpaceshipUVMAP.nmm">
 	<Diffuse=
 		<X=0.664664>
 		<Y=0.616490>
@@ -29,4 +28,18 @@
 		<NormalMapTangent>
 	>
 	<Shader="Mesh/Material__SpaceshipUVMAP-shader-tree.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="Mesh/fallof_map_0.png">
+		<UV=0>
+		<Channel="Light">
+		<UVSource="LSNormal">
+	>
+	<TextureStage=
+		<Index=1>
+		<Texture="Mesh/planet_envmap_0.png">
+		<UV=0>
+		<Channel="Reflection">
+		<UVSource="LSNormal">
+	>
 >

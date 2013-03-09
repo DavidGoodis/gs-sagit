@@ -2,202 +2,15 @@
 <Scene=
 	<SceneMotionContainer=
 		<SceneMotion=
-			<Name="AnimTest">
+			<Name="">
 			<ItemMotions>
 		>
 	>
 	<Items=
-		<MCamera=
-			<MItem=
-				<Id="Camera">
-				<UId=0>
-				<Active>
-				<Helper>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=209>
-									<Data==4251:4180@
-*******È())Ë***i+**iÛˆvg***È())Ë***i+**iÛˆˆg***È())Ë***i+**i¡√Ch
-***È())Ë***i+**iÛˆvh***È())Ë***i+**i**™h***È())Ë***i+**i¡√√h***È
-())Ë***i+**i]]›h***È())Ë***i+**iÛˆˆh***È())Ë***i+**iêêh***È())Ë
-***i+**i***i***È())Ë***i+**i˜ˆ6i***È())Ë***i+**i¡√Ci***È())Ë***i
-+**iêêPi***È())Ë***i+**i]]]i***È())Ë***i+**i**ji***È())Ë***i+**i
-Ûˆvi***È())Ë***i+**i¡√Éi***È())Ë***i+**iêêêi***È())Ë***i+**i]]ùi
-***È())Ë***i+**i**™i***È())Ë***i+**iêê∞i***È())Ë***i+**i˜ˆ∂i***È
-())Ë***i+**i]]Ωi***È())Ë***i+**iƒ√√i***È())Ë***i+**i** i***È())Ë
-***i+**iêê–i***È())Ë***i+**i˜ˆ÷i***È())Ë***i+**i]]›i***È())Ë***i
-+**iƒ√„i***È())Ë***i+**i**Íi***È())Ë***i+**iêêi***È())Ë***i+**i
-ˆˆˆi***È())Ë***i+**i]]˝i***È())Ë***i+**iƒ√i***È())Ë***i+**i**=J
-i***È())Ë***i+**iêêi***È())Ë***i+**iˆˆi***È())Ë***i+**i]]i***
-È())Ë***i+**iƒ√#i***È())Ë***i+**i***j***È())Ë***i+**i]]-j***È())
-Ë***i+**iêê0j***È())Ë***i+**iƒ√3j***È())Ë***i+**i˜ˆ6j***È())Ë***
-i+**i**:j***È())Ë***i+**i]]=}j***È())Ë***i+**iêê@j***È())Ë***i+*
-*iƒ√Cj***È())Ë***i+**i˜ˆFj***È())Ë***i+**i**Jj***È())Ë***i+**i]]
-Mj***È())Ë***i+**iêêPj***È())Ë***i+**iƒ√Sj***È())Ë***i+**i˜ˆVj**
-*È())Ë***i+**i**Zj***È())Ë***i+**i]]]j***È())Ë***i+**iêê`j***È()
-)Ë***i+**iƒ√cj***È())Ë***i+**i˜ˆfj***È())Ë***i+**i**jj***È())Ë**
-*i+**i]]mj***È())Ë***i+**iêêpj***È())Ë***i+**iƒ√sj***È())Ë***i+*
-*i˜ˆvj***È())Ë***i+**i**zj***È())Ë***i+**i]]}j***È())Ë***i+**iêê
-Äj***È())Ë***i+**iƒ√Éj***È())Ë***i+**i˜ˆÜj***È())Ë***i+**i**äj**
-*È())Ë***i+**i]]çj***È())Ë***i+**iêêêj***È())Ë***i+**iƒ√ìj***È()
-)Ë***i+**i˜ˆñj***È())Ë***i+**i**öj***È())Ë***i+**i]]ùj***È())Ë**
-*i+**iêê†j***È())Ë***i+**iƒ√£j***È())Ë***i+**i˜ˆ¶j***È())Ë***i+*
-*i**™j***È())Ë***i+**iƒ√´j***È())Ë***i+**i]]≠j***È())Ë***i+**i˜ˆ
-Æj***È())Ë***i+**iêê∞j***È())Ë***i+**i**≤j***È())Ë***i+**iƒ√≥j**
-*È())Ë***i+**i]]µj***È())Ë***i+**i˜ˆ∂j***È())Ë***i+**iêê∏j***È()
-)Ë***i+**i**∫j***È())Ë***i+**iƒ√ªj***È())Ë***i+**i]]Ωj***È())Ë**
-*i+**i˜ˆæj***È())Ë***i+**iêê¿j***È())Ë***i+**i**¬j***È())Ë***i+*
-*iƒ√√j***È())Ë***i+**i]]≈j***È())Ë***i+**i˜ˆ∆j***È())Ë***i+**iêê
-»j***È())Ë***i+**i** j***È())Ë***i+**iƒ√Àj***È())Ë***i+**i]]Õj**
-*È())Ë***i+**i˜ˆŒj***È())Ë***i+**iêê–j***È())Ë***i+**i**“j***È()
-)Ë***i+**iƒ√”j***È())Ë***i+**i]]’j***È())Ë***i+**i˜ˆ÷j***È())Ë**
-*i+**iêêÿj***È())Ë***i+**i**⁄j***È())Ë***i+**iƒ√€j***È())Ë***i+*
-*i]]›j***È())Ë***i+**i˜ˆﬁj***È())Ë***i+**iêê‡j***È())Ë***i+**i**
-‚j***È())Ë***i+**iƒ√„j***È())Ë***i+**i]]Âj***È())Ë***i+**i˜ˆÊj**
-*È())Ë***i+**iêêËj***È())Ë***i+**i**Íj***È())Ë***i+**iƒ√Îj***È()
-)Ë***i+**i]]Ìj***È())Ë***i+**i˜ˆÓj***È())Ë***i+**iêêj***È())Ë**
-*i+**i**Új***È())Ë***i+**iƒ√Ûj***È())Ë***i+**i]]ıj***È())Ë***i+*
-*i˜ˆˆj***È())Ë***i+**iêê¯j***È())Ë***i+**i**˙j***È())Ë***i+**iƒ√
-˚j***È())Ë***i+**i]]˝j***È())Ë***i+**i˜ˆ˛j***È())Ë***i+**iêê=@j*
-**È())Ë***i+**i**j***È())Ë***i+**iƒ√j***È())Ë***i+**i]]j***È(
-))Ë***i+**i˜ˆj***È())Ë***i+**iêêj***È())Ë***i+**i**=Jj***È())Ë
-***i+**iƒ√j***È())Ë***i+**i]]=Mj***È())Ë***i+**i˜ˆj***È())Ë***
-i+**iêêj***È())Ë***i+**i**j***È())Ë***i+**iƒ√j***È())Ë***i+**
-i]]j***È())Ë***i+**i˜ˆj***È())Ë***i+**iêêj***È())Ë***i+**i**
-j***È())Ë***i+**iƒ√j***È())Ë***i+**i]]j***È())Ë***i+**i˜ˆj***
-È())Ë***i+**iêê j***È())Ë***i+**i**"j***È())Ë***i+**iƒ√#j***È())
-Ë***i+**i]]%j***È())Ë***i+**i˜ˆ&j***È())Ë***i+**iêê(j***È())Ë***
-i+**i***k***È())Ë***i+**i˜ˆ*k***È())Ë***i+**iƒ√+k***È())Ë***i+**
-iêê,k***È())Ë***i+**i]]-k***È())Ë***i+**i**.k***È())Ë***i+**i˜ˆ.
-k***È())Ë***i+**iƒ√/k***È())Ë***i+**iêê0k***È())Ë***i+**i]]1k***
-È())Ë***i+**i**2k***È())Ë***i+**i˜ˆ2k***È())Ë***i+**iƒ√3k***È())
-Ë***i+**iêê4k***È())Ë***i+**i]]5k***È())Ë***i+**i**6k***È())Ë***
-i+**i˜ˆ6k***È())Ë***i+**iƒ√7k***È())Ë***i+**iêê8k***È())Ë***i+**
-i]]9k***È())Ë***i+**i**:k***È())Ë***i+**i˜ˆ:k***È())Ë***i+**iƒ√;
-k***È())Ë***i+**iêê<k***È())Ë***i+**i]]=}k***È())Ë***i+**i**>k**
-*È())Ë***i+**i˜ˆ>k***È())Ë***i+**iƒ√?k***È())Ë***i+**iêê@k***È()
-)Ë***i+**i]]Ak***È())Ë***i+**i**Bk***È())Ë***i+**i˜ˆBk***È())Ë**
-*i+**iƒ√Ck***È())Ë***i+**iêêDk***È())Ë***i+**i]]Ek***È())Ë***i+*
-*i**Fk***È())Ë***i+**i˜ˆFk***È())Ë***i+**iƒ√Gk***È())Ë***i+**iêê
-Hk***È())Ë***i+**i]]Ik***È())Ë***i+**i**Jk***È())Ë***i+**i˜ˆJk**
-*È())Ë***i+**iƒ√Kk***È())Ë***i+**iêêLk***È())Ë***i+**i]]Mk***È()
-)Ë***i+**i**Nk***È())Ë***i+**i˜ˆNk***È())Ë***i+**iƒ√Ok***È())Ë**
-*i+**iêêPk***È())Ë***i+**i>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****9•∞Â+êêPk9•∞Â>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****~⁄Öj+êêPk~⁄Öj>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****¬0åÈ+êêPk¬0åÈ>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Camera=
-				<Item=
-					<Position=
-						<X=11.825537>
-						<Y=0.512787>
-						<Z=2.750838>
-					>
-					<Rotation=
-						<X=-0.000000>
-						<Y=-1.570797>
-						<Z=0.000000>
-					>
-					<ItemFlag=
-						<HasTarget>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<ZNear=0.200000>
-				<ZFar=50000.000000>
-				<ZoomFactor=4.010781>
-				<AspectRatioRefYAxis=True>
-			>
-		>
 		<MObject=
 			<MItem=
 				<Id="ForceField">
-				<UId=1>
+				<UId=0>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -209,12 +22,12 @@ Hk***È())Ë***i+**i]]Ik***È())Ë***i+**i**Jk***È())Ë***i+**i˜ˆJk**
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****._È********._iÛˆvg._È********._iÛˆˆg._È********._i¡√Ch
-._È********._iÛˆvh._È********._i**™h._È********._i¡√√h._È
-********._i]]›h._È********._iÛˆˆh._È********._iêêh._È****
+****._È********._iÚˆvg._È********._iÚˆˆg._È********._i¡√Ch
+._È********._iÚˆvh._È********._i**™h._È********._i¡√√h._È
+********._i]]›h._È********._iÚˆˆh._È********._iêêh._È****
 ****._i***i._È********._i˜ˆ6i._È********._i¡√Ci._È********
 ._iêêPi._È********._i]]]i._È********._i**ji._È********._i
-Ûˆvi._È********._i¡√Éi._È********._iêêêi._È********._i]]ùi
+Úˆvi._È********._i¡√Éi._È********._iêêêi._È********._i]]ùi
 ._È********._i**™i._È********._iêê∞i._È********._i˜ˆ∂i._È
 ********._i]]Ωi._È********._iƒ√√i._È********._i** i._È****
 ****._iêê–i._È********._i˜ˆ÷i._È********._i]]›i._È********
@@ -392,7 +205,6 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 						<Y=8.000000>
 						<Z=8.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -408,7 +220,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 		<MObject=
 			<MItem=
 				<Id="Spacecraft">
-				<UId=2>
+				<UId=1>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -420,12 +232,12 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****å“ô‘**™i˝Â’ﬁÌ‚\ﬂÛˆvgå“ô‘**™i˝Â’ﬁÌ‚\ﬂÛˆˆgå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√Ch
-å“ô‘**™i˝Â’ﬁÌ‚\ﬂÛˆvhå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**™hå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√√hå“ô‘
-**™i˝Â’ﬁÌ‚\ﬂ]]›hå“ô‘**™i˝Â’ﬁÌ‚\ﬂÛˆˆhå“ô‘**™i˝Â’ﬁÌ‚\ﬂêêhå“ô‘**™i
+****å“ô‘**™i˝Â’ﬁÌ‚\ﬂÚˆvgå“ô‘**™i˝Â’ﬁÌ‚\ﬂÚˆˆgå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√Ch
+å“ô‘**™i˝Â’ﬁÌ‚\ﬂÚˆvhå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**™hå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√√hå“ô‘
+**™i˝Â’ﬁÌ‚\ﬂ]]›hå“ô‘**™i˝Â’ﬁÌ‚\ﬂÚˆˆhå“ô‘**™i˝Â’ﬁÌ‚\ﬂêêhå“ô‘**™i
 ˝Â’ﬁÌ‚\ﬂ***iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆ6iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√Ciå“ô‘**™i˝Â’ﬁ
 Ì‚\ﬂêêPiå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]]iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**jiå“ô‘**™i˝Â’ﬁÌ‚\ﬂ
-Ûˆviå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√Éiå“ô‘**™i˝Â’ﬁÌ‚\ﬂêêêiå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]ùi
+Úˆviå“ô‘**™i˝Â’ﬁÌ‚\ﬂ¡√Éiå“ô‘**™i˝Â’ﬁÌ‚\ﬂêêêiå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]ùi
 å“ô‘**™i˝Â’ﬁÌ‚\ﬂ**™iå“ô‘**™i˝Â’ﬁÌ‚\ﬂêê∞iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆ∂iå“ô‘
 **™i˝Â’ﬁÌ‚\ﬂ]]Ωiå“ô‘**™i˝Â’ﬁÌ‚\ﬂƒ√√iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ** iå“ô‘**™i
 ˝Â’ﬁÌ‚\ﬂêê–iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆ÷iå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]›iå“ô‘**™i˝Â’ﬁ
@@ -657,6 +469,7 @@ Hkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]Ikå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**Jkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆJkå“
 						<Y=-3.141592>
 						<Z=0.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -672,7 +485,7 @@ Hkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]Ikå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**Jkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆJkå“
 		<MObject=
 			<MItem=
 				<Id="reactor">
-				<UId=3>
+				<UId=2>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -684,12 +497,12 @@ Hkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ]]Ikå“ô‘**™i˝Â’ﬁÌ‚\ﬂ**Jkå“ô‘**™i˝Â’ﬁÌ‚\ﬂ˜ˆJkå“
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****d5,e!|g*ÂVÊUR®iÛˆvgd5,e!|g*ÂVÊUR®iÛˆˆgd5,e!|g*ÂVÊUR®i¡√Ch
-d5,e!|g*ÂVÊUR®iÛˆvhd5,e!|g*ÂVÊUR®i**™hd5,e!|g*ÂVÊUR®i¡√√hd5,e
-!|g*ÂVÊUR®i]]›hd5,e!|g*ÂVÊUR®iÛˆˆhd5,e!|g*ÂVÊUR®iêêhd5,e!|g
+****d5,e!|g*ÂVÊUR®iÚˆvgd5,e!|g*ÂVÊUR®iÚˆˆgd5,e!|g*ÂVÊUR®i¡√Ch
+d5,e!|g*ÂVÊUR®iÚˆvhd5,e!|g*ÂVÊUR®i**™hd5,e!|g*ÂVÊUR®i¡√√hd5,e
+!|g*ÂVÊUR®i]]›hd5,e!|g*ÂVÊUR®iÚˆˆhd5,e!|g*ÂVÊUR®iêêhd5,e!|g
 *ÂVÊUR®i***id5,e!|g*ÂVÊUR®i˜ˆ6id5,e!|g*ÂVÊUR®i¡√Cid5,e!|g*ÂVÊ
 UR®iêêPid5,e!|g*ÂVÊUR®i]]]id5,e!|g*ÂVÊUR®i**jid5,e!|g*ÂVÊUR®i
-Ûˆvid5,e!|g*ÂVÊUR®i¡√Éid5,e!|g*ÂVÊUR®iêêêid5,e!|g*ÂVÊUR®i]]ùi
+Úˆvid5,e!|g*ÂVÊUR®i¡√Éid5,e!|g*ÂVÊUR®iêêêid5,e!|g*ÂVÊUR®i]]ùi
 d5,e!|g*ÂVÊUR®i**™id5,e!|g*ÂVÊUR®iêê∞id5,e!|g*ÂVÊUR®i˜ˆ∂id5,e
 !|g*ÂVÊUR®i]]Ωid5,e!|g*ÂVÊUR®iƒ√√id5,e!|g*ÂVÊUR®i** id5,e!|g
 *ÂVÊUR®iêê–id5,e!|g*ÂVÊUR®i˜ˆ÷id5,e!|g*ÂVÊUR®i]]›id5,e!|g*ÂVÊ
@@ -843,6 +656,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 						<Y=0.180000>
 						<Z=0.180000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -858,7 +672,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 		<MObject=
 			<MItem=
 				<Id="ForceFieldCol">
-				<UId=4>
+				<UId=3>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -872,7 +686,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 					<CharacterRadius=0.500000>
 					<CharacterHeight=1.750000>
 					<CharacterMaxStep=0.250000>
-					<Mode="Kinematic">
+					<Mode="Dynamic">
 					<Shapes=
 						<PhysicShape=
 							<Type="Sphere">
@@ -921,11 +735,17 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 		<MObject=
 			<MItem=
 				<Id="ReactorTrailL">
-				<UId=5>
+				<UId=4>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<ScriptPath="Script/reactorTrailFinal.nut">
+						<Class="ReactorTrailFinal">
+					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -950,6 +770,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -965,11 +786,17 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 		<MObject=
 			<MItem=
 				<Id="ReactorTrailR">
-				<UId=6>
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<ScriptPath="Script/reactorTrailFinal.nut">
+						<Class="ReactorTrailFinal">
+					>
 				>
 				<PhysicItem=
 					<SelfMask=1>
@@ -994,6 +821,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1009,9 +837,8 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 		<MLight=
 			<MItem=
 				<Id="ShipLight">
-				<UId=7>
+				<UId=6>
 				<Active>
-				<Helper>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions=
@@ -1022,12 +849,12 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-**** ._i^påDÔ"bO._iÛˆvg ._i^påDÔ"bO._iÛˆˆg ._i^påDÔ"bO._i¡√Ch
- ._i^påDÔ"bO._iÛˆvh ._i^påDÔ"bO._i**™h ._i^påDÔ"bO._i¡√√h ._i
-^påDÔ"bO._i]]›h ._i^påDÔ"bO._iÛˆˆh ._i^påDÔ"bO._iêêh ._i^påD
+**** ._i^påDÔ"bO._iÚˆvg ._i^påDÔ"bO._iÚˆˆg ._i^påDÔ"bO._i¡√Ch
+ ._i^påDÔ"bO._iÚˆvh ._i^påDÔ"bO._i**™h ._i^påDÔ"bO._i¡√√h ._i
+^påDÔ"bO._i]]›h ._i^påDÔ"bO._iÚˆˆh ._i^påDÔ"bO._iêêh ._i^påD
 Ô"bO._i***i ._i^påDÔ"bO._i˜ˆ6i ._i^påDÔ"bO._i¡√Ci ._i^påDÔ"bO
 ._iêêPi ._i^påDÔ"bO._i]]]i ._i^påDÔ"bO._i**ji ._i^påDÔ"bO._i
-Ûˆvi ._i^påDÔ"bO._i¡√Éi ._i^påDÔ"bO._iêêêi ._i^påDÔ"bO._i]]ùi
+Úˆvi ._i^påDÔ"bO._i¡√Éi ._i^påDÔ"bO._iêêêi ._i^påDÔ"bO._i]]ùi
  ._i^påDÔ"bO._i**™i ._i^påDÔ"bO._iêê∞i ._i^påDÔ"bO._i˜ˆ∂i ._i
 ^påDÔ"bO._i]]Ωi ._i^påDÔ"bO._iƒ√√i ._i^påDÔ"bO._i** i ._i^påD
 Ô"bO._iêê–i ._i^påDÔ"bO._i˜ˆ÷i ._i^påDÔ"bO._i]]›i ._i^påDÔ"bO
@@ -1176,6 +1003,7 @@ bO._iêêPk ._i^påDÔ"bO._i>
 						<Y=-3.141592>
 						<Z=-3.141592>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1185,9 +1013,9 @@ bO._iêêPk ._i^påDÔ"bO._i>
 					<Registry>
 				>
 				<Diffuse=
-					<X=0.330000>
-					<Y=0.460000>
-					<Z=0.580000>
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
 				>
 				<Specular=
 					<X=0.330000>
@@ -1205,7 +1033,7 @@ bO._iêêPk ._i^påDÔ"bO._i>
 				<VolumeRange=500.000000>
 				<ClipDistance=300.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=2.000000>
+				<DiffuseIntensity=1.000000>
 				<SpecularIntensity=0.000000>
 				<ConeAngle=0.523599>
 				<EdgeAngle=0.523599>
@@ -1224,7 +1052,7 @@ bO._iêêPk ._i^påDÔ"bO._i>
 		<MLight=
 			<MItem=
 				<Id="Sun">
-				<UId=8>
+				<UId=7>
 				<Active>
 				<Helper>
 				<Priority=0.500000>
@@ -1237,12 +1065,12 @@ bO._iêêPk ._i^påDÔ"bO._i>
 								<BinaryKeys=
 									<Count=209>
 									<Data==4251:4180@
-****≥„Êg‚–Ki-ÈéËD…fiÛˆvg≥„Êg‚–Ki-ÈéËD…fiÛˆˆg≥„Êg‚–Ki-ÈéËD…fi¡√Ch
-≥„Êg‚–Ki-ÈéËD…fiÛˆvh≥„Êg‚–Ki-ÈéËD…fi**™h≥„Êg‚–Ki-ÈéËD…fi¡√√h≥„Êg
-‚–Ki-ÈéËD…fi]]›h≥„Êg‚–Ki-ÈéËD…fiÛˆˆh≥„Êg‚–Ki-ÈéËD…fiêêh≥„Êg‚–Ki
+****≥„Êg‚–Ki-ÈéËD…fiÚˆvg≥„Êg‚–Ki-ÈéËD…fiÚˆˆg≥„Êg‚–Ki-ÈéËD…fi¡√Ch
+≥„Êg‚–Ki-ÈéËD…fiÚˆvh≥„Êg‚–Ki-ÈéËD…fi**™h≥„Êg‚–Ki-ÈéËD…fi¡√√h≥„Êg
+‚–Ki-ÈéËD…fi]]›h≥„Êg‚–Ki-ÈéËD…fiÚˆˆh≥„Êg‚–Ki-ÈéËD…fiêêh≥„Êg‚–Ki
 -ÈéËD…fi***i≥„Êg‚–Ki-ÈéËD…fi˜ˆ6i≥„Êg‚–Ki-ÈéËD…fi¡√Ci≥„Êg‚–Ki-ÈéË
 D…fiêêPi≥„Êg‚–Ki-ÈéËD…fi]]]i≥„Êg‚–Ki-ÈéËD…fi**ji≥„Êg‚–Ki-ÈéËD…fi
-Ûˆvi≥„Êg‚–Ki-ÈéËD…fi¡√Éi≥„Êg‚–Ki-ÈéËD…fiêêêi≥„Êg‚–Ki-ÈéËD…fi]]ùi
+Úˆvi≥„Êg‚–Ki-ÈéËD…fi¡√Éi≥„Êg‚–Ki-ÈéËD…fiêêêi≥„Êg‚–Ki-ÈéËD…fi]]ùi
 ≥„Êg‚–Ki-ÈéËD…fi**™i≥„Êg‚–Ki-ÈéËD…fiêê∞i≥„Êg‚–Ki-ÈéËD…fi˜ˆ∂i≥„Êg
 ‚–Ki-ÈéËD…fi]]Ωi≥„Êg‚–Ki-ÈéËD…fiƒ√√i≥„Êg‚–Ki-ÈéËD…fi** i≥„Êg‚–Ki
 -ÈéËD…fiêê–i≥„Êg‚–Ki-ÈéËD…fi˜ˆ÷i≥„Êg‚–Ki-ÈéËD…fi]]›i≥„Êg‚–Ki-ÈéË
@@ -1391,6 +1219,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 						<Y=3.141593>
 						<Z=3.141593>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1400,14 +1229,14 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 					<Registry>
 				>
 				<Diffuse=
-					<X=1.000000>
-					<Y=0.920000>
-					<Z=0.780000>
+					<X=0.560784>
+					<Y=0.560784>
+					<Z=0.560784>
 				>
 				<Specular=
 					<X=1.000000>
-					<Y=0.920000>
-					<Z=0.780000>
+					<Y=1.000000>
+					<Z=1.000000>
 				>
 				<ShadowColor=
 					<X=0.000000>
@@ -1420,7 +1249,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<VolumeRange=500.000000>
 				<ClipDistance=300.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=2.000000>
+				<DiffuseIntensity=1.000000>
 				<SpecularIntensity=0.000000>
 				<ConeAngle=0.523599>
 				<EdgeAngle=0.523599>
@@ -1436,9 +1265,57 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<VolumetricRange=8.000000>
 			>
 		>
-		<MLight=
+		<MCamera=
 			<MItem=
-				<Id="ReactorLight">
+				<Id="Camera">
+				<UId=8>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Camera=
+				<Item=
+					<Position=
+						<X=22.798056>
+						<Y=22.940105>
+						<Z=-24.043510>
+					>
+					<Rotation=
+						<X=0.234043>
+						<Y=0.307692>
+						<Z=0.000000>
+					>
+					<ItemFlag=
+						<HasTarget>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<ZNear=0.200000>
+				<ZFar=50000.000000>
+				<AspectRatioRefYAxis=True>
+			>
+		>
+		<MConstraint=
+			<MItem=
+				<Id="Link1">
 				<UId=9>
 				<Active>
 				<Priority=0.500000>
@@ -1450,77 +1327,71 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="None">
 				>
 			>
-			<Light=
-				<Item=
-					<Position=
-						<X=-1.329342>
-						<Y=4.033859>
-						<Z=9.008930>
-					>
-					<Rotation=
-						<X=0.490052>
-						<Y=2.954319>
-						<Z=-3.044337>
-					>
-					<Scale=
-						<X=5.555555>
-						<Y=5.555556>
-						<Z=5.555556>
-					>
-					<Target=
+			<Constraint=
+				<Type="Point">
+				<PivotA=
+					<R0=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=0.000000>
+						<W=0.000000>
 					>
-					<RotationOrder="YXZ">
-					<Registry>
+					<R1=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
+						<W=0.000000>
+					>
+					<R2=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
+						<W=0.000000>
+					>
+					<R3=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=10.000000>
+						<W=1.000000>
+					>
 				>
-				<Diffuse=
-					<X=0.784314>
-					<Y=0.000000>
-					<Z=0.000000>
+				<PivotB=
+					<R0=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
+						<W=0.000000>
+					>
+					<R1=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
+						<W=0.000000>
+					>
+					<R2=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=-1.000000>
+						<W=0.000000>
+					>
+					<R3=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=-10.000000>
+						<W=1.000000>
+					>
 				>
-				<Specular=
-					<X=1.000000>
-					<Y=1.000000>
-					<Z=0.792157>
-				>
-				<ShadowColor=
-					<X=0.827451>
-					<Y=0.439216>
-					<Z=0.000000>
-				>
-				<Type="Spot">
-				<Falloff="Linear">
-				<Range=2.000000>
-				<VolumeRange=500.000000>
-				<ClipDistance=200.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=10.000000>
-				<SpecularIntensity=5.000000>
-				<ConeAngle=0.261799>
-				<EdgeAngle=0.087266>
-				<ZNear=0.100000>
-				<Shadow="None">
-				<ShadowBias=0.000001>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=True>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=10.000000>
-				<VolumetricRange=10.000000>
 			>
 		>
 		<MConstraint=
 			<MItem=
-				<Id="shieldLink1">
+				<Id="Link2">
 				<UId=10>
 				<Active>
 				<Priority=0.500000>
@@ -1542,53 +1413,53 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<Type="Point">
 				<PivotA=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=5.000000>
+						<X=0.000000>
 						<Y=0.000000>
-						<Z=-3.000000>
+						<Z=-10.000000>
 						<W=1.000000>
 					>
 				>
 				<PivotB=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=-1.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=-5.000000>
+						<X=0.000000>
 						<Y=0.000000>
-						<Z=6.000000>
+						<Z=10.000000>
 						<W=1.000000>
 					>
 				>
@@ -1596,7 +1467,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		>
 		<MConstraint=
 			<MItem=
-				<Id="shieldLink2">
+				<Id="Link3">
 				<UId=11>
 				<Active>
 				<Priority=0.500000>
@@ -1618,53 +1489,53 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<Type="Point">
 				<PivotA=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=-5.000000>
+						<X=10.000000>
 						<Y=0.000000>
-						<Z=-3.000000>
+						<Z=0.000000>
 						<W=1.000000>
 					>
 				>
 				<PivotB=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=-1.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=5.000000>
+						<X=-10.000000>
 						<Y=0.000000>
-						<Z=6.000000>
+						<Z=0.000000>
 						<W=1.000000>
 					>
 				>
@@ -1672,7 +1543,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		>
 		<MConstraint=
 			<MItem=
-				<Id="shieldLink3">
+				<Id="Link4">
 				<UId=12>
 				<Active>
 				<Priority=0.500000>
@@ -1694,64 +1565,64 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<Type="Point">
 				<PivotA=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=0.000000>
+						<X=-10.000000>
 						<Y=0.000000>
-						<Z=-5.000000>
+						<Z=0.000000>
 						<W=1.000000>
 					>
 				>
 				<PivotB=
 					<R0=
-						<X=1.000000>
+						<X=0.000000>
 						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R1=
 						<X=0.000000>
-						<Y=1.000000>
+						<Y=0.000000>
 						<Z=0.000000>
 						<W=0.000000>
 					>
 					<R2=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=1.000000>
+						<Z=-1.000000>
 						<W=0.000000>
 					>
 					<R3=
-						<X=0.000000>
+						<X=10.000000>
 						<Y=0.000000>
-						<Z=8.000000>
+						<Z=0.000000>
 						<W=1.000000>
 					>
 				>
 			>
 		>
-		<MConstraint=
+		<MLight=
 			<MItem=
-				<Id="shieldLink4">
+				<Id="BackLight">
 				<UId=13>
 				<Active>
-				<Priority=0.500000>
+				<Priority=1.000000>
 				<MotionPlayer=
 					<Motions>
 				>
@@ -1766,109 +1637,202 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 					<Mode="None">
 				>
 			>
-			<Constraint=
-				<Type="Point">
-				<PivotA=
-					<R0=
-						<X=1.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
+			<Light=
+				<Item=
+					<Position=
+						<X=0.000009>
+						<Y=3.013339>
+						<Z=0.128650>
 					>
-					<R1=
-						<X=0.000000>
-						<Y=1.000000>
-						<Z=0.000000>
-						<W=0.000000>
+					<Rotation=
+						<X=1.570796>
+						<Y=3.141593>
+						<Z=3.141593>
 					>
-					<R2=
+					<ItemFlag>
+					<Target=
 						<X=0.000000>
 						<Y=0.000000>
 						<Z=1.000000>
-						<W=0.000000>
 					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=10.000000>
-						<W=1.000000>
-					>
+					<RotationOrder="YXZ">
+					<Registry>
 				>
-				<PivotB=
-					<R0=
-						<X=1.000000>
+				<Diffuse=
+					<X=0.000000>
+					<Y=0.431373>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=0.000000>
+					<Y=0.482353>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Spot">
+				<Falloff="Linear">
+				<Range=100.000000>
+				<VolumeRange=100.000000>
+				<ClipDistance=100.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.500000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=1.570796>
+				<ZNear=0.010000>
+				<Shadow="None">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=10.000000>
+				<VolumetricRange=10.000000>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="BackLight">
+				<UId=14>
+				<Active>
+				<Priority=1.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Position=
+						<X=0.000009>
+						<Y=-3.208994>
+						<Z=0.196665>
+					>
+					<Rotation=
+						<X=-1.570796>
 						<Y=0.000000>
 						<Z=0.000000>
-						<W=0.000000>
 					>
-					<R1=
-						<X=0.000000>
-						<Y=1.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
+					<ItemFlag>
+					<Target=
 						<X=0.000000>
 						<Y=0.000000>
 						<Z=1.000000>
-						<W=0.000000>
 					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-7.000000>
-						<W=1.000000>
-					>
+					<RotationOrder="YXZ">
+					<Registry>
 				>
+				<Diffuse=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.866667>
+				>
+				<Specular=
+					<X=0.000000>
+					<Y=0.482353>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Spot">
+				<Falloff="Linear">
+				<Range=100.000000>
+				<VolumeRange=100.000000>
+				<ClipDistance=100.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=0.500000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=1.570796>
+				<ZNear=0.010000>
+				<Shadow="None">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=10.000000>
+				<VolumetricRange=10.000000>
 			>
 		>
 	>
 	<Links=
 		<Link=
 			<Item=0>
-			<Link=2>
+			<Link=3>
 		>
 		<Link=
-			<Item=1>
-			<Link=4>
+			<Item=2>
+			<Link=1>
 		>
 		<Link=
-			<Item=3>
-			<Link=2>
+			<Item=4>
+			<Link=1>
 		>
 		<Link=
 			<Item=5>
-			<Link=2>
+			<Link=1>
 		>
 		<Link=
 			<Item=6>
-			<Link=2>
+			<Link=1>
 		>
 		<Link=
-			<Item=9>
-			<Link=3>
+			<Item=7>
+			<Link=1>
+		>
+		<Link=
+			<Item=13>
+			<Link=1>
+		>
+		<Link=
+			<Item=14>
+			<Link=1>
 		>
 	>
 	<Constraints=
 		<Constraint=
+			<Uid=9>
+			<UidA=1>
+			<UidB=3>
+		>
+		<Constraint=
 			<Uid=10>
-			<UidA=2>
-			<UidB=4>
+			<UidA=1>
+			<UidB=3>
 		>
 		<Constraint=
 			<Uid=11>
-			<UidA=2>
-			<UidB=4>
+			<UidA=1>
+			<UidB=3>
 		>
 		<Constraint=
 			<Uid=12>
-			<UidA=2>
-			<UidB=4>
+			<UidA=1>
+			<UidB=3>
 		>
-		<Constraint=
-			<Uid=13>
-			<UidA=2>
-			<UidB=4>
+	>
+	<Groups=
+		<Group=
+			<Id="Show">
 		>
 	>
 	<Globals=
@@ -1899,27 +1863,27 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 	<CurrentCamera="Camera">
 	<ViewMatrix=
 		<R0=
-			<X=-0.583319>
+			<X=-0.033512>
 			<Y=-0.000000>
-			<Z=0.812243>
+			<Z=-0.999438>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.105675>
-			<Y=0.991500>
-			<Z=-0.075892>
+			<X=0.538921>
+			<Y=0.842162>
+			<Z=-0.018070>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.805339>
-			<Y=-0.130103>
-			<Z=-0.578361>
+			<X=0.841689>
+			<Y=-0.539224>
+			<Z=-0.028222>
 			<W=0.000000>
 		>
 		<R3=
-			<X=12.768116>
-			<Y=2.062698>
-			<Z=9.169536>
+			<X=-29.199669>
+			<Y=18.706619>
+			<Z=0.979076>
 			<W=1.000000>
 		>
 	>
@@ -1932,27 +1896,27 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.583319>
+					<X=-0.033512>
 					<Y=-0.000000>
-					<Z=0.812243>
+					<Z=-0.999438>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.105675>
-					<Y=0.991500>
-					<Z=-0.075892>
+					<X=0.538921>
+					<Y=0.842162>
+					<Z=-0.018070>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.805339>
-					<Y=-0.130103>
-					<Z=-0.578361>
+					<X=0.841689>
+					<Y=-0.539224>
+					<Z=-0.028222>
 					<W=0.000000>
 				>
 				<R3=
-					<X=12.768116>
-					<Y=2.062698>
-					<Z=9.169536>
+					<X=-29.199669>
+					<Y=18.706619>
+					<Z=0.979076>
 					<W=1.000000>
 				>
 			>

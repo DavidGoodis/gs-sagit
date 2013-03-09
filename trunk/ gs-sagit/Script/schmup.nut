@@ -55,7 +55,7 @@ class	schmup
 		local	keyboard 	= GetKeyboardDevice(),
 				pad 		= GetInputDevice("xinput0")
 
-		if	((!ready) && ((DeviceKeyPressed(keyboard, KeySpace)) || (DeviceKeyPressed(pad, StartButton ))))
+		if	((!ready) && ((DeviceKeyPressed(keyboard, KeySpace)) || (DeviceKeyPressed(pad, KeyStart ))))
 		{	
 			ready = 1
 			ProjectUnloadScene(project, scene)
@@ -79,7 +79,7 @@ class	schmup
 
 
 
-		if	((ready) && (DeviceKeyPressed(keyboard, KeyR)) || (DeviceKeyPressed(pad, Bbutton )))
+		if	((ready) && (DeviceKeyPressed(keyboard, KeyR)) || (DeviceKeyPressed(pad, KeyButton1 )))
 		{
 			ProjectUnloadScene(project, scene)
 			scene = ProjectInstantiateScene(project, "Scenes/Level1.nms")

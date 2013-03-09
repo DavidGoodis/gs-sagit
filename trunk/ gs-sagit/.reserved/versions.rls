@@ -1,0 +1,36 @@
+<Version=1.0>
+<Versions=
+	<Version=
+		<Name="Default">
+		<ExecProject=False>
+		<SceneName="Scenes/Title.nms">
+		<Collect=
+			<Entry=
+				<Path="$(Project)">
+				<HintUI=True>
+				<HintRAW=False>
+			>
+		>
+		<Exclude=
+			<Path=".reserved; .svn; .cvs; .git">
+			<Path="$(Project)/temp">
+			<Path="$(Project)/TempTex">
+		>
+	>
+	<Version=
+		<Name="SchmupDebugWin32">
+		<ExecProject=True>
+		<Collect=
+			<Entry=
+				<Path="$(Project)">
+				<HintUI=False>
+				<HintRAW=False>
+			>
+		>
+		<Exclude=
+			<Path=".reserved; .svn; .cvs; .git">
+			<Path="$(Project)/temp">
+			<Path="$(Project)/TempTex">
+		>
+	>
+>

@@ -21,7 +21,8 @@ NMY  	= 4 , GROUP = 1 or 2 or 4 or 8 	= 001111 = 15
 //TUN  	= 8 , GROUP = 1 or 2 		= 000011 = 3
 TUN  	= 8 , GROUP = 1 or 2 or 4 	= 000111 = 7
 BUL  	= 16, GROUP = 4 or 8 or 32	= 101100 = 44
-WAL 	= 32, GROUP = 16 or 1 		= 110001 = 17
+//WAL 	= 32, GROUP = 16 or 1 		= 110001 = 17
+WAL	= 32, GROUP = 1			= 000001 = 1
 
 ------
 Mask = 0 to disable collisions on an item

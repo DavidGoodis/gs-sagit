@@ -33,7 +33,7 @@ class	Cube
 			{
 				ItemSetCollisionMask(item, 0)
 				ItemSetLinearVelocity(item, Vector(1,1,0))
-				ItemSetAngularVelocity(item, Vector(0,0,0))
+//				ItemSetAngularVelocity(item, Vector(0,0,0))
 				ItemApplyLinearImpulse(item, Vector(0,500,0))
 //				ItemSetCommandList(item, "toscale 3,0,0,0;")
 				hit = 1
@@ -59,11 +59,11 @@ class	Cube
 		if (!captured)
 		{
 			local rot = ItemGetRotation(item)
-			ItemApplyTorque(item, Vector(rot.x+0.01, rot.y+0.01, rot.z+0.01))
+//			ItemApplyTorque(item, Vector(rot.x+0.01, rot.y+0.01, rot.z+0.01))
 		}
 		else
 		{
-			if	(DeviceKeyPressed(keyboard, KeyC) || DeviceKeyPressed(pad, Abutton))
+			if	(DeviceKeyPressed(keyboard, KeyC) || DeviceKeyPressed(pad, KeyButton0))
 //			if	(DeviceKeyPressed(keyboard, KeyC) ||  (RT_released && (usePad&&(padrt > 0.0))))
 			{
 				RT_released = 0
@@ -90,10 +90,11 @@ class	Cube
 
 	function	OnUpdate(item)
 	{
-		if (ItemGetPosition(item).y > 50)
+/*		if (ItemGetPosition(item).y > 50)
 			{
-//				dead = 1
+				dead = 1
 			}
+*/
 	}
 
 	/*!
@@ -102,40 +103,10 @@ class	Cube
 	*/
 	function	OnSetup(item)
 	{
-/*
-        ItemSetPhysicMode(item, PhysicModeDynamic)
-
-        local        _shape		= ItemAddCollisionShape(item)
-        local        _size		= Vector(0,0,0),
-                     _pos		= Vector(0,0,0),
-                     _scale		= Vector(0,0,0)
-
-        local        _mm = ItemGetMinMax(item)
-               
-		ItemSetScale(item,Vector(5,5,5))
-        _scale = ItemGetScale(item)
-               
-    	_size.x = _mm.max.x -  _mm.min.x
-        _size.y = _mm.max.y -  _mm.min.y
-        _size.z = _mm.max.z -  _mm.min.z
-
-        _pos = (_mm.max).Lerp(0.5, _mm.min)
-
-		ShapeSetBox(_shape, _size)
-   	    ShapeSetPosition(_shape, _pos)
-
-    	ShapeSetMass(_shape, 0.05)
-		ItemSetOpacity(item,1)
-
-		ItemSetSelfMask(item, 15)
-		ItemSetCollisionMask(item, 4)
-
-		ItemWake(item)
-*/
-		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
-		ItemSetAngularDamping(item, 0.1)
-		ItemPhysicSetLinearFactor(item, Vector(1,0.1,1))
-
+		ItemPhysicSetAngularFactor(item, Vector(0,0,0))
+//		ItemSetAngularDamping(item, 0.1)
+		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
+//		ItemApplyTorque(item, Vector(Rand(0,360), Rand(0,360), Rand(0,360)))
 		captured = 0
 	}
 }
