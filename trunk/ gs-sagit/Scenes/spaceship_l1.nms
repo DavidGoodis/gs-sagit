@@ -370,7 +370,7 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 					>
 				>
 				<PhysicItem=
-					<SelfMask=44>
+					<SelfMask=32>
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
@@ -397,9 +397,9 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=5.342051>
+								<X=7.000000>
 								<Y=1.000000>
-								<Z=4.638963>
+								<Z=4.638000>
 							>
 							<Mass=100.000000>
 							<StaticFriction=0.500000>
@@ -424,9 +424,9 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=2.986230>
-								<Y=2.605185>
-								<Z=7.746401>
+								<X=4.000000>
+								<Y=4.000000>
+								<Z=9.000000>
 							>
 							<Mass=100.000000>
 							<StaticFriction=0.500000>
@@ -469,7 +469,6 @@ HkЊТ™Ф**ЄiэеХЮнв\Я]]IkЊТ™Ф**ЄiэеХЮнв\Я**JkЊТ™Ф**ЄiэеХЮнв\ЯчцJkЊТ
 						<Y=-3.141592>
 						<Z=0.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -693,7 +692,7 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 							<Position=
 								<X=0.000000>
 								<Y=0.000000>
-								<Z=0.161658>
+								<Z=0.000000>
 							>
 							<Rotation=
 								<X=-0.000000>
@@ -706,9 +705,9 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=8.000000>
-								<Y=8.000000>
-								<Z=8.000000>
+								<X=4.000000>
+								<Y=4.000000>
+								<Z=4.000000>
 							>
 							<Mass=100.000000>
 							<StaticFriction=0.500000>
@@ -743,8 +742,8 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<ScriptPath="Script/reactorTrailFinal.nut">
-						<Class="ReactorTrailFinal">
+						<ScriptPath="Script/reactorTrailPoly2.nut">
+						<Class="ReactorTrailPoly2">
 					>
 				>
 				<PhysicItem=
@@ -770,7 +769,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -794,8 +792,8 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<ScriptPath="Script/reactorTrailFinal.nut">
-						<Class="ReactorTrailFinal">
+						<ScriptPath="Script/reactorTrailPoly2.nut">
+						<Class="ReactorTrailPoly2">
 					>
 				>
 				<PhysicItem=
@@ -821,7 +819,6 @@ VжURЁiђђPkd5,e!|g*еVжURЁi>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1003,7 +1000,6 @@ bO._iђђPk ._i^pЊDп"bO._i>
 						<Y=-3.141592>
 						<Z=-3.141592>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1219,7 +1215,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 						<Y=3.141593>
 						<Z=3.141593>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1649,7 +1644,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 						<Y=3.141593>
 						<Z=3.141593>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1695,84 +1689,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 				<VolumetricRange=10.000000>
 			>
 		>
-		<MLight=
-			<MItem=
-				<Id="BackLight">
-				<UId=14>
-				<Active>
-				<Priority=1.000000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Light=
-				<Item=
-					<Position=
-						<X=0.000009>
-						<Y=-3.208994>
-						<Z=0.196665>
-					>
-					<Rotation=
-						<X=-1.570796>
-						<Y=0.000000>
-						<Z=0.000000>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Diffuse=
-					<X=1.000000>
-					<Y=0.000000>
-					<Z=0.866667>
-				>
-				<Specular=
-					<X=0.000000>
-					<Y=0.482353>
-					<Z=1.000000>
-				>
-				<ShadowColor=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Type="Spot">
-				<Falloff="Linear">
-				<Range=100.000000>
-				<VolumeRange=100.000000>
-				<ClipDistance=100.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=0.500000>
-				<SpecularIntensity=0.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=1.570796>
-				<ZNear=0.010000>
-				<Shadow="None">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=False>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=10.000000>
-				<VolumetricRange=10.000000>
-			>
-		>
 	>
 	<Links=
 		<Link=
@@ -1801,10 +1717,6 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 		>
 		<Link=
 			<Item=13>
-			<Link=1>
-		>
-		<Link=
-			<Item=14>
 			<Link=1>
 		>
 	>
@@ -1863,27 +1775,27 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 	<CurrentCamera="Camera">
 	<ViewMatrix=
 		<R0=
-			<X=-0.033512>
-			<Y=-0.000000>
-			<Z=-0.999438>
+			<X=-0.815760>
+			<Y=0.000000>
+			<Z=0.578391>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.538921>
-			<Y=0.842162>
-			<Z=-0.018070>
+			<X=-0.189033>
+			<Y=0.945085>
+			<Z=-0.266611>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.841689>
-			<Y=-0.539224>
-			<Z=-0.028222>
+			<X=-0.546629>
+			<Y=-0.326826>
+			<Z=-0.770962>
 			<W=0.000000>
 		>
 		<R3=
-			<X=-29.199669>
-			<Y=18.706619>
-			<Z=0.979076>
+			<X=34.697701>
+			<Y=20.745550>
+			<Z=48.937431>
 			<W=1.000000>
 		>
 	>
@@ -1896,27 +1808,27 @@ Ki-йЋиDЙfi**NkігжgвРKi-йЋиDЙfiчцNkігжgвРKi-йЋиDЙfiДГOkігжgвРKi-й
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.033512>
-					<Y=-0.000000>
-					<Z=-0.999438>
+					<X=-0.815760>
+					<Y=0.000000>
+					<Z=0.578391>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.538921>
-					<Y=0.842162>
-					<Z=-0.018070>
+					<X=-0.189033>
+					<Y=0.945085>
+					<Z=-0.266611>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.841689>
-					<Y=-0.539224>
-					<Z=-0.028222>
+					<X=-0.546629>
+					<Y=-0.326826>
+					<Z=-0.770962>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-29.199669>
-					<Y=18.706619>
-					<Z=0.979076>
+					<X=34.697701>
+					<Y=20.745550>
+					<Z=48.937431>
 					<W=1.000000>
 				>
 			>

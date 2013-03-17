@@ -23,6 +23,13 @@ class	Cube
 	hit			= 0
 	dead		= 0
 
+	// 1 if in the trajectory of the spaceship
+	willHit		= 0
+
+	mat				= 0
+	SavedMatDiffuse	= 0
+
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -55,6 +62,18 @@ class	Cube
 
 		if (usePad&&(padrt == 0.0))
 			RT_released = 1
+
+/*
+		local timer = TickToSec(g_clock-SyncTimer)
+		if ((timer >= SyncWait) && (timer <5))
+		{
+			local speed = ItemGetLinearVelocity(item)
+			ItemSetLinearVelocity(item,Vector(0,0,0))
+//			ItemApplyLinearImpulse(item, Vector(0,0,-1000))
+
+			SyncTimer = g_clock
+		}
+*/
 
 		if (!captured)
 		{
@@ -90,6 +109,18 @@ class	Cube
 
 	function	OnUpdate(item)
 	{
+			
+/*
+		if (ItemGetScriptInstanceFromClass(item, "Cube").willHit == 1)
+		{
+			MaterialSetDiffuse(mat, Vector(255,0,0,255))
+		}
+		else
+		{
+			MaterialSetDiffuse(mat, SavedMatDiffuse)
+		}
+*/
+
 /*		if (ItemGetPosition(item).y > 50)
 			{
 				dead = 1
@@ -108,5 +139,8 @@ class	Cube
 		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
 //		ItemApplyTorque(item, Vector(Rand(0,360), Rand(0,360), Rand(0,360)))
 		captured = 0
+	//	mat = GeometryGetMaterial(ItemGetGeometry(item), "Mesh/Material_001__cubevelbake.nmm")
+//		SavedMatDiffuse = MaterialGetDiffuse(mat)
+
 	}
 }

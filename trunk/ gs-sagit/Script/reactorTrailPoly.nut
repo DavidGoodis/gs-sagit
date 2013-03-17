@@ -101,8 +101,9 @@ class	reactor1
 //		local partMat = EngineLoadMaterial(g_engine, "Mesh/reactorPart.nmm")
 //		MaterialSetup(partMat)
 //		geo.pushMaterial(partMat)
-		geo.pushMaterial(GeometryGetMaterialFromIndex(ObjectGetGeometry(ItemCastToObject(SceneFindItem(g_scene, "Spacecraft"))), 3))
-
+//		geo.pushMaterial(GeometryGetMaterialFromIndex(ObjectGetGeometry(ItemCastToObject(SceneFindItem(g_scene, "Spacecraft"))), 3))
+		geo.pushMaterial("Mesh/red__SpaceshipUVMAP.nmm")
+	
 		local pos 	= ItemGetWorldPosition(item)
 
 //		prevPos.z = ItemGetPosition(CameraGetItem(SceneGetCurrentCamera(g_scene))).z
@@ -112,7 +113,8 @@ class	reactor1
 		prevPos	= pos
 
 		// create the mesh with the name "geoi"
-		local geoi = geo.instantiate(g_engine, "geoi")
+//		local geoi = geo.instantiate(g_engine, "geoi")
+		geo.instantiate(g_engine, "geoi")
 
 		local mat 	= GeometryGetMaterialFromIndex(geoi, 0)
 		MaterialFlagSet(mat, MaterialRenderDoubleSided, true)

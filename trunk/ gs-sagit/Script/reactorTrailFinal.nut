@@ -17,7 +17,8 @@ class	ReactorTrailFinal
 //	color_a 		= Vector(1, 1, 1, 1)
 //	color_b 		= Vector(1, 1, 1, 0)
 	color_b 		= Vector(1, 1, 1, 0.1)
-	color_a 		= Vector(1, 0.3, 0.3, 1)
+//	color_a 		= Vector(1, 0.3, 0.3, 1)
+	color_a 		= Vector(1, 0.7, 0.7, 1)
 
 	function RendererDrawQuad(renderer, v0, v1, v2, v3, c0, c1, c2, c3, MatBlendMode, MatRendMode)
 	{
@@ -38,6 +39,7 @@ class	ReactorTrailFinal
 		local f2 = Vector(vCam.x+0.1,vCam.y+0.1,vCam.z-10)
 		local f3 = Vector(vCam.x+0.1,vCam.y-0.1,vCam.z-10)
 
+		RendererSetIdentityWorldMatrix(g_render)
 
 		RendererDrawQuad(g_render, b0, f0, f1, b1, color_a, color_b, color_b, color_a, MaterialBlendAlpha, MaterialRenderDoubleSided)
 		RendererDrawQuad(g_render, f1, b1, b2, f2, color_b, color_a, color_a, color_b, MaterialBlendAlpha, MaterialRenderDoubleSided)

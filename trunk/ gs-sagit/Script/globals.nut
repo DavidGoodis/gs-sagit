@@ -17,17 +17,24 @@ snd_mu_title		<-	"data/abstract_loop.ogg"
 snd_mu_game			<-	"data/Begijo.ogg"
 
 //Pad mapping
-keyBack		<- 113
-LB			<- 95
-RB			<- 98
-DeviceAxisLT <- 13
-DeviceAxisRT <- 14
-debug			<- 1
+keyBack				<- 113
+LB					<- 95
+RB					<- 98
+DeviceAxisLT 		<- 13
+DeviceAxisRT 		<- 14
+debug				<- 1
 
-gShipCanRoll	<- 1
+gShipCanRoll		<- 1
 
 UIWidth				<-	1920
 UIHeight			<-	1080
+
+
+// Timer for Sync
+SyncTimer			<- 0
+SyncWait			<- 0.402
+	
+
 
 	//--------------------------------------------
 	function	ComputeLowDeltaFrameCompensation()

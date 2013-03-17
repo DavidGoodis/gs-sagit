@@ -31,22 +31,22 @@
 			<Camera=
 				<Item=
 					<Position=
-						<X=120.739769>
-						<Y=1.103679>
-						<Z=16.677757>
+						<X=35.804264>
+						<Y=20.724897>
+						<Z=-7.027563>
 					>
 					<Rotation=
-						<X=0.260689>
-						<Y=-2.887852>
+						<X=-0.925668>
+						<Y=2.157889>
 						<Z=0.000000>
 					>
 					<ItemFlag=
 						<HasTarget>
 					>
 					<Target=
-						<X=-2.901750>
-						<Y=-14.581239>
-						<Z=24.408030>
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
@@ -189,6 +189,7 @@
 			<MItem=
 				<Id="tunnelCol">
 				<UId=3>
+				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -321,7 +322,6 @@
 						<Y=0.000000>
 						<Z=-0.000017>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -338,6 +338,7 @@
 			<MItem=
 				<Id="TunnelDivisionSolid">
 				<UId=4>
+				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -365,7 +366,6 @@
 						<Y=100.000000>
 						<Z=100.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -382,6 +382,7 @@
 			<MItem=
 				<Id="Tunnel">
 				<UId=5>
+				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -410,7 +411,6 @@
 						<Y=0.000000>
 						<Z=-800.000000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -521,14 +521,14 @@
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=12.000000>
-								<Y=12.000000>
-								<Z=12.000000>
+								<X=2.000000>
+								<Y=2.000000>
+								<Z=2.000000>
 							>
-							<Mass=0.500000>
-							<StaticFriction=0.000000>
-							<DynamicFriction=0.000000>
-							<Restitution=1.000000>
+							<Mass=1000.000000>
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
 						>
 					>
 				>
@@ -1128,11 +1128,10 @@ _é********._iÄÃKk._é********._iLk._é********._i]]Mk._é**
 			>
 			<Item=
 				<Rotation=
-					<X=0.000000>
+					<X=-0.000000>
 					<Y=3.141575>
 					<Z=0.000000>
 				>
-				<ItemFlag>
 				<Target=
 					<X=0.000000>
 					<Y=0.000000>
@@ -1252,6 +1251,90 @@ _é********._iÄÃKk._é********._iLk._é********._i]]Mk._é**
 				>
 			>
 		>
+		<MObject=
+			<MItem=
+				<Id="BeveledCubeRed">
+				<UId=14>
+				<TriggerDetected>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<ScriptPath="Script/cube.nut">
+						<Class="Cube">
+					>
+					<ScriptUnit=
+						<ScriptPath="Script/Trajectory.nut">
+						<Class="Trajectory">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=32>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Box">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=2.000000>
+								<Y=2.000000>
+								<Z=2.000000>
+							>
+							<Mass=1000.000000>
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=500.000000>
+						<Y=500.000000>
+						<Z=-528.337585>
+					>
+					<Scale=
+						<X=6.000000>
+						<Y=6.000000>
+						<Z=6.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="Mesh/beveled_cubeRed.nmg">
+				<CacheGeometry=True>
+			>
+		>
 	>
 	<Links=
 		<Link=
@@ -1322,60 +1405,60 @@ _é********._iÄÃKk._é********._iLk._é********._i]]Mk._é**
 		<Layout="TripleVertical">
 		<Viewport=
 			<Index=0>
-			<CameraUid=-16>
+			<CameraUid=0>
 			<Matrix=
 				<R0=
-					<X=-0.808706>
+					<X=0.192602>
 					<Y=0.000000>
-					<Z=-0.588213>
+					<Z=0.981277>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.067321>
-					<Y=0.993429>
-					<Z=-0.092556>
+					<X=-0.484643>
+					<Y=0.869524>
+					<Z=0.095125>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.584348>
-					<Y=-0.114449>
-					<Z=-0.803392>
+					<X=-0.853244>
+					<Y=-0.493891>
+					<Z=0.167472>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-33.788651>
-					<Y=7.901914>
-					<Z=26.313622>
+					<X=35.804264>
+					<Y=20.724897>
+					<Z=-7.027563>
 					<W=1.000000>
 				>
 			>
 		>
 		<Viewport=
 			<Index=1>
-			<CameraUid=-13>
+			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.000004>
-					<Y=0.000000>
-					<Z=1.000000>
+					<X=-0.969879>
+					<Y=-0.000000>
+					<Z=0.243587>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.000000>
-					<Y=1.000000>
-					<Z=-0.000000>
+					<X=-0.019544>
+					<Y=0.996776>
+					<Z=-0.077819>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-1.000000>
-					<Y=-0.000000>
-					<Z=-0.000004>
+					<X=-0.242801>
+					<Y=-0.080236>
+					<Z=-0.966752>
 					<W=0.000000>
 				>
 				<R3=
-					<X=78.596130>
-					<Y=2.419152>
-					<Z=32.893539>
+					<X=16.189734>
+					<Y=5.350039>
+					<Z=64.462006>
 					<W=1.000000>
 				>
 			>
