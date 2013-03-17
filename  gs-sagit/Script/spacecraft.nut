@@ -12,7 +12,7 @@ class	spacecraft
 
 	lt_step	 	= 6 //lateral translation step
 	v_step		= 6 //vertical translation step
-	r_step 		= 400 //rotation step
+	r_step 		= 500 //rotation step
 	max_barrel	= 10 //angle de tilt max
 	gFFON		= 0
 	armed		= 0
@@ -207,8 +207,17 @@ class	spacecraft
 				padlt = DeviceInputValue(pad, DeviceAxisLT),
 				padrt = DeviceInputValue(pad, DeviceAxisRT)
 
-		local camera = SceneGetCurrentCamera(g_scene)
 
+		ItemSetAngularVelocity(item, ItemGetAngularVelocity(item).Lerp(0.9, Vector(0,0,0)))
+/*		local cRot = ItemGetRotationMatrix(item)
+//		local cRot = cRot.SlerpTo(0.01, RotationMatrixZ(0))
+		cRot = cRot.SlerpTo(0.9, RotationMatrixZ(0))
+		local m4 = ItemGetMatrix(item)
+		m4.RotationFromMatrix3(cRot)
+		ItemSetMatrix(item, m4)	
+*/
+
+		local camera = SceneGetCurrentCamera(g_scene)
 		//Get the rotation matrix of the camera to compensate for the roll
 		local camRot = ItemGetRotationMatrix(CameraGetItem(camera))
 
@@ -221,7 +230,9 @@ class	spacecraft
 // Keeps the ship in the limits of the camera range
 		local ShipScreenPosition = CameraWorldToScreen(camera, g_render, ItemGetWorldPosition(item))
 
-		if ((ShipScreenPosition.x < 0) || (ShipScreenPosition.x > 1) || (ShipScreenPosition.y < 0) || (ShipScreenPosition.y > 1))
+		local v = RendererGetViewport(g_render)
+//		if ((ShipScreenPosition.x < 0) || (ShipScreenPosition.x > 1) || (ShipScreenPosition.y < 0) || (ShipScreenPosition.y > 1))
+		if ((ShipScreenPosition.x < 0) || (ShipScreenPosition.x > v.GetWidth()) || (ShipScreenPosition.y < 0) || (ShipScreenPosition.y > v.GetHeight()))
 			ItemSetLinearVelocity(item, Vector(0,0,0))
 
 // Decelerates at each step
@@ -275,7 +286,7 @@ class	spacecraft
 //						ItemApplyLinearImpulse(item,Vector(lt_step*0.5,zRot,0)/*.Scale(low_dt_compensation)*/)
 	 					ItemApplyLinearImpulse(item,(Vector(lt_step*padx,0,0).ApplyMatrix(camRot))/*.Scale(low_dt_compensation)*/)
 
-						ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
+//						ItemApplyTorque(item, Vector(0,0,-r_step/10).Scale(ItemGetMass(item)))
 					}
 
 
@@ -301,13 +312,13 @@ class	spacecraft
 
 // Decelerates rotation at each step
 		if ((!padx) && (!pady))
-			ItemSetAngularVelocity(item, ItemGetAngularVelocity(item)/1.04)
+			ItemSetAngularVelocity(item, ItemGetAngularVelocity(item)/1.02)
 
 
 		//counters any barrel
 		local currentRoll = ItemGetRotation(item).z
 //		local currentRoll = ItemGetAngularVelocity(item).z
-		ItemApplyTorque(item, Vector(0,0,-currentRoll*r_step).Scale(ItemGetMass(item)))
+//		ItemApplyTorque(item, Vector(0,0,-currentRoll*r_step).Scale(ItemGetMass(item)))
 //		print(currentRoll)
 	}
 

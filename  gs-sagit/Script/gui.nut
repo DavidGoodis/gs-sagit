@@ -1,6 +1,6 @@
 g_ui_IDs	<- 0
 
-function	CreateLabel(ui, name, x, y, size = 32, w = 200, h = 64, r = 255, g = 255, b = 255, a = 255, font = "electr", align = TextAlignLeft)
+function	CreateLabel(ui, name, x, y, size = 32, width = 200, height = 64, r = 255, g = 255, b = 255, a = 255, font = "electr", align = TextAlignLeft)
 //function	CreateLabel(ui, name, x, y, size, w, h, r, g, b, a, font, align)
 {
 	// Create UI window.
@@ -8,7 +8,7 @@ function	CreateLabel(ui, name, x, y, size = 32, w = 200, h = 64, r = 255, g = 25
 	g_ui_IDs++
 	_id = g_ui_IDs
 //	local	window = UIAddWindow(ui, _id, x, y, w, h)
-	local	window = UIAddNamedWindow(ui, name, x, y, w ,h)
+	local	window = UIAddNamedWindow(ui, name, x, y, width ,height)
 
 	// Create UI text widget and set as window base widget.
 	local textwidget = UIAddTextWidget(ui, -1, name, ProjectGetUIFont(g_project, font))

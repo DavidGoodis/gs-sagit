@@ -72,6 +72,7 @@ class	schmup
 			ProjectAddLayer(project, scene, 1)
 			MixerChannelStop(g_mixer,channel_music)
 			channel_music = MixerStreamStart(g_mixer,snd_mu_game)
+			SyncTimer = g_clock
 			MixerChannelSetGain(g_mixer, channel_music, 0.8)
 			MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
 			ready = 4
