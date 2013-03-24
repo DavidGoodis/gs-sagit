@@ -1,0 +1,12 @@
+<Version=1.0>
+<score=6005>
+<level_3=
+	<life=100>
+	<stopwatch=8955.000000>
+	<complete=True>
+	<fuel=100>
+	<wall_hits=0>
+>
+<current_level=4>
+<latest_run=0>
+<reversed_controls=False>

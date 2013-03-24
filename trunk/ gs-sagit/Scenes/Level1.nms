@@ -31,22 +31,22 @@
 			<Camera=
 				<Item=
 					<Position=
-						<X=35.804264>
-						<Y=20.724897>
-						<Z=-7.027563>
+						<X=531.311096>
+						<Y=509.362457>
+						<Z=-152.130051>
 					>
 					<Rotation=
-						<X=-0.925668>
-						<Y=2.157889>
+						<X=0.227094>
+						<Y=0.534184>
 						<Z=0.000000>
 					>
 					<ItemFlag=
 						<HasTarget>
 					>
 					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
+						<X=500.000000>
+						<Y=500.000000>
+						<Z=-200.000000>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
@@ -87,7 +87,7 @@
 					<Position=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=-48.560001>
+						<Z=-50.000000>
 					>
 					<Target=
 						<X=1.142273>
@@ -477,7 +477,6 @@
 			<MItem=
 				<Id="BeveledCube">
 				<UId=7>
-				<TriggerDetected>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -494,14 +493,14 @@
 					>
 				>
 				<PhysicItem=
-					<SelfMask=1>
-					<Mask=32>
+					<SelfMask=0>
+					<Mask=0>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
 					<CharacterRadius=0.500000>
 					<CharacterHeight=1.750000>
 					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
+					<Mode="None">
 					<Shapes=
 						<PhysicShape=
 							<Type="Box">
@@ -525,7 +524,6 @@
 								<Y=2.000000>
 								<Z=2.000000>
 							>
-							<Mass=1000.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -538,7 +536,7 @@
 					<Position=
 						<X=500.000000>
 						<Y=500.000000>
-						<Z=-500.000000>
+						<Z=-200.000000>
 					>
 					<Scale=
 						<X=6.000000>
@@ -1052,14 +1050,14 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<Light=
 				<Item=
 					<Position=
-						<X=0.000000>
-						<Y=8.800144>
-						<Z=0.235378>
+						<X=300.000000>
+						<Y=29.414000>
+						<Z=0.000000>
 					>
 					<Rotation=
-						<X=1.492259>
-						<Y=-0.000001>
-						<Z=-0.000001>
+						<X=1.570796>
+						<Y=0.000000>
+						<Z=0.000000>
 					>
 					<Target=
 						<X=0.000000>
@@ -1086,8 +1084,8 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				>
 				<Type="Parallel">
 				<Falloff="Linear">
-				<Range=0.000000>
-				<VolumeRange=500.000000>
+				<Range=500.000000>
+				<VolumeRange=1000.000000>
 				<ClipDistance=300.000000>
 				<ProjectionMap="">
 				<DiffuseIntensity=1.000000>
@@ -1095,7 +1093,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<ConeAngle=0.523599>
 				<EdgeAngle=0.523599>
 				<ZNear=0.020000>
-				<Shadow="Map">
+				<Shadow="None">
 				<ShadowBias=0.100000>
 				<ShadowDistribution=0.100000>
 				<ShadowRange=100.000000>
@@ -1110,6 +1108,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<MItem=
 				<Id="Player">
 				<UId=12>
+				<TriggerDetected>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1127,6 +1126,11 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				>
 			>
 			<Item=
+				<Position=
+					<X=0.000003>
+					<Y=0.000000>
+					<Z=-0.191728>
+				>
 				<Rotation=
 					<X=-0.000000>
 					<Y=3.141575>
@@ -1148,7 +1152,6 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<Id="Terrain">
 				<UId=13>
 				<Active>
-				<Helper>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -1200,11 +1203,6 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 						<Y=-100.000000>
 						<Z=0.000000>
 					>
-					<Scale=
-						<X=10.000000>
-						<Y=1.000000>
-						<Z=1.000000>
-					>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1219,30 +1217,31 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<Layers=
 					<Layer=
 						<Index=0>
+						<Enabled>
+						<Diffuse="Tex/FF7.png">
 						<UVAngle=0.000000>
 						<UVTiling=1.000000>
-						<UVAxis="XZ">
 					>
 					<Layer=
 						<Index=1>
+						<Enabled>
+						<Diffuse="Tex/warning1.png">
 						<UVAngle=0.000000>
 						<UVTiling=1.000000>
-						<UVAxis="XZ">
 					>
 					<Layer=
 						<Index=2>
 						<UVAngle=0.000000>
 						<UVTiling=1.000000>
-						<UVAxis="XZ">
 					>
 					<Layer=
 						<Index=3>
 						<UVAngle=0.000000>
 						<UVTiling=1.000000>
-						<UVAxis="XZ">
 					>
 				>
 				<Blendmap="Mesh/terrain/terrain_uid462244.tga">
+				<Shader="">
 				<Heightmap=
 					<Width=1024>
 					<Height=1024>
@@ -1279,7 +1278,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 					<CharacterRadius=0.500000>
 					<CharacterHeight=1.750000>
 					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
+					<Mode="Kinematic">
 					<Shapes=
 						<PhysicShape=
 							<Type="Box">
@@ -1314,9 +1313,9 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<Object=
 				<Item=
 					<Position=
-						<X=500.000000>
+						<X=478.031921>
 						<Y=500.000000>
-						<Z=-528.337585>
+						<Z=-200.000000>
 					>
 					<Scale=
 						<X=6.000000>
@@ -1335,6 +1334,89 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<CacheGeometry=True>
 			>
 		>
+		<MObject=
+			<MItem=
+				<Id="BeveledCube2">
+				<UId=15>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<ScriptPath="Script/cube.nut">
+						<Class="Cube">
+					>
+					<ScriptUnit=
+						<ScriptPath="Script/Trajectory.nut">
+						<Class="Trajectory">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=32>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=0.500000>
+					<CharacterHeight=1.750000>
+					<CharacterMaxStep=0.250000>
+					<Mode="Kinematic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Box">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=2.000000>
+								<Y=2.000000>
+								<Z=2.000000>
+							>
+							<Mass=1000.000000>
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=492.473907>
+						<Y=497.425812>
+						<Z=-305.093658>
+					>
+					<Scale=
+						<X=6.000000>
+						<Y=6.000000>
+						<Z=6.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="Mesh/beveled_cube.nmg">
+				<CacheGeometry=True>
+			>
+		>
 	>
 	<Links=
 		<Link=
@@ -1349,16 +1431,16 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 	<Constraints>
 	<Globals=
 		<BackgroundColor=
-			<X=0.329412>
-			<Y=0.329412>
-			<Z=0.329412>
+			<X=0.627451>
+			<Y=0.627451>
+			<Z=0.627451>
 		>
 		<AmbientColor=
 			<X=0.796079>
 			<Y=0.796079>
 			<Z=0.796079>
 		>
-		<TimeOfDay=0.500000>
+		<TimeOfDay=0.550000>
 		<AmbientIntensity=0.900000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
@@ -1395,7 +1477,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 		<R3=
 			<X=0.000000>
 			<Y=0.000000>
-			<Z=-48.560001>
+			<Z=-50.000000>
 			<W=1.000000>
 		>
 	>
@@ -1408,27 +1490,27 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<CameraUid=0>
 			<Matrix=
 				<R0=
-					<X=0.192602>
+					<X=-0.836878>
 					<Y=0.000000>
-					<Z=0.981277>
+					<Z=0.547390>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.484643>
-					<Y=0.869524>
-					<Z=0.095125>
+					<X=-0.088419>
+					<Y=0.986868>
+					<Z=-0.135179>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.853244>
-					<Y=-0.493891>
-					<Z=0.167472>
+					<X=-0.540202>
+					<Y=-0.161528>
+					<Z=-0.825888>
 					<W=0.000000>
 				>
 				<R3=
-					<X=35.804264>
-					<Y=20.724897>
-					<Z=-7.027563>
+					<X=531.311096>
+					<Y=509.362457>
+					<Z=-152.130051>
 					<W=1.000000>
 				>
 			>
@@ -1438,27 +1520,27 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.969879>
-					<Y=-0.000000>
-					<Z=0.243587>
+					<X=-0.836352>
+					<Y=0.000000>
+					<Z=0.548194>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.019544>
-					<Y=0.996776>
-					<Z=-0.077819>
+					<X=-0.428150>
+					<Y=0.624507>
+					<Z=-0.653206>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.242801>
-					<Y=-0.080236>
-					<Z=-0.966752>
+					<X=-0.342351>
+					<Y=-0.781019>
+					<Z=-0.522308>
 					<W=0.000000>
 				>
 				<R3=
-					<X=16.189734>
-					<Y=5.350039>
-					<Z=64.462006>
+					<X=11.302859>
+					<Y=26.340645>
+					<Z=111.099953>
 					<W=1.000000>
 				>
 			>
@@ -1488,7 +1570,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<R3=
 					<X=0.000000>
 					<Y=0.000000>
-					<Z=-48.560001>
+					<Z=-50.000000>
 					<W=1.000000>
 				>
 			>

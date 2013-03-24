@@ -95,6 +95,20 @@
 							>
 						>
 					>
+					<ScriptUnit=
+						<ScriptPath="@core/builtin/script/item_rotate.nut">
+						<Class="BuiltinItemRotate">
+						<ParmList=
+							<Parm=
+								<Id="speed">
+								<Value=0.100000>
+							>
+							<Parm=
+								<Id="rot_y">
+								<Value=True>
+							>
+						>
+					>
 				>
 				<PhysicItem=
 					<SelfMask=1>

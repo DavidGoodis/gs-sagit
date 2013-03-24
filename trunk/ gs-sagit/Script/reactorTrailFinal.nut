@@ -39,7 +39,8 @@ class	ReactorTrailFinal
 		local f2 = Vector(vCam.x+0.1,vCam.y+0.1,vCam.z-10)
 		local f3 = Vector(vCam.x+0.1,vCam.y-0.1,vCam.z-10)
 
-		RendererSetIdentityWorldMatrix(g_render)
+		RendererApplyCamera(g_render)
+//		RendererSetIdentityWorldMatrix(g_render)
 
 		RendererDrawQuad(g_render, b0, f0, f1, b1, color_a, color_b, color_b, color_a, MaterialBlendAlpha, MaterialRenderDoubleSided)
 		RendererDrawQuad(g_render, f1, b1, b2, f2, color_b, color_a, color_a, color_b, MaterialBlendAlpha, MaterialRenderDoubleSided)

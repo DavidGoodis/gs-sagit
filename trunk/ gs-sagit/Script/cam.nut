@@ -64,7 +64,7 @@ class	GameCam
 		
 //		local m = ItemGetMatrix(target).GetRow(0)
 
-		cPos = cPos.Lerp(0.99, Vector(tPos.x, tPos.y, cPos.z))
+		cPos = cPos.Lerp(0.96, Vector(tPos.x, tPos.y, cPos.z))
 /*		local x =  Clamp(cPos.x,-100,100)
 		local y =  Clamp(cPos.y,-100,100)
 		ItemSetPosition(item, Vector(x,y,cPos.z))*/
