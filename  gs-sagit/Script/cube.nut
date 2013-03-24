@@ -29,7 +29,6 @@ class	Cube
 	mat				= 0
 	SavedMatDiffuse	= 0
 
-
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -77,7 +76,7 @@ class	Cube
 
 		if (!captured)
 		{
-			local rot = ItemGetRotation(item)
+//			local rot = ItemGetRotation(item)
 //			ItemApplyTorque(item, Vector(rot.x+0.01, rot.y+0.01, rot.z+0.01))
 		}
 		else
@@ -102,13 +101,15 @@ class	Cube
 				local booost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
 
 				ItemPhysicSetLinearFactor(item, Vector(0,0,1))
-				ItemApplyLinearImpulse(item, Vector(0,0,200))
+				ItemApplyLinearImpulse(item, Vector(0,0,400))
 			}
 		}
 	}
 
 	function	OnUpdate(item)
 	{
+
+		ItemSetOpacity(item, Clamp(ItemGetOpacity(item)+0.1 ,0,1))
 			
 /*
 		if (ItemGetScriptInstanceFromClass(item, "Cube").willHit == 1)
@@ -134,11 +135,12 @@ class	Cube
 	*/
 	function	OnSetup(item)
 	{
-		ItemPhysicSetAngularFactor(item, Vector(0,0,0))
+//		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
 //		ItemSetAngularDamping(item, 0.1)
-		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
+//		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
 //		ItemApplyTorque(item, Vector(Rand(0,360), Rand(0,360), Rand(0,360)))
 		captured = 0
+		ItemSetOpacity(item,0.0)
 	//	mat = GeometryGetMaterial(ItemGetGeometry(item), "Mesh/Material_001__cubevelbake.nmm")
 //		SavedMatDiffuse = MaterialGetDiffuse(mat)
 

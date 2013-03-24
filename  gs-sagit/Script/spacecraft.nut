@@ -17,7 +17,7 @@ class	spacecraft
 	gFFON		= 0
 	armed		= 0
 	gMaxEnergy  = 1000
-	timer		= g_clock
+	vibTimer	= g_clock
 	FFitem		= 0
 	FFcolShape	= 0
 	FFopacityStep = 0.04
@@ -52,6 +52,12 @@ class	spacecraft
 				pad 		= GetInputDevice("xinput0"),
 				padrt 		= DeviceInputValue(pad, DeviceAxisRT)
 
+		local pad = GetInputDevice("xinput0")
+		if (TickToSec(g_clock-vibTimer) >= 1)
+		{
+			DeviceSetEffect(pad, DeviceEffectVibrate, 0.0)
+			vibTimer = g_clock
+		}
 
 		if (("useMouse" in getroottable()) && (useMouse == 1))
 		{
@@ -150,6 +156,7 @@ class	spacecraft
 	{
 //		local c_scene = ItemGetScene(item)
 
+
 		// Collision feedback
 		if (!gFFON)
 		{
@@ -158,6 +165,11 @@ class	spacecraft
 			} catch(e){}
 			local buuu  = ResourceFactoryLoadSound(g_factory, snd_fx_wall)
 			MixerSoundStart(g_mixer, buuu)
+
+			//vibration
+			local pad = GetInputDevice("xinput0")
+			if (gVibrate == 1)
+				DeviceSetEffect(pad, DeviceEffectVibrate, 0.2)
 		}
 		else
 		{
@@ -330,8 +342,6 @@ class	spacecraft
 	function	OnSetup(item)
 //	========================================================================================================
 	{
-
-
 //      ItemSetPhysicMode(item, PhysicModeDynamic)
 		if ("gShipCanRoll" in getroottable())
 			ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))

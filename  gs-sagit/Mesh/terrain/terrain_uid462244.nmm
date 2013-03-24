@@ -1,11 +1,20 @@
 <Version=1.0>
 <Material=
-	<Id="Mesh/terrain/terrain_uid462244.nmm">
 	<Diffuse=
-		<X=0.200000>
-		<Y=0.227451>
-		<Z=0.250980>
+		<X=0.207843>
+		<Y=0.231373>
+		<Z=0.254902>
 		<W=1.000000>
+	>
+	<Specular=
+		<X=0.000000>
+		<Y=0.000000>
+		<Z=0.000000>
+	>
+	<Ambient=
+		<X=0.000000>
+		<Y=0.000000>
+		<Z=0.000000>
 	>
 	<AlphaThreshold=0.100000>
 	<PhysicMaterial=
@@ -15,7 +24,6 @@
 	>
 	<RenderMask=
 		<Smoothing>
-		<NormalMapTangent>
+		<DoubleSided>
 	>
-	<Shader="Mesh/terrain/terrain_uid462244-shader-tree.nsa">
 >

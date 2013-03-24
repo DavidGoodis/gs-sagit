@@ -116,7 +116,7 @@ class	reactor1
 //		local geoi = geo.instantiate(g_engine, "geoi")
 		geo.instantiate(g_engine, "geoi")
 
-		local mat 	= GeometryGetMaterialFromIndex(geoi, 0)
+		local mat 	= GeometryGetMaterialFromIndex(geo, 0)
 		MaterialFlagSet(mat, MaterialRenderDoubleSided, true)
 		MaterialSetDiffuse(mat, Vector(255,0,0,200))
 
@@ -135,7 +135,7 @@ class	reactor1
 //		print(pos.x + "::" + pos.y + "::" + pos.z)
  
 		// add the geometry to the new object
-		ObjectSetGeometry(temp_mesh, geoi)
+		ObjectSetGeometry(temp_mesh, geo)
  
 		// setup the object
 		ItemSetup(temp_item)

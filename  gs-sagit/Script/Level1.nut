@@ -24,7 +24,6 @@ game_over		<- 0
 gFFenergy		<- 100
 lifeBar			<- 0
 low_dt_compensation <-0
-enemiesT1		<- 0
 targetList		<- 0
 pause			<- 0
 
@@ -95,20 +94,23 @@ class	Level1
 	wallPieces		= 0
 
 //=== grid ====
-	gridDensity		= 6
-	gridCellSize	= 0
-	gridArLoc		= [] //Array of locations )size = gridDendity*gridDensity
+//	gridArLoc		= [] //Array of locations. size = gridDendity*gridDensity
 	gridArPat1		= []
-	objVelocity		= 200
-	pattern1		= [1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
-	pattern2		= [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
-	pattern3		= [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
-	pattern4		= [0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
-	pattern5		= [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
-	pattern6		= [1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
+	objVelocity		= 350
+	spawnZ			= 1000
+
+	patfs			= []
+	patlocs			= []
+	patobjs			= []
+
+//	pattern1		= [1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
+
+	enemiesT1		= []
+
 
 	patTimer		= 0
-	patWait			= 1.8
+//	patWait			= 1.8
+	patWait			= 4
 	seq				= 1
 
 
@@ -342,55 +344,112 @@ class	Level1
 			}
 	}
 
-//	========================================================================================================
-	function	OnPhysicStep(scene, taken)
-//	========================================================================================================
-	{
-//		CleanWall(scene)
-/*
-		if (TickToSec(g_clock-wallTimer[0]) >= wallFreq[0])
-			{
-				SpawnWall(SceneFindItem(scene, "wallPiece1"), scene, 12,8)
-				wallTimer[0] = g_clock
-			}
-
-		if (TickToSec(g_clock-wallTimer[1]) >= wallFreq[1])
-			{
-				SpawnWall(SceneFindItem(scene, "wallPiece2"), scene, 12,8)
-				wallTimer[1] = g_clock
-			}
-*/
-	}
 
 
 
 //	========================================================================================================
-	function	PushPattern(scene, pattern, tableOfItems)
+	function	PushPattern(scene, patternID, tableOfItems)
 //	========================================================================================================
 	{
-		foreach(id, loc in gridArLoc)
+		local pattern = []
+		local obj = SceneAddObject(scene, "PatternGravityCenter" + patternID)
+		ItemSetPosition(obj, Vector(0,0,spawnZ))
+
+		foreach(id, loc in patlocs[patternID])
 		{
-			if ( pattern[id] == 1 )
+			local dot = patfs[patternID][id]
+   			if ( dot )
 			{
-				new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
+				if ( dot == 1 )
+					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
+				if ( dot == 2 )
+					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCubeRed"))
+
 		 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
 				ItemSetupScript(new_item)
 				ItemRenderSetup(new_item, g_factory)
 		 		SceneSetupItem(scene, new_item)
 				ItemSetup(new_item)
 
-				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
-				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
+				ItemSetPosition(new_item, loc)
+//				ItemSetOpacity(new_item,0)
+//				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
+//				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
 
-				tableOfItems.append(new_item)
+				pattern.append(new_item)
+
+				ItemSetParent(new_item, obj)
 			}
 		}
+
+		//Add the parent object to the array of parents
+		patobjs.append(obj)
+		//Add the array of new items to the array of item arrays
+		tableOfItems.append(pattern)
 
 		return(tableOfItems)
 	}
 
 
+//	========================================================================================================
+	function	PushAndRotatePattern(scene, patternID, tableOfItems, rotation)
+//	========================================================================================================
+	{
+		local pattern = []
+		local obj = SceneAddObject(scene, "PatternGravityCenter" + patternID)
+		ItemSetPosition(obj, Vector(0,0,spawnZ))
+		print("=== Z === " + ItemGetWorldPosition(obj).z)
 
+		foreach(id, loc in patlocs[patternID])
+		{
+			local dot = patfs[patternID][id]
+   			if ( dot )
+			{
+				if ( dot == 1 )
+					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
+				if ( dot == 2 )
+					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCubeRed"))
+
+		 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
+				ItemSetupScript(new_item)
+				ItemRenderSetup(new_item, g_factory)
+		 		SceneSetupItem(scene, new_item)
+				ItemSetup(new_item)
+
+				ItemSetPosition(new_item, loc)
+
+//				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
+//				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
+
+				pattern.append(new_item)
+
+				ItemSetParent(new_item, obj)
+			}
+		}
+
+//		ItemSetPosition(ObjectGetItem(obj), Vector(0,0,1000))
+
+		//Add the parent object to the array of parents
+		patobjs.append(obj)
+		//Add the array of new items to the array of item arrays
+		tableOfItems.append(pattern)
+/*
+		//Create a geometry for the parent object
+		local geo = GeometryTemplate()
+		geo.pushMaterial("Mesh/red__SpaceshipUVMAP.nmm")
+		geo.beginPolygon()
+		geo.pushVertex(Vector(-10,10,-100))
+		geo.pushVertex(Vector(10,10,-100))
+		geo.pushVertex(Vector(10,-10,-100))
+		geo.pushVertex(Vector(-10,-10,-100))
+		geo.endPolygon(0)
+//		instantiate(g_engine, "geoi")
+		ObjectSetGeometry(obj, geo)
+		ItemSetup(ObjectGetItem(obj))
+*/		
+
+		return(tableOfItems)
+	}
 
 //	========================================================================================================
 	function	OnUpdate(scene)
@@ -463,10 +522,91 @@ class	Level1
 					targetList.remove(id)
 				}
 
-			//handles enemies
-			foreach(idx,enemy in enemiesT1)
+			// Pattern generation
+			if (TickToSec(g_clock-patTimer) >= patWait )
+				switch(seq)
+				{
+					case 1: enemiesT1 = PushAndRotatePattern(scene, 0, enemiesT1, 0.005); seq = 2; patTimer = g_clock; break;
+					case 2: enemiesT1 = PushAndRotatePattern(scene, 1, enemiesT1, -0.005); seq = 3; patTimer = g_clock; break;
+					case 3: enemiesT1 = PushAndRotatePattern(scene, 2, enemiesT1, 0.005); seq = 4; patTimer = g_clock; break;
+					case 4: enemiesT1 = PushAndRotatePattern(scene, 3, enemiesT1, -0.005); seq = 5; patTimer = g_clock; break;
+					case 5: enemiesT1 = PushAndRotatePattern(scene, 4, enemiesT1, 0.0); seq = 6; patTimer = g_clock; break;
+					case 6: enemiesT1 = PushPattern(scene, 5, enemiesT1); seq = 7; patTimer = g_clock; break;
+					case 7: enemiesT1 = PushAndRotatePattern(scene, 6, enemiesT1, 0.005); seq = 8; patTimer = g_clock; break;
+					case 8: enemiesT1 = PushAndRotatePattern(scene, 0, enemiesT1, -0.005); seq = 1; patTimer = g_clock; break;
+				}
+
+
+			//Rotate the pattents via the parent object
+			foreach(idx,obj in patobjs)
 			{
-				local v = ItemGetLinearVelocity(enemy)
+//				local oi = ObjectGetItem(obj)
+				local r = ItemGetRotation(obj)
+				local p = ItemGetWorldPosition(obj)
+
+				print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
+
+				local cpos = ItemGetWorldPosition(SceneGetCurrentCamera(scene))
+
+				local rot = 0.02
+				switch(idx)
+				{
+					case 2: rot = -rot
+					case 3: rot = rot*1.5
+					case 4: rot = -rot
+					case 6: rot = -rot
+				}
+
+				local timer = TickToSec(g_clock-SyncTimer)
+				if ((timer >= SyncWait - 0.5) && (timer < (SyncWait)))
+				{
+					ItemSetRotation(obj, Vector(r.x,r.y,r.z-rot/2*g_dt_frame*60))
+					ItemSetPosition(obj, Vector(p.x,p.y,p.z+1*g_dt_frame*60))
+				}
+				else
+				{
+					ItemSetRotation(obj, Vector(r.x,r.y,r.z+rot*g_dt_frame*60))
+					ItemSetPosition(obj, Vector(p.x,p.y,p.z-8*g_dt_frame*60))
+				}
+				if (timer >= SyncWait+0.5)
+					SyncTimer = g_clock
+
+
+				//delete object and all his children if behind camera
+				local r = ItemGetRotation(obj)
+				local p = ItemGetWorldPosition(obj)
+
+				if (p.z < -50)
+//				if (p.z < ItemGetWorldPosition(SceneGetCurrentCamera(scene)).z)	
+				{
+					print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
+
+					local children = ItemGetChildList(obj)
+					foreach(ic, child in children)
+					{
+						print("--->Child " + ic + "::Z=" + ItemGetWorldPosition(child).z)
+						SceneDeleteItem(scene, child)
+					}
+
+					SceneDeleteObject(scene,obj)
+					patobjs.remove(idx)
+
+					local itemArray = enemiesT1[idx]
+					itemArray.clear()
+					enemiesT1.remove(idx)
+				}
+
+
+			}
+
+
+			//Code for individual block and collision detection
+			foreach(idx1,enemyGrp in enemiesT1)
+				foreach(idx2,enemy in enemyGrp)
+				{
+/*					local position = ItemGetWorldPosition(enemy)
+					print(position.x + "-" + position.y + "-" + position.z)
+*/
 /*				if ((ItemHasScript(enemy, "Cube") && ItemGetScriptInstance(enemy).captured))
 					{
 						ItemSetLinearVelocity(enemy, Vector(0,0,0))
@@ -480,20 +620,38 @@ class	Level1
 					enemiesT1.remove(idx)
 */
 
+   					local wp = ItemGetWorldPosition(enemy)
+   					local ri = ItemGetRotation(enemy)
+					local r = ItemGetOpacity(enemy)
+					local opa = Clamp(wp.z/spawnZ,0,1)+0.1
+//					ItemSetOpacity(enemy, r+0.01)
+		                                                                                                                                                                                                                                             			ItemSetOpacity(enemy, r+0.001)
 
-		local timer = TickToSec(g_clock-SyncTimer)
-		if ((timer >= SyncWait) && (timer < (SyncWait +   0.2)))
-			ItemSetLinearVelocity(enemy,Vector(0,0,100))
-		else
-			ItemSetLinearVelocity(enemy,Vector(0,0,-100))
+/*					local timer = TickToSec(g_clock-SyncTimer)
+					if ((timer >= SyncWait - 0.5) && (timer < (SyncWait)))
+					{
+//						ItemSetPosition(enemy, Vector(wp.x,wp.y,wp.z + g_dt_frame*60))
+//						ItemSetRotation(enemy, Vector(ri.x,ri.y,ri.z+rp.z))
+						local s = ItemGetScale(enemy)
+//						ItemSetScale(enemy,s*0.99)
+					}
+					else
+					{
+//						ItemApplyLinearImpulse(enemy,Vector(0,0,-objVelocity))
+//						ItemSetLinearVelocity(enemy,Vector(0,0,-objVelocity))
 
-		if (timer >= SyncWait + 0.1)
-			SyncTimer = g_clock
+//						ItemSetPosition(enemy, Vector(wp.x,wp.y,wp.z - 10*g_dt_frame*60))
+//						ItemSetRotation(enemy, Vector(ri.x,ri.y,ri.z+rp.z))
+//						ItemSetScale(enemy,Vector(6,6,6))
+					}
 
+					if (timer >= SyncWait+0.5)
+						SyncTimer = g_clock
+*/
 
-				//if enemy is dead
-//				if (ItemGetLinearVelocity(enemy).z == 0 )
-				if (ItemGetScriptInstance(enemy).hit)
+					//if enemy is dead
+//					if (ItemGetLinearVelocity(enemy).z == 0 )
+					if (ItemGetScriptInstance(enemy).hit)
 					{
 						local _snd  = ResourceFactoryLoadSound(g_factory, snd_fx_wall)
 						MixerSoundStart(g_mixer, _snd)
@@ -501,76 +659,65 @@ class	Level1
 						ItemGetScriptInstance(enemy).hit = 0
 					}
 
-				if (ItemGetScriptInstance(enemy).dead)
+					if (ItemGetScriptInstance(enemy).dead)
 					{
 						local _snd  = ResourceFactoryLoadSound(g_factory, snd_fx_dead)
 						MixerSoundStart(g_mixer, _snd)
 
-						enemiesT1.remove(idx)
+						enemyGrp.remove(idx)
 						SceneDeleteItem(scene,enemy)
 						destroyed++
 
 						gScore += 100
 					}
 
-				if ( (ItemGetPosition(enemy).z < -50) || (ItemGetPosition(enemy).z > 1300 ) )
-				{
-					enemiesT1.remove(idx)
-					SceneDeleteItem(scene,enemy)
-				}
-
-				local position = ItemGetPosition(enemy)
-
-				// raytrace collisions
-//				local col =	SceneCollisionRaytrace(ItemGetScene(enemy),position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
-				local col =	SceneCollisionRaytrace(g_scene,position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
-//				if ((col.hit) && ((ItemGetName(col.item) == "Spacecraft") || (ItemGetName(col.item) == "ForceFieldCol")))
-				if ((col.hit) && (ItemGetName(col.item) == "Spacecraft"))
-				{
-					//Set the item as being in the ship's trajectory
-					ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 1
-				
-					// projects in a normalized screen space (0,1)
-//					local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(ItemGetScene(enemy)),position)
-					local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(g_scene), g_render, position)
-
-/*					local warning_sprite = "Tex/Warning_" + ItemGetName(col.item) + ".png"
-					local targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
-					if(col.d < Mtr(700.0))
-						targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
-					if(col.d < Mtr(150.0))
-							targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
-
-					local targetSprite = CreateSprite(SceneGetUI(g_scene),warning_sprite,pos2d.x*UIWidth-TextureGetWidth(targetTex)/2,pos2d.y*UIHeight-TextureGetHeight(targetTex)/2,1)
-					SpriteSetOpacity(targetSprite, 1)
-					targetList.append(targetSprite)
-*/
-					//Play warning sound
-/*					if (TickToSec(g_clock-timer) >= 1)
-					{	
-						local warning  = ResourceFactoryLoadSound(g_factory, "data/warning.wav")
-						local chan     = MixerSoundStart(g_mixer, warning)
-						timer = g_clock
+					local position = ItemGetWorldPosition(enemy)
+/*
+					if ( (position.z < -200) || (position.z > 5000 ) )	
+					{
+						enemyGrp.remove(idx2)
+						SceneDeleteItem(scene,enemy)
 					}
+
+					if (enemyGrp.len()==0)
+						enemiesT1.remove(idx1)
 */
-				}
-				else
-					ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 0
-			}
+					// raytrace collisions
+//					local col =	SceneCollisionRaytrace(ItemGetScene(enemy),position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
+					local col =	SceneCollisionRaytrace(g_scene,position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
+//					if ((col.hit) && ((ItemGetName(col.item) == "Spacecraft") || (ItemGetName(col.item) == "ForceFieldCol")))
+					if ((col.hit) && (ItemGetName(col.item) == "Spacecraft"))
+					{
+						//Set the item as being in the ship's trajectory
+						ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 1
+					
+						// projects in a normalized screen space (0,1)
+//						local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(ItemGetScene(enemy)),position)
+						local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(g_scene), g_render, position)
 
+/*						local warning_sprite = "Tex/Warning_" + ItemGetName(col.item) + ".png"
+						local targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
+						if(col.d < Mtr(700.0))
+							targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
+						if(col.d < Mtr(150.0))
+								targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)		
 
-				
-			// Pattern generation
-			if (TickToSec(g_clock-patTimer) >= patWait )
-				switch(seq)
-				{
-					case 1: enemiesT1 = PushPattern(scene, pattern1, enemiesT1); seq = 2; patTimer = g_clock; break;
-					case 2: enemiesT1 = PushPattern(scene, pattern2, enemiesT1); seq = 3; patTimer = g_clock; break;
-					case 3: enemiesT1 = PushPattern(scene, pattern3, enemiesT1); seq = 4; patTimer = g_clock; break;
-					case 4: enemiesT1 = PushPattern(scene, pattern4, enemiesT1); seq = 5; patTimer = g_clock; break;
-					case 5: enemiesT1 = PushPattern(scene, pattern5, enemiesT1); seq = 6; patTimer = g_clock; break;
-					case 6: enemiesT1 = PushPattern(scene, pattern6, enemiesT1); seq = 1; patTimer = g_clock; break;
-				}
+						local targetSprite = CreateSprite(SceneGetUI(g_scene),warning_sprite,pos2d.x*UIWidth-TextureGetWidth(targetTex)/2,pos2d.y*UIHeight-TextureGetHeight(targetTex)/2,1)
+						SpriteSetOpacity(targetSprite, 1)
+						targetList.append(targetSprite)
+*/
+						//Play warning sound
+/*						if (TickToSec(g_clock-timer) >= 1)
+						{	
+							local warning  = ResourceFactoryLoadSound(g_factory, "data/warning.wav")
+							local chan     = MixerSoundStart(g_mixer, warning)
+							timer = g_clock
+						}
+*/
+					}
+					else
+						ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 0
+				} //End foreach(idx,enemy in enemyGrp)
 		}
 
 		//game over
@@ -648,7 +795,7 @@ class	Level1
 //Debug
 		if (debug)
 		{
-			TextSetText(lblDbgEnemies[1], "enemies : " + enemiesT1.len().tostring())
+//			TextSetText(lblDbgEnemies[1], "patterns : " + enemiesT1.len().tostring())
 			TextSetText(lblDbgTargetList[1], "targets : " + targetList.len().tostring())
 			TextSetText(lblDbgBiru[1], "buildings : " + biruArray.len().tostring())
 			TextSetText(lblDbgSlice[1], "tunnel : " + arrTunnel.len().tostring())
@@ -661,7 +808,14 @@ class	Level1
 	function	OnRenderUser(scene)
 	{
 		// Reset all rendering matrices to identity (no transformation).
-//		RendererSetAllMatricesToIdentity(g_render)
+		RendererSetAllMatricesToIdentity(g_render)
+
+		foreach(i, obj in patobjs)
+		{
+			local mm = ItemGetMinMax(obj)
+//			print(mm.min.x)
+		}
+
 
 //		RendererSetIdentityWorldMatrix(g_render)
 //		RendererSetIdentityProjectionMatrix(g_render)
@@ -669,8 +823,9 @@ class	Level1
 
 		if (debug)
 		{
-			RendererWrite(g_render, debugFont, "clock = " + g_clock, 0, 0, 0.5, true, WriterAlignLeft, Vector(1, 1, 1, 0.5))
-			RendererWrite(g_render, debugFont, "SyncTimer = " + TickToSec(g_clock-SyncTimer), 0, 0.1, 0.5, true, WriterAlignLeft, Vector(1, 1, 1, 0.5))
+			RendererWrite(g_render, debugFont, "clock = " + g_clock, 1, 0, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "SyncTimer = " + TickToSec(g_clock-SyncTimer), 1, 0.04, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "FPS=" + 1/g_dt_frame , 1, 0.08, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
 		}
 //		RendererDrawLine(g_render,ItemGetPosition(SceneFindItem(scene,"BeveledCube")), Vector(0,0,0) )
 	}
@@ -745,6 +900,9 @@ class	Level1
 
 				// Load raster font for debug
 				debugFont = LoadRasterFont(g_factory, "@core/fonts/profiler_base.nml", "@core/fonts/profiler_base")
+//				debugFont = LoadRasterFont(g_factory, "@core/fonts/under.nml", "@core/fonts/under")
+//				debugFont = LoadRasterFont(g_factory, "@core/fonts/fps.nml", "@core/fonts/fps")
+
 			}
 
 		lblDestr	= CreateLabel(ui, "Destroyed : " +  destroyed.tostring(), 150, 280, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
@@ -805,23 +963,98 @@ class	Level1
 
 */
 
-		// Init grid and patterns
 
-//		gridCellSize = ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).max.x - ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).min.x
-		gridCellSize = 12
-		local maxCells = gridDensity*gridDensity
-		local gridHalfCellSize = gridCellSize/2
-		local offset = (gridDensity*gridCellSize)/2 - gridCellSize/2
-
-		for(local i=0;i<maxCells;i++)
+		//Load pattern file
+		local pattern1 = [], pattern2 = [], pattern3 = [],pattern4 = [],pattern5 = [],pattern6 = [],pattern7 = []
+		patfs=[pattern1,pattern2,pattern3,pattern4,pattern5,pattern6,pattern7]
+		local patfn=["pattern1","pattern2","pattern3","pattern4","pattern5","pattern6","pattern7"]
+		foreach(i,patf in patfs)
 		{
-			local x = floor(i/gridDensity)*gridCellSize - offset
-			local y = Mod(i,gridDensity)*gridCellSize - offset
-			gridArLoc.append(Vector(x,y,500))
-//			print(x + "," + y)
+			local p = LoadPicture("Sav/" + patfn[i] + ".png")
+			local w = PictureGetRect(p).GetWidth()
+			local h = PictureGetRect(p).GetHeight()
+			for(local i=0; i<w; i++)
+				for(local j=0; j<h; j++)
+				{
+					local pixel = PictureGetPixel(p,i,j)
+//					local test = pixel.IsEqual(Vector(0,0,0,1),0.0)
+					if (pixel.x+pixel.y+pixel.z == 0)
+						patf.append(0)
+					if (pixel.x+pixel.y+pixel.z+pixel.w == 4)
+						patf.append(1)
+					if (pixel.x+pixel.y+pixel.z == 1)
+						patf.append(2)
+				}
+		}
+
+		// Init location grida
+//		gridCellSize = ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).max.x - ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).min.x
+		local gridCellSize = 12
+
+		foreach(id,pattern in patfs)
+		{
+			local maxCells = pattern.len()
+			local gridDensity = sqrt(maxCells)
+			local gridHalfCellSize = gridCellSize/2
+			local offset = (gridDensity*gridCellSize)/2 - gridCellSize/2
+
+			local gridArLoc = [] //Initialize the location array of this pattern
+			for(local i=maxCells-1;i>=0;i--)
+//			for(local i=0;i<maxCells;i++)
+			{
+				local x = - floor(i/gridDensity)*gridCellSize + offset
+				local y = Mod(i,gridDensity)*gridCellSize - offset
+				gridArLoc.append(Vector(x,y,spawnZ))
+	//			print(x + "," + y)
+			}
+			
+			//Append this location array to the array of locations
+			patlocs.append(gridArLoc)
+/*
+			local filt_arloc = gridArLoc
+			foreach(idx, val in filt_arloc)
+				if (patfs[id][idx] == 0)
+					filt_arloc.remove(idx)
+
+			local a,b,c,d
+			a = filt_arloc[0].x
+			b = filt_arloc[0].x
+			c = filt_arloc[0].y
+			d = filt_arloc[0].y
+			foreach(idx, loc in filt_arloc)
+			{
+				if (idx>=1)
+				{
+					if (loc.x < a)	a = loc.x
+					if (loc.x > b)	b = loc.x
+					if (loc.y < c)	c = loc.y
+					if (loc.y > d)	d = loc.y
+				}
+			}
+	*/		
+//			gridArLoc.sort(compare)
+			
+//			gridArLoc.filter(filter(i,val ))
+			
+			
+//			print(a)
 		}
 
 
+	
+		local mf = MetafileNew()
+//		try(MetafileLoad(mf, "@app/patterns.txt")) catch(e) {throw(e)}
+/*		SystemMountLocalPath("H:/wrk/GS/schmup1/schmup/Sav/", "@Sav/")
+		print(SystemHasMountPoint("@Sav/"))
+		if (MetafileLoad(mf, "@Sav/save.nml"))
+		{
+			local tag = MetafileGetTag(mf, "save;")
+
+			if	(ObjectIsValid(tag))
+				local tab = deserializeObjectFromMetatag(tag)
+			print(tab)
+		} 
+*/
 //		SceneSetFog(g_scene, true, Vector(0.5, 0.7, 0.9), Mtr(200), Mtr(1000))
 
 	}

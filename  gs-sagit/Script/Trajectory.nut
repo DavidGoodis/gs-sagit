@@ -38,11 +38,8 @@ class	Trajectory
 			local b3 = Vector(maxX,minY,itemZ)
 
 
+			RendererApplyCamera(g_render)
 			RendererSetIdentityWorldMatrix(g_render)
-//			RendererSetIdentityProjectionMatrix(g_render)
-//			RendererSetIdentityViewMatrix(g_render)
-
-//			RendererSetAllMatricesToIdentity(g_render)
 
 			RendererDrawLineColored(g_render, f0, b0, cLine)
 			RendererDrawLineColored(g_render, f1, b1, cLine)

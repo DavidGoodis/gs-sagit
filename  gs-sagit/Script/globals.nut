@@ -23,6 +23,7 @@ RB					<- 98
 DeviceAxisLT 		<- 13
 DeviceAxisRT 		<- 14
 debug				<- 1
+gVibrate			<- 1
 
 gShipCanRoll		<- 1
 
@@ -32,7 +33,7 @@ UIHeight			<-	1080
 
 // Timer for Sync
 SyncTimer			<- 0
-SyncWait			<- 0.402
+SyncWait			<- 0.5
 	
 
 

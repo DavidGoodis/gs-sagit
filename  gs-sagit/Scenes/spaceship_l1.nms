@@ -655,7 +655,6 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 						<Y=0.180000>
 						<Z=0.180000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -744,6 +743,20 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 					<ScriptUnit=
 						<ScriptPath="Script/reactorTrailPoly2.nut">
 						<Class="ReactorTrailPoly2">
+						<ParmList=
+							<Parm=
+								<Id="width">
+								<Value=0.160000>
+							>
+							<Parm=
+								<Id="length">
+								<Value=40.000000>
+							>
+							<Parm=
+								<Id="step">
+								<Value=0.400000>
+							>
+						>
 					>
 				>
 				<PhysicItem=
@@ -777,7 +790,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/particleReactor.nmg">
+				<Geometry="">
 				<CacheGeometry=True>
 			>
 		>
@@ -794,6 +807,20 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 					<ScriptUnit=
 						<ScriptPath="Script/reactorTrailPoly2.nut">
 						<Class="ReactorTrailPoly2">
+						<ParmList=
+							<Parm=
+								<Id="width">
+								<Value=0.160000>
+							>
+							<Parm=
+								<Id="length">
+								<Value=40.000000>
+							>
+							<Parm=
+								<Id="step">
+								<Value=0.400000>
+							>
+						>
 					>
 				>
 				<PhysicItem=
@@ -827,7 +854,7 @@ VÊUR®iêêPkd5,e!|g*ÂVÊUR®i>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/particleReactor.nmg">
+				<Geometry="">
 				<CacheGeometry=True>
 			>
 		>
@@ -991,9 +1018,9 @@ bO._iêêPk ._i^påDÔ"bO._i>
 			<Light=
 				<Item=
 					<Position=
-						<X=8.200414>
-						<Y=-4.411962>
-						<Z=-1.011006>
+						<X=-0.000000>
+						<Y=2.645846>
+						<Z=0.781936>
 					>
 					<Rotation=
 						<X=1.570796>
@@ -1009,224 +1036,9 @@ bO._iêêPk ._i^påDÔ"bO._i>
 					<Registry>
 				>
 				<Diffuse=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Specular=
-					<X=0.330000>
-					<Y=0.460000>
-					<Z=0.580000>
-				>
-				<ShadowColor=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Type="Point">
-				<Falloff="Linear">
-				<Range=0.000000>
-				<VolumeRange=500.000000>
-				<ClipDistance=300.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=1.000000>
-				<SpecularIntensity=0.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=0.523599>
-				<ZNear=0.020000>
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=False>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
-			>
-		>
-		<MLight=
-			<MItem=
-				<Id="Sun">
-				<UId=7>
-				<Active>
-				<Helper>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=209>
-									<Data==4251:4180@
-****≥„Êg‚–Ki-ÈéËD…fiÚˆvg≥„Êg‚–Ki-ÈéËD…fiÚˆˆg≥„Êg‚–Ki-ÈéËD…fi¡√Ch
-≥„Êg‚–Ki-ÈéËD…fiÚˆvh≥„Êg‚–Ki-ÈéËD…fi**™h≥„Êg‚–Ki-ÈéËD…fi¡√√h≥„Êg
-‚–Ki-ÈéËD…fi]]›h≥„Êg‚–Ki-ÈéËD…fiÚˆˆh≥„Êg‚–Ki-ÈéËD…fiêêh≥„Êg‚–Ki
--ÈéËD…fi***i≥„Êg‚–Ki-ÈéËD…fi˜ˆ6i≥„Êg‚–Ki-ÈéËD…fi¡√Ci≥„Êg‚–Ki-ÈéË
-D…fiêêPi≥„Êg‚–Ki-ÈéËD…fi]]]i≥„Êg‚–Ki-ÈéËD…fi**ji≥„Êg‚–Ki-ÈéËD…fi
-Úˆvi≥„Êg‚–Ki-ÈéËD…fi¡√Éi≥„Êg‚–Ki-ÈéËD…fiêêêi≥„Êg‚–Ki-ÈéËD…fi]]ùi
-≥„Êg‚–Ki-ÈéËD…fi**™i≥„Êg‚–Ki-ÈéËD…fiêê∞i≥„Êg‚–Ki-ÈéËD…fi˜ˆ∂i≥„Êg
-‚–Ki-ÈéËD…fi]]Ωi≥„Êg‚–Ki-ÈéËD…fiƒ√√i≥„Êg‚–Ki-ÈéËD…fi** i≥„Êg‚–Ki
--ÈéËD…fiêê–i≥„Êg‚–Ki-ÈéËD…fi˜ˆ÷i≥„Êg‚–Ki-ÈéËD…fi]]›i≥„Êg‚–Ki-ÈéË
-D…fiƒ√„i≥„Êg‚–Ki-ÈéËD…fi**Íi≥„Êg‚–Ki-ÈéËD…fiêêi≥„Êg‚–Ki-ÈéËD…fi
-ˆˆˆi≥„Êg‚–Ki-ÈéËD…fi]]˝i≥„Êg‚–Ki-ÈéËD…fiƒ√i≥„Êg‚–Ki-ÈéËD…fi**=J
-i≥„Êg‚–Ki-ÈéËD…fiêêi≥„Êg‚–Ki-ÈéËD…fiˆˆi≥„Êg‚–Ki-ÈéËD…fi]]i≥„Ê
-g‚–Ki-ÈéËD…fiƒ√#i≥„Êg‚–Ki-ÈéËD…fi***j≥„Êg‚–Ki-ÈéËD…fi]]-j≥„Êg‚–K
-i-ÈéËD…fiêê0j≥„Êg‚–Ki-ÈéËD…fiƒ√3j≥„Êg‚–Ki-ÈéËD…fi˜ˆ6j≥„Êg‚–Ki-Èé
-ËD…fi**:j≥„Êg‚–Ki-ÈéËD…fi]]=}j≥„Êg‚–Ki-ÈéËD…fiêê@j≥„Êg‚–Ki-ÈéËD…
-fiƒ√Cj≥„Êg‚–Ki-ÈéËD…fi˜ˆFj≥„Êg‚–Ki-ÈéËD…fi**Jj≥„Êg‚–Ki-ÈéËD…fi]]
-Mj≥„Êg‚–Ki-ÈéËD…fiêêPj≥„Êg‚–Ki-ÈéËD…fiƒ√Sj≥„Êg‚–Ki-ÈéËD…fi˜ˆVj≥„
-Êg‚–Ki-ÈéËD…fi**Zj≥„Êg‚–Ki-ÈéËD…fi]]]j≥„Êg‚–Ki-ÈéËD…fiêê`j≥„Êg‚–
-Ki-ÈéËD…fiƒ√cj≥„Êg‚–Ki-ÈéËD…fi˜ˆfj≥„Êg‚–Ki-ÈéËD…fi**jj≥„Êg‚–Ki-È
-éËD…fi]]mj≥„Êg‚–Ki-ÈéËD…fiêêpj≥„Êg‚–Ki-ÈéËD…fiƒ√sj≥„Êg‚–Ki-ÈéËD…
-fi˜ˆvj≥„Êg‚–Ki-ÈéËD…fi**zj≥„Êg‚–Ki-ÈéËD…fi]]}j≥„Êg‚–Ki-ÈéËD…fiêê
-Äj≥„Êg‚–Ki-ÈéËD…fiƒ√Éj≥„Êg‚–Ki-ÈéËD…fi˜ˆÜj≥„Êg‚–Ki-ÈéËD…fi**äj≥„
-Êg‚–Ki-ÈéËD…fi]]çj≥„Êg‚–Ki-ÈéËD…fiêêêj≥„Êg‚–Ki-ÈéËD…fiƒ√ìj≥„Êg‚–
-Ki-ÈéËD…fi˜ˆñj≥„Êg‚–Ki-ÈéËD…fi**öj≥„Êg‚–Ki-ÈéËD…fi]]ùj≥„Êg‚–Ki-È
-éËD…fiêê†j≥„Êg‚–Ki-ÈéËD…fiƒ√£j≥„Êg‚–Ki-ÈéËD…fi˜ˆ¶j≥„Êg‚–Ki-ÈéËD…
-fi**™j≥„Êg‚–Ki-ÈéËD…fiƒ√´j≥„Êg‚–Ki-ÈéËD…fi]]≠j≥„Êg‚–Ki-ÈéËD…fi˜ˆ
-Æj≥„Êg‚–Ki-ÈéËD…fiêê∞j≥„Êg‚–Ki-ÈéËD…fi**≤j≥„Êg‚–Ki-ÈéËD…fiƒ√≥j≥„
-Êg‚–Ki-ÈéËD…fi]]µj≥„Êg‚–Ki-ÈéËD…fi˜ˆ∂j≥„Êg‚–Ki-ÈéËD…fiêê∏j≥„Êg‚–
-Ki-ÈéËD…fi**∫j≥„Êg‚–Ki-ÈéËD…fiƒ√ªj≥„Êg‚–Ki-ÈéËD…fi]]Ωj≥„Êg‚–Ki-È
-éËD…fi˜ˆæj≥„Êg‚–Ki-ÈéËD…fiêê¿j≥„Êg‚–Ki-ÈéËD…fi**¬j≥„Êg‚–Ki-ÈéËD…
-fiƒ√√j≥„Êg‚–Ki-ÈéËD…fi]]≈j≥„Êg‚–Ki-ÈéËD…fi˜ˆ∆j≥„Êg‚–Ki-ÈéËD…fiêê
-»j≥„Êg‚–Ki-ÈéËD…fi** j≥„Êg‚–Ki-ÈéËD…fiƒ√Àj≥„Êg‚–Ki-ÈéËD…fi]]Õj≥„
-Êg‚–Ki-ÈéËD…fi˜ˆŒj≥„Êg‚–Ki-ÈéËD…fiêê–j≥„Êg‚–Ki-ÈéËD…fi**“j≥„Êg‚–
-Ki-ÈéËD…fiƒ√”j≥„Êg‚–Ki-ÈéËD…fi]]’j≥„Êg‚–Ki-ÈéËD…fi˜ˆ÷j≥„Êg‚–Ki-È
-éËD…fiêêÿj≥„Êg‚–Ki-ÈéËD…fi**⁄j≥„Êg‚–Ki-ÈéËD…fiƒ√€j≥„Êg‚–Ki-ÈéËD…
-fi]]›j≥„Êg‚–Ki-ÈéËD…fi˜ˆﬁj≥„Êg‚–Ki-ÈéËD…fiêê‡j≥„Êg‚–Ki-ÈéËD…fi**
-‚j≥„Êg‚–Ki-ÈéËD…fiƒ√„j≥„Êg‚–Ki-ÈéËD…fi]]Âj≥„Êg‚–Ki-ÈéËD…fi˜ˆÊj≥„
-Êg‚–Ki-ÈéËD…fiêêËj≥„Êg‚–Ki-ÈéËD…fi**Íj≥„Êg‚–Ki-ÈéËD…fiƒ√Îj≥„Êg‚–
-Ki-ÈéËD…fi]]Ìj≥„Êg‚–Ki-ÈéËD…fi˜ˆÓj≥„Êg‚–Ki-ÈéËD…fiêêj≥„Êg‚–Ki-È
-éËD…fi**Új≥„Êg‚–Ki-ÈéËD…fiƒ√Ûj≥„Êg‚–Ki-ÈéËD…fi]]ıj≥„Êg‚–Ki-ÈéËD…
-fi˜ˆˆj≥„Êg‚–Ki-ÈéËD…fiêê¯j≥„Êg‚–Ki-ÈéËD…fi**˙j≥„Êg‚–Ki-ÈéËD…fiƒ√
-˚j≥„Êg‚–Ki-ÈéËD…fi]]˝j≥„Êg‚–Ki-ÈéËD…fi˜ˆ˛j≥„Êg‚–Ki-ÈéËD…fiêê=@j≥
-„Êg‚–Ki-ÈéËD…fi**j≥„Êg‚–Ki-ÈéËD…fiƒ√j≥„Êg‚–Ki-ÈéËD…fi]]j≥„Êg‚
-–Ki-ÈéËD…fi˜ˆj≥„Êg‚–Ki-ÈéËD…fiêêj≥„Êg‚–Ki-ÈéËD…fi**=Jj≥„Êg‚–Ki
--ÈéËD…fiƒ√j≥„Êg‚–Ki-ÈéËD…fi]]=Mj≥„Êg‚–Ki-ÈéËD…fi˜ˆj≥„Êg‚–Ki-Èé
-ËD…fiêêj≥„Êg‚–Ki-ÈéËD…fi**j≥„Êg‚–Ki-ÈéËD…fiƒ√j≥„Êg‚–Ki-ÈéËD…f
-i]]j≥„Êg‚–Ki-ÈéËD…fi˜ˆj≥„Êg‚–Ki-ÈéËD…fiêêj≥„Êg‚–Ki-ÈéËD…fi**
-j≥„Êg‚–Ki-ÈéËD…fiƒ√j≥„Êg‚–Ki-ÈéËD…fi]]j≥„Êg‚–Ki-ÈéËD…fi˜ˆj≥„Ê
-g‚–Ki-ÈéËD…fiêê j≥„Êg‚–Ki-ÈéËD…fi**"j≥„Êg‚–Ki-ÈéËD…fiƒ√#j≥„Êg‚–K
-i-ÈéËD…fi]]%j≥„Êg‚–Ki-ÈéËD…fi˜ˆ&j≥„Êg‚–Ki-ÈéËD…fiêê(j≥„Êg‚–Ki-Èé
-ËD…fi***k≥„Êg‚–Ki-ÈéËD…fi˜ˆ*k≥„Êg‚–Ki-ÈéËD…fiƒ√+k≥„Êg‚–Ki-ÈéËD…f
-iêê,k≥„Êg‚–Ki-ÈéËD…fi]]-k≥„Êg‚–Ki-ÈéËD…fi**.k≥„Êg‚–Ki-ÈéËD…fi˜ˆ.
-k≥„Êg‚–Ki-ÈéËD…fiƒ√/k≥„Êg‚–Ki-ÈéËD…fiêê0k≥„Êg‚–Ki-ÈéËD…fi]]1k≥„Ê
-g‚–Ki-ÈéËD…fi**2k≥„Êg‚–Ki-ÈéËD…fi˜ˆ2k≥„Êg‚–Ki-ÈéËD…fiƒ√3k≥„Êg‚–K
-i-ÈéËD…fiêê4k≥„Êg‚–Ki-ÈéËD…fi]]5k≥„Êg‚–Ki-ÈéËD…fi**6k≥„Êg‚–Ki-Èé
-ËD…fi˜ˆ6k≥„Êg‚–Ki-ÈéËD…fiƒ√7k≥„Êg‚–Ki-ÈéËD…fiêê8k≥„Êg‚–Ki-ÈéËD…f
-i]]9k≥„Êg‚–Ki-ÈéËD…fi**:k≥„Êg‚–Ki-ÈéËD…fi˜ˆ:k≥„Êg‚–Ki-ÈéËD…fiƒ√;
-k≥„Êg‚–Ki-ÈéËD…fiêê<k≥„Êg‚–Ki-ÈéËD…fi]]=}k≥„Êg‚–Ki-ÈéËD…fi**>k≥„
-Êg‚–Ki-ÈéËD…fi˜ˆ>k≥„Êg‚–Ki-ÈéËD…fiƒ√?k≥„Êg‚–Ki-ÈéËD…fiêê@k≥„Êg‚–
-Ki-ÈéËD…fi]]Ak≥„Êg‚–Ki-ÈéËD…fi**Bk≥„Êg‚–Ki-ÈéËD…fi˜ˆBk≥„Êg‚–Ki-È
-éËD…fiƒ√Ck≥„Êg‚–Ki-ÈéËD…fiêêDk≥„Êg‚–Ki-ÈéËD…fi]]Ek≥„Êg‚–Ki-ÈéËD…
-fi**Fk≥„Êg‚–Ki-ÈéËD…fi˜ˆFk≥„Êg‚–Ki-ÈéËD…fiƒ√Gk≥„Êg‚–Ki-ÈéËD…fiêê
-Hk≥„Êg‚–Ki-ÈéËD…fi]]Ik≥„Êg‚–Ki-ÈéËD…fi**Jk≥„Êg‚–Ki-ÈéËD…fi˜ˆJk≥„
-Êg‚–Ki-ÈéËD…fiƒ√Kk≥„Êg‚–Ki-ÈéËD…fiêêLk≥„Êg‚–Ki-ÈéËD…fi]]Mk≥„Êg‚–
-Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
-éËD…fiêêPk≥„Êg‚–Ki-ÈéËD…fi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****oñÁ+êêPkoñÁ>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****Í„i+êêPkÍ„i>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****ÁÁ+êêPkÁÁ>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****1Mf+êêPk1Mf>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Light=
-				<Item=
-					<Position=
-						<X=2.151883>
-						<Y=9.055725>
-						<Z=-0.778123>
-					>
-					<Rotation=
-						<X=1.549857>
-						<Y=3.141593>
-						<Z=3.141593>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Diffuse=
-					<X=0.560784>
-					<Y=0.560784>
-					<Z=0.560784>
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
 				>
 				<Specular=
 					<X=1.000000>
@@ -1238,18 +1050,18 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 					<Y=0.000000>
 					<Z=0.000000>
 				>
-				<Type="Parallel">
+				<Type="Point">
 				<Falloff="Linear">
-				<Range=0.000000>
+				<Range=150.000000>
 				<VolumeRange=500.000000>
 				<ClipDistance=300.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=1.000000>
+				<DiffuseIntensity=0.500000>
 				<SpecularIntensity=0.000000>
 				<ConeAngle=0.523599>
 				<EdgeAngle=0.523599>
 				<ZNear=0.020000>
-				<Shadow="Map">
+				<Shadow="None">
 				<ShadowBias=0.010000>
 				<ShadowDistribution=0.900000>
 				<ShadowRange=100.000000>
@@ -1263,7 +1075,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MCamera=
 			<MItem=
 				<Id="Camera">
-				<UId=8>
+				<UId=7>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1311,7 +1123,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MConstraint=
 			<MItem=
 				<Id="Link1">
-				<UId=9>
+				<UId=8>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1387,7 +1199,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MConstraint=
 			<MItem=
 				<Id="Link2">
-				<UId=10>
+				<UId=9>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1463,7 +1275,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MConstraint=
 			<MItem=
 				<Id="Link3">
-				<UId=11>
+				<UId=10>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1539,7 +1351,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MConstraint=
 			<MItem=
 				<Id="Link4">
-				<UId=12>
+				<UId=11>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1615,7 +1427,7 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		<MLight=
 			<MItem=
 				<Id="BackLight">
-				<UId=13>
+				<UId=12>
 				<Active>
 				<Priority=1.000000>
 				<MotionPlayer=
@@ -1635,14 +1447,14 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 			<Light=
 				<Item=
 					<Position=
-						<X=0.000009>
-						<Y=3.013339>
-						<Z=0.128650>
+						<X=-0.000002>
+						<Y=-2.591597>
+						<Z=6.781063>
 					>
 					<Rotation=
-						<X=1.570796>
-						<Y=3.141593>
-						<Z=3.141593>
+						<X=-0.000000>
+						<Y=-3.141593>
+						<Z=0.000000>
 					>
 					<Target=
 						<X=0.000000>
@@ -1654,12 +1466,12 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				>
 				<Diffuse=
 					<X=0.000000>
-					<Y=0.431373>
+					<Y=0.568627>
 					<Z=1.000000>
 				>
 				<Specular=
 					<X=0.000000>
-					<Y=0.482353>
+					<Y=0.784314>
 					<Z=1.000000>
 				>
 				<ShadowColor=
@@ -1667,16 +1479,16 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 					<Y=0.000000>
 					<Z=0.000000>
 				>
-				<Type="Spot">
+				<Type="Parallel">
 				<Falloff="Linear">
-				<Range=100.000000>
+				<Range=150.000000>
 				<VolumeRange=100.000000>
 				<ClipDistance=100.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=1.500000>
-				<SpecularIntensity=0.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=1.570796>
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=1.000000>
+				<ConeAngle=0.279253>
+				<EdgeAngle=0.523599>
 				<ZNear=0.010000>
 				<Shadow="None">
 				<ShadowBias=0.010000>
@@ -1687,6 +1499,73 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 				<VolumetricSampleStep=0.500000>
 				<VolumetricThick=10.000000>
 				<VolumetricRange=10.000000>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="New Light">
+				<UId=13>
+				<Active>
+				<Priority=1.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Diffuse=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=10.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="None">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
 			>
 		>
 	>
@@ -1712,15 +1591,20 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 			<Link=1>
 		>
 		<Link=
-			<Item=7>
+			<Item=12>
 			<Link=1>
 		>
 		<Link=
 			<Item=13>
-			<Link=1>
+			<Link=2>
 		>
 	>
 	<Constraints=
+		<Constraint=
+			<Uid=8>
+			<UidA=1>
+			<UidB=3>
+		>
 		<Constraint=
 			<Uid=9>
 			<UidA=1>
@@ -1733,11 +1617,6 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 		>
 		<Constraint=
 			<Uid=11>
-			<UidA=1>
-			<UidB=3>
-		>
-		<Constraint=
-			<Uid=12>
 			<UidA=1>
 			<UidB=3>
 		>
@@ -1775,27 +1654,27 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 	<CurrentCamera="Camera">
 	<ViewMatrix=
 		<R0=
-			<X=-0.815760>
+			<X=-0.989776>
 			<Y=0.000000>
-			<Z=0.578391>
+			<Z=-0.142633>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.189033>
-			<Y=0.945085>
-			<Z=-0.266611>
+			<X=0.042060>
+			<Y=0.955534>
+			<Z=-0.291866>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.546629>
-			<Y=-0.326826>
-			<Z=-0.770962>
+			<X=0.136290>
+			<Y=-0.294881>
+			<Z=-0.945764>
 			<W=0.000000>
 		>
 		<R3=
-			<X=34.697701>
-			<Y=20.745550>
-			<Z=48.937431>
+			<X=-2.437539>
+			<Y=5.442433>
+			<Z=22.703318>
 			<W=1.000000>
 		>
 	>
@@ -1808,27 +1687,27 @@ Ki-ÈéËD…fi**Nk≥„Êg‚–Ki-ÈéËD…fi˜ˆNk≥„Êg‚–Ki-ÈéËD…fiƒ√Ok≥„Êg‚–Ki-È
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.815760>
+					<X=-0.989776>
 					<Y=0.000000>
-					<Z=0.578391>
+					<Z=-0.142633>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.189033>
-					<Y=0.945085>
-					<Z=-0.266611>
+					<X=0.042060>
+					<Y=0.955534>
+					<Z=-0.291866>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.546629>
-					<Y=-0.326826>
-					<Z=-0.770962>
+					<X=0.136290>
+					<Y=-0.294881>
+					<Z=-0.945764>
 					<W=0.000000>
 				>
 				<R3=
-					<X=34.697701>
-					<Y=20.745550>
-					<Z=48.937431>
+					<X=-2.437539>
+					<Y=5.442433>
+					<Z=22.703318>
 					<W=1.000000>
 				>
 			>
