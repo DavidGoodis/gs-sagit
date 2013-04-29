@@ -59,7 +59,7 @@ class	scene
 		 		SceneSetupItem(scene, new_item)
 				ItemSetup(new_item)
 
-				ItemSetPosition(new_item, Vector(0,i*12-60,200))
+				ItemSetPosition(new_item, Vector(0,i*12-60,0))
 //				ItemSetPhysicMode(new_item, PhysicModeNone)
 //				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
 //				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))

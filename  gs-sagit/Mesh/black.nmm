@@ -1,10 +1,9 @@
 <Version=1.0>
 <Material=
-	<Id="Mesh/black.nmm">
 	<Diffuse=
-		<X=0.028385>
-		<Y=0.028385>
-		<Z=0.028385>
+		<X=0.200000>
+		<Y=0.200000>
+		<Z=0.200000>
 		<W=1.000000>
 	>
 	<Specular=
@@ -17,7 +16,9 @@
 		<Y=0.000000>
 		<Z=0.000000>
 	>
-	<Glossiness=0.500000>
+	<Glossiness=0.031000>
+	<Reflection=0.520000>
+	<IOR=0.050000>
 	<AlphaThreshold=0.100000>
 	<PhysicMaterial=
 		<StaticFriction=0.750000>
@@ -25,8 +26,14 @@
 		<Restitution=0.100000>
 	>
 	<RenderMask=
-		<Smoothing>
-		<NormalMapTangent>
+		<DoubleSided>
+		<UseFramebuffer>
 	>
-	<Shader="Mesh/black-shader-tree.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="Mesh/planet_envmap_0.png">
+		<UV=0>
+		<Channel="Reflection">
+		<UVSource="LSNormal">
+	>
 >

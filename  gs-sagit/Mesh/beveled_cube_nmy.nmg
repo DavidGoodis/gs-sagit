@@ -33,11 +33,11 @@ s··ss··ss·ssss>
 	<VNormal=
 		<Count=96>
 		<Data==292:288@
-XXæX¸æ¸¸æ¸XæXXñ¸Xñ¸¸ñX¸ñæXXæX¸æ¸¸æ¸X¸æX¸æ¸Xæ¸XæXñ¸Xñ¸¸ñX¸ñXX¸ñ¸¸
-ñXXñXXñ¸¸¸ææ¸¸æX¸¸Xæ¸æ¸¸¸æX¸æXæ¸Xñ¸XXæ¸Xæ¸ñ¸ñ¸¸X¸æXXæñX¸¸ñX¸XñXX
-ñXñXX¸ññ¸XñXXXXñ¸XñæXXæ¸X¸¸ñ¸¸ñ¸æXXæXX¸ñ¸ñ¸æX¸æXX¸ñXæ¸¸¸æ¸¸æXæ¸X
-Xæ¸ñ¸¸ñ¸XXæXñX¸Xñ¸XñXñXXæX¸¸ñ¸¸Xæ¸æ¸æ¸¸¸¸æñ¸¸Xæ¸X¸æXñ¸ñX¸XXæ¸ñXæ
-XX¸Xñæ¸X¸æX¸¸ñXæXñ¸XX¸ññXXXñXXXñ>
+**´**´**´**´**©**©**©**©´**´**´**´***´**´**´**´*©**©**©**©***©**
+©**©**©*—*——*——*——*—*——*——*——*——*É—*É—*É—*É—É*—É*—É*—É*—*ÉÉ*ÉÉ*É
+É*ÉÉÉ*ÉÉ*ÉÉ*ÉÉ*É—*É—*É—*É—*É*—É*—É*—É*—É—É*—É*—É*—É*——*——*——*——*
+É—*É—*É—*É—*ÉÉ*ÉÉ*ÉÉ*ÉÉ*·s··s··s··········s··s··s··ss·ss·ss··ss·
+ss·ss··s··s··ss·ss·ss·ssssssssss>
 	>
 	<VTangent=
 		<Count=96>
@@ -98,6 +98,8 @@ h,¥htﬁni≠%≥h‘5ji≤s*i<iiMw*i‹Øni6ƒf≤s*iuIdd^w*i****&,¥h#=}øfŒ%
 ‹è£i>
 	>
 	<Materials=
-		<MaterialRef="Mesh/Material__cube_beveled_red.nmm">
+		<MaterialRefEx=
+			<Name="Mesh/Material__cube_beveled_red.nmm">
+		>
 	>
 >

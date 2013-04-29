@@ -15,6 +15,20 @@ snd_fx_otshield		<-	"data/Object_through_shield.wav"
 snd_mu_title		<-	"data/abstract_loop.ogg"
 //snd_mu_game		<-	"data/abstract_loop.ogg"
 snd_mu_game			<-	"data/Begijo.ogg"
+snd_p				<-  [ "data/soundbits/kick2.wav",
+						"data/soundbits/SH101T.wav",
+     					"data/soundbits/HatBasic.wav",
+						"data/soundbits/CB_Snare.wav",
+						"data/soundbits/SeeTwo2.wav",
+						"data/soundbits/Arpegio5.wav",
+						"data/soundbits/KickBasic.wav",
+						"data/soundbits/clapBasic.wav",
+						"data/soundbits/Harp.wav",
+						"data/soundbits/404Reasons.wav",
+						]
+
+snd_t				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/Wub.wav")
+snd_r				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/404Beep.wav")
 
 //Pad mapping
 keyBack				<- 113
@@ -35,7 +49,15 @@ UIHeight			<-	1080
 SyncTimer			<- 0
 SyncWait			<- 0.5
 	
+//Controls 
+useMouse			<- 0
+usePad				<- 1
 
+
+//Gameplay
+tileSize			<- 12
+
+debugFont			<- LoadRasterFont(g_factory, "@core/fonts/profiler_base.nml", "@core/fonts/profiler_base")
 
 	//--------------------------------------------
 	function	ComputeLowDeltaFrameCompensation()

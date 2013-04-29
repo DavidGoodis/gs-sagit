@@ -3,10 +3,10 @@
 	Author: DG
 */
 
-Include("Script/gui.nut")
+/*Include("Script/gui.nut")
 Include("Script/globals.nut")
-
-usePad <- 1
+*/
+usePad   <- 1
 
 /*!
 	@short	ss1_9_tr_ss1_9_tr
@@ -52,8 +52,11 @@ class	Level1
 	lblEnergy		= 0
 	lblGameOver		= 0
 	lblRetry		= 0
+	lblQuit			= 0
 	lblGetReady		= 0
 	lblPause		= 0
+	lblPauseQuit	= 0
+	lblPauseResume	= 0
 	energyBar		= 0
 	lblDestr		= 0
 //=== debug ===//
@@ -61,7 +64,6 @@ class	Level1
 	lblDbgTargetList = 0
 	lblDbgBiru		= 0
 	lblDbgSlice		= 0
-	debugFont		= 0
 //===  ===//
 	Xbutton			= 84
 	phase			= 0
@@ -96,23 +98,31 @@ class	Level1
 //=== grid ====
 //	gridArLoc		= [] //Array of locations. size = gridDendity*gridDensity
 	gridArPat1		= []
-	objVelocity		= 350
-	spawnZ			= 1000
+	objVelocity		= 6
+	spawnZ			= 800
 
 	patfs			= []
 	patlocs			= []
 	patobjs			= []
 
-//	pattern1		= [1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
+	objCount		= 0
+	itemCount		= 0
 
 	enemiesT1		= []
 
-
 	patTimer		= 0
 //	patWait			= 1.8
-	patWait			= 4
+	patWait			= 1
 	seq				= 1
 
+	beatScore		= 0
+	scoreLocked		= false
+
+// Sounds
+	sounds			= []
+	channels		= []
+	syncBit			= 0.4285
+	syncBitTimer	= 0
 
 //	========================================================================================================
 	function	ComputeLowDeltaFrameCompensation()
@@ -142,7 +152,9 @@ class	Level1
 			SceneSetClockScale(scene, 0.0)
 //			EngineSetClockScale(g_engine, 0.0)
 			pause = true
-			WindowSetOpacity(lblPause[0], 0.8)
+			SpriteSetOpacity(lblPause[0], 0.8)
+			SpriteSetOpacity(lblPauseQuit[0], 0.8)
+			SpriteSetOpacity(lblPauseResume[0], 0.8)
 
 			local s  = ResourceFactoryLoadSound(g_factory, "data/pause.wav")
 			MixerSoundStart(g_mixer, s)
@@ -153,6 +165,8 @@ class	Level1
 //			EngineSetClockScale(g_engine, g_clock_scale)
 			pause = false
 			SpriteSetOpacity(lblPause[0],0)
+			SpriteSetOpacity(lblPauseQuit[0], 0)
+			SpriteSetOpacity(lblPauseResume[0], 0)
 			local s  = ResourceFactoryLoadSound(g_factory, "data/resume.wav")
 			MixerSoundStart(g_mixer, s)
 		}
@@ -358,12 +372,10 @@ class	Level1
 		foreach(id, loc in patlocs[patternID])
 		{
 			local dot = patfs[patternID][id]
-   			if ( dot )
+   			if ( dot.w != 0 )
 			{
-				if ( dot == 1 )
-					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
-				if ( dot == 2 )
-					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCubeRed"))
+				local new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "cubeTile"))
+				itemCount++
 
 		 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
 				ItemSetupScript(new_item)
@@ -371,16 +383,29 @@ class	Level1
 		 		SceneSetupItem(scene, new_item)
 				ItemSetup(new_item)
 
+				ItemGetScriptInstanceFromClass(new_item, "Cube").savedSelf = Vector(dot.x, dot.y, dot.z)
+//				ItemGetScriptInstanceFromClass(new_item, "Cube").savedSelf = Vector(0,0,0)
+
+				switch( RoundFloatValue(dot.w*10, 1))
+				{
+					case 1:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",0,"  + tileSize + ",0; offsetposition " + syncBit + ",0,-" + tileSize + ",0;  next;"); break; // up
+					case 2:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",0,-"  + tileSize + ",0; offsetposition " + syncBit + ",0," + tileSize + ",0;  next;"); break; // down
+					case 3:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",-"  + tileSize + ",0,0; offsetposition " + syncBit + "," + tileSize + ",0,0;  next;"); break; // left
+					case 4:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ","  + tileSize + ",0,0; offsetposition " + syncBit + ",-" + tileSize + ",0,0;  next;"); break; // right
+					case 5:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",0,-"  + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0,-" + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0," + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0," + tileSize*6 + ",0;  next;"); break; // down
+				}
+
+//				ItemSetCommandList(new_item , "loop; torotation " + syncBit + ",0,0," + 90 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 180 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 270 + ";nop " + syncBit*2 + ";torotation " + syncBit*2 + ",0,0," + 360 + ";nop " + syncBit*2 + ";next;")
+
 				ItemSetPosition(new_item, loc)
-//				ItemSetOpacity(new_item,0)
-//				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
-//				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
 
 				pattern.append(new_item)
 
 				ItemSetParent(new_item, obj)
 			}
 		}
+
+//		ItemSetCommandList(obj, "loop; torotation " + syncBit + ",0,0," + 90 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 180 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 270 + ";nop " + syncBit*2 + ";torotation " + syncBit*2 + ",0,0," + 360 + ";nop " + syncBit*2 + ";next;")
 
 		//Add the parent object to the array of parents
 		patobjs.append(obj)
@@ -390,66 +415,6 @@ class	Level1
 		return(tableOfItems)
 	}
 
-
-//	========================================================================================================
-	function	PushAndRotatePattern(scene, patternID, tableOfItems, rotation)
-//	========================================================================================================
-	{
-		local pattern = []
-		local obj = SceneAddObject(scene, "PatternGravityCenter" + patternID)
-		ItemSetPosition(obj, Vector(0,0,spawnZ))
-		print("=== Z === " + ItemGetWorldPosition(obj).z)
-
-		foreach(id, loc in patlocs[patternID])
-		{
-			local dot = patfs[patternID][id]
-   			if ( dot )
-			{
-				if ( dot == 1 )
-					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCube"))
-				if ( dot == 2 )
-					new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "BeveledCubeRed"))
-
-		 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
-				ItemSetupScript(new_item)
-				ItemRenderSetup(new_item, g_factory)
-		 		SceneSetupItem(scene, new_item)
-				ItemSetup(new_item)
-
-				ItemSetPosition(new_item, loc)
-
-//				ItemPhysicResetTransformation(new_item, loc ,Vector(0,0,0))
-//				ItemApplyLinearImpulse(new_item,Vector(0,0,-objVelocity))
-
-				pattern.append(new_item)
-
-				ItemSetParent(new_item, obj)
-			}
-		}
-
-//		ItemSetPosition(ObjectGetItem(obj), Vector(0,0,1000))
-
-		//Add the parent object to the array of parents
-		patobjs.append(obj)
-		//Add the array of new items to the array of item arrays
-		tableOfItems.append(pattern)
-/*
-		//Create a geometry for the parent object
-		local geo = GeometryTemplate()
-		geo.pushMaterial("Mesh/red__SpaceshipUVMAP.nmm")
-		geo.beginPolygon()
-		geo.pushVertex(Vector(-10,10,-100))
-		geo.pushVertex(Vector(10,10,-100))
-		geo.pushVertex(Vector(10,-10,-100))
-		geo.pushVertex(Vector(-10,-10,-100))
-		geo.endPolygon(0)
-//		instantiate(g_engine, "geoi")
-		ObjectSetGeometry(obj, geo)
-		ItemSetup(ObjectGetItem(obj))
-*/		
-
-		return(tableOfItems)
-	}
 
 //	========================================================================================================
 	function	OnUpdate(scene)
@@ -464,7 +429,7 @@ class	Level1
 		local posX = WindowGetPosition(lblGetReady[0]).x
 		local posY = WindowGetPosition(lblGetReady[0]).y
 
-		if (DeviceKeyPressed(pad, keyBack) || DeviceKeyPressed(keyboard, KeyEscape ))
+		if (DeviceKeyPressed(pad, keyBack) || DeviceKeyPressed(keyboard, KeyEnter ))
 			Pause(scene)
 
 		CleanCity(scene)
@@ -473,7 +438,7 @@ class	Level1
 		if 	(!pause && (citigenCount >= (wait/(1+boost))))
 		{
 			local nb = Rand(4,12)
-			wait = GenerateCity(scene, -1000, 1000, 900, 1000, nb, 1 0.07)
+//			wait = GenerateCity(scene, -1000, 1000, 900, 1000, nb, 1 0.07)
 			citigenCount = 0
 		} else
 			citigenCount++
@@ -500,6 +465,8 @@ class	Level1
 			{ boost += -0.6; WindowSetOpacity(boostWindow[0],0) }
 		boost = Clamp(boost,0,objVelocity)
 
+		phase =1 //to remove
+
 		if (posX < 200)
 			WindowSetPosition(lblGetReady[0],posX+50*g_dt_frame*60,posY)
 		if ((posX >= 200) && (posX < 300))
@@ -523,68 +490,135 @@ class	Level1
 				}
 
 			// Pattern generation
-			if (TickToSec(g_clock-patTimer) >= patWait )
+//			if (TickToSec(g_clock-patTimer) >= patWait )
+			if (TickToSec(g_clock-patTimer) >= syncBit*2 )
 				switch(seq)
 				{
-					case 1: enemiesT1 = PushAndRotatePattern(scene, 0, enemiesT1, 0.005); seq = 2; patTimer = g_clock; break;
-					case 2: enemiesT1 = PushAndRotatePattern(scene, 1, enemiesT1, -0.005); seq = 3; patTimer = g_clock; break;
-					case 3: enemiesT1 = PushAndRotatePattern(scene, 2, enemiesT1, 0.005); seq = 4; patTimer = g_clock; break;
-					case 4: enemiesT1 = PushAndRotatePattern(scene, 3, enemiesT1, -0.005); seq = 5; patTimer = g_clock; break;
-					case 5: enemiesT1 = PushAndRotatePattern(scene, 4, enemiesT1, 0.0); seq = 6; patTimer = g_clock; break;
+					case 1: enemiesT1 = PushPattern(scene, 0, enemiesT1); seq = 2; patTimer = g_clock; break;
+					case 2: enemiesT1 = PushPattern(scene, 1, enemiesT1); seq = 3; patTimer = g_clock; break;
+					case 3: enemiesT1 = PushPattern(scene, 2, enemiesT1); seq = 4; patTimer = g_clock; break;
+					case 4: enemiesT1 = PushPattern(scene, 3, enemiesT1); seq = 5; patTimer = g_clock; break;
+					case 5: enemiesT1 = PushPattern(scene, 4, enemiesT1); seq = 6; patTimer = g_clock; break;
 					case 6: enemiesT1 = PushPattern(scene, 5, enemiesT1); seq = 7; patTimer = g_clock; break;
-					case 7: enemiesT1 = PushAndRotatePattern(scene, 6, enemiesT1, 0.005); seq = 8; patTimer = g_clock; break;
-					case 8: enemiesT1 = PushAndRotatePattern(scene, 0, enemiesT1, -0.005); seq = 1; patTimer = g_clock; break;
+					case 7: enemiesT1 = PushPattern(scene, 6, enemiesT1); seq = 8; patTimer = g_clock; break;
+					case 8: enemiesT1 = PushPattern(scene, 7, enemiesT1); seq = 9; patTimer = g_clock; break;
+					case 9: enemiesT1 = PushPattern(scene, 8, enemiesT1); seq = 10; patTimer = g_clock; break;
+					case 10: enemiesT1 = PushPattern(scene, 0, enemiesT1); seq = 2; patTimer = g_clock; break;
 				}
 
+			objCount = patobjs.len()
 
-			//Rotate the pattents via the parent object
+//collision test
+			local ship = SceneFindItem(scene,"Spacecraft")
+			local iwmm = ItemGetWorldMinMax(ship)
+//			local sitem = ItemGetWorldPosition(SceneFindItem(scene,"Spacecraft"))
+//			local col =	SceneCollisionRaytrace(scene,sitem,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			local col =	SceneCollisionRaytrace(scene,iwmm.min ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
+			{
+				//Set the item as being in the ship's trajectory
+//				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory")
+			}
+			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.min.x, iwmm.max.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
+			{
+				//Set the item as being in the ship's trajectory
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
+			}
+			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.max.x, iwmm.min.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
+			{
+				//Set the item as being in the ship's trajectory
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
+			}
+			local col =	SceneCollisionRaytrace(scene,iwmm.max ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
+			{
+				//Set the item as being in the ship's trajectory
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
+				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
+			}
+
+
 			foreach(idx,obj in patobjs)
 			{
-//				local oi = ObjectGetItem(obj)
+				local children = ItemGetChildList(obj)
+
 				local r = ItemGetRotation(obj)
 				local p = ItemGetWorldPosition(obj)
 
-				print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
+//				print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
 
 				local cpos = ItemGetWorldPosition(SceneGetCurrentCamera(scene))
 
 				local rot = 0.02
-				switch(idx)
+				switch(objCount)
 				{
 					case 2: rot = -rot
 					case 3: rot = rot*1.5
-					case 4: rot = -rot
-					case 6: rot = -rot
+					case 5: rot = -0.02
 				}
 
-				local timer = TickToSec(g_clock-SyncTimer)
-				if ((timer >= SyncWait - 0.5) && (timer < (SyncWait)))
+				//Transform pattern parrent object
+				if (TickToSec(g_clock-SyncTimer) >= syncBit )
 				{
-					ItemSetRotation(obj, Vector(r.x,r.y,r.z-rot/2*g_dt_frame*60))
-					ItemSetPosition(obj, Vector(p.x,p.y,p.z+1*g_dt_frame*60))
+//					ItemSetRotation(obj, Vector(r.x,r.y,r.z-(Deg(90)*g_dt_frame/syncBit)))
+//					ItemSetPosition(obj, Vector(p.x,p.y,p.z))
+					ItemSetPosition(obj, Vector(p.x,p.y,p.z-(objVelocity-boost)*g_dt_frame*60))
 				}
 				else
 				{
-					ItemSetRotation(obj, Vector(r.x,r.y,r.z+rot*g_dt_frame*60))
-					ItemSetPosition(obj, Vector(p.x,p.y,p.z-8*g_dt_frame*60))
+//					ItemSetRotation(obj, Vector(r.x,r.y,r.z+Deg(3)))
+					ItemSetPosition(obj, Vector(p.x,p.y,p.z-(objVelocity-boost)*g_dt_frame*60))
 				}
-				if (timer >= SyncWait+0.5)
+				if (TickToSec(g_clock-SyncTimer) >= syncBit*2)
 					SyncTimer = g_clock
+
+
+				//Collision detection
+/*
+				if (idx == 0) //only on the first visible pattern
+					foreach(ic, child in children)
+					{
+						local childp = ItemGetWorldPosition(child)
+						local col =	SceneCollisionRaytrace(g_scene,childp,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(spawnZ))
+						if ((col.hit) && (ItemGetName(col.item) == "Spacecraft"))
+						{
+							//Set the item as being in the ship's trajectory
+							ItemGetScriptInstanceFromClass(child, "Cube").willHit = 1
+						}
+						else
+							ItemGetScriptInstanceFromClass(child, "Cube").willHit = 0
+					}
+*/
 
 
 				//delete object and all his children if behind camera
 				local r = ItemGetRotation(obj)
 				local p = ItemGetWorldPosition(obj)
 
+				//If we pass the object
+				if (p.z <= 0) //the obj passes us (or we pass the obj)
+					if (!scoreLocked)
+					{
+						scoreLocked = true
+						beatScore = RoundFloatValue(beatScore+1, 1)
+					}
+
+
 				if (p.z < -50)
 //				if (p.z < ItemGetWorldPosition(SceneGetCurrentCamera(scene)).z)	
 				{
+					scoreLocked = false
 					print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
 
-					local children = ItemGetChildList(obj)
 					foreach(ic, child in children)
 					{
-						print("--->Child " + ic + "::Z=" + ItemGetWorldPosition(child).z)
+//						print("--->Child " + ic + "::Z=" + ItemGetWorldPosition(child).z)
 						SceneDeleteItem(scene, child)
 					}
 
@@ -592,11 +626,10 @@ class	Level1
 					patobjs.remove(idx)
 
 					local itemArray = enemiesT1[idx]
+					itemCount -= itemArray.len()
 					itemArray.clear()
 					enemiesT1.remove(idx)
 				}
-
-
 			}
 
 
@@ -624,15 +657,16 @@ class	Level1
    					local ri = ItemGetRotation(enemy)
 					local r = ItemGetOpacity(enemy)
 					local opa = Clamp(wp.z/spawnZ,0,1)+0.1
-//					ItemSetOpacity(enemy, r+0.01)
-		                                                                                                                                                                                                                                             			ItemSetOpacity(enemy, r+0.001)
+//					ItemSetOpacity(enemy, r+0.1)
+	                                                                                                                                                                                                                                             			ItemSetOpacity(enemy, r+0.001)
 
-/*					local timer = TickToSec(g_clock-SyncTimer)
-					if ((timer >= SyncWait - 0.5) && (timer < (SyncWait)))
+					local offset = Deg(90)*g_dt_frame/syncBit
+					if (ItemGetName(enemy) == "BeveledCubeRed")
+					if (TickToSec(g_clock-SyncTimer) >= syncBit )
 					{
 //						ItemSetPosition(enemy, Vector(wp.x,wp.y,wp.z + g_dt_frame*60))
-//						ItemSetRotation(enemy, Vector(ri.x,ri.y,ri.z+rp.z))
-						local s = ItemGetScale(enemy)
+						ItemSetRotation(enemy, Vector(ri.x+offset,ri.y+offset,ri.z+offset))
+//						local s = ItemGetScale(enemy)
 //						ItemSetScale(enemy,s*0.99)
 					}
 					else
@@ -641,13 +675,12 @@ class	Level1
 //						ItemSetLinearVelocity(enemy,Vector(0,0,-objVelocity))
 
 //						ItemSetPosition(enemy, Vector(wp.x,wp.y,wp.z - 10*g_dt_frame*60))
-//						ItemSetRotation(enemy, Vector(ri.x,ri.y,ri.z+rp.z))
-//						ItemSetScale(enemy,Vector(6,6,6))
+						ItemSetRotation(enemy, Vector(ri.x-offset,ri.y-offset,ri.z-offset))
 					}
 
-					if (timer >= SyncWait+0.5)
+					if (TickToSec(g_clock-SyncTimer) >= syncBit*2 )
 						SyncTimer = g_clock
-*/
+
 
 					//if enemy is dead
 //					if (ItemGetLinearVelocity(enemy).z == 0 )
@@ -672,51 +705,7 @@ class	Level1
 					}
 
 					local position = ItemGetWorldPosition(enemy)
-/*
-					if ( (position.z < -200) || (position.z > 5000 ) )	
-					{
-						enemyGrp.remove(idx2)
-						SceneDeleteItem(scene,enemy)
-					}
 
-					if (enemyGrp.len()==0)
-						enemiesT1.remove(idx1)
-*/
-					// raytrace collisions
-//					local col =	SceneCollisionRaytrace(ItemGetScene(enemy),position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
-					local col =	SceneCollisionRaytrace(g_scene,position,Vector(0,0,-1),-1,CollisionTraceAll,Mtr(700))
-//					if ((col.hit) && ((ItemGetName(col.item) == "Spacecraft") || (ItemGetName(col.item) == "ForceFieldCol")))
-					if ((col.hit) && (ItemGetName(col.item) == "Spacecraft"))
-					{
-						//Set the item as being in the ship's trajectory
-						ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 1
-					
-						// projects in a normalized screen space (0,1)
-//						local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(ItemGetScene(enemy)),position)
-						local pos2d = CameraWorldToScreen(SceneGetCurrentCamera(g_scene), g_render, position)
-
-/*						local warning_sprite = "Tex/Warning_" + ItemGetName(col.item) + ".png"
-						local targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
-						if(col.d < Mtr(700.0))
-							targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)
-						if(col.d < Mtr(150.0))
-								targetTex = ResourceFactoryLoadTexture(g_factory, warning_sprite)		
-
-						local targetSprite = CreateSprite(SceneGetUI(g_scene),warning_sprite,pos2d.x*UIWidth-TextureGetWidth(targetTex)/2,pos2d.y*UIHeight-TextureGetHeight(targetTex)/2,1)
-						SpriteSetOpacity(targetSprite, 1)
-						targetList.append(targetSprite)
-*/
-						//Play warning sound
-/*						if (TickToSec(g_clock-timer) >= 1)
-						{	
-							local warning  = ResourceFactoryLoadSound(g_factory, "data/warning.wav")
-							local chan     = MixerSoundStart(g_mixer, warning)
-							timer = g_clock
-						}
-*/
-					}
-					else
-						ItemGetScriptInstanceFromClass(enemy, "Cube").willHit = 0
 				} //End foreach(idx,enemy in enemyGrp)
 		}
 
@@ -724,8 +713,9 @@ class	Level1
 		if (gLifes == 0)
 			{
 				game_over = 1				
-				SpriteSetOpacity(lblGameOver[0],1)
-				SpriteSetOpacity(lblRetry[0],1)
+				SpriteSetOpacity(lblGameOver[0],0.8)
+				SpriteSetOpacity(lblRetry[0],0.8)
+				SpriteSetOpacity(lblQuit[0],0.8)
 			}
 		else
 			if (!pause)
@@ -735,6 +725,7 @@ class	Level1
 					{
 						gScore += 1+boost*2
 						gScore = abs(gScore)
+						local gScore = beatScore*10
 						TextSetText(scoreWindow[1], gScore.tostring())
 						scorTimer = g_clock
 					}
@@ -767,7 +758,7 @@ class	Level1
 			}
 			
 		//display help
-		helpCounter++
+/*		helpCounter++
 		if ( DeviceIsKeyDown(keyboard, KeyF1) || DeviceIsKeyDown(pad, KeyButton2) )
 			{
 				if (opa > 0)
@@ -790,17 +781,53 @@ class	Level1
 		else
 			SpriteSetOpacity(helpLabel2[0],0)
 
-
+*/
 
 //Debug
+/*
 		if (debug)
 		{
-//			TextSetText(lblDbgEnemies[1], "patterns : " + enemiesT1.len().tostring())
+			TextSetText(lblDbgEnemies[1], "patterns : " + enemiesT1.len().tostring())
 			TextSetText(lblDbgTargetList[1], "targets : " + targetList.len().tostring())
 			TextSetText(lblDbgBiru[1], "buildings : " + biruArray.len().tostring())
 			TextSetText(lblDbgSlice[1], "tunnel : " + arrTunnel.len().tostring())
 			TextSetText(lblDestr[1], "destroyed : " + destroyed.tostring())
 		}
+*/
+	}
+
+
+	function	OnPhysicStep(scene, dt)
+	{
+				if (TickToSec(g_clock - syncBitTimer) >= syncBit*2)
+				{
+					syncBitTimer = g_clock
+
+					if (beatScore <18)
+						MixerChannelPlaySound(g_mixer, channels[0], sounds[0])
+					if ((beatScore >= 2) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[1], sounds[1])
+					if ((beatScore >= 4) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[2], sounds[2])
+					if ((beatScore >= 6) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[3], sounds[3])
+					if ((beatScore >= 8) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[4], sounds[4])
+					if ((beatScore >= 10) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[5], sounds[5])
+					if ((beatScore >= 12) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[6], sounds[6])
+					if ((beatScore >= 14) && (beatScore <18))
+						MixerChannelPlaySound(g_mixer, channels[7], sounds[7])
+					if (beatScore >= 16)
+						MixerChannelPlaySound(g_mixer, channels[8], sounds[8])
+					if (beatScore >= 24)
+					{
+						for(local i=0; i<=9; i++)
+							MixerPlaySound(g_mixer, sounds[i])
+
+					}
+				}
 	}
 
 
@@ -821,11 +848,25 @@ class	Level1
 //		RendererSetIdentityProjectionMatrix(g_render)
 //		RendererSetIdentityViewMatrix(g_render)
 
+
 		if (debug)
 		{
-			RendererWrite(g_render, debugFont, "clock = " + g_clock, 1, 0, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "	clock = " + g_clock, 1, 0, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
 			RendererWrite(g_render, debugFont, "SyncTimer = " + TickToSec(g_clock-SyncTimer), 1, 0.04, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
-			RendererWrite(g_render, debugFont, "FPS=" + 1/g_dt_frame , 1, 0.08, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "	 FPS  = " + 1/g_dt_frame , 1, 0.08, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			objCount = patobjs.len()
+			RendererWrite(g_render, debugFont, " objCount = " + objCount , 1, 0.12, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "itemCount = " + itemCount , 1, 0.16, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+
+			RendererWrite(g_render, debugFont, "beatScore = " + beatScore , 1, 0.20, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+
+//			local p = ItemGetScriptInstanceFromClass(SceneFindItem(scene, "Spacecraft"), "spacecraft").ShipScreenPosition
+
+//			RendererWrite(g_render, debugFont, "X = " + ItemGetScriptInstanceFromClass(SceneFindItem(scene, "Spacecraft"), "spacecraft").position.x , p.x, p.y-0.1, 0.4, true, WriterAlignRight, Vector(1, 1, 1, 1))
+//			RendererWrite(g_render, debugFont, "Y = " + ItemGetScriptInstanceFromClass(SceneFindItem(scene, "Spacecraft"), "spacecraft").position.y , p.x, p.y-0.14, 0.4, true, WriterAlignRight, Vector(1, 1, 1, 1))
+
+//			RendererWrite(g_render, debugFont, "x = " + p.x , p.x, p.y-0.18, 0.4, true, WriterAlignRight, Vector(1, 1, 1, 1))
+//			RendererWrite(g_render, debugFont, "y = " + p.y , p.x, p.y-0.22, 0.4, true, WriterAlignRight, Vector(1, 1, 1, 1))
 		}
 //		RendererDrawLine(g_render,ItemGetPosition(SceneFindItem(scene,"BeveledCube")), Vector(0,0,0) )
 	}
@@ -849,32 +890,34 @@ class	Level1
 		scoreWindow		= 0
 
 		//Generates the city
-		wait = GenerateCity(scene,-1000,1000,0,1000,10,5,0.1)
+//		wait = GenerateCity(scene,-1000,1000,0,1000,10,5,0.1)
 
 		// Load UI fonts.
 		ui = SceneGetUI(scene)
 		UISetInternalResolution(ui, UIWidth, UIHeight)
 
-		ProjectLoadUIFont(g_project, "ui/electr.ttf")
-		ProjectLoadUIFont(g_project, "ui/ozdaacadital.ttf")
-		ProjectLoadUIFont(g_project, "ui/atomic.ttf")
-
 //		local BGsprite = CreateSprite(ui,"ui/overlay.png",0,0,1)
 
-		helpLabel = CreateLabel(ui, "Up,Down,Left,Right,X/V(Roll),C(Shield),R(Restart),F1(Help)", 400, 700, 24, 900, 96,255,255,255,200,"electr",TextAlignCenter)
-		helpLabel2 = CreateLabel(ui, "STAY ALIVE ! ", 500, 800, 40, 900, 96,255,255,255,255,"electr",TextAlignCenter)
+		helpLabel = CreateLabel(ui, "Up,Down,Left,Right,X/V(Roll),C(Shield),R(Restart),F1(Help)", 400, 700, 24, 900, 96,255,255,255,200,"Aldrich",TextAlignCenter)
+		helpLabel2 = CreateLabel(ui, "STAY ALIVE ! ", 500, 800, 40, 900, 96,255,255,255,255,"Aldrich",TextAlignCenter)
 		SpriteSetOpacity(helpLabel[0],0)
 		SpriteSetOpacity(helpLabel2[0],0)
 
-		CreateLabel(ui, "LIFE", 50, 40, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
-		CreateLabel(ui, "ENERGY", 50, 80, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
-		CreateLabel(ui, "SCORE", 50, 0, 24, 120, 96,255,255,255,255,"electr",TextAlignRight)
 
-		scoreWindow 	= CreateLabel(ui, gScore.tostring(), 200, 40, 24, 120, 96,255,255,255,255,"electr",TextAlignLeft)
-		boostWindow 	= CreateLabel(ui, "BOOST", 850, 120, 40, 300, 40,50,195,255,255,"ozdaacadital",TextAlignLeft)
-		oneupWindow 	= CreateLabel(ui, "1 UP !!", 200, 350, 50, 300, 40,255,84,0,255,"ozdaacadital",TextAlignCenter)
+		local ScoreWindow = UIAddNamedWindow(ui, "sw", 0, 20, 180,140)
+		WindowSetBackgroundColor(ScoreWindow, RGBAToHex(Vector(255,85,225,255)))
+		WindowRenderSetup(ScoreWindow, g_factory)
+
+		CreateLabel(ui, "LIFE", 50, 40, 24, 120, 96,0,0,0,255,"Aldrich",TextAlignRight)
+		CreateLabel(ui, "ENERGY", 50, 80, 24, 120, 96,0,0,0,255,"Aldrich",TextAlignRight)
+		CreateLabel(ui, "SCORE", 50, 0, 24, 120, 96,0,0,0,255,"Aldrich",TextAlignRight)
+
+		scoreWindow 	= CreateLabel(ui, gScore.tostring(), 200, 0, 24, 120, 96,0,0,0,255,"Aldrich",TextAlignLeft)
+		boostWindow 	= CreateLabel(ui, "BOOST", 850, 120, 40, 300, 40,50,195,255,255,"Aldrich",TextAlignLeft)
+		oneupWindow 	= CreateLabel(ui, "1 UP !!", 200, 350, 50, 300, 40,255,84,0,255,"Aldrich",TextAlignCenter)
 		WindowSetOpacity(boostWindow[0],0)
 		WindowSetOpacity(oneupWindow[0],0)
+		WindowSetOpacity(scoreWindow[0],1)
 
 		local fullBarTex	= ResourceFactoryLoadTexture(g_factory, "Tex/nrgBarFull.png")
 		local fillBarTex	= ResourceFactoryLoadTexture(g_factory, "Tex/nrgBarFill.png")
@@ -884,33 +927,36 @@ class	Level1
 		local lifeBarFull		= UIAddSprite(ui, g_ui_IDs++, fullBarTex, 200, 75, 250, 20)
 			  lifeBar			= UIAddSprite(ui, g_ui_IDs++, fillBarTex, 200, 75, 250, 20)
 
-		lblGameOver = CreateLabel(ui, "GAME OVER !", 450, 250, 70, 900, 500,0,0,0,255,"electr",TextAlignCenter)
-		lblRetry 	= CreateLabel(ui, "[R]etry or [Esc]ape", 450, 400, 50, 900, 500,255,148,0,255,"electr",TextAlignCenter)
-		lblPause 	= CreateLabel(ui, "PAUSE", 450, 200, 70, 900, 500,0,0,0,255,"electr",TextAlignCenter)
-		lblGetReady = CreateLabel(ui, "Get Ready !", -2000, 500, 150, 1500, 500,50,195,255,255,"electr",TextAlignCenter)
+//		lblGameOver = CreateLabel(ui, "GAME OVER !", 450, 250, 70, 900, 500,0,0,0,255,"JosefinSansBold",TextAlignCenter)
+		lblGameOver = CreateLabelWithBgColor(ui, "GAME OVER", (UIWidth-600)/2, (UIHeight-320)/2, 48, 600, 320, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
+		lblRetry = CreateLabelWithBgColor(ui, "RETRY", (UIWidth-600)/2+40, (UIHeight-320)/2+240, 24, 200, 48, 0, 0, 0, 255, "Aldrich",TextAlignCenter,255, 225, 82, 255)
+		lblQuit = CreateLabelWithBgColor(ui, "QUIT", (UIWidth+600)/2-240, (UIHeight-320)/2+240, 24, 200, 48, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
+//		lblPause 	= CreateLabel(ui, "PAUSE", 450, 200, 70, 900, 500,0,0,0,255,"Aldrich",TextAlignCenter)
+		lblPause = CreateLabelWithBgColor(ui, "PAUSE", (UIWidth-600)/2, (UIHeight-320)/2, 48, 600, 320, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
+		lblPauseResume = CreateLabelWithBgColor(ui, "Resume", (UIWidth-600)/2+40, (UIHeight-320)/2+240, 24, 200, 48, 0, 0, 0, 255, "Aldrich",TextAlignCenter,255, 225, 82, 255)
+		lblPauseQuit = CreateLabelWithBgColor(ui, "Quit", (UIWidth+600)/2-240, (UIHeight-320)/2+240, 24, 200, 48, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
+		lblGetReady = CreateLabel(ui, "Get Ready !", -2000, 500, 150, 1500, 500,50,195,255,255,"Aldrich",TextAlignCenter)
 
 		//Debug
 		if ("debug" in getroottable())
 			if (debug)
 			{
-				lblDbgEnemies = CreateLabel(ui, "enemies : " + enemiesT1.len().tostring(), 150, 200, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgTargetList = CreateLabel(ui, "targets : " + targetList.len().tostring(), 150, 220, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgBiru = CreateLabel(ui, "buildings : " +  biruArray.len().tostring(), 150, 240, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-				lblDbgSlice = CreateLabel(ui, "Tunnel : " +  arrTunnel.len().tostring(), 150, 260, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-
-				// Load raster font for debug
-				debugFont = LoadRasterFont(g_factory, "@core/fonts/profiler_base.nml", "@core/fonts/profiler_base")
-//				debugFont = LoadRasterFont(g_factory, "@core/fonts/under.nml", "@core/fonts/under")
-//				debugFont = LoadRasterFont(g_factory, "@core/fonts/fps.nml", "@core/fonts/fps")
+/*				lblDbgEnemies = CreateLabel(ui, "enemies : " + enemiesT1.len().tostring(), 150, 200, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+				lblDbgTargetList = CreateLabel(ui, "targets : " + targetList.len().tostring(), 150, 220, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+				lblDbgBiru = CreateLabel(ui, "buildings : " +  biruArray.len().tostring(), 150, 240, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+				lblDbgSlice = CreateLabel(ui, "Tunnel : " +  arrTunnel.len().tostring(), 150, 260, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+				lblDestr	= CreateLabel(ui, "Destroyed : " +  destroyed.tostring(), 150, 280, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+*/
 
 			}
 
-		lblDestr	= CreateLabel(ui, "Destroyed : " +  destroyed.tostring(), 150, 280, 12, 120, 50,0,0,0,255,"electr",TextAlignLeft)
-
 		SpriteSetOpacity(lblGameOver[0],0)
 		SpriteSetOpacity(lblRetry[0],0)
+		SpriteSetOpacity(lblQuit[0],0)
 		SpriteSetOpacity(lblPause[0],0)
-
+		SpriteSetOpacity(lblPauseQuit[0],0)
+		SpriteSetOpacity(lblPauseResume[0],0)
+		SpriteSetOpacity(lblGetReady[0],0)
 
 
 /*		local tex		= EngineLoadTexture(g_engine, "Tex/rocket_leaving_earth.png")
@@ -927,9 +973,6 @@ class	Level1
 		WindowSetCommandList(story2, "toposition 15,3000,650; toposition 2,900,650; toposition 5,900,650; toposition 1,3000,650;")
 */
 
-		//prevents objets from falling down
-		SceneSetGravity(scene, Vector(0,0,0))
-		SceneSetPhysicFrequency(scene, 75.0)
 /*		channel_music = MixerStreamStart(g_mixer,"data/emergency.ogg")
 		MixerChannelSetGain(g_mixer, channel_music, 0.8)
 		if (MixerChannelGetState(g_mixer, channel_music) != 2)
@@ -937,107 +980,41 @@ class	Level1
 			}
 */
 
-		//Set camera
-//		SceneSetCurrentCamera(scene, ItemCastToCamera(SceneFindItem(scene,"GameCam")))
-
-		//Generate tunnel
-/*		tunnelSliceCol = SceneFindItem(scene,"tunnelCol")
-		tunnelSliceMesh = SceneFindItem(scene,"TunnelDivisionSolid")
-
-		local sliceCol = SceneDuplicateItem(scene, tunnelSliceCol)
-		local sliceMesh = SceneDuplicateItem(scene,tunnelSliceMesh)
-		ItemSetParent(sliceMesh, sliceCol)
-		ItemSetPosition(sliceCol, Vector(0,0,200))
-		ItemSetScript(sliceCol, "Script/tunnelCol.nut", "tunnelCol")
-		ItemSetupScript(sliceCol)
-		ItemRenderSetup(sliceCol, g_factory)
-		ItemRenderSetup(sliceMesh, g_factory)
-		arrTunnel.append(sliceCol)
-		tunnelScale = ItemGetScale(sliceMesh).x
-
-		foreach(id, slice in arrTunnel)
-			print("OnSetup->ID=" + id + "::" + ItemGetPosition(slice).z)
-
-		for(local i=0;i<10;i++)
-			arrTunnel = GenerateTunnelSlice(scene, arrTunnel, 30)
-
-*/
-
-
 		//Load pattern file
-		local pattern1 = [], pattern2 = [], pattern3 = [],pattern4 = [],pattern5 = [],pattern6 = [],pattern7 = []
-		patfs=[pattern1,pattern2,pattern3,pattern4,pattern5,pattern6,pattern7]
-		local patfn=["pattern1","pattern2","pattern3","pattern4","pattern5","pattern6","pattern7"]
-		foreach(i,patf in patfs)
+		local pattern1 = [], pattern2 = [], pattern3 = [],pattern4 = [],pattern5 = [],pattern6 = [],pattern7 = [],pattern8 = [],pattern9 = [],pattern10 = []
+		patfs=[pattern1,pattern2,pattern3,pattern4,pattern5,pattern6,pattern7,pattern8,pattern9,pattern10]
+		local patfn=["pattern1","pattern2","pattern3","pattern4","pattern5","pattern6","pattern7","pattern8","pattern9","pattern10"]
+		foreach(pid,patf in patfs)
 		{
-			local p = LoadPicture("Sav/" + patfn[i] + ".png")
+			local p = LoadPicture("Sav/" + patfn[pid] + ".png")
 			local w = PictureGetRect(p).GetWidth()
 			local h = PictureGetRect(p).GetHeight()
 			for(local i=0; i<w; i++)
 				for(local j=0; j<h; j++)
-				{
-					local pixel = PictureGetPixel(p,i,j)
-//					local test = pixel.IsEqual(Vector(0,0,0,1),0.0)
-					if (pixel.x+pixel.y+pixel.z == 0)
-						patf.append(0)
-					if (pixel.x+pixel.y+pixel.z+pixel.w == 4)
-						patf.append(1)
-					if (pixel.x+pixel.y+pixel.z == 1)
-						patf.append(2)
-				}
+					patf.append(PictureGetPixel(p,i,j))
 		}
 
 		// Init location grida
 //		gridCellSize = ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).max.x - ItemGetMinMax(SceneFindItem(scene, "BeveledCube")).min.x
-		local gridCellSize = 12
 
 		foreach(id,pattern in patfs)
 		{
 			local maxCells = pattern.len()
 			local gridDensity = sqrt(maxCells)
-			local gridHalfCellSize = gridCellSize/2
-			local offset = (gridDensity*gridCellSize)/2 - gridCellSize/2
+			local gridHalfCellSize = tileSize/2
+			local offset = (gridDensity*tileSize)/2 - tileSize/2
 
 			local gridArLoc = [] //Initialize the location array of this pattern
 			for(local i=maxCells-1;i>=0;i--)
 //			for(local i=0;i<maxCells;i++)
 			{
-				local x = - floor(i/gridDensity)*gridCellSize + offset
-				local y = Mod(i,gridDensity)*gridCellSize - offset
-				gridArLoc.append(Vector(x,y,spawnZ))
-	//			print(x + "," + y)
+				local x = - floor(i/gridDensity)*tileSize + offset
+				local y = Mod(i,gridDensity)*tileSize - offset
+				gridArLoc.append(Vector(x,y,0))
 			}
 			
 			//Append this location array to the array of locations
 			patlocs.append(gridArLoc)
-/*
-			local filt_arloc = gridArLoc
-			foreach(idx, val in filt_arloc)
-				if (patfs[id][idx] == 0)
-					filt_arloc.remove(idx)
-
-			local a,b,c,d
-			a = filt_arloc[0].x
-			b = filt_arloc[0].x
-			c = filt_arloc[0].y
-			d = filt_arloc[0].y
-			foreach(idx, loc in filt_arloc)
-			{
-				if (idx>=1)
-				{
-					if (loc.x < a)	a = loc.x
-					if (loc.x > b)	b = loc.x
-					if (loc.y < c)	c = loc.y
-					if (loc.y > d)	d = loc.y
-				}
-			}
-	*/		
-//			gridArLoc.sort(compare)
-			
-//			gridArLoc.filter(filter(i,val ))
-			
-			
-//			print(a)
 		}
 
 
@@ -1056,6 +1033,23 @@ class	Level1
 		} 
 */
 //		SceneSetFog(g_scene, true, Vector(0.5, 0.7, 0.9), Mtr(200), Mtr(1000))
+
+
+// PHYSICS INIT
+		//prevents objets from falling down
+		SceneSetGravity(scene, Vector(0,0,0))
+		SceneSetPhysicFrequency(scene, 75.0)
+
+// Sound init
+		for (local i=0; i<=9;i++)
+		{
+			sounds.append(ResourceFactoryLoadSound(g_factory, snd_p[i]))
+			channels.append(MixerChannelLock(g_mixer))
+		}
+
+
+//Timers init
+		syncBitTimer = g_clock
 
 	}
 }

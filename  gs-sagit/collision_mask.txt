@@ -13,6 +13,20 @@ BUL |0 1 0 0 0 0
 WAL |1 0 0 0 0 0
 
 
+     W S F N T P
+    +---------
+SHIP|0 0 0 0 0 1 
+    |
+CUB |0 0 0 0 1 0 
+    |
+
+
+
+SHIP 	= 1 , GROUP = 2			= 10 = 2
+CUB	= 2 , GROUP = 1			= 01 = 1 
+
+
+
 SHIP 	= 1 , GROUP = 4 or 8 or 32	= 101100 = 44
 FF   	= 2 , GROUP = 4 or 8 		= 000100 = 12
 //NMY  	= 4 , GROUP = 1 or 2 		= 000011 = 3
