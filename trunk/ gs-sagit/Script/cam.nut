@@ -32,6 +32,7 @@ class	GameCam
 	Right		= 22
 	rotationFactor = 3
 	target		= 0
+	fov			= 0
  
 	function	CameraShake(amp)
 	{
@@ -52,10 +53,31 @@ class	GameCam
 				padlt 		= DeviceInputValue(pad, DeviceAxisLT),
 				padrt 		= DeviceInputValue(pad, DeviceAxisRT)
 
+		cPos = ItemGetWorldPosition(item)
+		fov = CameraGetFov(cam)
+
+		local boost = SceneGetScriptInstanceFromClass(ItemGetScene(item), "Level1" ).boost
+		if ( boost> 0)
+		{
+			cPos = cPos.Lerp(0.92,Vector(cPos.x,cPos.y,-120))
+			fov = Lerp(0.1,fov,Deg(35))
+//			ItemRegistrySetKey(item, "PostProcess:RadialBlur:Strength", boost/10)
+		}
+		else
+		{
+			local v = Vector(0,25,0).ApplyMatrix(ItemGetRotationMatrix(target))
+//			cPos = Vector(cPos.x + v.x,cPos.y + v.y,-30)
+			cPos = cPos.Lerp(0.70,Vector(cPos.x + v.x,cPos.y + v.y, -30))
+//			cPos = cPos.Lerp(0.70,Vector(cPos.x,cPos.y+25,-30))
+			fov = Lerp(0.1,fov,Deg(80))
+//			ItemRegistrySetKey(item, "PostProcess:RadialBlur:Strength", 0.0)
+		}
+
+		CameraSetFov(cam, fov)
+
 		local item_matrix = ItemGetMatrix(item)
 //		print(item_matrix.GetFront().x + "::" + item_matrix.GetFront().y + "::" + item_matrix.GetFront().z)
 
-		cPos = ItemGetWorldPosition(item)
 		local	tPos = ItemGetWorldPosition(target)
 //		ItemSetTarget(item, Vector(cPos.x,cPos.y,cPos.z))
 
@@ -64,10 +86,11 @@ class	GameCam
 		
 //		local m = ItemGetMatrix(target).GetRow(0)
 
-		cPos = cPos.Lerp(0.96, Vector(tPos.x, tPos.y, cPos.z))
+		cPos = cPos.Lerp(0.3, Vector(tPos.x, tPos.y, cPos.z))
 /*		local x =  Clamp(cPos.x,-100,100)
 		local y =  Clamp(cPos.y,-100,100)
-		ItemSetPosition(item, Vector(x,y,cPos.z))*/
+		ItemSetPosition(item, Vector(x,y,cPos.z))
+*/
 
 		ItemSetPosition(item, cPos)
 
@@ -87,45 +110,10 @@ class	GameCam
 					}
 */			}
 
-/*		if (!("usePad" in getroottable()))
+		if (!("usePad" in getroottable()))
 			local usePad = 1
-*/
-
-//		if  (usePad&&(padx < 0.0 ))
-
-
-//		ItemSetPosition(item, Vector(position.x+padx, position.y+pady, position.z))
-
-//		if  (usePad&&(pady < 0.0 ))
-	//				ItemSetPosition(item, Vector(position.x, position.y-0.1, position.z))
-
-
-/*
-		if	(DeviceIsKeyDown(keyboard, KeyX))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor)).Scale(g_dt_frame * 60.0))
-		if	(DeviceIsKeyDown(keyboard, KeyLeftArrow))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(rotationFactor/10)).Scale(g_dt_frame * 60.0))
-		if  (usePad&&(pads < 0.0 ))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
-//////
-//		if  (usePad&&(padt < 0.0 ))
-//					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
-//////
-		if	(DeviceIsKeyDown(keyboard, KeyV))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-rotationFactor)).Scale(g_dt_frame * 60.0))
-		if	(DeviceIsKeyDown(keyboard, KeyRightArrow))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-rotationFactor/10)).Scale(g_dt_frame * 60.0))
-
-		if  (usePad&&(pads > 0.0 ))
-					ItemSetRotation(item, ItemGetRotation(item) + Vector(0,0,Deg(-pads*rotationFactor)).Scale(g_dt_frame * 60.0))
-
-//		if  (usePad&&(padt > 0.0 ))
-//					ItemSetPosition(item, Vector(cPos.x, cPos.y/2, cPos.z))
-
-*/
 
 		// Stabilize background
-
 		local currentCamBarrel = ItemGetRotation(item).z
 //		if (!pause)			
 //			ItemSetRotation(item,Vector(0,0,currentCamBarrel-currentCamBarrel/200)) 
@@ -148,6 +136,7 @@ class	GameCam
 	{
 		target = SceneFindItem(g_scene, "Player/Spacecraft")
 
+		cam = ItemCastToCamera(item)
 //		origPos = ItemGetWorldPosition(target)
 //		ItemSetTarget(item, origPos)
 	}

@@ -31,29 +31,30 @@
 			<Camera=
 				<Item=
 					<Position=
-						<X=531.311096>
-						<Y=509.362457>
-						<Z=-152.130051>
+						<X=70.916527>
+						<Y=21.086174>
+						<Z=-49.109734>
 					>
 					<Rotation=
-						<X=0.227094>
-						<Y=0.534184>
+						<X=0.089110>
+						<Y=-0.626936>
 						<Z=0.000000>
 					>
 					<ItemFlag=
 						<HasTarget>
 					>
 					<Target=
-						<X=500.000000>
-						<Y=500.000000>
-						<Z=-200.000000>
+						<X=-19.362234>
+						<Y=7.337195>
+						<Z=75.510231>
 					>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
 				<ZNear=0.200000>
 				<ZFar=50000.000000>
-				<AspectRatioRefYAxis=True>
+				<ZoomFactor=1.191754>
+				<AspectRatioRefYAxis=False>
 			>
 		>
 		<MCamera=
@@ -87,12 +88,12 @@
 					<Position=
 						<X=0.000000>
 						<Y=0.000000>
-						<Z=-50.000000>
+						<Z=-20.000000>
 					>
 					<Target=
-						<X=1.142273>
-						<Y=3.497476>
-						<Z=-19.271971>
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=0.000000>
 					>
 					<RotationOrder="YXZ">
 					<Registry=
@@ -105,932 +106,10 @@
 				<AspectRatioRefYAxis=False>
 			>
 		>
-		<MObject=
-			<MItem=
-				<Id="Building">
-				<UId=2>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel>
-							<Channel=
-								<Curve>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="Script/building.nut">
-						<Class="Building">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5000.000000>
-						<Y=-5000.000000>
-						<Z=0.000000>
-					>
-					<Rotation=
-						<X=-1.570796>
-						<Y=3.141593>
-						<Z=3.141593>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/Building.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="tunnelCol">
-				<UId=3>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=7>
-					<Mask=8>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=-176.770233>
-								<Y=15.301464>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=-0.000000>
-								<Y=0.000000>
-								<Z=2.967060>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=10.000000>
-								<Y=250.000015>
-								<Z=250.000000>
-							>
-							<Mass=1000.000000>
-							<StaticFriction=0.000000>
-							<DynamicFriction=0.000000>
-							<Restitution=0.010000>
-						>
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=184.631866>
-								<Y=16.684502>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=-0.000000>
-								<Y=0.000000>
-								<Z=0.174533>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=2.000000>
-								<Y=250.000015>
-								<Z=250.000000>
-							>
-							<Mass=1000.000000>
-							<StaticFriction=0.000000>
-							<DynamicFriction=0.000000>
-							<Restitution=0.010000>
-						>
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=-0.001880>
-								<Y=-101.750183>
-								<Z=0.000004>
-							>
-							<Rotation=
-								<X=-1.570796>
-								<Y=3.141593>
-								<Z=3.141593>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=350.000000>
-								<Y=1000.000000>
-								<Z=2.000000>
-							>
-							<Mass=1000.000000>
-							<StaticFriction=0.000000>
-							<DynamicFriction=0.000000>
-							<Restitution=0.010000>
-						>
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=-0.000121>
-								<Y=101.729515>
-								<Z=-0.000002>
-							>
-							<Rotation=
-								<X=-1.570796>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=350.000000>
-								<Y=1000.000000>
-								<Z=2.000000>
-							>
-							<Mass=1000.000000>
-							<StaticFriction=0.000000>
-							<DynamicFriction=0.000000>
-							<Restitution=0.010000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Rotation=
-						<X=-0.000000>
-						<Y=0.000000>
-						<Z=-0.000017>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="TunnelDivisionSolid">
-				<UId=4>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Rotation=
-						<X=-1.570796>
-						<Y=0.000000>
-						<Z=0.000000>
-					>
-					<Scale=
-						<X=100.000000>
-						<Y=100.000000>
-						<Z=100.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/tunnelDivisionSolid.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="Tunnel">
-				<UId=5>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="tunnel.nut">
-						<Class="Tunnel">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-800.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="Building-red">
-				<UId=6>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="Script/building.nut">
-						<Class="Building">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5000.000000>
-						<Y=-5000.000000>
-						<Z=0.000000>
-					>
-					<Rotation=
-						<X=-1.570796>
-						<Y=3.141593>
-						<Z=3.141593>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/Building-red.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="BeveledCube">
-				<UId=7>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="Script/cube.nut">
-						<Class="Cube">
-					>
-					<ScriptUnit=
-						<ScriptPath="Script/Trajectory.nut">
-						<Class="Trajectory">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=0>
-					<Mask=0>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-					<Shapes=
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=2.000000>
-								<Y=2.000000>
-								<Z=2.000000>
-							>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=500.000000>
-						<Y=500.000000>
-						<Z=-200.000000>
-					>
-					<Scale=
-						<X=6.000000>
-						<Y=6.000000>
-						<Z=6.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/beveled_cube.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="Bullet">
-				<UId=8>
-				<TriggerDetected>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-3000.000000>
-						<Y=-3000.000000>
-						<Z=-3000.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/Bullet.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="wallPiece1">
-				<UId=9>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=209>
-									<Data==4251:4180@
-****._È********._iÚˆvg._È********._iÚˆˆg._È********._i¡√Ch
-._È********._iÚˆvh._È********._i**™h._È********._i¡√√h._È
-********._i]]›h._È********._iÚˆˆh._È********._iêêh._È****
-****._i***i._È********._i˜ˆ6i._È********._i¡√Ci._È********
-._iêêPi._È********._i]]]i._È********._i**ji._È********._i
-Úˆvi._È********._i¡√Éi._È********._iêêêi._È********._i]]ùi
-._È********._i**™i._È********._iêê∞i._È********._i˜ˆ∂i._È
-********._i]]Ωi._È********._iƒ√√i._È********._i** i._È****
-****._iêê–i._È********._i˜ˆ÷i._È********._i]]›i._È********
-._iƒ√„i._È********._i**Íi._È********._iêêi._È********._i
-ˆˆˆi._È********._i]]˝i._È********._iƒ√i._È********._i**=J
-i._È********._iêêi._È********._iˆˆi._È********._i]]i._
-È********._iƒ√#i._È********._i***j._È********._i]]-j._È***
-*****._iêê0j._È********._iƒ√3j._È********._i˜ˆ6j._È*******
-*._i**:j._È********._i]]=}j._È********._iêê@j._È********.
-_iƒ√Cj._È********._i˜ˆFj._È********._i**Jj._È********._i]]
-Mj._È********._iêêPj._È********._iƒ√Sj._È********._i˜ˆVj.
-_È********._i**Zj._È********._i]]]j._È********._iêê`j._È**
-******._iƒ√cj._È********._i˜ˆfj._È********._i**jj._È******
-**._i]]mj._È********._iêêpj._È********._iƒ√sj._È********.
-_i˜ˆvj._È********._i**zj._È********._i]]}j._È********._iêê
-Äj._È********._iƒ√Éj._È********._i˜ˆÜj._È********._i**äj.
-_È********._i]]çj._È********._iêêêj._È********._iƒ√ìj._È**
-******._i˜ˆñj._È********._i**öj._È********._i]]ùj._È******
-**._iêê†j._È********._iƒ√£j._È********._i˜ˆ¶j._È********.
-_i**™j._È********._iƒ√´j._È********._i]]≠j._È********._i˜ˆ
-Æj._È********._iêê∞j._È********._i**≤j._È********._iƒ√≥j.
-_È********._i]]µj._È********._i˜ˆ∂j._È********._iêê∏j._È**
-******._i**∫j._È********._iƒ√ªj._È********._i]]Ωj._È******
-**._i˜ˆæj._È********._iêê¿j._È********._i**¬j._È********.
-_iƒ√√j._È********._i]]≈j._È********._i˜ˆ∆j._È********._iêê
-»j._È********._i** j._È********._iƒ√Àj._È********._i]]Õj.
-_È********._i˜ˆŒj._È********._iêê–j._È********._i**“j._È**
-******._iƒ√”j._È********._i]]’j._È********._i˜ˆ÷j._È******
-**._iêêÿj._È********._i**⁄j._È********._iƒ√€j._È********.
-_i]]›j._È********._i˜ˆﬁj._È********._iêê‡j._È********._i**
-‚j._È********._iƒ√„j._È********._i]]Âj._È********._i˜ˆÊj.
-_È********._iêêËj._È********._i**Íj._È********._iƒ√Îj._È**
-******._i]]Ìj._È********._i˜ˆÓj._È********._iêêj._È******
-**._i**Új._È********._iƒ√Ûj._È********._i]]ıj._È********.
-_i˜ˆˆj._È********._iêê¯j._È********._i**˙j._È********._iƒ√
-˚j._È********._i]]˝j._È********._i˜ˆ˛j._È********._iêê=@j
-._È********._i**j._È********._iƒ√j._È********._i]]j._È*
-*******._i˜ˆj._È********._iêêj._È********._i**=Jj._È****
-****._iƒ√j._È********._i]]=Mj._È********._i˜ˆj._È*******
-*._iêêj._È********._i**j._È********._iƒ√j._È********._
-i]]j._È********._i˜ˆj._È********._iêêj._È********._i**
-j._È********._iƒ√j._È********._i]]j._È********._i˜ˆj._
-È********._iêê j._È********._i**"j._È********._iƒ√#j._È***
-*****._i]]%j._È********._i˜ˆ&j._È********._iêê(j._È*******
-*._i***k._È********._i˜ˆ*k._È********._iƒ√+k._È********._
-iêê,k._È********._i]]-k._È********._i**.k._È********._i˜ˆ.
-k._È********._iƒ√/k._È********._iêê0k._È********._i]]1k._
-È********._i**2k._È********._i˜ˆ2k._È********._iƒ√3k._È***
-*****._iêê4k._È********._i]]5k._È********._i**6k._È*******
-*._i˜ˆ6k._È********._iƒ√7k._È********._iêê8k._È********._
-i]]9k._È********._i**:k._È********._i˜ˆ:k._È********._iƒ√;
-k._È********._iêê<k._È********._i]]=}k._È********._i**>k.
-_È********._i˜ˆ>k._È********._iƒ√?k._È********._iêê@k._È**
-******._i]]Ak._È********._i**Bk._È********._i˜ˆBk._È******
-**._iƒ√Ck._È********._iêêDk._È********._i]]Ek._È********.
-_i**Fk._È********._i˜ˆFk._È********._iƒ√Gk._È********._iêê
-Hk._È********._i]]Ik._È********._i**Jk._È********._i˜ˆJk.
-_È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
-******._i**Nk._È********._i˜ˆNk._È********._iƒ√Ok._È******
-**._iêêPk._È********._i>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****/Mf+êêPk/Mf>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****/Mf+êêPk/Mf>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="Script/cube2.nut">
-						<Class="Cube2">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=17>
-					<Mask=32>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mass=10.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5000.000000>
-						<Y=0.000000>
-						<Z=-6.701808>
-					>
-					<Scale=
-						<X=10.000000>
-						<Y=10.000000>
-						<Z=10.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="cube/Cube.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="wallPiece2">
-				<UId=10>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=209>
-									<Data==4251:4180@
-****._È********._iÚˆvg._È********._iÚˆˆg._È********._i¡√Ch
-._È********._iÚˆvh._È********._i**™h._È********._i¡√√h._È
-********._i]]›h._È********._iÚˆˆh._È********._iêêh._È****
-****._i***i._È********._i˜ˆ6i._È********._i¡√Ci._È********
-._iêêPi._È********._i]]]i._È********._i**ji._È********._i
-Úˆvi._È********._i¡√Éi._È********._iêêêi._È********._i]]ùi
-._È********._i**™i._È********._iêê∞i._È********._i˜ˆ∂i._È
-********._i]]Ωi._È********._iƒ√√i._È********._i** i._È****
-****._iêê–i._È********._i˜ˆ÷i._È********._i]]›i._È********
-._iƒ√„i._È********._i**Íi._È********._iêêi._È********._i
-ˆˆˆi._È********._i]]˝i._È********._iƒ√i._È********._i**=J
-i._È********._iêêi._È********._iˆˆi._È********._i]]i._
-È********._iƒ√#i._È********._i***j._È********._i]]-j._È***
-*****._iêê0j._È********._iƒ√3j._È********._i˜ˆ6j._È*******
-*._i**:j._È********._i]]=}j._È********._iêê@j._È********.
-_iƒ√Cj._È********._i˜ˆFj._È********._i**Jj._È********._i]]
-Mj._È********._iêêPj._È********._iƒ√Sj._È********._i˜ˆVj.
-_È********._i**Zj._È********._i]]]j._È********._iêê`j._È**
-******._iƒ√cj._È********._i˜ˆfj._È********._i**jj._È******
-**._i]]mj._È********._iêêpj._È********._iƒ√sj._È********.
-_i˜ˆvj._È********._i**zj._È********._i]]}j._È********._iêê
-Äj._È********._iƒ√Éj._È********._i˜ˆÜj._È********._i**äj.
-_È********._i]]çj._È********._iêêêj._È********._iƒ√ìj._È**
-******._i˜ˆñj._È********._i**öj._È********._i]]ùj._È******
-**._iêê†j._È********._iƒ√£j._È********._i˜ˆ¶j._È********.
-_i**™j._È********._iƒ√´j._È********._i]]≠j._È********._i˜ˆ
-Æj._È********._iêê∞j._È********._i**≤j._È********._iƒ√≥j.
-_È********._i]]µj._È********._i˜ˆ∂j._È********._iêê∏j._È**
-******._i**∫j._È********._iƒ√ªj._È********._i]]Ωj._È******
-**._i˜ˆæj._È********._iêê¿j._È********._i**¬j._È********.
-_iƒ√√j._È********._i]]≈j._È********._i˜ˆ∆j._È********._iêê
-»j._È********._i** j._È********._iƒ√Àj._È********._i]]Õj.
-_È********._i˜ˆŒj._È********._iêê–j._È********._i**“j._È**
-******._iƒ√”j._È********._i]]’j._È********._i˜ˆ÷j._È******
-**._iêêÿj._È********._i**⁄j._È********._iƒ√€j._È********.
-_i]]›j._È********._i˜ˆﬁj._È********._iêê‡j._È********._i**
-‚j._È********._iƒ√„j._È********._i]]Âj._È********._i˜ˆÊj.
-_È********._iêêËj._È********._i**Íj._È********._iƒ√Îj._È**
-******._i]]Ìj._È********._i˜ˆÓj._È********._iêêj._È******
-**._i**Új._È********._iƒ√Ûj._È********._i]]ıj._È********.
-_i˜ˆˆj._È********._iêê¯j._È********._i**˙j._È********._iƒ√
-˚j._È********._i]]˝j._È********._i˜ˆ˛j._È********._iêê=@j
-._È********._i**j._È********._iƒ√j._È********._i]]j._È*
-*******._i˜ˆj._È********._iêêj._È********._i**=Jj._È****
-****._iƒ√j._È********._i]]=Mj._È********._i˜ˆj._È*******
-*._iêêj._È********._i**j._È********._iƒ√j._È********._
-i]]j._È********._i˜ˆj._È********._iêêj._È********._i**
-j._È********._iƒ√j._È********._i]]j._È********._i˜ˆj._
-È********._iêê j._È********._i**"j._È********._iƒ√#j._È***
-*****._i]]%j._È********._i˜ˆ&j._È********._iêê(j._È*******
-*._i***k._È********._i˜ˆ*k._È********._iƒ√+k._È********._
-iêê,k._È********._i]]-k._È********._i**.k._È********._i˜ˆ.
-k._È********._iƒ√/k._È********._iêê0k._È********._i]]1k._
-È********._i**2k._È********._i˜ˆ2k._È********._iƒ√3k._È***
-*****._iêê4k._È********._i]]5k._È********._i**6k._È*******
-*._i˜ˆ6k._È********._iƒ√7k._È********._iêê8k._È********._
-i]]9k._È********._i**:k._È********._i˜ˆ:k._È********._iƒ√;
-k._È********._iêê<k._È********._i]]=}k._È********._i**>k.
-_È********._i˜ˆ>k._È********._iƒ√?k._È********._iêê@k._È**
-******._i]]Ak._È********._i**Bk._È********._i˜ˆBk._È******
-**._iƒ√Ck._È********._iêêDk._È********._i]]Ek._È********.
-_i**Fk._È********._i˜ˆFk._È********._iƒ√Gk._È********._iêê
-Hk._È********._i]]Ik._È********._i**Jk._È********._i˜ˆJk.
-_È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
-******._i**Nk._È********._i˜ˆNk._È********._iƒ√Ok._È******
-**._iêêPk._È********._i>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+********+êêPk****>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****/Mf+êêPk/Mf>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****/Mf+êêPk/Mf>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****4Mf+êêPk4Mf>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<ScriptPath="Script/cube2.nut">
-						<Class="Cube2">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=17>
-					<Mask=32>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Box">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mass=10.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5000.000000>
-						<Y=0.000000>
-						<Z=26.196636>
-					>
-					<Scale=
-						<X=10.000000>
-						<Y=10.000000>
-						<Z=10.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/wallPiece2.nmg">
-				<CacheGeometry=True>
-			>
-		>
 		<MLight=
 			<MItem=
 				<Id="Sun">
-				<UId=11>
+				<UId=2>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1050,8 +129,8 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<Light=
 				<Item=
 					<Position=
-						<X=300.000000>
-						<Y=29.414000>
+						<X=0.000000>
+						<Y=50.000000>
 						<Z=0.000000>
 					>
 					<Rotation=
@@ -1082,7 +161,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 					<Y=0.039216>
 					<Z=0.074510>
 				>
-				<Type="Parallel">
+				<Type="Point">
 				<Falloff="Linear">
 				<Range=500.000000>
 				<VolumeRange=1000.000000>
@@ -1107,7 +186,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 		<Instance=
 			<MItem=
 				<Id="Player">
-				<UId=12>
+				<UId=3>
 				<TriggerDetected>
 				<Active>
 				<Priority=0.500000>
@@ -1126,16 +205,6 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				>
 			>
 			<Item=
-				<Position=
-					<X=0.000003>
-					<Y=0.000000>
-					<Z=-0.191728>
-				>
-				<Rotation=
-					<X=-0.000000>
-					<Y=3.141575>
-					<Z=0.000000>
-				>
 				<Target=
 					<X=0.000000>
 					<Y=0.000000>
@@ -1145,115 +214,11 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<Registry>
 			>
 			<Template="Scenes/spaceship_l1.nms">
-			<DoNotParent=True>
-		>
-		<MTerrain=
-			<MItem=
-				<Id="Terrain">
-				<UId=13>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="Static">
-					<Shapes=
-						<PhysicShape=
-							<Type="Heightmap">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mass=2000.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Terrain=
-				<Item=
-					<Position=
-						<X=0.000000>
-						<Y=-100.000000>
-						<Z=0.000000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Width=1024.000000>
-				<Height=1024.000000>
-				<MaterialName="Mesh/terrain/terrain_uid462244.nmm">
-				<Layers=
-					<Layer=
-						<Index=0>
-						<Enabled>
-						<Diffuse="Tex/FF7.png">
-						<UVAngle=0.000000>
-						<UVTiling=1.000000>
-					>
-					<Layer=
-						<Index=1>
-						<Enabled>
-						<Diffuse="Tex/warning1.png">
-						<UVAngle=0.000000>
-						<UVTiling=1.000000>
-					>
-					<Layer=
-						<Index=2>
-						<UVAngle=0.000000>
-						<UVTiling=1.000000>
-					>
-					<Layer=
-						<Index=3>
-						<UVAngle=0.000000>
-						<UVTiling=1.000000>
-					>
-				>
-				<Blendmap="Mesh/terrain/terrain_uid462244.tga">
-				<Shader="">
-				<Heightmap=
-					<Width=1024>
-					<Height=1024>
-					<Resolution=1.000000>
-					<Data="Mesh/terrain/terrain_uid462244.u16">
-				>
-			>
 		>
 		<MObject=
 			<MItem=
 				<Id="BeveledCubeRed">
-				<UId=14>
+				<UId=4>
 				<TriggerDetected>
 				<Active>
 				<Priority=0.500000>
@@ -1272,7 +237,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				>
 				<PhysicItem=
 					<SelfMask=1>
-					<Mask=32>
+					<Mask=2>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
 					<CharacterRadius=0.500000>
@@ -1298,11 +263,10 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=2.000000>
-								<Y=2.000000>
-								<Z=2.000000>
+								<X=12.000000>
+								<Y=12.000000>
+								<Z=12.000000>
 							>
-							<Mass=1000.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -1317,11 +281,6 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 						<Y=500.000000>
 						<Z=-200.000000>
 					>
-					<Scale=
-						<X=6.000000>
-						<Y=6.000000>
-						<Z=6.000000>
-					>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1330,14 +289,14 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/beveled_cubeRed.nmg">
+				<Geometry="Mesh/frozenCubeRed.nmg">
 				<CacheGeometry=True>
 			>
 		>
 		<MObject=
 			<MItem=
-				<Id="BeveledCube2">
-				<UId=15>
+				<Id="BeveledCube">
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -1355,12 +314,12 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				>
 				<PhysicItem=
 					<SelfMask=1>
-					<Mask=32>
+					<Mask=2>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
 					<Mode="Kinematic">
 					<Shapes=
 						<PhysicShape=
@@ -1381,11 +340,10 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=2.000000>
-								<Y=2.000000>
-								<Z=2.000000>
+								<X=12.000000>
+								<Y=12.000000>
+								<Z=12.000000>
 							>
-							<Mass=1000.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -1396,14 +354,9 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<Object=
 				<Item=
 					<Position=
-						<X=492.473907>
-						<Y=497.425812>
-						<Z=-305.093658>
-					>
-					<Scale=
-						<X=6.000000>
-						<Y=6.000000>
-						<Z=6.000000>
+						<X=500.749542>
+						<Y=500.000000>
+						<Z=-198.861252>
 					>
 					<Target=
 						<X=0.000000>
@@ -1413,38 +366,106 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/beveled_cube.nmg">
+				<Geometry="Mesh/frozenCube.nmg">
 				<CacheGeometry=True>
 			>
 		>
-	>
-	<Links=
-		<Link=
-			<Item=3>
-			<Link=5>
+		<MObject=
+			<MItem=
+				<Id="cubeTile">
+				<UId=6>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<ScriptPath="Script/cube.nut">
+						<Class="Cube">
+					>
+					<ScriptUnit=
+						<ScriptPath="Script/Trajectory.nut">
+						<Class="Trajectory">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=2>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Kinematic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Box">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=12.000000>
+								<Y=12.000000>
+								<Z=12.000000>
+							>
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=518.735046>
+						<Y=500.000000>
+						<Z=-198.861252>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="Mesh/frozenCube.nmg">
+				<CacheGeometry=False>
+			>
 		>
-		<Link=
-			<Item=4>
-			<Link=3>
-		>
 	>
+	<Links>
 	<Constraints>
 	<Globals=
 		<BackgroundColor=
-			<X=0.627451>
-			<Y=0.627451>
-			<Z=0.627451>
+			<X=1.000000>
+			<Y=1.000000>
+			<Z=1.000000>
 		>
 		<AmbientColor=
-			<X=0.796079>
-			<Y=0.796079>
-			<Z=0.796079>
+			<X=0.725490>
+			<Y=0.725490>
+			<Z=0.725490>
 		>
 		<TimeOfDay=0.550000>
 		<AmbientIntensity=0.900000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
-		<FogFar=0.000000>
+		<FogFar=800.000000>
 		<FogColor=
 			<X=1.000000>
 			<Y=1.000000>
@@ -1477,7 +498,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 		<R3=
 			<X=0.000000>
 			<Y=0.000000>
-			<Z=-50.000000>
+			<Z=-20.000000>
 			<W=1.000000>
 		>
 	>
@@ -1490,27 +511,27 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<CameraUid=0>
 			<Matrix=
 				<R0=
-					<X=-0.836878>
-					<Y=0.000000>
-					<Z=0.547390>
+					<X=0.809829>
+					<Y=-0.000000>
+					<Z=0.586666>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.088419>
-					<Y=0.986868>
-					<Z=-0.135179>
+					<X=-0.052208>
+					<Y=0.996032>
+					<Z=0.072068>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.540202>
-					<Y=-0.161528>
-					<Z=-0.825888>
+					<X=-0.584339>
+					<Y=-0.088992>
+					<Z=0.806616>
 					<W=0.000000>
 				>
 				<R3=
-					<X=531.311096>
-					<Y=509.362457>
-					<Z=-152.130051>
+					<X=70.916527>
+					<Y=21.086174>
+					<Z=-49.109734>
 					<W=1.000000>
 				>
 			>
@@ -1520,27 +541,27 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.836352>
+					<X=0.942364>
 					<Y=0.000000>
-					<Z=0.548194>
+					<Z=0.334591>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.428150>
-					<Y=0.624507>
-					<Z=-0.653206>
+					<X=-0.099293>
+					<Y=0.954952>
+					<Z=0.279657>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.342351>
-					<Y=-0.781019>
-					<Z=-0.522308>
+					<X=-0.319518>
+					<Y=-0.296761>
+					<Z=0.899912>
 					<W=0.000000>
 				>
 				<R3=
-					<X=11.302859>
-					<Y=26.340645>
-					<Z=111.099953>
+					<X=537.081421>
+					<Y=517.039734>
+					<Z=-250.534271>
 					<W=1.000000>
 				>
 			>
@@ -1570,7 +591,7 @@ _È********._iƒ√Kk._È********._iêêLk._È********._i]]Mk._È**
 				<R3=
 					<X=0.000000>
 					<Y=0.000000>
-					<Z=-50.000000>
+					<Z=-20.000000>
 					<W=1.000000>
 				>
 			>

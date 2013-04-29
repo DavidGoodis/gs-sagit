@@ -11,7 +11,8 @@
 			<MItem=
 				<Id="ForceField">
 				<UId=0>
-				<Active>
+				<Inactive>
+				<Helper>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions=
@@ -200,11 +201,7 @@ _é********._iÄÃKk._é********._iLk._é********._i]]Mk._é**
 			>
 			<Object=
 				<Item=
-					<Scale=
-						<X=8.000000>
-						<Y=8.000000>
-						<Z=8.000000>
-					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -370,21 +367,21 @@ HkŒÒ™Ô**ªiýåÕÞíâ\ß]]IkŒÒ™Ô**ªiýåÕÞíâ\ß**JkŒÒ™Ô**ªiýåÕÞíâ\ß÷öJkŒÒ
 					>
 				>
 				<PhysicItem=
-					<SelfMask=32>
+					<SelfMask=2>
 					<Mask=1>
 					<LinearDamping_v2=1.000000>
 					<AngularDamping_v2=1.000000>
 					<CharacterRadius=0.500000>
 					<CharacterHeight=1.750000>
 					<CharacterMaxStep=0.250000>
-					<Mode="Dynamic">
+					<Mode="Kinematic">
 					<Shapes=
 						<PhysicShape=
-							<Type="Capsule">
+							<Type="Box">
 							<Position=
-								<X=0.000002>
-								<Y=0.000000>
-								<Z=2.842911>
+								<X=0.000000>
+								<Y=0.290033>
+								<Z=0.469273>
 							>
 							<Rotation=
 								<X=-0.000000>
@@ -397,38 +394,11 @@ HkŒÒ™Ô**ªiýåÕÞíâ\ß]]IkŒÒ™Ô**ªiýåÕÞíâ\ß**JkŒÒ™Ô**ªiýåÕÞíâ\ß÷öJkŒÒ
 								<Z=1.000000>
 							>
 							<Dimensions=
-								<X=7.000000>
-								<Y=1.000000>
-								<Z=4.638000>
+								<X=6.543021>
+								<Y=3.901145>
+								<Z=6.746270>
 							>
-							<Mass=100.000000>
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-						<PhysicShape=
-							<Type="Capsule">
-							<Position=
-								<X=-0.037197>
-								<Y=0.000591>
-								<Z=-0.946124>
-							>
-							<Rotation=
-								<X=0.000044>
-								<Y=-1.531502>
-								<Z=0.000624>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=4.000000>
-								<Y=4.000000>
-								<Z=9.000000>
-							>
-							<Mass=100.000000>
+							<Mass=150.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -438,37 +408,7 @@ HkŒÒ™Ô**ªiýåÕÞíâ\ß]]IkŒÒ™Ô**ªiýåÕÞíâ\ß**JkŒÒ™Ô**ªiýåÕÞíâ\ß÷öJkŒÒ
 			>
 			<Object=
 				<Item=
-					<OffsetMatrix=
-						<R0=
-							<X=1.000000>
-							<Y=0.000000>
-							<Z=0.000000>
-							<W=0.000000>
-						>
-						<R1=
-							<X=0.000000>
-							<Y=1.000000>
-							<Z=0.000000>
-							<W=0.000000>
-						>
-						<R2=
-							<X=0.000000>
-							<Y=0.000000>
-							<Z=1.000000>
-							<W=0.000000>
-						>
-						<R3=
-							<X=0.000000>
-							<Y=-0.512787>
-							<Z=-2.750831>
-							<W=1.000000>
-						>
-					>
-					<Rotation=
-						<X=-0.000000>
-						<Y=-3.141592>
-						<Z=0.000000>
-					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -477,193 +417,7 @@ HkŒÒ™Ô**ªiýåÕÞíâ\ß]]IkŒÒ™Ô**ªiýåÕÞíâ\ß**JkŒÒ™Ô**ªiýåÕÞíâ\ß÷öJkŒÒ
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="Mesh/Spacecraft.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="reactor">
-				<UId=2>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Default Take">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=209>
-									<Data==4251:4180@
-****d5,e!|g*åVæUR¨iòövgd5,e!|g*åVæUR¨iòöögd5,e!|g*åVæUR¨iÁÃCh
-d5,e!|g*åVæUR¨iòövhd5,e!|g*åVæUR¨i**ªhd5,e!|g*åVæUR¨iÁÃÃhd5,e
-!|g*åVæUR¨i]]Ýhd5,e!|g*åVæUR¨iòööhd5,e!|g*åVæUR¨ihd5,e!|g
-*åVæUR¨i***id5,e!|g*åVæUR¨i÷ö6id5,e!|g*åVæUR¨iÁÃCid5,e!|g*åVæ
-UR¨iPid5,e!|g*åVæUR¨i]]]id5,e!|g*åVæUR¨i**jid5,e!|g*åVæUR¨i
-òövid5,e!|g*åVæUR¨iÁÃƒid5,e!|g*åVæUR¨iid5,e!|g*åVæUR¨i]]i
-d5,e!|g*åVæUR¨i**ªid5,e!|g*åVæUR¨i°id5,e!|g*åVæUR¨i÷ö¶id5,e
-!|g*åVæUR¨i]]½id5,e!|g*åVæUR¨iÄÃÃid5,e!|g*åVæUR¨i**Êid5,e!|g
-*åVæUR¨iÐid5,e!|g*åVæUR¨i÷öÖid5,e!|g*åVæUR¨i]]Ýid5,e!|g*åVæ
-UR¨iÄÃãid5,e!|g*åVæUR¨i**êid5,e!|g*åVæUR¨iðid5,e!|g*åVæUR¨i
-öööid5,e!|g*åVæUR¨i]]ýid5,e!|g*åVæUR¨iÄÃid5,e!|g*åVæUR¨i**=J
-id5,e!|g*åVæUR¨iid5,e!|g*åVæUR¨iööid5,e!|g*åVæUR¨i]]id5,
-e!|g*åVæUR¨iÄÃ#id5,e!|g*åVæUR¨i***jd5,e!|g*åVæUR¨i]]-jd5,e!|
-g*åVæUR¨i0jd5,e!|g*åVæUR¨iÄÃ3jd5,e!|g*åVæUR¨i÷ö6jd5,e!|g*åV
-æUR¨i**:jd5,e!|g*åVæUR¨i]]=}jd5,e!|g*åVæUR¨i@jd5,e!|g*åVæUR
-¨iÄÃCjd5,e!|g*åVæUR¨i÷öFjd5,e!|g*åVæUR¨i**Jjd5,e!|g*åVæUR¨i]]
-Mjd5,e!|g*åVæUR¨iPjd5,e!|g*åVæUR¨iÄÃSjd5,e!|g*åVæUR¨i÷öVjd5
-,e!|g*åVæUR¨i**Zjd5,e!|g*åVæUR¨i]]]jd5,e!|g*åVæUR¨i`jd5,e!|
-g*åVæUR¨iÄÃcjd5,e!|g*åVæUR¨i÷öfjd5,e!|g*åVæUR¨i**jjd5,e!|g*å
-VæUR¨i]]mjd5,e!|g*åVæUR¨ipjd5,e!|g*åVæUR¨iÄÃsjd5,e!|g*åVæUR
-¨i÷övjd5,e!|g*åVæUR¨i**zjd5,e!|g*åVæUR¨i]]}jd5,e!|g*åVæUR¨i
-€jd5,e!|g*åVæUR¨iÄÃƒjd5,e!|g*åVæUR¨i÷ö†jd5,e!|g*åVæUR¨i**Šjd5
-,e!|g*åVæUR¨i]]jd5,e!|g*åVæUR¨ijd5,e!|g*åVæUR¨iÄÃ“jd5,e!|
-g*åVæUR¨i÷ö–jd5,e!|g*åVæUR¨i**šjd5,e!|g*åVæUR¨i]]jd5,e!|g*å
-VæUR¨i jd5,e!|g*åVæUR¨iÄÃ£jd5,e!|g*åVæUR¨i÷ö¦jd5,e!|g*åVæUR
-¨i**ªjd5,e!|g*åVæUR¨iÄÃ«jd5,e!|g*åVæUR¨i]]­jd5,e!|g*åVæUR¨i÷ö
-®jd5,e!|g*åVæUR¨i°jd5,e!|g*åVæUR¨i**²jd5,e!|g*åVæUR¨iÄÃ³jd5
-,e!|g*åVæUR¨i]]µjd5,e!|g*åVæUR¨i÷ö¶jd5,e!|g*åVæUR¨i¸jd5,e!|
-g*åVæUR¨i**ºjd5,e!|g*åVæUR¨iÄÃ»jd5,e!|g*åVæUR¨i]]½jd5,e!|g*å
-VæUR¨i÷ö¾jd5,e!|g*åVæUR¨iÀjd5,e!|g*åVæUR¨i**Âjd5,e!|g*åVæUR
-¨iÄÃÃjd5,e!|g*åVæUR¨i]]Åjd5,e!|g*åVæUR¨i÷öÆjd5,e!|g*åVæUR¨i
-Èjd5,e!|g*åVæUR¨i**Êjd5,e!|g*åVæUR¨iÄÃËjd5,e!|g*åVæUR¨i]]Íjd5
-,e!|g*åVæUR¨i÷öÎjd5,e!|g*åVæUR¨iÐjd5,e!|g*åVæUR¨i**Òjd5,e!|
-g*åVæUR¨iÄÃÓjd5,e!|g*åVæUR¨i]]Õjd5,e!|g*åVæUR¨i÷öÖjd5,e!|g*å
-VæUR¨iØjd5,e!|g*åVæUR¨i**Újd5,e!|g*åVæUR¨iÄÃÛjd5,e!|g*åVæUR
-¨i]]Ýjd5,e!|g*åVæUR¨i÷öÞjd5,e!|g*åVæUR¨iàjd5,e!|g*åVæUR¨i**
-âjd5,e!|g*åVæUR¨iÄÃãjd5,e!|g*åVæUR¨i]]åjd5,e!|g*åVæUR¨i÷öæjd5
-,e!|g*åVæUR¨ièjd5,e!|g*åVæUR¨i**êjd5,e!|g*åVæUR¨iÄÃëjd5,e!|
-g*åVæUR¨i]]íjd5,e!|g*åVæUR¨i÷öîjd5,e!|g*åVæUR¨iðjd5,e!|g*å
-VæUR¨i**òjd5,e!|g*åVæUR¨iÄÃójd5,e!|g*åVæUR¨i]]õjd5,e!|g*åVæUR
-¨i÷ööjd5,e!|g*åVæUR¨iøjd5,e!|g*åVæUR¨i**újd5,e!|g*åVæUR¨iÄÃ
-ûjd5,e!|g*åVæUR¨i]]ýjd5,e!|g*åVæUR¨i÷öþjd5,e!|g*åVæUR¨i=@jd
-5,e!|g*åVæUR¨i**jd5,e!|g*åVæUR¨iÄÃjd5,e!|g*åVæUR¨i]]jd5,e!
-|g*åVæUR¨i÷öjd5,e!|g*åVæUR¨ijd5,e!|g*åVæUR¨i**=Jjd5,e!|g
-*åVæUR¨iÄÃjd5,e!|g*åVæUR¨i]]=Mjd5,e!|g*åVæUR¨i÷öjd5,e!|g*åV
-æUR¨ijd5,e!|g*åVæUR¨i**jd5,e!|g*åVæUR¨iÄÃjd5,e!|g*åVæUR¨
-i]]jd5,e!|g*åVæUR¨i÷öjd5,e!|g*åVæUR¨ijd5,e!|g*åVæUR¨i**
-jd5,e!|g*åVæUR¨iÄÃjd5,e!|g*åVæUR¨i]]jd5,e!|g*åVæUR¨i÷öjd5,
-e!|g*åVæUR¨i jd5,e!|g*åVæUR¨i**"jd5,e!|g*åVæUR¨iÄÃ#jd5,e!|
-g*åVæUR¨i]]%jd5,e!|g*åVæUR¨i÷ö&jd5,e!|g*åVæUR¨i(jd5,e!|g*åV
-æUR¨i***kd5,e!|g*åVæUR¨i÷ö*kd5,e!|g*åVæUR¨iÄÃ+kd5,e!|g*åVæUR¨
-i,kd5,e!|g*åVæUR¨i]]-kd5,e!|g*åVæUR¨i**.kd5,e!|g*åVæUR¨i÷ö.
-kd5,e!|g*åVæUR¨iÄÃ/kd5,e!|g*åVæUR¨i0kd5,e!|g*åVæUR¨i]]1kd5,
-e!|g*åVæUR¨i**2kd5,e!|g*åVæUR¨i÷ö2kd5,e!|g*åVæUR¨iÄÃ3kd5,e!|
-g*åVæUR¨i4kd5,e!|g*åVæUR¨i]]5kd5,e!|g*åVæUR¨i**6kd5,e!|g*åV
-æUR¨i÷ö6kd5,e!|g*åVæUR¨iÄÃ7kd5,e!|g*åVæUR¨i8kd5,e!|g*åVæUR¨
-i]]9kd5,e!|g*åVæUR¨i**:kd5,e!|g*åVæUR¨i÷ö:kd5,e!|g*åVæUR¨iÄÃ;
-kd5,e!|g*åVæUR¨i<kd5,e!|g*åVæUR¨i]]=}kd5,e!|g*åVæUR¨i**>kd5
-,e!|g*åVæUR¨i÷ö>kd5,e!|g*åVæUR¨iÄÃ?kd5,e!|g*åVæUR¨i@kd5,e!|
-g*åVæUR¨i]]Akd5,e!|g*åVæUR¨i**Bkd5,e!|g*åVæUR¨i÷öBkd5,e!|g*å
-VæUR¨iÄÃCkd5,e!|g*åVæUR¨iDkd5,e!|g*åVæUR¨i]]Ekd5,e!|g*åVæUR
-¨i**Fkd5,e!|g*åVæUR¨i÷öFkd5,e!|g*åVæUR¨iÄÃGkd5,e!|g*åVæUR¨i
-Hkd5,e!|g*åVæUR¨i]]Ikd5,e!|g*åVæUR¨i**Jkd5,e!|g*åVæUR¨i÷öJkd5
-,e!|g*åVæUR¨iÄÃKkd5,e!|g*åVæUR¨iLkd5,e!|g*åVæUR¨i]]Mkd5,e!|
-g*åVæUR¨i**Nkd5,e!|g*åVæUR¨i÷öNkd5,e!|g*åVæUR¨iÄÃOkd5,e!|g*å
-VæUR¨iPkd5,e!|g*åVæUR¨i>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****¥ÄBæ+Pk¥ÄBæ>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****H+[h+PkH+[h>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****8NEè+Pk8NEè>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****Mf+PkMf>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****3Mf+Pk3Mf>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****5Mf+Pk5Mf>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=0.500000>
-					<CharacterHeight=1.750000>
-					<CharacterMaxStep=0.250000>
-					<Mode="None">
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-0.113815>
-						<Y=0.435048>
-						<Z=-2.247777>
-					>
-					<Rotation=
-						<X=-0.517076>
-						<Y=2.886946>
-						<Z=-3.012824>
-					>
-					<Scale=
-						<X=0.180000>
-						<Y=0.180000>
-						<Z=0.180000>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="Mesh/reactor1.nmg">
+				<Geometry="Mesh/Vehicle33.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -671,7 +425,8 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 			<MItem=
 				<Id="ForceFieldCol">
 				<UId=3>
-				<Active>
+				<Inactive>
+				<Helper>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -734,7 +489,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 			<MItem=
 				<Id="ReactorTrailL">
 				<UId=4>
-				<Active>
+				<Inactive>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -746,7 +501,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 						<ParmList=
 							<Parm=
 								<Id="width">
-								<Value=0.160000>
+								<Value=0.320000>
 							>
 							<Parm=
 								<Id="length">
@@ -754,7 +509,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 							>
 							<Parm=
 								<Id="step">
-								<Value=0.400000>
+								<Value=0.160000>
 							>
 						>
 					>
@@ -773,15 +528,16 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 			<Object=
 				<Item=
 					<Position=
-						<X=-5.487938>
+						<X=-1.174263>
 						<Y=-0.084679>
-						<Z=-1.961372>
+						<Z=-2.110904>
 					>
 					<Scale=
 						<X=0.200000>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -798,7 +554,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 			<MItem=
 				<Id="ReactorTrailR">
 				<UId=5>
-				<Active>
+				<Inactive>
 				<Priority=0.500000>
 				<MotionPlayer=
 					<Motions>
@@ -810,7 +566,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 						<ParmList=
 							<Parm=
 								<Id="width">
-								<Value=0.160000>
+								<Value=0.320000>
 							>
 							<Parm=
 								<Id="length">
@@ -818,7 +574,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 							>
 							<Parm=
 								<Id="step">
-								<Value=0.400000>
+								<Value=0.160000>
 							>
 						>
 					>
@@ -837,7 +593,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 			<Object=
 				<Item=
 					<Position=
-						<X=5.474925>
+						<X=1.041372>
 						<Y=-0.084679>
 						<Z=-1.971691>
 					>
@@ -846,6 +602,7 @@ VæUR¨iPkd5,e!|g*åVæUR¨i>
 						<Y=0.200000>
 						<Z=0.200000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1018,15 +775,16 @@ bO._iPk ._i^pŒDï"bO._i>
 			<Light=
 				<Item=
 					<Position=
-						<X=-0.000000>
-						<Y=2.645846>
-						<Z=0.781936>
+						<X=-7.543255>
+						<Y=1.822687>
+						<Z=-2.554199>
 					>
 					<Rotation=
 						<X=1.570796>
-						<Y=-3.141592>
-						<Z=-3.141592>
+						<Y=-1.570796>
+						<Z=-1.570796>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1037,8 +795,8 @@ bO._iPk ._i^pŒDï"bO._i>
 				>
 				<Diffuse=
 					<X=1.000000>
-					<Y=1.000000>
-					<Z=1.000000>
+					<Y=0.000000>
+					<Z=0.501961>
 				>
 				<Specular=
 					<X=1.000000>
@@ -1056,8 +814,8 @@ bO._iPk ._i^pŒDï"bO._i>
 				<VolumeRange=500.000000>
 				<ClipDistance=300.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=0.500000>
-				<SpecularIntensity=0.000000>
+				<DiffuseIntensity=10.000000>
+				<SpecularIntensity=5.000000>
 				<ConeAngle=0.523599>
 				<EdgeAngle=0.523599>
 				<ZNear=0.020000>
@@ -1072,362 +830,10 @@ bO._iPk ._i^pŒDï"bO._i>
 				<VolumetricRange=8.000000>
 			>
 		>
-		<MCamera=
-			<MItem=
-				<Id="Camera">
-				<UId=7>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Camera=
-				<Item=
-					<Position=
-						<X=22.798056>
-						<Y=22.940105>
-						<Z=-24.043510>
-					>
-					<Rotation=
-						<X=0.234043>
-						<Y=0.307692>
-						<Z=0.000000>
-					>
-					<ItemFlag=
-						<HasTarget>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<ZNear=0.200000>
-				<ZFar=50000.000000>
-				<AspectRatioRefYAxis=True>
-			>
-		>
-		<MConstraint=
-			<MItem=
-				<Id="Link1">
-				<UId=8>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Constraint=
-				<Type="Point">
-				<PivotA=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=10.000000>
-						<W=1.000000>
-					>
-				>
-				<PivotB=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-1.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-10.000000>
-						<W=1.000000>
-					>
-				>
-			>
-		>
-		<MConstraint=
-			<MItem=
-				<Id="Link2">
-				<UId=9>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Constraint=
-				<Type="Point">
-				<PivotA=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-10.000000>
-						<W=1.000000>
-					>
-				>
-				<PivotB=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-1.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=10.000000>
-						<W=1.000000>
-					>
-				>
-			>
-		>
-		<MConstraint=
-			<MItem=
-				<Id="Link3">
-				<UId=10>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Constraint=
-				<Type="Point">
-				<PivotA=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=10.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=1.000000>
-					>
-				>
-				<PivotB=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-1.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=-10.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=1.000000>
-					>
-				>
-			>
-		>
-		<MConstraint=
-			<MItem=
-				<Id="Link4">
-				<UId=11>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Constraint=
-				<Type="Point">
-				<PivotA=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=-10.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=1.000000>
-					>
-				>
-				<PivotB=
-					<R0=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R1=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=0.000000>
-					>
-					<R2=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=-1.000000>
-						<W=0.000000>
-					>
-					<R3=
-						<X=10.000000>
-						<Y=0.000000>
-						<Z=0.000000>
-						<W=1.000000>
-					>
-				>
-			>
-		>
 		<MLight=
 			<MItem=
 				<Id="BackLight">
-				<UId=12>
+				<UId=7>
 				<Active>
 				<Priority=1.000000>
 				<MotionPlayer=
@@ -1447,15 +853,16 @@ bO._iPk ._i^pŒDï"bO._i>
 			<Light=
 				<Item=
 					<Position=
-						<X=-0.000002>
-						<Y=-2.591597>
-						<Z=6.781063>
+						<X=3.790271>
+						<Y=-1.661184>
+						<Z=-2.950200>
 					>
 					<Rotation=
 						<X=-0.000000>
-						<Y=-3.141593>
+						<Y=3.141592>
 						<Z=0.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1466,26 +873,26 @@ bO._iPk ._i^pŒDï"bO._i>
 				>
 				<Diffuse=
 					<X=0.000000>
-					<Y=0.568627>
+					<Y=0.600000>
 					<Z=1.000000>
 				>
 				<Specular=
 					<X=0.000000>
-					<Y=0.784314>
-					<Z=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
 				>
 				<ShadowColor=
 					<X=0.000000>
 					<Y=0.000000>
 					<Z=0.000000>
 				>
-				<Type="Parallel">
+				<Type="Point">
 				<Falloff="Linear">
 				<Range=150.000000>
 				<VolumeRange=100.000000>
 				<ClipDistance=100.000000>
 				<ProjectionMap="">
-				<DiffuseIntensity=1.000000>
+				<DiffuseIntensity=20.000000>
 				<SpecularIntensity=1.000000>
 				<ConeAngle=0.279253>
 				<EdgeAngle=0.523599>
@@ -1501,82 +908,11 @@ bO._iPk ._i^pŒDï"bO._i>
 				<VolumetricRange=10.000000>
 			>
 		>
-		<MLight=
-			<MItem=
-				<Id="New Light">
-				<UId=13>
-				<Active>
-				<Priority=1.000000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Light=
-				<Item=
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Diffuse=
-					<X=1.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Specular=
-					<X=1.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<ShadowColor=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Type="Point">
-				<Falloff="Linear">
-				<Range=10.000000>
-				<VolumeRange=500.000000>
-				<ClipDistance=300.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=1.000000>
-				<SpecularIntensity=0.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=0.523599>
-				<ZNear=0.020000>
-				<Shadow="None">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=False>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
-			>
-		>
 	>
 	<Links=
 		<Link=
 			<Item=0>
 			<Link=3>
-		>
-		<Link=
-			<Item=2>
-			<Link=1>
 		>
 		<Link=
 			<Item=4>
@@ -1591,36 +927,11 @@ bO._iPk ._i^pŒDï"bO._i>
 			<Link=1>
 		>
 		<Link=
-			<Item=12>
+			<Item=7>
 			<Link=1>
 		>
-		<Link=
-			<Item=13>
-			<Link=2>
-		>
 	>
-	<Constraints=
-		<Constraint=
-			<Uid=8>
-			<UidA=1>
-			<UidB=3>
-		>
-		<Constraint=
-			<Uid=9>
-			<UidA=1>
-			<UidB=3>
-		>
-		<Constraint=
-			<Uid=10>
-			<UidA=1>
-			<UidB=3>
-		>
-		<Constraint=
-			<Uid=11>
-			<UidA=1>
-			<UidB=3>
-		>
-	>
+	<Constraints>
 	<Groups=
 		<Group=
 			<Id="Show">
@@ -1651,30 +962,29 @@ bO._iPk ._i^pŒDï"bO._i>
 	<Physics=
 		<Frequency=59.999996>
 	>
-	<CurrentCamera="Camera">
 	<ViewMatrix=
 		<R0=
-			<X=-0.989776>
+			<X=-0.684356>
 			<Y=0.000000>
-			<Z=-0.142633>
+			<Z=-0.729148>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.042060>
-			<Y=0.955534>
-			<Z=-0.291866>
+			<X=0.172436>
+			<Y=0.971634>
+			<Z=-0.161843>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.136290>
-			<Y=-0.294881>
-			<Z=-0.945764>
+			<X=0.708465>
+			<Y=-0.236490>
+			<Z=-0.664944>
 			<W=0.000000>
 		>
 		<R3=
-			<X=-2.437539>
-			<Y=5.442433>
-			<Z=22.703318>
+			<X=-16.207106>
+			<Y=5.807093>
+			<Z=12.856894>
 			<W=1.000000>
 		>
 	>
@@ -1687,27 +997,27 @@ bO._iPk ._i^pŒDï"bO._i>
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.989776>
+					<X=-0.684356>
 					<Y=0.000000>
-					<Z=-0.142633>
+					<Z=-0.729148>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.042060>
-					<Y=0.955534>
-					<Z=-0.291866>
+					<X=0.172436>
+					<Y=0.971634>
+					<Z=-0.161843>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.136290>
-					<Y=-0.294881>
-					<Z=-0.945764>
+					<X=0.708465>
+					<Y=-0.236490>
+					<Z=-0.664944>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-2.437539>
-					<Y=5.442433>
-					<Z=22.703318>
+					<X=-16.207106>
+					<Y=5.807093>
+					<Z=12.856894>
 					<W=1.000000>
 				>
 			>

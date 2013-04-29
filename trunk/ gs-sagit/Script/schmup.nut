@@ -13,10 +13,6 @@ Include("Script/globals.nut")
 Include("Script/ace_deleter.nut")
 
 
-//Controls 
-useMouse	<- 0
-usePad		<- 1
-
 //Engine 
 g_timer		  <- 0.0
 g_clock_scale <- 0.0
@@ -37,7 +33,7 @@ class	schmup
 	*/
 
 	scene 		= 0
-	channel_music = 0
+	chnl_title  = 0
 	ready 		= 0
 	Abutton		= 82
 	StartButton = 93
@@ -70,11 +66,12 @@ class	schmup
 			ProjectUnloadScene(project, scene)
 			scene = ProjectInstantiateScene(project, "Scenes/Level1.nms")
 			ProjectAddLayer(project, scene, 1)
-			MixerChannelStop(g_mixer,channel_music)
-			channel_music = MixerStreamStart(g_mixer,snd_mu_game)
+			MixerChannelStop(g_mixer,chnl_title)
+/*			channel_music = MixerStreamStart(g_mixer,snd_mu_game)
 			SyncTimer = g_clock
 			MixerChannelSetGain(g_mixer, channel_music, 0.8)
 			MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
+*/
 			ready = 4
 		}
 
@@ -108,10 +105,10 @@ class	schmup
 //		g_clock_scale = EngineGetClockScale(g_engine)
 //		EngineSetFixedDeltaFrame(g_engine,60)
 
-		channel_music = MixerStreamStart(g_mixer,snd_mu_title)
+		chnl_title = MixerStreamStart(g_mixer,snd_mu_game)
 
-		MixerChannelSetGain(g_mixer, channel_music, 0.8)
-		MixerChannelSetLoopMode(g_mixer, channel_music, LoopRepeat)
+		MixerChannelSetGain(g_mixer, chnl_title, 0.8)
+		MixerChannelSetLoopMode(g_mixer, chnl_title, LoopRepeat)
 
 		scene = ProjectInstantiateScene(project, "Scenes/Title.nms")
 		ProjectAddLayer(project, scene, 1)

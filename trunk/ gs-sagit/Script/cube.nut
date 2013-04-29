@@ -23,11 +23,14 @@ class	Cube
 	hit			= 0
 	dead		= 0
 
-	// 1 if in the trajectory of the spaceship
-	willHit		= 0
-
 	mat				= 0
-	SavedMatDiffuse	= 0
+	savedDiffuse	= 0
+	savedSelf		= 0
+	movePattern		= 0
+
+	zPos		= 0
+	distanceLbl	= 0
+	distance	= 0
 
 	/*!
 		@short	OnUpdate
@@ -51,7 +54,7 @@ class	Cube
 			}
 */
 	}
-
+/*
 	function	OnPhysicStep(item, dt)
 	{
 		local	keyboard 	= GetKeyboardDevice(),
@@ -62,18 +65,6 @@ class	Cube
 		if (usePad&&(padrt == 0.0))
 			RT_released = 1
 
-/*
-		local timer = TickToSec(g_clock-SyncTimer)
-		if ((timer >= SyncWait) && (timer <5))
-		{
-			local speed = ItemGetLinearVelocity(item)
-			ItemSetLinearVelocity(item,Vector(0,0,0))
-//			ItemApplyLinearImpulse(item, Vector(0,0,-1000))
-
-			SyncTimer = g_clock
-		}
-*/
-
 		if (!captured)
 		{
 //			local rot = ItemGetRotation(item)
@@ -82,7 +73,6 @@ class	Cube
 		else
 		{
 			if	(DeviceKeyPressed(keyboard, KeyC) || DeviceKeyPressed(pad, KeyButton0))
-//			if	(DeviceKeyPressed(keyboard, KeyC) ||  (RT_released && (usePad&&(padrt > 0.0))))
 			{
 				RT_released = 0
 				ItemSetName(item, "bullet")
@@ -105,28 +95,17 @@ class	Cube
 			}
 		}
 	}
+*/
 
 	function	OnUpdate(item)
 	{
-
-		ItemSetOpacity(item, Clamp(ItemGetOpacity(item)+0.1 ,0,1))
-			
-/*
-		if (ItemGetScriptInstanceFromClass(item, "Cube").willHit == 1)
+		if (ItemGetScriptInstanceFromClass(item, "Trajectory").willHit == 0)
 		{
-			MaterialSetDiffuse(mat, Vector(255,0,0,255))
+//			MaterialSetDiffuse(mat, savedDiffuse)
+			MaterialSetSelf(mat, savedSelf)
 		}
-		else
-		{
-			MaterialSetDiffuse(mat, SavedMatDiffuse)
-		}
-*/
 
-/*		if (ItemGetPosition(item).y > 50)
-			{
-				dead = 1
-			}
-*/
+
 	}
 
 	/*!
@@ -135,14 +114,13 @@ class	Cube
 	*/
 	function	OnSetup(item)
 	{
-//		ItemPhysicSetAngularFactor(item, Vector(1,1,1))
-//		ItemSetAngularDamping(item, 0.1)
-//		ItemPhysicSetLinearFactor(item, Vector(0,0,1))
-//		ItemApplyTorque(item, Vector(Rand(0,360), Rand(0,360), Rand(0,360)))
 		captured = 0
-		ItemSetOpacity(item,0.0)
-	//	mat = GeometryGetMaterial(ItemGetGeometry(item), "Mesh/Material_001__cubevelbake.nmm")
-//		SavedMatDiffuse = MaterialGetDiffuse(mat)
+
+		local geo = ItemGetGeometry(item)
+		mat = GeometryGetMaterialFromIndex(geo, 0)
+//		savedDiffuse = MaterialGetDiffuse(mat)
+		savedSelf	 = MaterialGetSelf(mat)
+		MaterialSetSelf(mat, savedSelf)
 
 	}
 }

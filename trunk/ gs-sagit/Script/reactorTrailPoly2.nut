@@ -29,8 +29,9 @@ class	ReactorTrailPoly2
 	step			= 0.4
 
 	vItem			= 0
-//	color_a 		= Vector(0.8, 0.5, 0.5, 1)
-	color_a 		= Vector(0.95, 0.92, 0.9, 1)
+	color_a 		= Vector(1, 0.90, 0.49, 1)
+//	color_a 		= Vector(0.95, 0.92, 0.9, 1)
+//	color_a 		= Vector(0.0, 0.00, 0.00, 0.7)
 
 	sections		= []
 
@@ -50,17 +51,19 @@ class	ReactorTrailPoly2
 
 		for(local n=0; n<(sections.len()-4); n+=4)
 		{
-				local alpha = RangeAdjustClamped(color_a.w*n*0.5,0,sections.len(),0,1)
+				local alpha = RangeAdjustClamped(color_a.w*n*0.7,0,sections.len(),0,1)
 				local color = Vector(color_a.x, color_a.y,color_a.z, alpha)
 
-				sections[n].x -=0.01
-				sections[n].y -=0.01
-				sections[n+1].x -=0.01
-				sections[n+1].y +=0.01
-				sections[n+2].x +=0.01
-				sections[n+2].y +=0.01
-				sections[n+3].x +=0.01
-				sections[n+3].y -=0.01
+				local offset = -0.01
+
+				sections[n].x -=offset
+				sections[n].y -=offset
+				sections[n+1].x -=offset
+				sections[n+1].y +=offset
+				sections[n+2].x +=offset
+				sections[n+2].y +=offset
+				sections[n+3].x +=offset
+				sections[n+3].y -=offset
 
 				//Draw sides (connect sections)
 				RendererDrawQuad(g_render, sections[n], sections[n+1], sections[n+5], sections[n+4], color, color, color, color, MaterialBlendAlpha, MaterialRenderDoubleSided )
@@ -71,7 +74,6 @@ class	ReactorTrailPoly2
 				//Draw sections
 				RendererDrawQuad(g_render, sections[n], sections[n+1], sections[n+2], sections[n+3], color, color, color, color, MaterialBlendAlpha, MaterialRenderDoubleSided)
 		}
-
 	}
 
 
@@ -81,7 +83,8 @@ class	ReactorTrailPoly2
 
 		//Add a new section
 		//Vertexes along the origin plane
-		local width2 = width*g_dt_frame*60
+//		local width2 = width*g_dt_frame*60
+		local width2 = width
 		sections.append(Vector(vItem.x-width2,vItem.y-width2,vItem.z))
 		sections.append(Vector(vItem.x-width2,vItem.y+width2,vItem.z))
 		sections.append(Vector(vItem.x+width2,vItem.y+width2,vItem.z))

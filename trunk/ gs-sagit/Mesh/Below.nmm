@@ -1,11 +1,15 @@
 <Version=1.0>
 <Material=
-	<Id="Default">
 	<Diffuse=
-		<X=0.078800>
-		<Y=0.078800>
-		<Z=0.078800>
+		<X=0.078431>
+		<Y=0.062745>
+		<Z=0.074510>
 		<W=1.000000>
+	>
+	<Specular=
+		<X=0.968628>
+		<Y=0.000000>
+		<Z=1.000000>
 	>
 	<Ambient=
 		<X=0.000000>
@@ -21,5 +25,13 @@
 	<RenderMask=
 		<Smoothing>
 		<NormalMapTangent>
+		<DoubleSided>
+	>
+	<TextureStage=
+		<Index=0>
+		<Texture="Mesh/planet_envmap_0.png">
+		<UV=0>
+		<Channel="Reflection">
+		<UVSource="LSNormal">
 	>
 >
