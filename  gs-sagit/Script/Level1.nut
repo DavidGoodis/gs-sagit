@@ -57,6 +57,7 @@ class	Level1
 	lblPause		= 0
 	lblPauseQuit	= 0
 	lblPauseResume	= 0
+	lblLoading		= 0
 	energyBar		= 0
 	lblDestr		= 0
 //=== debug ===//
@@ -99,7 +100,6 @@ class	Level1
 //	gridArLoc		= [] //Array of locations. size = gridDendity*gridDensity
 	gridArPat1		= []
 	objVelocity		= 6
-	spawnZ			= 800
 
 	patfs			= []
 	patlocs			= []
@@ -108,7 +108,8 @@ class	Level1
 	objCount		= 0
 	itemCount		= 0
 
-	enemiesT1		= []
+	availCubesPool	= []
+	usedCubesPool	= []
 
 	patTimer		= 0
 //	patWait			= 1.8
@@ -171,6 +172,19 @@ class	Level1
 			MixerSoundStart(g_mixer, s)
 		}
 	}
+
+
+//	========================================================================================================
+	function	GameOver(scene)
+//	========================================================================================================
+	{
+			game_over = 1				
+			SceneSetClockScale(scene, 0.0)
+			SpriteSetOpacity(lblGameOver[0],0.8)
+			SpriteSetOpacity(lblRetry[0],0.8)
+			SpriteSetOpacity(lblQuit[0],0.8)
+	}
+
 
 //	========================================================================================================
 	function	SpawnItem(scene, item, spawn_loc,spawn_scale, spawn_rot, spawn_dir, spawn_tor)
@@ -367,22 +381,21 @@ class	Level1
 	{
 		local pattern = []
 		local obj = SceneAddObject(scene, "PatternGravityCenter" + patternID)
-		ItemSetPosition(obj, Vector(0,0,spawnZ))
+		ItemSetPosition(obj, Vector(0,0,g_spawnZ))
 
 		foreach(id, loc in patlocs[patternID])
 		{
 			local dot = patfs[patternID][id]
-   			if ( dot.w != 0 )
+   			if ( dot.w != 0 ) //The dot is not void
 			{
-				local new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "cubeTile"))
+//				local new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "cubeTile"))
+				local new_item = availCubesPool.pop() //removes and return the last value from the back of the array of available cubes
 				itemCount++
-
-		 		ItemSetScript(new_item, "Script/cube.nut" , "Cube")
-				ItemSetupScript(new_item)
+				SceneItemActivate(scene, new_item, true)
+/*
 				ItemRenderSetup(new_item, g_factory)
 		 		SceneSetupItem(scene, new_item)
-				ItemSetup(new_item)
-
+*/
 				ItemGetScriptInstanceFromClass(new_item, "Cube").savedSelf = Vector(dot.x, dot.y, dot.z)
 //				ItemGetScriptInstanceFromClass(new_item, "Cube").savedSelf = Vector(0,0,0)
 
@@ -393,6 +406,7 @@ class	Level1
 					case 3:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",-"  + tileSize + ",0,0; offsetposition " + syncBit + "," + tileSize + ",0,0;  next;"); break; // left
 					case 4:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ","  + tileSize + ",0,0; offsetposition " + syncBit + ",-" + tileSize + ",0,0;  next;"); break; // right
 					case 5:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",0,-"  + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0,-" + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0," + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0," + tileSize*6 + ",0;  next;"); break; // down
+					case 6:	ItemSetCommandList(new_item,"loop; offsetposition " + syncBit + ",0,"  + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0," + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0,-" + tileSize*6 + ",0; nop " + syncBit + "; offsetposition " + syncBit + ",0,-" + tileSize*6 + ",0;  next;"); break; // down
 				}
 
 //				ItemSetCommandList(new_item , "loop; torotation " + syncBit + ",0,0," + 90 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 180 + ";nop " + syncBit + ";torotation " + syncBit + ",0,0," + 270 + ";nop " + syncBit*2 + ";torotation " + syncBit*2 + ",0,0," + 360 + ";nop " + syncBit*2 + ";next;")
@@ -494,16 +508,29 @@ class	Level1
 			if (TickToSec(g_clock-patTimer) >= syncBit*2 )
 				switch(seq)
 				{
-					case 1: enemiesT1 = PushPattern(scene, 0, enemiesT1); seq = 2; patTimer = g_clock; break;
-					case 2: enemiesT1 = PushPattern(scene, 1, enemiesT1); seq = 3; patTimer = g_clock; break;
-					case 3: enemiesT1 = PushPattern(scene, 2, enemiesT1); seq = 4; patTimer = g_clock; break;
-					case 4: enemiesT1 = PushPattern(scene, 3, enemiesT1); seq = 5; patTimer = g_clock; break;
-					case 5: enemiesT1 = PushPattern(scene, 4, enemiesT1); seq = 6; patTimer = g_clock; break;
-					case 6: enemiesT1 = PushPattern(scene, 5, enemiesT1); seq = 7; patTimer = g_clock; break;
-					case 7: enemiesT1 = PushPattern(scene, 6, enemiesT1); seq = 8; patTimer = g_clock; break;
-					case 8: enemiesT1 = PushPattern(scene, 7, enemiesT1); seq = 9; patTimer = g_clock; break;
-					case 9: enemiesT1 = PushPattern(scene, 8, enemiesT1); seq = 10; patTimer = g_clock; break;
-					case 10: enemiesT1 = PushPattern(scene, 0, enemiesT1); seq = 2; patTimer = g_clock; break;
+/*
+					case 1: usedCubesPool = PushPattern(scene, 0, usedCubesPool); seq = 2; patTimer = g_clock; break;
+					case 2: usedCubesPool = PushPattern(scene, 1, usedCubesPool); seq = 3; patTimer = g_clock; break;
+					case 3: usedCubesPool = PushPattern(scene, 2, usedCubesPool); seq = 4; patTimer = g_clock; break;
+					case 4: usedCubesPool = PushPattern(scene, 3, usedCubesPool); seq = 5; patTimer = g_clock; break;
+					case 5: usedCubesPool = PushPattern(scene, 4, usedCubesPool); seq = 6; patTimer = g_clock; break;
+					case 6: usedCubesPool = PushPattern(scene, 5, usedCubesPool); seq = 7; patTimer = g_clock; break;
+					case 7: usedCubesPool = PushPattern(scene, 6, usedCubesPool); seq = 8; patTimer = g_clock; break;
+					case 8: usedCubesPool = PushPattern(scene, 7, usedCubesPool); seq = 9; patTimer = g_clock; break;
+					case 9: usedCubesPool = PushPattern(scene, 8, usedCubesPool); seq = 10; patTimer = g_clock; break;
+					case 10: usedCubesPool = PushPattern(scene, 0, usedCubesPool); seq = 2; patTimer = g_clock; break;
+*/
+					case 1: usedCubesPool = PushPattern(scene, 0, usedCubesPool); seq = 2; patTimer = g_clock; break;
+					case 2: usedCubesPool = PushPattern(scene, 1, usedCubesPool); seq = 3; patTimer = g_clock; break;
+					case 3: usedCubesPool = PushPattern(scene, 2, usedCubesPool); seq = 4; patTimer = g_clock; break;
+					case 4: usedCubesPool = PushPattern(scene, 3, usedCubesPool); seq = 5; patTimer = g_clock; break;
+					case 5: usedCubesPool = PushPattern(scene, 4, usedCubesPool); seq = 6; patTimer = g_clock; break;
+					case 6: usedCubesPool = PushPattern(scene, 5, usedCubesPool); seq = 7; patTimer = g_clock; break;
+					case 7: usedCubesPool = PushPattern(scene, 6, usedCubesPool); seq = 8; patTimer = g_clock; break;
+					case 8: usedCubesPool = PushPattern(scene, 7, usedCubesPool); seq = 9; patTimer = g_clock; break;
+					case 9: usedCubesPool = PushPattern(scene, 8, usedCubesPool); seq = 10; patTimer = g_clock; break;
+					case 10: usedCubesPool = PushPattern(scene, 0, usedCubesPool); seq = 2; patTimer = g_clock; break;
+
 				}
 
 			objCount = patobjs.len()
@@ -513,7 +540,7 @@ class	Level1
 			local iwmm = ItemGetWorldMinMax(ship)
 //			local sitem = ItemGetWorldPosition(SceneFindItem(scene,"Spacecraft"))
 //			local col =	SceneCollisionRaytrace(scene,sitem,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
-			local col =	SceneCollisionRaytrace(scene,iwmm.min ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			local col =	SceneCollisionRaytrace(scene,iwmm.min ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(g_spawnZ))
 			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
 			{
 				//Set the item as being in the ship's trajectory
@@ -521,21 +548,21 @@ class	Level1
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory")
 			}
-			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.min.x, iwmm.max.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.min.x, iwmm.max.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(g_spawnZ))
 			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
 			{
 				//Set the item as being in the ship's trajectory
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
 			}
-			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.max.x, iwmm.min.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			local col =	SceneCollisionRaytrace(scene,Vector(iwmm.max.x, iwmm.min.y, iwmm.min.z) ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(g_spawnZ))
 			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
 			{
 				//Set the item as being in the ship's trajectory
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory").willHit = 1
 				ItemGetScriptInstanceFromClass(col.item, "Trajectory").distance = col.d
 			}
-			local col =	SceneCollisionRaytrace(scene,iwmm.max ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(spawnZ))
+			local col =	SceneCollisionRaytrace(scene,iwmm.max ,Vector(0,0,1),-1,CollisionTraceCuboid,Mtr(g_spawnZ))
 			if ((col.hit) && ItemHasScript(col.item, "Trajectory"))
 			{
 				//Set the item as being in the ship's trajectory
@@ -614,51 +641,36 @@ class	Level1
 //				if (p.z < ItemGetWorldPosition(SceneGetCurrentCamera(scene)).z)	
 				{
 					scoreLocked = false
-					print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
+//					print("IDX=" + idx + "::Z=" + ItemGetWorldPosition(obj).z)
 
 					foreach(ic, child in children)
 					{
 //						print("--->Child " + ic + "::Z=" + ItemGetWorldPosition(child).z)
-						SceneDeleteItem(scene, child)
+						availCubesPool.append(child)
+						SceneItemActivate(scene, child, false)
+						ItemResetCommandList(child)
+//						SceneDeleteItem(scene, child)
 					}
 
 					SceneDeleteObject(scene,obj)
 					patobjs.remove(idx)
 
-					local itemArray = enemiesT1[idx]
+					local itemArray = usedCubesPool[idx]
 					itemCount -= itemArray.len()
 					itemArray.clear()
-					enemiesT1.remove(idx)
+					usedCubesPool.remove(idx)
 				}
 			}
 
 
 			//Code for individual block and collision detection
-			foreach(idx1,enemyGrp in enemiesT1)
+			foreach(idx1,enemyGrp in usedCubesPool)
 				foreach(idx2,enemy in enemyGrp)
 				{
-/*					local position = ItemGetWorldPosition(enemy)
-					print(position.x + "-" + position.y + "-" + position.z)
-*/
-/*				if ((ItemHasScript(enemy, "Cube") && ItemGetScriptInstance(enemy).captured))
-					{
-						ItemSetLinearVelocity(enemy, Vector(0,0,0))
-						local scpos = ItemGetPosition(SceneFindItem(scene,"Spacecraft"))
-						ItemPhysicResetTransformation(enemy, Vector(scpos.x, scpos.y-10, scpos.z), Vector(0,0,0))
-					}
-				else*/
-/*				if (ItemHasScript(enemy, "Cube") && !ItemGetScriptInstance(enemy).captured)
-					ItemSetLinearVelocity(enemy, Vector(v.x,v.y,v.z-boost))
-				else // if the cube is a bullet, delete from the table
-					enemiesT1.remove(idx)
-*/
-
    					local wp = ItemGetWorldPosition(enemy)
    					local ri = ItemGetRotation(enemy)
 					local r = ItemGetOpacity(enemy)
-					local opa = Clamp(wp.z/spawnZ,0,1)+0.1
-//					ItemSetOpacity(enemy, r+0.1)
-	                                                                                                                                                                                                                                             			ItemSetOpacity(enemy, r+0.001)
+					local opa = Clamp(wp.z/g_spawnZ,0,1)+0.1
 
 					local offset = Deg(90)*g_dt_frame/syncBit
 					if (ItemGetName(enemy) == "BeveledCubeRed")
@@ -711,12 +723,7 @@ class	Level1
 
 		//game over
 		if (gLifes == 0)
-			{
-				game_over = 1				
-				SpriteSetOpacity(lblGameOver[0],0.8)
-				SpriteSetOpacity(lblRetry[0],0.8)
-				SpriteSetOpacity(lblQuit[0],0.8)
-			}
+			GameOver(scene)
 		else
 			if (!pause)
 				{
@@ -782,23 +789,12 @@ class	Level1
 			SpriteSetOpacity(helpLabel2[0],0)
 
 */
-
-//Debug
-/*
-		if (debug)
-		{
-			TextSetText(lblDbgEnemies[1], "patterns : " + enemiesT1.len().tostring())
-			TextSetText(lblDbgTargetList[1], "targets : " + targetList.len().tostring())
-			TextSetText(lblDbgBiru[1], "buildings : " + biruArray.len().tostring())
-			TextSetText(lblDbgSlice[1], "tunnel : " + arrTunnel.len().tostring())
-			TextSetText(lblDestr[1], "destroyed : " + destroyed.tostring())
-		}
-*/
 	}
 
 
 	function	OnPhysicStep(scene, dt)
 	{
+/*
 				if (TickToSec(g_clock - syncBitTimer) >= syncBit*2)
 				{
 					syncBitTimer = g_clock
@@ -828,6 +824,7 @@ class	Level1
 
 					}
 				}
+*/
 	}
 
 
@@ -859,6 +856,7 @@ class	Level1
 			RendererWrite(g_render, debugFont, "itemCount = " + itemCount , 1, 0.16, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
 
 			RendererWrite(g_render, debugFont, "beatScore = " + beatScore , 1, 0.20, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
+			RendererWrite(g_render, debugFont, "pool(avail.) = " + availCubesPool.len() , 1, 0.24, 0.5, true, WriterAlignRight, Vector(1, 1, 1, 1))
 
 //			local p = ItemGetScriptInstanceFromClass(SceneFindItem(scene, "Spacecraft"), "spacecraft").ShipScreenPosition
 
@@ -879,7 +877,7 @@ class	Level1
 		//Unpause for the pad
 		pause = false
 
-		enemiesT1  = []
+		usedCubesPool  = []
 		targetList = []
 
 		wallTimer		= [g_clock,g_clock]
@@ -936,12 +934,13 @@ class	Level1
 		lblPauseResume = CreateLabelWithBgColor(ui, "Resume", (UIWidth-600)/2+40, (UIHeight-320)/2+240, 24, 200, 48, 0, 0, 0, 255, "Aldrich",TextAlignCenter,255, 225, 82, 255)
 		lblPauseQuit = CreateLabelWithBgColor(ui, "Quit", (UIWidth+600)/2-240, (UIHeight-320)/2+240, 24, 200, 48, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
 		lblGetReady = CreateLabel(ui, "Get Ready !", -2000, 500, 150, 1500, 500,50,195,255,255,"Aldrich",TextAlignCenter)
+		lblLoading = CreateLabelWithBgColor(ui, "Loading...", (UIWidth-300)/2, (UIHeight-160)/2, 48, 300, 160, 255, 255, 255, 255, "Aldrich",TextAlignCenter,0, 0, 0, 255)
 
 		//Debug
 		if ("debug" in getroottable())
 			if (debug)
 			{
-/*				lblDbgEnemies = CreateLabel(ui, "enemies : " + enemiesT1.len().tostring(), 150, 200, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
+/*				lblDbgEnemies = CreateLabel(ui, "enemies : " + usedCubesPool.len().tostring(), 150, 200, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
 				lblDbgTargetList = CreateLabel(ui, "targets : " + targetList.len().tostring(), 150, 220, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
 				lblDbgBiru = CreateLabel(ui, "buildings : " +  biruArray.len().tostring(), 150, 240, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
 				lblDbgSlice = CreateLabel(ui, "Tunnel : " +  arrTunnel.len().tostring(), 150, 260, 12, 120, 50,0,0,0,255,"Aldrich",TextAlignLeft)
@@ -957,28 +956,8 @@ class	Level1
 		SpriteSetOpacity(lblPauseQuit[0],0)
 		SpriteSetOpacity(lblPauseResume[0],0)
 		SpriteSetOpacity(lblGetReady[0],0)
+		SpriteSetOpacity(lblLoading[0],0)
 
-
-/*		local tex		= EngineLoadTexture(g_engine, "Tex/rocket_leaving_earth.png")
-		local story1	= UIAddNamedSprite(ui, "spr", tex, -5000, 650, TextureGetWidth(tex), TextureGetHeight(tex))
-		WindowSetCommandList(story1, "toposition 2,-5000,650; toposition 2,0,650; toposition 3,0,650; toposition 1,-5000,5000;")
-		local tex		= EngineLoadTexture(g_engine, "Tex/pilot.png")
-		local story2	= UIAddNamedSprite(ui, "spr", tex, 3000, 0, TextureGetWidth(tex), TextureGetHeight(tex))
-		WindowSetCommandList(story2, "toposition 5,3000,650; toposition 2,900,650; toposition 5,900,650; toposition 1,3000,650;")
-		local tex		= EngineLoadTexture(g_engine, "Tex/pilots.png")
-		local story1	= UIAddNamedSprite(ui, "spr", tex, -5000, 650, TextureGetWidth(tex), TextureGetHeight(tex))
-		WindowSetCommandList(story1, "toposition 10,-5000,650; toposition 2,0,650; toposition 3,0,650; toposition 1,-5000,5000;")
-		local tex		= EngineLoadTexture(g_engine, "Tex/ladycrew.png")
-		local story2	= UIAddNamedSprite(ui, "spr", tex, 3000, 0, TextureGetWidth(tex), TextureGetHeight(tex))
-		WindowSetCommandList(story2, "toposition 15,3000,650; toposition 2,900,650; toposition 5,900,650; toposition 1,3000,650;")
-*/
-
-/*		channel_music = MixerStreamStart(g_mixer,"data/emergency.ogg")
-		MixerChannelSetGain(g_mixer, channel_music, 0.8)
-		if (MixerChannelGetState(g_mixer, channel_music) != 2)
-			{
-			}
-*/
 
 		//Load pattern file
 		local pattern1 = [], pattern2 = [], pattern3 = [],pattern4 = [],pattern5 = [],pattern6 = [],pattern7 = [],pattern8 = [],pattern9 = [],pattern10 = []
@@ -1038,14 +1017,41 @@ class	Level1
 // PHYSICS INIT
 		//prevents objets from falling down
 		SceneSetGravity(scene, Vector(0,0,0))
-		SceneSetPhysicFrequency(scene, 75.0)
+//		SceneSetPhysicFrequency(scene, 120.0)
+
+// Objects init
+		print("Creating pool of items...")
+		local tTimer = g_clock
+		SpriteSetOpacity(lblLoading[0],1)
+		for (local i=0;i<g_maxEntities;i++)
+		{
+			local new_item = SceneDuplicateItem(scene, SceneFindItem(scene, "cubeTile"))
+			itemCount++
+
+			availCubesPool.append(new_item)
+			ItemRenderSetup(new_item, g_factory)
+	 		SceneSetupItem(scene, new_item)
+
+/*			ItemRenderSetup(new_item, g_factory)
+	 		SceneSetupItem(scene, new_item)
+			ItemSetup(new_item)
+*/
+		}	
+		print(" ->Pool created in " + TickToSec(g_clock - tTimer) + " seconds")
+		SpriteSetOpacity(lblLoading[0],0)
 
 // Sound init
-		for (local i=0; i<=9;i++)
+		for (local i=0; i<2;i++)
 		{
-			sounds.append(ResourceFactoryLoadSound(g_factory, snd_p[i]))
-			channels.append(MixerChannelLock(g_mixer))
+//			sounds.append(ResourceFactoryLoadSound(g_factory, snd_p[i]))
+//			channels.append(MixerChannelLock(g_mixer))
+
+			local chan = MixerStartStream(g_mixer, snd_stream_p[i])
+			MixerChannelSetLoopMode(g_mixer,chan,LoopRepeat)
+//			channels.append(chan)
 		}
+
+
 
 
 //Timers init

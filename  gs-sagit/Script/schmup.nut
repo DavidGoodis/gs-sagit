@@ -105,7 +105,7 @@ class	schmup
 //		g_clock_scale = EngineGetClockScale(g_engine)
 //		EngineSetFixedDeltaFrame(g_engine,60)
 
-		chnl_title = MixerStreamStart(g_mixer,snd_mu_game)
+		chnl_title = MixerStreamStart(g_mixer,snd_mu_title)
 
 		MixerChannelSetGain(g_mixer, chnl_title, 0.8)
 		MixerChannelSetLoopMode(g_mixer, chnl_title, LoopRepeat)

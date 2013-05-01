@@ -15,11 +15,11 @@ class	Trajectory
 //	cQuad		= Vector(1,0,1, 0.2) //pink
 	cQuad		= Vector(0,0,0, 0.2) //black
 	cLine		= Vector(0, 0.7, 0.9, 0.9)
-	cYellow		= Vector(1, 0.90, 0.49, 1) // yellow
+	cYellow		= Vector(1, 0.90, 0.49, 0.0) // yellow
 	cPink		= Vector(1,0,1, 1) //pink
 	cWhite		= Vector(1,1,1, 1) //white
 	cRed 		= Vector(1,0,0, 1) //white
-
+	cCurrent	= 0
 	ship		= 0
 
 	distance 	= 0
@@ -91,17 +91,23 @@ class	Trajectory
 			RendererDrawLineColoredEx(g_render, f3, b3, cWhite, cWhite, MaterialBlendAlpha, MaterialRenderDoubleSided)
 */
 
-			RendererDrawQuad(g_render, f0, b0, b1, f1, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
-			RendererDrawQuad(g_render, f1, b1, b2, f2, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
-			RendererDrawQuad(g_render, f2, b2, b3, f3, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
-			RendererDrawQuad(g_render, f3, b3, b0, f0, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
+			cCurrent.w = 1-distance/g_spawnZ //alpha
+			cCurrent.x = 1//cCurrent.w
+			cCurrent.y = 0.90-(1-distance*3/g_spawnZ)
+			cCurrent.z = 0.49-(1-distance*3/g_spawnZ)
+
+			
+			RendererDrawQuad(g_render, f0, b0, b1, f1, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
+			RendererDrawQuad(g_render, f1, b1, b2, f2, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
+			RendererDrawQuad(g_render, f2, b2, b3, f3, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
+			RendererDrawQuad(g_render, f3, b3, b0, f0, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
 
 
 /*			for(local i=0.1; i<=1; i+=0.1)
-				RendererDrawQuad(g_render, (b0+f0)*i, (b1+f1)*i, (b2+f2)*i, (b3+f3)*i, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
+				RendererDrawQuad(g_render, (b0+f0)*i, (b1+f1)*i, (b2+f2)*i, (b3+f3)*i, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
 */
 
-			RendererDrawQuad(g_render, b0, b1, b2, b3, cYellow, cYellow, cYellow, cYellow, MaterialBlendAlpha, MaterialRenderDoubleSided)
+			RendererDrawQuad(g_render, b0, b1, b2, b3, cCurrent, cCurrent, cCurrent, cCurrent, MaterialBlendAlpha, MaterialRenderDoubleSided)
 
 /*
 			RendererDrawLineColoredEx(g_render, b0, b1, cQuad, cQuad, MaterialBlendNone, MaterialRenderDoubleSided)
@@ -128,5 +134,6 @@ class	Trajectory
 	{
 		local s = ItemGetScene(item)
 		ship = SceneFindItem(s, "Spacecraft")
+		cCurrent = Vector(0,0,0,0)
 	}
 }

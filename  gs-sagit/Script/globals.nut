@@ -12,7 +12,7 @@ snd_fx_otshield		<-	"data/Object_through_shield.wav"
 //music
 //snd_mu_title		<-	"data/Title_Romain.ogg"
 //snd_mu_title		<-	"data/cute.ogg"
-snd_mu_title		<-	"data/abstract_loop.ogg"
+snd_mu_title		<-	"data/Title_Romain.ogg"
 //snd_mu_game		<-	"data/abstract_loop.ogg"
 snd_mu_game			<-	"data/Begijo.ogg"
 snd_p				<-  [ "data/soundbits/kick2.wav",
@@ -24,8 +24,20 @@ snd_p				<-  [ "data/soundbits/kick2.wav",
 						"data/soundbits/KickBasic.wav",
 						"data/soundbits/clapBasic.wav",
 						"data/soundbits/Harp.wav",
-						"data/soundbits/404Reasons.wav",
+						"data/soundbits/404Reasons.wav"
 						]
+snd_stream_p		<-  [ "data/soundbits/kick2.ogg",
+						"data/soundbits/SH101T.ogg",
+     					"data/soundbits/HatBasic.ogg",
+						"data/soundbits/CB_Snare.ogg",
+						"data/soundbits/SeeTwo2.ogg",
+						"data/soundbits/Arpegio5.ogg",
+						"data/soundbits/KickBasic.ogg",
+						"data/soundbits/clapBasic.ogg",
+						"data/soundbits/Harp.ogg",
+						"data/soundbits/Harp.ogg"
+						]
+
 
 snd_t				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/Wub.wav")
 snd_r				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/404Beep.wav")
@@ -41,9 +53,13 @@ gVibrate			<- 1
 
 gShipCanRoll		<- 1
 
-UIWidth				<-	1920
-UIHeight			<-	1080
+UIWidth				<- 1920
+UIHeight			<- 1080
 
+
+//game play variables
+g_spawnZ			<- 1200
+g_maxEntities		<- 1000
 
 // Timer for Sync
 SyncTimer			<- 0
