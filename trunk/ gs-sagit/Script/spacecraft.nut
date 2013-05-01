@@ -12,7 +12,7 @@ class	spacecraft
 
 	lt_step	 	= 6 //lateral translation step
 	v_step		= 6 //vertical translation step
-	tOffset		= 36
+	tOffset		= 18
 	r_step 		= 50 //rotation step
 	max_barrel	= 10 //angle de tilt max
 	gFFON		= 0
@@ -115,6 +115,7 @@ class	spacecraft
 */
 
 		local duration = SceneGetScriptInstance(ItemGetScene(item)).syncBit
+
 		if (ItemIsCommandListDone(item))
 		{
 			if	((DeviceIsKeyDown(keyboard, KeyLeftArrow)) || (usePad&&(padx < 0.0 )) || (DeviceIsKeyDown(pad, KeyLeftArrow)))
@@ -267,6 +268,10 @@ class	spacecraft
 //		ItemRegistrySetKey(CameraGetItem(camera), "PostProcess:ChromDisp:Width",1.0)
 
 		// Collision feedback
+
+//		local mat = GeometryGetMaterialFromIndex(ItemGetGeometry(item), 0)
+//		MaterialSetSelf(mat, Vector(1,0,0,1))
+
 		if (!gFFON)
 		{
 			try{
