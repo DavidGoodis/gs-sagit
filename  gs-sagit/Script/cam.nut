@@ -65,10 +65,11 @@ class	GameCam
 		}
 		else
 		{
-			local v = Vector(0,25,0).ApplyMatrix(ItemGetRotationMatrix(target))
+			local v = Vector(0,10,0).ApplyMatrix(ItemGetRotationMatrix(target))
 //			cPos = Vector(cPos.x + v.x,cPos.y + v.y,-30)
-			cPos = cPos.Lerp(0.70,Vector(cPos.x + v.x,cPos.y + v.y, -30))
-//			cPos = cPos.Lerp(0.70,Vector(cPos.x,cPos.y+25,-30))
+//			cPos = cPos.Lerp(0.70,Vector(cPos.x + v.x,cPos.y + v.y, -30))
+			cPos = Vector(cPos.x,cPos.y+10,-30)
+//			cPos = cPos.Lerp(0.92,Vector(cPos.x,cPos.y+25,-30))
 			fov = Lerp(0.1,fov,Deg(80))
 //			ItemRegistrySetKey(item, "PostProcess:RadialBlur:Strength", 0.0)
 		}
@@ -87,6 +88,7 @@ class	GameCam
 //		local m = ItemGetMatrix(target).GetRow(0)
 
 		cPos = cPos.Lerp(0.3, Vector(tPos.x, tPos.y, cPos.z))
+
 /*		local x =  Clamp(cPos.x,-100,100)
 		local y =  Clamp(cPos.y,-100,100)
 		ItemSetPosition(item, Vector(x,y,cPos.z))
@@ -137,7 +139,7 @@ class	GameCam
 		target = SceneFindItem(g_scene, "Player/Spacecraft")
 
 		cam = ItemCastToCamera(item)
-//		origPos = ItemGetWorldPosition(target)
-//		ItemSetTarget(item, origPos)
+//		local origPos = ItemGetWorldPosition(target)
+//		ItemSetTarget(item, Vector(origPos.x, origPos.y, origPos.z+30))
 	}
 }

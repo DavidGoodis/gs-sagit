@@ -39,8 +39,8 @@ snd_stream_p		<-  [ "data/soundbits/kick2.ogg",
 						]
 
 
-snd_t				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/Wub.wav")
-snd_r				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/404Beep.wav")
+snd_r				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/Wub.wav")
+snd_t				<- 	ResourceFactoryLoadSound(g_factory,"data/soundbits/404Beep.wav")
 
 //Pad mapping
 keyBack				<- 113
@@ -58,8 +58,8 @@ UIHeight			<- 1080
 
 
 //game play variables
-g_spawnZ			<- 1200
-g_maxEntities		<- 1000
+g_spawnZ			<- 800
+g_maxEntities		<- 1500
 
 // Timer for Sync
 SyncTimer			<- 0
@@ -72,6 +72,7 @@ usePad				<- 1
 
 //Gameplay
 tileSize			<- 12
+maxPatterns 		<- 11 // number of pattern png files to load
 
 debugFont			<- LoadRasterFont(g_factory, "@core/fonts/profiler_base.nml", "@core/fonts/profiler_base")
 

@@ -1,21 +1,17 @@
 <Version=1.0>
 <Material=
 	<Diffuse=
-		<X=0.580392>
-		<Y=0.580392>
-		<Z=0.580392>
+		<X=0.000000>
+		<Y=0.000000>
+		<Z=0.000000>
 		<W=1.000000>
-	>
-	<Self=
-		<X=0.513726>
-		<Y=0.513726>
-		<Z=0.513726>
 	>
 	<Ambient=
 		<X=0.000000>
 		<Y=0.000000>
 		<Z=0.000000>
 	>
+	<Glossiness=0.010000>
 	<AlphaThreshold=0.100000>
 	<PhysicMaterial=
 		<StaticFriction=0.750000>
@@ -26,5 +22,11 @@
 		<Smoothing>
 		<NormalMapTangent>
 	>
-	<Shader="Mesh/field-shader-tree.nsa">
+	<TextureStage=
+		<Index=0>
+		<Texture="Mesh/planet_envmap_0.png">
+		<UV=0>
+		<Channel="Reflection">
+		<UVSource="FrontMap">
+	>
 >

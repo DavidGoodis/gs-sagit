@@ -54,6 +54,10 @@ function	CreateLabelWithBgColor(ui, name, x, y, size = 32, width = 200, height =
 	local textwidget = UIAddTextWidget(ui, -1, name, ProjectGetUIFont(g_project, font))
 //	local	widget = UIAddStaticTextWidget(ui, -1, "txt-" + name, font)
 
+	// Set Pivot to center
+	WindowSetPivot(window,width*0.5,height*0.5)
+	WindowSetPosition(window,x+width*0.5,y+height*0.5)
+
 	// Set text attributes.
 	TextSetSize(textwidget, size)
 	TextSetColor(textwidget, r, g, b, a)

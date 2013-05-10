@@ -1,0 +1,34 @@
+<Version=1.0>
+<Geometry=
+	<Vertex=
+		<Count=8>
+		<Data==101:96@
+N=}$m÷v$m? qíN=}$m]Ý#m? qíèÖ$m]Ý#m? qíèÖ$m÷v$m? qíN=}$m÷v$mlpíN
+=}$m]Ý#mlpíèÖ$m]Ý#mlpíèÖ$m÷v$mlpí>
+	>
+	<Polygon=
+		<Count=6>
+		<BindingCount=24>
+		<Data==146:144@
+.***-***,***+***********.***/***0***1***.*******.***+***/***.***
+********.***,***0***/***+*******.***-***1***0***,*******.***1***
+-*******.*******>
+	>
+	<PNormal=
+		<Count=6>
+		<Data==18:18@
+****6****6***6*>
+	>
+	<VNormal=
+		<Count=24>
+		<Data==73:72@
+**********6**6**6**6****************6**6**6**6***6**
+6**6**6*>
+	>
+	<Materials=
+		<MaterialRefEx=
+			<Name="Mesh/Material_001__cubevelbake.nmm">
+			<UseCache=False>
+		>
+	>
+>
