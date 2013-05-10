@@ -98,7 +98,11 @@ class	Scenes_Title
 
 		//Set selection highlight animation
 		if (WindowIsCommandListDone(selectionWindows[keybSelec][0]))
-			WindowSetCommandList(selectionWindows[keybSelec][0] , "toalpha 0.5,0.2; toalpha 0.1,1.0;")
+		{
+				WindowSetCommandList(selectionWindows[keybSelec][0] , "toalpha 0.5,0.5; toalpha 0.5,1.0;")
+//				WindowSetCommandList(selectionWindows[keybSelec][0] , "toscale 0.2,1.0,0.0; toscale 0.2,1.0,1.0;")
+//				WindowSetCommandList(selectionWindows[keybSelec][0] , "toscale 0.2,1.0,0.0+toalpha 0.5,0.5; toscale 0.2,1.0,1.0+toalpha 0.5,1.0;")
+		}
 
 		if ((DeviceKeyPressed(keyb,KeyRightArrow)) || (DeviceKeyPressed(pad, KeyRightArrow)) )
 			if (keybSelec < 2)

@@ -12,7 +12,9 @@ class	spacecraft
 
 	lt_step	 	= 6 //lateral translation step
 	v_step		= 6 //vertical translation step
-	tOffset		= 18
+	tOffset		= 2
+	tLaps		= 0.00
+	rLaps		= 0
 	r_step 		= 50 //rotation step
 	max_barrel	= 10 //angle de tilt max
 	gFFON		= 0
@@ -94,7 +96,6 @@ class	spacecraft
 //Get the rotation matrix of the camera to compensate for the roll
 		local camRotM = ItemGetRotationMatrix(CameraGetItem(camera))
 		local shipRotM = ItemGetRotationMatrix(item)
-		local position = ItemGetWorldPosition(item)
 
 // Translations
 /*		if	((DeviceIsKeyDown(keyboard, KeyUpArrow)) || (usePad&&(pady > 0.0 )) || (DeviceIsKeyDown(pad, KeyUpArrow)))
@@ -114,7 +115,9 @@ class	spacecraft
 				ItemSetPosition(item, position + Vector(0.5*padx,0,0).ApplyMatrix(camRotM))
 */
 
-		local duration = SceneGetScriptInstance(ItemGetScene(item)).syncBit
+		usePad = 1
+		local position = ItemGetWorldPosition(item)
+		local wLimit = SceneGetScriptInstance(g_scene).worldLimit
 
 		if (ItemIsCommandListDone(item))
 		{
@@ -122,63 +125,82 @@ class	spacecraft
 			{
 //				ItemSetPosition(item, Vector(position.x-1, position.y, position.z).ApplyMatrix(camRotM))
 				local p = Vector(-tOffset,0,0).ApplyMatrix(camRotM)
-				ItemSetCommandList(item, "offsetposition " + duration*0.5 + "," + p.x + "," + p.y + "," + p.z + ";")
-				MixerPlaySoundFast(g_mixer, snd_t)
+				if ((position.x + p.x > wLimit.min.x) && (position.x + p.x < wLimit.max.x) && (position.y + p.y < wLimit.max.y) && (position.y + p.y > wLimit.min.y))
+				{
+					ItemSetCommandList(item, "offsetposition " + tLaps + "," + p.x + "," + p.y + "," + p.z + ";")
+					MixerPlaySoundFast(g_mixer, snd_t)
+				}
 			}
 
 			if	((DeviceIsKeyDown(keyboard, KeyRightArrow)) || (usePad&&(padx > 0.0 )) || (DeviceIsKeyDown(pad, KeyRightArrow)))
 			{
 				local p = Vector(tOffset,0,0).ApplyMatrix(camRotM)
-				ItemSetCommandList(item, "offsetposition " + duration*0.5 + "," + p.x + "," + p.y + "," + p.z + ";")
-				MixerPlaySoundFast(g_mixer, snd_t)
+				if ((position.x + p.x > wLimit.min.x) && (position.x + p.x < wLimit.max.x) && (position.y + p.y < wLimit.max.y) && (position.y + p.y > wLimit.min.y))
+				{
+					ItemSetCommandList(item, "offsetposition " + tLaps + "," + p.x + "," + p.y + "," + p.z + ";")
+					MixerPlaySoundFast(g_mixer, snd_t)
+				}
 //				ItemSetCommandList(item, "offsetposition " + duration + ",36,0,0;")
 			}
 
 			if	((DeviceIsKeyDown(keyboard, KeyUpArrow)) || (usePad&&(pady > 0.0 )) || (DeviceIsKeyDown(pad, KeyUpArrow)))
 			{
 				local p = Vector(0,tOffset,0).ApplyMatrix(camRotM)
-				ItemSetCommandList(item, "offsetposition " + duration*0.5  + "," + p.x + "," + p.y + "," + p.z + ";")
-				MixerPlaySoundFast(g_mixer, snd_t)
+				if ((position.x + p.x > wLimit.min.x) && (position.x + p.x < wLimit.max.x) && (position.y + p.y < wLimit.max.y) && (position.y + p.y > wLimit.min.y))
+				{
+					ItemSetCommandList(item, "offsetposition " + tLaps  + "," + p.x + "," + p.y + "," + p.z + ";")
+					MixerPlaySoundFast(g_mixer, snd_t)
+				}
 			}
 
 			if	((DeviceIsKeyDown(keyboard, KeyDownArrow)) || (usePad&&(pady < 0.0 )) || (DeviceIsKeyDown(pad, KeyDownArrow)))
 			{
 				local p = Vector(0,-tOffset,0).ApplyMatrix(camRotM)
-				ItemSetCommandList(item, "offsetposition " + duration*0.5  + "," + p.x + "," + p.y + "," + p.z + ";")
-				MixerPlaySoundFast(g_mixer, snd_t)
+				if ((position.x + p.x > wLimit.min.x) && (position.x + p.x < wLimit.max.x) && (position.y + p.y < wLimit.max.y) && (position.y + p.y > wLimit.min.y))
+				{
+					ItemSetCommandList(item, "offsetposition " + tLaps  + "," + p.x + "," + p.y + "," + p.z + ";")
+					MixerPlaySoundFast(g_mixer, snd_t)
+				}
 			}
 
 // Rotations
 
-			if	(DeviceIsKeyDown(keyboard, KeyX) || pads < 0.0 )
+			if	(DeviceIsKeyDown(keyboard, KeyA) || pads < 0.0 )
 			{
 //				local rotation = ItemGetRotation(item).ApplyMatrix(camRotM)
 //				rotation = RadianToDegree(rotation.z+Deg(90))
 				local rotation = RadianToDegree(ItemGetRotation(item).z+Deg(90))
-				ItemSetCommandList(item, "torotation " + duration/2 + ",0,0," + rotation + ";")
+				ItemSetCommandList(item, "torotation " + rLaps + ",0,0," + rotation + ";")
 				MixerPlaySoundFast(g_mixer, snd_r)
 			}
 
-			if	(DeviceIsKeyDown(keyboard, KeyV) || pads > 0.0 )
+			if	(DeviceIsKeyDown(keyboard, KeyD) || pads > 0.0 )
 			{
 				local rotation = RadianToDegree(ItemGetRotation(item).z-Deg(90))
-				ItemSetCommandList(item, "torotation " + duration/2 + ",0,0," + rotation + ";")
+				ItemSetCommandList(item, "torotation " + rLaps + ",0,0," + rotation + ";")
 				MixerPlaySoundFast(g_mixer, snd_r)
 			}
 		}
 
+if (debug)
+{
+	if	(DeviceIsKeyDown(keyboard, KeyQ)) gLifes++
+	if	(DeviceIsKeyDown(keyboard, KeyW)) gLifes--
+}
+
+
 		position = ItemGetWorldPosition(item)
+		wLimit = SceneGetScriptInstance(g_scene).worldLimit
 
-		if (position.x < -tOffset*2)
-			position.x = -tOffset*2
-		if (position.x > tOffset*2)
-			position.x = tOffset*2
-		if (position.y < -tOffset*2)
-			position.y = -tOffset*2
-		if (position.y > tOffset*2)
-			position.y = tOffset*2
+		if (position.x < wLimit.min.x)
+			ItemSetPosition(wLimit.min.x, position.y, position.z)
+		if (position.x > wLimit.max.x)
+			ItemSetPosition(wLimit.max.x, position.y, position.z)
+		if (position.y < wLimit.min.y)
+			ItemSetPosition(position.x, wLimit.min.y, position.z)
+		if (position.y > wLimit.max.y)
+			ItemSetPosition(position.x, wLimit.max.y, position.z)
 
-		ItemSetPosition(item,position)
 
 		// Shield Activated
 /*
@@ -415,9 +437,12 @@ class	spacecraft
 
 	}
 
-
 	function	OnRenderUser(item)
 	{
+
+
+
+
 /*		if (debug)
 		{
 
@@ -450,6 +475,8 @@ class	spacecraft
 	function	OnSetup(item)
 //	========================================================================================================
 	{
+		rLaps = SceneGetScriptInstance(ItemGetScene(item)).syncBit/2
+
 //      ItemSetPhysicMode(item, PhysicModeDynamic)
 		if ("gShipCanRoll" in getroottable())
 			ItemPhysicSetAngularFactor(item, Vector(0,0,gShipCanRoll))
